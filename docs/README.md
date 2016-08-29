@@ -24,7 +24,7 @@ Taught is a web application inspired by Instructables built using Ruby on Rails 
 * [Sample State][sample-state]
 
 [wireframes]: wireframes
-[components]: component-heirarchy.md
+[components]: component-hierarchy.md
 [redux-structure]: redux-structure.md
 [sample-state]: sample-state.md
 [api-endpoints]: api-endpoints.md
