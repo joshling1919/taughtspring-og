@@ -54,10 +54,6 @@
   0. `POST /api/sections` is called.
   0. `receiveSingleSection` is set as the success callback.
 
-* `fetchSingleSection`
-  0. invoked from `SectionDetail` `didMount`/`willReceiveProps`
-  0. `GET /api/sections/:id` is called.
-  0. `receiveSingleSection` is set as the success callback.
 
 * `updateSection`
   0. invoked from `SectionForm` `onSubmit`

@@ -11,7 +11,7 @@ Taught is a web application inspired by Instructables built using Ruby on Rails 
 - [ ] Hosting on Heroku
 - [ ] New account creation, login, and guest/demo login
 - [ ] Lessons
-- [ ] Commenting on Lessons
+- [ ] Sections
 - [ ] Adding photos and videos to lessons
 - [ ] Searching for lessons by keywords
 
@@ -106,6 +106,7 @@ the API.
 
 ### Bonus Features (TBD)
 - [ ] Lessons organized by folders
+- [ ] Adding comments and favorites to lessons
 - [ ] Infinite page scroll
 - [ ] Tags by common core standards
 - [ ] Being able to download lesson plans into pdf/word format

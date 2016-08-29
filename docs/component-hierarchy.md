@@ -29,6 +29,7 @@
 **NewSectionContainer**
  - NewSection
   - NewSectionButton
+  - DeleteButton
   - SectionForm
 
 **NewLesson**
