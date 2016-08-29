@@ -83,6 +83,7 @@ the API.
 
 - [ ] Fetching lessons based on subjects and grade level
 - [ ] Fetching lessons based on keywords
+- [ ] Populate search results in lessons index
 - [ ] Implementing api that queries for every text input on search bar
 - [ ] Style search & subject/grade components
 
