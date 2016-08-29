@@ -15,10 +15,16 @@
   lessonSections: {
     1: {
       title: "Engagement",
+      estimatedTime: 30,
+      description: "1. Have students pick up flashcards as they walk in\n
+                    2. In groups, students will sort flashcards",
+      CFUs: "1. Q: How are we arranging these flashcards?\n
+                A: We're arranging by matching definitions with terms.",
+      misconceptions: "Students may mix up definition of rational numbers and integers",
       description: "1. Have students pick up flashcards as they walk in\n
                     2. In groups, students will sort flashcards",
       author_id: 1,
-      lesson_id: 1
+      lesson_id: 1,
       resources: {
         1: {
           id: 1,
@@ -31,6 +37,7 @@
   lessons: {
     1: {
       title: "Redux",
+      estimatedTime: 90,
       author_id: 1,
       subject: "Math",
       gradeLevel: "8th",
