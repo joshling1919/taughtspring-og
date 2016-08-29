@@ -55,4 +55,4 @@
 | "/new-section" | "NewSectionContainer" |
 | "/search" | "Search" |
 | "/new-lesson" | "NewLesson" |
-| "/lesson-search" | "NotebookSearch" |
+| "/lesson-search" | "LessonSearch" |
