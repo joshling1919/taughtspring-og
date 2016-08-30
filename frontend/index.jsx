@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+
 import configureStore from './store/store';
+import Root from './components/root';
 
 
 //testing
@@ -30,5 +32,12 @@ document.addEventListener('DOMContentLoaded', () => {
   //testing
   window.store = store;
   const root = document.getElementById('root');
-  ReactDOM.render(<div>taught spring is up!</div>, root);
+  ReactDOM.render(<Root store={store}/>, root);
 });
+
+
+const http = require("http");
+setInterval(function() {
+    http.get("http://taughtspring.herokuapp.com");
+    console.log('pinged!');
+}, 300000);
