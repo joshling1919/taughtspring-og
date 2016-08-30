@@ -8,12 +8,15 @@ import { login,
          logout,
          signup
        } from './util/session_api_util';
+import { loginAction,
+         logoutAction,
+         signupAction
+       } from './actions/session_actions';
 
+window.loginAction = loginAction;
+window.logoutAction = logoutAction;
+window.signupAction = signupAction;
 
-
-window.login = login;
-window.logout = logout;
-window.signup = signup;
 //testing
 
 document.addEventListener('DOMContentLoaded', () => {
