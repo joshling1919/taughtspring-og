@@ -2,7 +2,7 @@
 
 [Heroku link][heroku]
 
-[heroku]: http://www.heroku.com
+[heroku]: https://taughtspring.herokuapp.com/
 
 ## Minimum Viable Product
 
