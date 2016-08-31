@@ -36,10 +36,3 @@ document.addEventListener('DOMContentLoaded', () => {
   const root = document.getElementById('root');
   ReactDOM.render(<Root store={store}/>, root);
 });
-
-
-const http = require("http");
-setInterval(function() {
-    http.get("http://taughtspring.herokuapp.com");
-    console.log('pinged!');
-}, 300000);

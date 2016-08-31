@@ -13,7 +13,6 @@ class AppRouter extends React.Component {
     return(
       <Router history={ hashHistory }>
         <Route path="/" component={ App }>
-          <Route path="login" component={ LoginContainer }/>
         </Route>
       </Router>
     );
