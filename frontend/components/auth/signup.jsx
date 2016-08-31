@@ -2,24 +2,27 @@ import React from 'react';
 import Modal from 'react-modal';
 import { withRouter } from 'react-router';
 
-class Login extends React.Component {
+class Signup extends React.Component {
   constructor(props){
     super(props);
     this.state = {open: true};
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
   }
-  _handleLogin(e){
+  _handleSignup(e){
     e.preventDefault();
     let user = {
       user: {
+        first_name: e.target.fName.value,
+        last_name: e.target.lName.value,
         email: e.target.email.value,
         password: e.target.password.value
       }
     };
-    this.props.login(user);
+    this.props.signup(user);
     this.props.router.push('/');
   }
+
 
   openModal () { this.setState({open: true}); }
 
@@ -30,19 +33,21 @@ class Login extends React.Component {
 
   // _handleClick(e){
   //   e.preventDefault();
-  //   this.props.router.push('/signup');
+  //   this.props.router.push('/login');
   // }
 
   render(){
     return(
       <div>
         <Modal isOpen={this.state.open} onRequestClose={this.closeModal} >
-          <form className="login" onSubmit={this._handleLogin.bind(this)}>
-            Email: <input id="login-item" name= "email" type="text"></input>
-            Password: <input id="login-item" name="password" type="password"></input>
-            <input type="submit" value="Log In" />
+          <form className="signup" onSubmit={this._handleSignup.bind(this)}>
+            First Name: <input id="signup-item" name= "fName" type="text"></input>
+            Last Name: <input id="signup-item" name= "lName" type="text"></input>
+            Email: <input id="signup-item" name= "email" type="text"></input>
+            Password: <input id="signup-item" name="password" type="password"></input>
+            <input type="submit" value="Sign Up" />
           </form>
-          Don't have an account? <a href="#signup">Register</a> today!
+          Already have an account?<a href="#login">Log In</a>
         </Modal>
       </div>
     );
@@ -50,4 +55,4 @@ class Login extends React.Component {
 }
 
 
-export default withRouter(Login);
+export default withRouter(Signup);
