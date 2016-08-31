@@ -28,23 +28,18 @@ class Login extends React.Component {
     this.props.router.push('/');
   }
 
-  // _handleClick(e){
-  //   e.preventDefault();
-  //   this.props.router.push('/signup');
-  // }
-
   render(){
     return(
-      <div>
-        <Modal isOpen={this.state.open} onRequestClose={this.closeModal} >
+        <Modal className="modal" isOpen={this.state.open} onRequestClose={this.closeModal} >
           <form className="login" onSubmit={this._handleLogin.bind(this)}>
-            Email: <input id="login-item" name= "email" type="text"></input>
-            Password: <input id="login-item" name="password" type="password"></input>
+            <label>Email:</label>
+            <input className="session-item" name= "email" type="text"></input>
+            <label>Password:</label>
+            <input className="session-item" name="password" type="password"></input>
             <input type="submit" value="Log In" />
           </form>
           Don't have an account? <a href="#signup">Register</a> today!
         </Modal>
-      </div>
     );
   }
 }
