@@ -43,6 +43,22 @@ class Signup extends React.Component {
             <input className="session-item" name= "email" type="text"></input>
             <label>Password:</label>
             <input className="session-item" name="password" type="password"></input>
+            <label>Grade Level:</label>
+            <select className="session-item" value={undefined}>
+              <option className="optional" value={undefined}>(optional)</option>
+              <option value={6}>6th Grade</option>
+              <option value={7}>7th Grade</option>
+              <option value={8}>8th Grade</option>
+            </select>
+            <label>Subject:</label>
+            <select className="session-item" value={undefined}>
+              <option className="optional" value={undefined}>(optional)</option>
+              <option value="English">English</option>
+              <option value="Math">Math</option>
+              <option value="Science">Science</option>
+              <option value="Social Studies">Social Studies</option>
+              <option value="Other">Other</option>
+            </select>
             <input type="submit" value="Sign Up" />
           </form>
           Already have an account? <a href="#login">Log In</a>
