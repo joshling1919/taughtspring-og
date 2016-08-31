@@ -6,14 +6,22 @@ class NavBar extends React.Component{
 
   render(){
     return(
-      <ul className='nav-bar'>
-        <li id='nav-bar-item'>
-          <h5>Taught Spring</h5>
-        </li>
-        <li id='nav-bar-item'>
-          <LoginContainer />
-        </li>
-      </ul>
+      <div className="nav-container-group">
+        <ul className='nav-bar'>
+          <li className="logo" id='nav-bar-item'>
+            <h6 className="logo">Taught Spring</h6>
+          </li>
+          <li id='nav-bar-item'>
+            <input className="search" type="text"></input>
+          </li>
+          <li id='nav-bar-item'>
+            <button>Subjects</button>
+          </li>
+          <li id='nav-bar-item'>
+            <LoginContainer className="login"/>
+          </li>
+        </ul>
+      </div>
     );
   }
 }
