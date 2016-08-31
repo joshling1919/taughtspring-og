@@ -5,6 +5,7 @@ import { Router,
          IndexRoute
        } from 'react-router';
 import App from '../components/app';
+import LoginContainer from '../components/auth/login_container';
 
 class AppRouter extends React.Component {
 
@@ -12,6 +13,7 @@ class AppRouter extends React.Component {
     return(
       <Router history={ hashHistory }>
         <Route path="/" component={ App }>
+          <Route path="login" component={ LoginContainer }/>
         </Route>
       </Router>
     );
