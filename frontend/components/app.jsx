@@ -1,13 +1,13 @@
 import React from 'react';
 import { withRouter } from 'react-router';
-import NavBar from './nav_bar/nav_bar';
+import NavBarContainer from './nav_bar/nav_bar_container';
 
 class App extends React.Component {
 
   render() {
     return(
       <div>
-        <NavBar />
+        <NavBarContainer />
         Lorem ipsum dolor sit amet,
         consectetur adipisicing elit,
         sed do eiusmod tempor incididunt

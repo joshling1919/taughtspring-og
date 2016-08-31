@@ -4,19 +4,48 @@ import { withRouter } from 'react-router';
 
 class NavBar extends React.Component{
 
-  _handleLogin(e){
+  _handleLog(e){
     e.preventDefault();
-    this.props.router.push('/login');
+    if (this._currentUser()) {
+      this.props.logout();
+    } else {
+      this.props.router.push('/login');
+    }
   }
 
-  _handleNewUser(e){
+  _handleUser(e){
     e.preventDefault();
-    this.props.router.push('/signup');
+    if (this._currentUser()) {
+      //go to home page for now
+      this._goHome(e);
+    } else {
+      this.props.router.push('/signup');
+    }
   }
 
   _goHome(e){
     e.preventDefault();
     this.props.router.push('/');
+  }
+
+  _userButtonText(){
+    if (this._currentUser()) {
+      return "User";
+    } else {
+      return "New User";
+    }
+  }
+
+  _logButtonText(){
+    if (this._currentUser()) {
+      return "Log Out";
+    } else {
+      return "Log In";
+    }
+  }
+
+  _currentUser(){
+    return this.props.currentUser;
   }
 
   render(){
@@ -33,10 +62,10 @@ class NavBar extends React.Component{
             <button>Subjects</button>
           </li>
           <li id='nav-bar-item'>
-            <button onClick={this._handleNewUser.bind(this)}>New User</button>
+            <button onClick={this._handleUser.bind(this)}>{`${this._userButtonText()}`}</button>
           </li>
           <li id='nav-bar-item'>
-            <button onClick={this._handleLogin.bind(this)}>Log In</button>
+            <button onClick={this._handleLog.bind(this)}>{`${this._logButtonText()}`}</button>
           </li>
         </ul>
       </nav>
