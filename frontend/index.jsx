@@ -6,10 +6,10 @@ import configureStore from './store/store';
 import Root from './components/root';
 
 //testing
-import { requestAllLessons
+import { createLesson
        } from './actions/lessons_actions';
 
-window.requestAllLessons = requestAllLessons;
+window.createLesson = createLesson;
 
 //testing
 
