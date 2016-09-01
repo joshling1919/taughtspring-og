@@ -59,13 +59,16 @@ class NavBar extends React.Component{
             <input className="search" type="text"></input>
           </li>
           <li id='nav-bar-item'>
-            <button>Subjects</button>
+            <button className="nav-button pure-button">Subjects</button>
           </li>
           <li id='nav-bar-item'>
-            <button onClick={this._handleUser.bind(this)}>{`${this._userButtonText()}`}</button>
+            <button
+              onClick={this._handleUser.bind(this)}
+              className="nav-button pure-button">{`${this._userButtonText()}`}</button>
           </li>
           <li id='nav-bar-item'>
-            <button onClick={this._handleLog.bind(this)}>{`${this._logButtonText()}`}</button>
+            <button onClick={this._handleLog.bind(this)}
+              className="nav-button pure-button">{`${this._logButtonText()}`}</button>
           </li>
         </ul>
       </nav>

@@ -56,11 +56,11 @@ class Signup extends React.Component {
   }
 
   render(){
-  debugger;
     return(
         <Modal className="modal" isOpen={this.state.open} onRequestClose={this.closeModal} >
+          <h3 className="session-title">Create a New Account</h3>
           <AuthErrors errors={this.props.errors}/>
-          <form className="signup" onSubmit={this._handleSignup.bind(this)}>
+          <form className="pure-form-stacked" onSubmit={this._handleSignup.bind(this)}>
             <label>First Name:</label>
             <input className="session-item" name= "fName" type="text"></input>
             <label>Last Name:</label>
@@ -94,7 +94,7 @@ class Signup extends React.Component {
             <input type="submit" value="Sign Up" />
           </form>
           <button id="close" onClick={this.closeModal}>Close</button>
-          <div className="redirect">Already have an account? <a href="#login">Log In</a></div>
+          <div className="redirect">Already have an account? <a className="session-link" href="#login">Log In</a></div>
         </Modal>
     );
   }

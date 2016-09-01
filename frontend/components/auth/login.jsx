@@ -34,6 +34,7 @@ class Login extends React.Component {
   render(){
     return(
         <Modal className="modal" isOpen={this.state.open} onRequestClose={this.closeModal} >
+          <h3 className="session-title">Log In</h3>
           <AuthErrors errors={this.props.errors}/>
           <form className="login" onSubmit={this._handleLogin.bind(this)}>
             <label>Email:</label>
@@ -43,7 +44,7 @@ class Login extends React.Component {
             <input type="submit" value="Log In" />
           </form>
           <button id="close" onClick={this.closeModal}>Close</button>
-          <div className="redirect">Don't have an account? <a href="#signup">Register </a>today!</div>
+          <div className="redirect">Don't have an account? <a className="session-link" href="#signup">Register</a> today!</div>
         </Modal>
     );
   }
