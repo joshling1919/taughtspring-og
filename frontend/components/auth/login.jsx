@@ -23,7 +23,7 @@ class Login extends React.Component {
 
   openModal () { this.setState({open: true}); }
 
-  closeModal () {
+  closeModal (e) {
     this.setState({open: false});
     this.props.router.push('/');
   }
@@ -37,8 +37,8 @@ class Login extends React.Component {
             <label>Password:</label>
             <input className="session-item" name="password" type="password"></input>
             <input type="submit" value="Log In" />
-            <button id="close">Close</button>
           </form>
+          <button id="close" onClick={this.closeModal}>Close</button>
           <div className="redirect">Don't have an account? <a href="#signup">Register </a>today!</div>
         </Modal>
     );
