@@ -5,6 +5,8 @@
 .lessons-index {
   border: 1px solid gray;
   display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .index-item {
@@ -13,4 +15,10 @@
   width: 180px;
   border: 1px solid gray;
   padding: 8px;
+}
+
+input[type="date"]:before {
+  content: attr(placeholder) !important;
+  color: #aaa;
+  margin-right: 0.5em;
 }

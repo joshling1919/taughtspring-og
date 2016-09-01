@@ -22,6 +22,7 @@ div.content {
 
 ul {
   list-style: none;
+  padding-left: none;
 }
 
 *, *:before, *:after {
