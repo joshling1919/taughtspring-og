@@ -18,6 +18,7 @@ class AppRouter extends React.Component {
     super(props);
     this._populateIndex = this._populateIndex.bind(this);
     this._ensureLoggedIn = this._ensureLoggedIn.bind(this);
+    this._clearErrors = this._clearErrors.bind(this);
     this.routes = this.createRoutes.bind(this)();
   }
 
@@ -32,13 +33,17 @@ class AppRouter extends React.Component {
     }
   }
 
+  _clearErrors(){
+    this.props.clearErrors();
+  }
+
 
   createRoutes() {
     return (
       <Route path="/" component={ App }>
         <IndexRoute component = { LessonsIndexContainer } onEnter={this._populateIndex} />
-        <Route path="login" component={ LoginContainer } />
-        <Route path="signup" component={ SignupContainer }/>
+        <Route path="login" component={ LoginContainer } onLeave={this._clearErrors}/>
+        <Route path="signup" component={ SignupContainer } onLeave={this._clearErrors}/>
         <Route path="create-lesson" component={ LessonFormContainer } onEnter={ this._ensureLoggedIn }/>
       </Route>
     );
