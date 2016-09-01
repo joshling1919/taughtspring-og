@@ -23,3 +23,11 @@ div.content {
 ul {
   list-style: none;
 }
+
+*, *:before, *:after {
+box-sizing: inherit;
+}
+
+html {
+box-sizing: border-box;
+}

@@ -1,17 +1,19 @@
 import { connect } from 'react-redux';
-import AppRouter from './router';
-import { requestAllLessons } from '../actions/lessons_actions';
+import LessonForm from './lesson_form';
+
+import { createLesson } from '../../actions/lessons_actions';
+
+
 
 const mapStateToProps = state => ({
   currentUser: state.session.currentUser
 });
 
 const mapDispatchToProps = dispatch => ({
-  requestAllLessons: () => dispatch(requestAllLessons())
+  createLesson: lesson => dispatch(createLesson(lesson))
 });
-
 
 
 export default connect(
   mapStateToProps, mapDispatchToProps
-)(AppRouter);
+)(LessonForm);

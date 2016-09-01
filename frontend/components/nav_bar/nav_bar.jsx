@@ -16,8 +16,7 @@ class NavBar extends React.Component{
   _handleUser(e){
     e.preventDefault();
     if (this._currentUser()) {
-      //go to home page for now
-      this._goHome(e);
+      this.props.router.push('/create-lesson');
     } else {
       this.props.router.push('/signup');
     }
@@ -50,27 +49,25 @@ class NavBar extends React.Component{
 
   render(){
     return(
-      <nav className="nav-container-group">
-        <ul className='nav-bar'>
-          <li className="logo" id='nav-bar-item'>
-            <h5 className="logo" onClick={this._goHome.bind(this)}>Taught Spring</h5>
-          </li>
-          <li id='nav-bar-item'>
-            <input className="search" type="text"></input>
-          </li>
-          <li id='nav-bar-item'>
-            <button className="nav-button pure-button">Subjects</button>
-          </li>
-          <li id='nav-bar-item'>
-            <button
-              onClick={this._handleUser.bind(this)}
-              className="nav-button pure-button">{`${this._userButtonText()}`}</button>
-          </li>
-          <li id='nav-bar-item'>
-            <button onClick={this._handleLog.bind(this)}
-              className="nav-button pure-button">{`${this._logButtonText()}`}</button>
-          </li>
-        </ul>
+      <nav className="nav-bar">
+        <div className="logo" id='nav-bar-item' onClick={this._goHome.bind(this)}>
+          Taught Spring
+        </div>
+        <div id='nav-bar-item'>
+          <input className="search" type="search" placeholder="search..."></input>
+        </div>
+        <div id='nav-bar-item'>
+          <button className="nav-button pure-button">Subjects</button>
+        </div>
+        <div id='nav-bar-item'>
+          <button
+            onClick={this._handleUser.bind(this)}
+            className="nav-button pure-button">{`${this._userButtonText()}`}</button>
+        </div>
+        <div id='nav-bar-item'>
+          <button onClick={this._handleLog.bind(this)}
+            className="nav-button pure-button">{`${this._logButtonText()}`}</button>
+        </div>
       </nav>
     );
   }

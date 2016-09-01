@@ -1,23 +1,20 @@
+
+
 .nav-bar{
   background-color: white;
   position: fixed;
-  margin: 0 auto;
-  padding: 12px 16px 12px 16px;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 40px;
-  width: 1400px;
+  background: #eee;
+  height: 50px;
+  padding: 3px;
+  width: 100%;
   border-bottom: 1px solid #e6e6e6;
-  display: block;
+  display: flex;
+  justify-content: center;
 }
 
+
 #nav-bar-item {
-  float: left;
-  display: inline-block;
-  background-color: white;
   line-height: 40px;
-  position: relative;
   text-align: center;
 }
 
@@ -35,7 +32,6 @@
 
 .logo {
   padding: 0 2px 0 2px;
-  margin: 0 auto;
   border-radius: 3px;
 }
 
