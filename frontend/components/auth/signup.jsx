@@ -16,11 +16,31 @@ class Signup extends React.Component {
         first_name: e.target.fName.value,
         last_name: e.target.lName.value,
         email: e.target.email.value,
-        password: e.target.password.value
+        password: e.target.password.value,
+        subject: this._checkForNullSubject(e),
+        grade: this._checkForNullGrade(e),
+        bio: e.target.bio.value
       }
     };
     this.props.signup(user);
     this.props.router.push('/');
+  }
+
+  _checkForNullGrade(e){
+    if (e.target.grade.value === "(optional)") {
+      return null;
+    } else {
+      return e.target.grade.value;
+    }
+  }
+
+
+  _checkForNullSubject(e){
+    if (e.target.subject.value === "(optional)") {
+      return null;
+    } else {
+      return e.target.subject.value;
+    }
   }
 
 
@@ -29,6 +49,10 @@ class Signup extends React.Component {
   closeModal () {
     this.setState({open: false});
     this.props.router.push('/');
+  }
+
+  _textDisappear(e){
+    e.target.defaultValue = "";
   }
 
   render(){
@@ -44,14 +68,14 @@ class Signup extends React.Component {
             <label>Password:</label>
             <input className="session-item" name="password" type="password"></input>
             <label>Grade Level:</label>
-            <select className="session-item" value={undefined}>
+            <select className="session-item" name="grade" value={undefined}>
               <option className="optional" value={undefined}>(optional)</option>
               <option value={6}>6th Grade</option>
               <option value={7}>7th Grade</option>
               <option value={8}>8th Grade</option>
             </select>
             <label>Subject:</label>
-            <select className="session-item" value={undefined}>
+            <select className="session-item" name="subject" value={undefined}>
               <option className="optional" value={undefined}>(optional)</option>
               <option value="English">English</option>
               <option value="Math">Math</option>
@@ -59,9 +83,15 @@ class Signup extends React.Component {
               <option value="Social Studies">Social Studies</option>
               <option value="Other">Other</option>
             </select>
+            <label>Bio:</label>
+            <textarea className="session-item"
+              id="bio-box"
+              placeholder="(optional)"
+              name="bio"
+              onClick={this._textDisappear}/>
             <input type="submit" value="Sign Up" />
+            Already have an account? <a href="#login">Log In</a>
           </form>
-          Already have an account? <a href="#login">Log In</a>
         </Modal>
     );
   }

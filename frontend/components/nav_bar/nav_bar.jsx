@@ -30,7 +30,7 @@ class NavBar extends React.Component{
 
   _userButtonText(){
     if (this._currentUser()) {
-      return "User";
+      return `${this._currentUser().first_name}`;
     } else {
       return "New User";
     }
