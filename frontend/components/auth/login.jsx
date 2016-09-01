@@ -3,7 +3,7 @@ import Modal from 'react-modal';
 import { withRouter } from 'react-router';
 
 
-import AuthErrors from './auth_errors';
+import Errors from '../errors';
 
 class Login extends React.Component {
   constructor(props){
@@ -35,7 +35,7 @@ class Login extends React.Component {
     return(
         <Modal className="modal" isOpen={this.state.open} onRequestClose={this.closeModal} >
           <h3 className="session-title">Log In</h3>
-          <AuthErrors errors={this.props.errors}/>
+          <Errors errors={this.props.errors}/>
           <form className="login" onSubmit={this._handleLogin.bind(this)}>
             <label>Email:</label>
             <input className="session-item" name= "email" type="text"></input>

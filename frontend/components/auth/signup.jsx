@@ -1,7 +1,7 @@
 import React from 'react';
 import Modal from 'react-modal';
 import { withRouter } from 'react-router';
-import AuthErrors from './auth_errors';
+import Errors from '../errors';
 
 class Signup extends React.Component {
   constructor(props){
@@ -59,7 +59,7 @@ class Signup extends React.Component {
     return(
         <Modal className="modal" isOpen={this.state.open} onRequestClose={this.closeModal} >
           <h3 className="session-title">Create a New Account</h3>
-          <AuthErrors errors={this.props.errors}/>
+          <Errors errors={this.props.errors}/>
           <form className="pure-form-stacked" onSubmit={this._handleSignup.bind(this)}>
             <label>First Name:</label>
             <input className="session-item" name= "fName" type="text"></input>

@@ -1,15 +1,15 @@
 import React from 'react';
 
-const AuthErrors = ({errors}) => {
+const Errors = ({errors}) => {
   let errorsList = errors.map(error => (
     <li key={error}>{error}</li>
   ));
   return(
-    <ul>
+    <ul className="errors">
       {errorsList}
     </ul>
   );
 };
 
 
-export default AuthErrors;
+export default Errors;
