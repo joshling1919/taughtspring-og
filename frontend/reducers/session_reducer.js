@@ -2,8 +2,7 @@ import { SessionConstants } from '../actions/session_actions';
 import { merge } from 'lodash';
 
 const _nullUser = Object.freeze({
-  currentUser: null,
-  errors: []
+  currentUser: null
 });
 
 const SessionReducer = function(sessionState = _nullUser, action){
@@ -13,9 +12,6 @@ const SessionReducer = function(sessionState = _nullUser, action){
       return merge({}, _nullUser, { currentUser });
     case SessionConstants.LOGOUT:
       return _nullUser;
-    case SessionConstants.RECEIVE_ERRORS:
-      const errors = action.errors;
-      return merge({}, _nullUser, { errors });
     default:
       return sessionState;
   }
