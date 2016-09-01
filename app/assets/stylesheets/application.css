@@ -14,3 +14,12 @@
  *= require_self
  *= require_tree .
  */
+
+
+div.content {
+  padding-top: 80px;
+}
+
+ul {
+  list-style: none;
+}

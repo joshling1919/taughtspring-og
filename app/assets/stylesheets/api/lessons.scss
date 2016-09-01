@@ -1,3 +1,14 @@
 // Place all the styles related to the api/lessons controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.lessons-index {
+  border: 1px solid gray;
+  display: flex;
+}
+
+.index-item {
+  margin: 10px;
+  border: 1px solid gray;
+  padding: 8px;
+}
