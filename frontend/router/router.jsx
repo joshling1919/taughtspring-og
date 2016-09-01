@@ -9,19 +9,25 @@ import LoginContainer from '../components/auth/login_container';
 import SignupContainer from '../components/auth/signup_container';
 
 
-const routes = (
-  <Route path="/" component={ App }>
-    <Route path="login" component={ LoginContainer } />
-    <Route path="signup" component={ SignupContainer }/>
-  </Route>
-);
-
 class AppRouter extends React.Component {
+  constructor() {
+    super();
+    this.routes = this.createRoutes();
+  }
+
+  createRoutes() {
+    return (
+      <Route path="/" component={ App }>
+        <Route path="login" component={ LoginContainer } />
+        <Route path="signup" component={ SignupContainer }/>
+      </Route>
+    );
+  }
 
   render() {
     return(
       <Router history={ hashHistory }>
-        { routes }
+        {this.routes}
       </Router>
     );
   }

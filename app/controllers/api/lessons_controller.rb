@@ -18,7 +18,7 @@ class Api::LessonsController < ApplicationController
   end
 
   def show
-    @lesson = Link.find(params[:id])
+    @lesson = Lesson.find(params[:id])
   end
 
   def index
@@ -27,8 +27,9 @@ class Api::LessonsController < ApplicationController
   end
 
   def destroy
-    @link = Link.find(params[:id])
-    @link.destroy
+    @lesson = Lesson.find(params[:id])
+    @lesson.destroy
+    debugger;
     render :show
   end
 
@@ -36,6 +37,7 @@ class Api::LessonsController < ApplicationController
   def lesson_params
     params.require(:lesson).permit(
       :title,
+      :user_id,
       :subject,
       :grade,
       :lesson_date,

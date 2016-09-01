@@ -9,7 +9,7 @@ export const fetchAllLessons = function(success) {
 export const fetchLesson = function(lessonId, success) {
   $.ajax({
     method: 'GET',
-    url: `/api/lesson/${lessonId}`,
+    url: `/api/lessons/${lessonId}`,
     success
   });
 };
@@ -37,7 +37,7 @@ export const updateLesson = function(lesson, success, error) {
 export const deleteLesson = function(lessonId, success) {
   $.ajax({
     method: 'DELETE',
-    url: `/api/session/${lessonId}`,
+    url: `/api/lessons/${lessonId}`,
     success,
     error: () => {
       console.log('Deleting Error');

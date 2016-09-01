@@ -11,7 +11,7 @@ import { fetchAllLessons,
          createLesson,
          updateLesson,
          deleteLesson
-       } from './util/session_api_util';
+       } from './util/lessons_api_util';
 import { loginAction,
          logoutAction,
          signupAction
