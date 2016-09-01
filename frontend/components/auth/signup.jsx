@@ -1,6 +1,7 @@
 import React from 'react';
 import Modal from 'react-modal';
 import { withRouter } from 'react-router';
+import AuthErrors from './auth_errors';
 
 class Signup extends React.Component {
   constructor(props){
@@ -23,7 +24,6 @@ class Signup extends React.Component {
       }
     };
     this.props.signup(user);
-    this.props.router.push('/');
   }
 
   _checkForNullGrade(e){
@@ -56,8 +56,10 @@ class Signup extends React.Component {
   }
 
   render(){
+  debugger;
     return(
         <Modal className="modal" isOpen={this.state.open} onRequestClose={this.closeModal} >
+          <AuthErrors errors={this.props.errors}/>
           <form className="signup" onSubmit={this._handleSignup.bind(this)}>
             <label>First Name:</label>
             <input className="session-item" name= "fName" type="text"></input>

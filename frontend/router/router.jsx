@@ -11,7 +11,7 @@ import SignupContainer from '../components/auth/signup_container';
 
 const routes = (
   <Route path="/" component={ App }>
-    <Route path="login" component={ LoginContainer }/>
+    <Route path="login" component={ LoginContainer } />
     <Route path="signup" component={ SignupContainer }/>
   </Route>
 );

@@ -4,6 +4,7 @@ import { withRouter } from 'react-router';
 
 
 import AuthErrors from './auth_errors';
+
 class Login extends React.Component {
   constructor(props){
     super(props);
