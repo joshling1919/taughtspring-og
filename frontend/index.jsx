@@ -6,9 +6,11 @@ import configureStore from './store/store';
 import Root from './components/root';
 
 //testing
-import { login,
-         logout,
-         signup
+import { fetchAllLessons,
+         fetchLesson,
+         createLesson,
+         updateLesson,
+         deleteLesson
        } from './util/session_api_util';
 import { loginAction,
          logoutAction,
@@ -18,6 +20,11 @@ import { loginAction,
 window.loginAction = loginAction;
 window.logoutAction = logoutAction;
 window.signupAction = signupAction;
+window.fetchAllLessons = fetchAllLessons;
+window.fetchLesson = fetchLesson;
+window.createLesson = createLesson;
+window.updateLesson = updateLesson;
+window.deleteLesson = deleteLesson;
 
 //testing
 
