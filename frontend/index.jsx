@@ -5,7 +5,6 @@ import Modal from 'react-modal';
 import configureStore from './store/store';
 import Root from './components/root';
 
-
 //testing
 import { login,
          logout,

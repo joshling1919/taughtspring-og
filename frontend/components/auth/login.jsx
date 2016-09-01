@@ -2,6 +2,7 @@ import React from 'react';
 import Modal from 'react-modal';
 import { withRouter } from 'react-router';
 
+
 import AuthErrors from './auth_errors';
 class Login extends React.Component {
   constructor(props){
@@ -10,6 +11,7 @@ class Login extends React.Component {
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
   }
+
   _handleLogin(e){
     e.preventDefault();
     let user = {
@@ -19,9 +21,6 @@ class Login extends React.Component {
       }
     };
     this.props.login(user);
-    // if (this.props.errors.length === 0) {
-    //   this.props.router.push('/');
-    // }
   }
 
   openModal () { this.setState({open: true}); }
