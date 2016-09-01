@@ -3,9 +3,6 @@ import React from 'react';
 import LessonsIndexItem from './lessons_index_item';
 
 class LessonsIndex extends React.Component {
-  componentDidMount(){
-    this.props.requestAllLessons();
-  }
 
   render() {
     let lessons;

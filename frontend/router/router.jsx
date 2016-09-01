@@ -10,16 +10,24 @@ import SignupContainer from '../components/auth/signup_container';
 import LessonsIndexContainer from '../components/lessons/lessons_index_container';
 
 
+
+
 class AppRouter extends React.Component {
-  constructor() {
-    super();
-    this.routes = this.createRoutes();
+  constructor(props) {
+    super(props);
+    this._populateIndex = this._populateIndex.bind(this);
+    this.routes = this.createRoutes.bind(this)();
   }
+
+  _populateIndex(){
+    this.props.requestAllLessons();
+  }
+
 
   createRoutes() {
     return (
       <Route path="/" component={ App }>
-        <IndexRoute component = {LessonsIndexContainer} />
+        <IndexRoute component = { LessonsIndexContainer } onEnter={this._populateIndex} />
         <Route path="login" component={ LoginContainer } />
         <Route path="signup" component={ SignupContainer }/>
       </Route>
