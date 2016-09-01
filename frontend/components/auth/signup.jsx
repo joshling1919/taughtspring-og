@@ -90,7 +90,8 @@ class Signup extends React.Component {
               name="bio"
               onClick={this._textDisappear}/>
             <input type="submit" value="Sign Up" />
-            Already have an account? <a href="#login">Log In</a>
+            <button id="close" >Close</button>
+            <div className="redirect">Already have an account? <a href="#login">Log In</a></div>
           </form>
         </Modal>
     );
