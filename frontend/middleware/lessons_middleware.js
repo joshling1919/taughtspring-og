@@ -35,7 +35,10 @@ export default ({ getState, dispatch }) => next => action => {
       return next(action);
     case LessonsConstants.UPDATE_LESSON:
       updateLesson(action.lesson, successSingleLesson, errorCallback);
-      break;
+      return next(action);
+    case LessonsConstants.RECEIVE_LESSON:
+      dispatch(push('/'));
+      return next(action);
     default:
       return next(action);
   }
