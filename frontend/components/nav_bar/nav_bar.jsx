@@ -51,14 +51,16 @@ class NavBar extends React.Component{
   _userDropdown(){
     if (this._currentUser()) {
       return(
-        <ul className="dropdown">
-          <li>
-            <a href="#" className="dropdown-item">Home</a>
-          </li>
-          <li>
-            <a href="#create-lesson" className="dropdown-item">Create Lesson</a>
-          </li>
-        </ul>
+        <div className="drop-container">
+          <ul className="dropdown">
+            <li>
+              <a href="#" className="dropdown-item">Home</a>
+            </li>
+            <li>
+              <a href="#create-lesson" className="dropdown-item">Create Lesson</a>
+            </li>
+          </ul>
+        </div>
       );
     }  else {
       return <div></div>;
@@ -77,7 +79,7 @@ class NavBar extends React.Component{
         <li id='nav-bar-item'>
           <button className="nav-button pure-button">Subjects</button>
         </li>
-        <div className="drop-container">
+        <div>
           <li id='nav-bar-item'>
             <button
               className="nav-button pure-button"

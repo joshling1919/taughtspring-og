@@ -14,7 +14,7 @@ class LessonShow extends React.Component {
   }
 
   render(){
-    let title, lessonDate, subject, grade, userId;
+    let title, lessonDate, subject, grade, userId, imageUrl;
     if (this.props.lesson) {
       let lesson = this.props.lesson;
       title = lesson.title;
@@ -22,11 +22,13 @@ class LessonShow extends React.Component {
       subject = lesson.subject;
       grade = lesson.grade;
       userId = lesson.user_id;
+      imageUrl= lesson.image_url;
     }
 
     return(
       <div>
         <ul>
+          <li><img src={imageUrl}/></li>
           <li>{title}</li>
           <li>{lessonDate}</li>
           <li>{subject}</li>
