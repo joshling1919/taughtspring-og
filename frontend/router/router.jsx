@@ -70,3 +70,16 @@ class AppRouter extends React.Component {
 }
 
 export default AppRouter;
+/*
+<Home/> // /
+  <SearchContainer/>
+  <LessonsIndexContainer/>
+<LoginContainer/> // login -> redirect to Home
+<SignUpContainer/> // singup -> redict to Home
+<ProfileContainer/> // profile, ensureLoggedIn
+  <LessonsIndexContainer/> // profile/lessons, ensureLoggedIn
+  <FullLessonContainer/> // profile/lessons/:lessonId
+    <EditLessonContainer/> // profile/lessons/:lessonId/edit, ensureLoggedIn
+<FullLessonContainer/> // lessons/:lessonId
+<CreateLessonContainer/> // create-lesson
+*/
