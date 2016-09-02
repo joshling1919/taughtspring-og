@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import EditLesson from './edit_lesson';
 
-import { updateLesson, requestLesson } from '../../actions/lessons_actions';
+import { updateLesson, requestLesson, updatePicture } from '../../actions/lessons_actions';
 
 
 
@@ -13,7 +13,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   updateLesson: lesson => dispatch(updateLesson(lesson)),
-  requestLesson: lessonId => dispatch(requestLesson(lessonId))
+  requestLesson: lessonId => dispatch(requestLesson(lessonId)),
+  updatePicture: lesson => dispatch(updatePicture(lesson))
 });
 
 

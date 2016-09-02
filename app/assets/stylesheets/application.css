@@ -44,3 +44,9 @@ ul.errors {
 .hidden {
   display: none;
 }
+
+.group:after {
+  content: "";
+  display: block;
+  clear: both;
+}

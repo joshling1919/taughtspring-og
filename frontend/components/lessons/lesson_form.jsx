@@ -1,15 +1,26 @@
 import React from 'react';
 import Errors from '../errors';
 
-const LessonForm = ({template, handleSubmit, errors}) => {
+import UploadPictureButton from './upload_picture_button';
+
+const LessonForm = ({template, handleSubmit, errors, upload}) => {
     return(
       <div>
         <form className="pure-form pure-form-aligned" onSubmit={handleSubmit}>
           <Errors errors={errors}/>
           <fieldset>
+            <div className="pure-control-group lessonPicContainer group">
+              <img className="lessonPic" src={template.imageUrl}/>
+            </div>
+            <div className="pure-control-group upload-button">
+              <UploadPictureButton upload={upload}/>
+            </div>
             <div className="pure-control-group">
               <label>Title: </label>
-              <input defaultValue={template.title} className="lesson-item" name= "title" type="text"></input>
+              <input defaultValue={template.title}
+                     className="lesson-item"
+                     name= "title"
+                     type="text"/>
             </div>
             <div className="pure-control-group">
               <label>Grade Level: </label>

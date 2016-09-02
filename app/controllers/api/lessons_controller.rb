@@ -40,7 +40,8 @@ class Api::LessonsController < ApplicationController
       :subject,
       :grade,
       :lesson_date,
-      :image_url
+      :image_url,
+      :thumbnail_url
     )
   end
 end
