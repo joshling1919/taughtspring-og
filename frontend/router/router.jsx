@@ -23,6 +23,7 @@ class AppRouter extends React.Component {
     this._ensureLoggedIn = this._ensureLoggedIn.bind(this);
     this._clearErrors = this._clearErrors.bind(this);
     this._requestLesson = this._requestLesson.bind(this);
+    this._requestProfile = this._requestProfile.bind(this);
     this.routes = this.createRoutes.bind(this)();
   }
 
@@ -41,6 +42,10 @@ class AppRouter extends React.Component {
     this.props.requestLesson(parseInt(nextState.params.lessonId));
   }
 
+  _requestProfile(nextState) {
+    this.props.requestProfile(parseInt(nextState.params.userId));
+  }
+
   _clearErrors(){
     this.props.clearErrors();
   }
@@ -49,15 +54,20 @@ class AppRouter extends React.Component {
   createRoutes() {
     return (
       <Route path="/" component={ App } >
-        <IndexRoute component = { LessonsIndexContainer } onEnter={this._populateIndex} />
-        <Route path="login" component={ LoginContainer } onLeave={this._clearErrors}/>
-        <Route path="signup" component={ SignupContainer } onLeave={this._clearErrors}/>
-        <Route path="create-lesson" component={ CreateLessonContainer } onEnter={ this._ensureLoggedIn }/>
+        <IndexRoute component = { LessonsIndexContainer }
+                    onEnter={this._populateIndex} />
+        <Route path="login" component={ LoginContainer }
+               onLeave={this._clearErrors}/>
+        <Route path="signup" component={ SignupContainer }
+               onLeave={this._clearErrors}/>
+        <Route path="create-lesson" component={ CreateLessonContainer }
+               onEnter={ this._ensureLoggedIn }/>
         <Route path="lessons/:lessonId" component={ FullLessonContainer } />
         <Route path="lessons/:lessonId/edit" component={ EditLessonContainer }
-          onEnter={ this._ensureLoggedIn }
-          onEnter={ this._requestLesson}/>
-        <Route path="/profiles/:userid" component={ ProfileContainer }/>
+               onEnter={ this._ensureLoggedIn }
+               onEnter={ this._requestLesson}/>
+        <Route path="/profiles/:userId" component={ ProfileContainer }
+               onEnter={this._requestProfile}/>
       </Route>
     );
   }

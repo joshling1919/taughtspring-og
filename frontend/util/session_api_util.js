@@ -21,7 +21,7 @@ export const logout = function(success) {
 export const signup = function(user, success, error) {
   $.ajax({
     method: 'POST',
-    url: '/api/user',
+    url: '/api/users',
     data: user,
     success,
     error

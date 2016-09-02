@@ -1,23 +1,21 @@
-import { receiveCurrentUser,
-         SessionConstants
-       } from '../actions/session_actions';
+import { receiveProfile,
+         ProfileConstants
+       } from '../actions/profile_actions';
 
-import { receiveProfile } from '../actions/profile_actions';
-
-import {  } from '../util/session_api_util';
+import { getUser } from '../util/profile_api_util';
 
 import { push } from 'react-router-redux';
 
 export default ({ getState, dispatch }) => next => action => {
-  const successCallback = user => dispatch(receiveCurrentUser(user));
-  const errorCallback = xhr => {
-    const errors = xhr.responseJSON;
-    dispatch(receiveErrors(errors));
-  };
+  const successCallback = user => dispatch(receiveProfile(user));
+  // const errorCallback = xhr => {
+  //   const errors = xhr.responseJSON;
+  //   dispatch(receiveErrors(errors));
+  // };
 
   switch(action.type){
-    case SessionConstants.LOGIN:
-      requestProfile(action.userId, successCalback)
+    case ProfileConstants.REQUEST_PROFILE:
+      getUser(action.userId, successCallback);
       return next(action);
     default:
       return next(action);

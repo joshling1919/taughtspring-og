@@ -4,11 +4,15 @@ import React from 'react';
 class Profile extends React.Component {
 
   render(){
-    return(
-      <div>
-        Profile Page
-      </div>
-    );
+    if (this.props.profile) {
+      return(
+        <div>
+          {this.props.profile.first_name}
+        </div>
+      );
+    } else {
+      return null;
+    }
   }
 
 }
