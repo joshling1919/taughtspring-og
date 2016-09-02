@@ -8,8 +8,10 @@ import Root from './components/root';
 //testing
 import { createLesson
        } from './actions/lessons_actions';
+import { push } from 'react-router-redux';
 
 window.createLesson = createLesson;
+window.push = push;
 
 //testing
 

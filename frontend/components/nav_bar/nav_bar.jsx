@@ -8,6 +8,7 @@ class NavBar extends React.Component{
     e.preventDefault();
     if (this._currentUser()) {
       this.props.logout();
+      this.props.router.push('/');
     } else {
       this.props.router.push('/login');
     }

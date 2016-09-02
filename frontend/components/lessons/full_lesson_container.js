@@ -1,0 +1,21 @@
+import { connect } from 'react-redux';
+import FullLesson from './full_lesson';
+import { requestLesson } from '../../actions/lessons_actions';
+
+
+const mapStateToProps = state => ({
+  singleLesson: state.lessons.singleLesson,
+  currentUser: state.session.currentUser
+});
+
+
+const mapDispatchToProps = dispatch => ({
+  requestLesson: lessonId => dispatch(requestLesson(lessonId))
+});
+
+
+
+
+export default connect(
+  mapStateToProps, mapDispatchToProps
+)(FullLesson);

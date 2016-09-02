@@ -1,5 +1,5 @@
 import React from 'react';
-
+import Errors from '../errors';
 
 class LessonForm extends React.Component {
 
@@ -10,11 +10,11 @@ class LessonForm extends React.Component {
         title: e.target.title.value,
         user_id: this.props.currentUser.id,
         subject: this._checkForNullSubject(e),
-        grade: this._checkForNullGrade(e)
+        grade: this._checkForNullGrade(e),
+        lesson_date: e.target.lesson_date.value
       }
     };
     this.props.createLesson(lesson);
-    this.props.history.push('/');
   }
 
   _checkForNullGrade(e){
@@ -38,6 +38,7 @@ class LessonForm extends React.Component {
     return(
       <div>
         <form className="pure-form pure-form-aligned" onSubmit={ this._handleCreateLesson.bind(this)}>
+          <Errors errors={this.props.errors}/>
           <fieldset>
             <div className="pure-control-group">
               <label htmlFor="title ">Title: </label>
