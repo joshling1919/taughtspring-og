@@ -21,8 +21,8 @@ div.content {
 }
 
 ul {
-  list-style: none;
-  padding-left: none;
+  list-style-type: none;
+  padding: 0;
 }
 
 *, *:before, *:after {
@@ -35,4 +35,8 @@ box-sizing: border-box;
 
 ul.errors {
   list-style: square;
+}
+
+.hidden {
+  display: none;
 }

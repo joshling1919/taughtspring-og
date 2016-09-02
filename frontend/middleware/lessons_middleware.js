@@ -1,6 +1,7 @@
 import { LessonsConstants,
          receiveAllLessons,
-         receiveLesson
+         receiveLesson,
+         receiveUpdateLesson
        } from '../actions/lessons_actions';
 
 import { fetchAllLessons,
@@ -18,11 +19,13 @@ import { push } from 'react-router-redux';
 
 export default ({ getState, dispatch }) => next => action => {
   let successSingleLesson = lesson => dispatch(receiveLesson(lesson));
+  let successSingleUpdateLesson = lesson => dispatch(receiveUpdateLesson(lesson));
   let successAllLessons = allLessons => dispatch(receiveAllLessons(allLessons));
   const errorCallback = xhr => {
     const errors = xhr.responseJSON;
     dispatch(receiveErrors(errors));
   };
+  
   switch(action.type){
     case LessonsConstants.REQUEST_ALL_LESSONS:
       fetchAllLessons(successAllLessons);
@@ -33,11 +36,14 @@ export default ({ getState, dispatch }) => next => action => {
     case LessonsConstants.REQUEST_LESSON:
       fetchLesson(action.lessonId, successSingleLesson);
       return next(action);
+    case LessonsConstants.REQUEST_UPDATE_LESSON:
+      fetchLesson(action.lessonId, successSingleUpdateLesson);
+      return next(action);
     case LessonsConstants.UPDATE_LESSON:
       updateLesson(action.lesson, successSingleLesson, errorCallback);
       return next(action);
     case LessonsConstants.RECEIVE_LESSON:
-      dispatch(push('/'));
+      dispatch(push(`/lessons/${action.lesson.id}`));
       return next(action);
     default:
       return next(action);

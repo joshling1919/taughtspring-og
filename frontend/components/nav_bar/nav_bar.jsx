@@ -16,6 +16,7 @@ class NavBar extends React.Component{
 
   _handleUser(e){
     e.preventDefault();
+    debugger;
     if (this._currentUser()) {
       this.props.router.push('/create-lesson');
     } else {
@@ -48,28 +49,49 @@ class NavBar extends React.Component{
     return this.props.currentUser;
   }
 
+  _userDropdown(){
+    if (this._currentUser()) {
+      return(
+        <ul className="dropdown">
+          <li>
+            <a href="#" className="dropdown-item">Home</a>
+          </li>
+          <li>
+            <a href="#create-lesson" className="dropdown-item">Create Lesson</a>
+          </li>
+        </ul>
+      );
+    }  else {
+      return <div></div>;
+    }
+  }
+
   render(){
     return(
-      <nav className="nav-bar">
-        <div className="logo" id='nav-bar-item' onClick={this._goHome.bind(this)}>
+      <ul className="nav-bar">
+        <li className="logo" id='nav-bar-item' onClick={this._goHome.bind(this)}>
           Taught Spring
-        </div>
-        <div id='nav-bar-item'>
+        </li>
+        <li id='nav-bar-item'>
           <input className="search" type="search" placeholder="search..."></input>
-        </div>
-        <div id='nav-bar-item'>
+        </li>
+        <li id='nav-bar-item'>
           <button className="nav-button pure-button">Subjects</button>
+        </li>
+        <div className="drop-container">
+          <li id='nav-bar-item'>
+            <button
+              className="nav-button pure-button"
+              >{`${this._userButtonText()}`}</button>
+            {this._userDropdown()}
+          </li>
         </div>
-        <div id='nav-bar-item'>
-          <button
-            onClick={this._handleUser.bind(this)}
-            className="nav-button pure-button">{`${this._userButtonText()}`}</button>
-        </div>
-        <div id='nav-bar-item'>
+        <li id='nav-bar-item'>
           <button onClick={this._handleLog.bind(this)}
             className="nav-button pure-button">{`${this._logButtonText()}`}</button>
-        </div>
-      </nav>
+        </li>
+      </ul>
+
     );
   }
 }

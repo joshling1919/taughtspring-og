@@ -1,6 +1,8 @@
 import { connect } from 'react-redux';
 import AppRouter from './router';
-import { requestAllLessons, requestLesson } from '../actions/lessons_actions';
+import { requestAllLessons,
+         requestUpdateLesson
+       } from '../actions/lessons_actions';
 import { clearErrors } from '../actions/errors_actions';
 
 const mapStateToProps = state => ({
@@ -9,7 +11,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   requestAllLessons: () => dispatch(requestAllLessons()),
-  requestLesson: lessonId => dispatch(requestLesson(lessonId)),
+  requestLesson: lessonId => dispatch(requestUpdateLesson(lessonId)),
   clearErrors: () => dispatch(clearErrors())
 });
 

@@ -3,9 +3,10 @@ export const LessonsConstants = {
   RECEIVE_ALL_LESSONS: "RECEIVE_ALL_LESSONS",
   REQUEST_ALL_LESSONS: "REQUEST_ALL_LESSONS",
   RECEIVE_LESSON: "RECEIVE_LESSON",
-  RECEIVE_ERRORS: "RECEIVE_ERRORS",
   CREATE_LESSON: "CREATE_LESSON",
-  UPDATE_LESSON: "UPDATE_LESSON"
+  UPDATE_LESSON: "UPDATE_LESSON",
+  REQUEST_UPDATE_LESSON: "REQUEST_UPDATE_LESSON",
+  RECEIVE_UPDATE_LESSON: "RECEIVE_UPDATE_LESSON"
 };
 
 export const requestAllLessons = () => ({
@@ -14,6 +15,11 @@ export const requestAllLessons = () => ({
 
 export const requestLesson = lessonId => ({
   type: LessonsConstants.REQUEST_LESSON,
+  lessonId
+});
+
+export const requestUpdateLesson = lessonId => ({
+  type: LessonsConstants.REQUEST_UPDATE_LESSON,
   lessonId
 });
 
@@ -27,6 +33,11 @@ export const receiveLesson = lesson => ({
   lesson
 });
 
+export const receiveUpdateLesson = lesson => ({
+  type: LessonsConstants.RECEIVE_UPDATE_LESSON,
+  lesson
+});
+
 export const createLesson = lesson => ({
   type: LessonsConstants.CREATE_LESSON,
   lesson
@@ -35,10 +46,4 @@ export const createLesson = lesson => ({
 export const updateLesson = lesson => ({
   type: LessonsConstants.UPDATE_LESSON,
   lesson
-});
-
-//refactor out soon
-export const receiveErrors = errors => ({
-  type: LessonsConstants.RECEIVE_ERRORS,
-  errors
 });
