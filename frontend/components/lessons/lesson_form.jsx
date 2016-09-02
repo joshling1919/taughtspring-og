@@ -2,7 +2,6 @@ import React from 'react';
 import Errors from '../errors';
 
 const LessonForm = ({template, handleSubmit, errors}) => {
-  debugger;
     return(
       <div>
         <form className="pure-form pure-form-aligned" onSubmit={handleSubmit}>
@@ -37,12 +36,12 @@ const LessonForm = ({template, handleSubmit, errors}) => {
               <input defaultValue={template.date} type="date" placeholder="(optional)" name="lesson_date"></input>
             </div>
             <div className="pure-controls">
-              <input type="submit" value="Create Lesson" />
+              <input type="submit" value="Submit Lesson" />
             </div>
           </fieldset>
         </form>
       </div>
     );
-}
+};
 
 export default LessonForm;

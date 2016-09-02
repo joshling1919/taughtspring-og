@@ -5,7 +5,7 @@ import { withRouter } from 'react-router';
 class LessonShow extends React.Component {
 
   _redirectToEdit() {
-    this.props.router.push('/edit');
+    this.props.router.push(`lessons/${this.props.lesson.id}/edit`);
   }
 
   render(){
@@ -13,7 +13,7 @@ class LessonShow extends React.Component {
     if (this.props.lesson) {
       let lesson = this.props.lesson;
       title = lesson.title;
-      lessonDate = lesson.lesson_date.toString();
+      lessonDate = lesson.lesson_date;
       subject = lesson.subject;
       grade = lesson.grade;
       userId = lesson.user_id;

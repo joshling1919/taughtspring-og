@@ -3,9 +3,6 @@ import Errors from '../errors';
 import LessonForm from './lesson_form';
 
 class CreateLesson extends React.Component {
-  constructor(props){
-    super(props);
-  }
   _handleCreateLesson(e){
     e.preventDefault();
     let lesson = { lesson:
@@ -44,7 +41,6 @@ class CreateLesson extends React.Component {
       subject: undefined,
       date: undefined
     };
-    debugger;
     return(
       <LessonForm template={blankTemplate}
         handleSubmit={this._handleCreateLesson.bind(this)}

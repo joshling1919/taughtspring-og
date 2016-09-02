@@ -1,11 +1,14 @@
 import React from 'react';
 import Errors from '../errors';
+import LessonForm from './lesson_form';
 
-class LessonForm extends React.Component {
-  constructor(props){
-    super(props);
-  }
-  _handleCreateLesson(e){
+class EditLesson extends React.Component {
+  // componentDidMount(){
+  //   let lessonId = this.props.params.lessonId;
+  //   this.props.requestLesson(lessonId);
+  // }
+
+  _handleUpdateLesson(e){
     e.preventDefault();
     let lesson = { lesson:
       {
@@ -16,7 +19,7 @@ class LessonForm extends React.Component {
         lesson_date: e.target.lesson_date.value
       }
     };
-    this.props.createLesson(lesson);
+    this.props.updateLesson(lesson);
   }
 
   _checkForNullGrade(e){
@@ -37,47 +40,29 @@ class LessonForm extends React.Component {
   }
 
   render(){
+    // let template = {
+    //   title: "",
+    //   grade: undefined,
+    //   subject: undefined,
+    //   date: undefined
+    // };
+    let template;
+    if (this.props.singleLesson) {
+      // let lessonDate = new Date(`${this.props.singleLesson.lesson_date}`);
+      template = {
+        title: this.props.singleLesson.title,
+        grade: this.props.singleLesson.grade,
+        subject: this.props.singleLesson.subject,
+        date: this.props.singleLesson.lesson_date
+      };
+    }
     return(
-      <div>
-        <form className="pure-form pure-form-aligned" onSubmit={ this._handleCreateLesson.bind(this)}>
-          <Errors errors={this.props.errors}/>
-          <fieldset>
-            <div className="pure-control-group">
-              <label htmlFor="title ">Title: </label>
-              <input id="title" className="lesson-item" name= "title" type="text"></input>
-            </div>
-            <div className="pure-control-group">
-              <label htmlFor="grade">Grade Level: </label>
-              <select id="grade" className="lesson-item" name="grade" value={undefined}>
-                <option className="optional" value={undefined}>(optional)</option>
-                <option value={6}>6th Grade</option>
-                <option value={7}>7th Grade</option>
-                <option value={8}>8th Grade</option>
-              </select>
-            </div>
-            <div className="pure-control-group">
-              <label>Subject: </label>
-              <select className="lesson-item" name="subject" value={undefined}>
-                <option className="optional" value={undefined}>(optional)</option>
-                <option value="English">English</option>
-                <option value="Math">Math</option>
-                <option value="Science">Science</option>
-                <option value="Social Studies">Social Studies</option>
-                <option value="Other">Other</option>
-              </select>
-            </div>
-            <div className="pure-control-group">
-              <label>Lesson Date: </label>
-              <input type="date" placeholder="(optional)" name="lesson_date"></input>
-            </div>
-            <div className="pure-controls">
-              <input type="submit" value="Create Lesson" />
-            </div>
-          </fieldset>
-        </form>
-      </div>
+      <LessonForm template={template}
+        handleSubmit={this._handleUpdateLesson.bind(this)}
+        errors={this.props.errors}
+        />
     );
   }
 }
 
-export default LessonForm;
+export default EditLesson;
