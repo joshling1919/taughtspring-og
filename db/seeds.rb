@@ -8,7 +8,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 emails = %w(jl@gmail.com ia@gmail.com mf@gmail.com sw@gmail.com wa@gmail.com
-ke@gmail.com ww@gmail.com zz@gmail.com aa@gmail.com bb@gmail.com pp@gmail.com)
+ke@gmail.com w@gmail.com zz@gmail.com aa@gmail.com bb@gmail.com pp@gmail.com)
 
 10.times do |i|
   User.create!(
@@ -16,7 +16,7 @@ ke@gmail.com ww@gmail.com zz@gmail.com aa@gmail.com bb@gmail.com pp@gmail.com)
     last_name: %w(Ling Ang Fang Kwan Wright Ashby Emery).sample,
     email: emails[i],
     password: "password",
-    subject: %(Math English Science Other).sample,
+    subject: %w(Math English Science Other).sample,
     grade: [6, 7, 8].sample,
     bio: "I love Math"
   )
@@ -26,7 +26,7 @@ ke@gmail.com ww@gmail.com zz@gmail.com aa@gmail.com bb@gmail.com pp@gmail.com)
     title: ["Integers", "Constitution", "Fractions", "Atoms",
     "Culture Building", "Shakespeare", "Wuthering Heights",
     "Decimals", "Mental Math", "Prepositions"],
-    subject: %(Math English Science Other).sample,
+    subject: %w(Math English Science Other).sample,
     grade: [6,7,8].sample,
     lesson_date: Date.new(2016,11,3)
   )
