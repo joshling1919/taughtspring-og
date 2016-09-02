@@ -9,7 +9,7 @@ import App from '../components/app';
 import LoginContainer from '../components/auth/login_container';
 import SignupContainer from '../components/auth/signup_container';
 import LessonsIndexContainer from '../components/lessons/lessons_index_container';
-import LessonFormContainer from '../components/lessons/lesson_form_container';
+import CreateLessonContainer from '../components/lessons/create_lesson_container';
 import FullLessonContainer from '../components/lessons/full_lesson_container';
 
 
@@ -45,7 +45,7 @@ class AppRouter extends React.Component {
         <IndexRoute component = { LessonsIndexContainer } onEnter={this._populateIndex} />
         <Route path="login" component={ LoginContainer } onLeave={this._clearErrors}/>
         <Route path="signup" component={ SignupContainer } onLeave={this._clearErrors}/>
-        <Route path="create-lesson" component={ LessonFormContainer } onEnter={ this._ensureLoggedIn }/>
+        <Route path="create-lesson" component={ CreateLessonContainer } onEnter={ this._ensureLoggedIn }/>
         <Route path="lessons/:lessonId" component={ FullLessonContainer } >
         </Route>
       </Route>

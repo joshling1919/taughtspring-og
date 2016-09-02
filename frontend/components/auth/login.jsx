@@ -40,7 +40,6 @@ class Login extends React.Component {
             <label>Email:</label>
             <input className="session-item" name= "email" type="text"></input>
             <label>Password:</label>
-            <label>Password:</label>
             <input className="session-item" name="password" type="password"></input>
             <input type="submit" value="Log In" />
           </form>

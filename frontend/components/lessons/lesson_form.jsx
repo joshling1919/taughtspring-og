@@ -1,52 +1,20 @@
 import React from 'react';
 import Errors from '../errors';
 
-class LessonForm extends React.Component {
-
-  _handleCreateLesson(e){
-    e.preventDefault();
-    let lesson = { lesson:
-      {
-        title: e.target.title.value,
-        user_id: this.props.currentUser.id,
-        subject: this._checkForNullSubject(e),
-        grade: this._checkForNullGrade(e),
-        lesson_date: e.target.lesson_date.value
-      }
-    };
-    this.props.createLesson(lesson);
-  }
-
-  _checkForNullGrade(e){
-    if (e.target.grade.value === "(optional)") {
-      return null;
-    } else {
-      return e.target.grade.value;
-    }
-  }
-
-
-  _checkForNullSubject(e){
-    if (e.target.subject.value === "(optional)") {
-      return null;
-    } else {
-      return e.target.subject.value;
-    }
-  }
-
-  render(){
+const LessonForm = ({template, handleSubmit, errors}) => {
+  debugger;
     return(
       <div>
-        <form className="pure-form pure-form-aligned" onSubmit={ this._handleCreateLesson.bind(this)}>
-          <Errors errors={this.props.errors}/>
+        <form className="pure-form pure-form-aligned" onSubmit={handleSubmit}>
+          <Errors errors={errors}/>
           <fieldset>
             <div className="pure-control-group">
-              <label htmlFor="title ">Title: </label>
-              <input id="title" className="lesson-item" name= "title" type="text"></input>
+              <label>Title: </label>
+              <input defaultValue={template.title} className="lesson-item" name= "title" type="text"></input>
             </div>
             <div className="pure-control-group">
-              <label htmlFor="grade">Grade Level: </label>
-              <select id="grade" className="lesson-item" name="grade" value={undefined}>
+              <label>Grade Level: </label>
+              <select defaultValue={template.grade} className="lesson-item" name="grade">
                 <option className="optional" value={undefined}>(optional)</option>
                 <option value={6}>6th Grade</option>
                 <option value={7}>7th Grade</option>
@@ -55,7 +23,7 @@ class LessonForm extends React.Component {
             </div>
             <div className="pure-control-group">
               <label>Subject: </label>
-              <select className="lesson-item" name="subject" value={undefined}>
+              <select defaultValue={template.subject} className="lesson-item" name="subject">
                 <option className="optional" value={undefined}>(optional)</option>
                 <option value="English">English</option>
                 <option value="Math">Math</option>
@@ -66,7 +34,7 @@ class LessonForm extends React.Component {
             </div>
             <div className="pure-control-group">
               <label>Lesson Date: </label>
-              <input type="date" placeholder="(optional)" name="lesson_date"></input>
+              <input defaultValue={template.date} type="date" placeholder="(optional)" name="lesson_date"></input>
             </div>
             <div className="pure-controls">
               <input type="submit" value="Create Lesson" />
@@ -75,7 +43,6 @@ class LessonForm extends React.Component {
         </form>
       </div>
     );
-  }
 }
 
 export default LessonForm;
