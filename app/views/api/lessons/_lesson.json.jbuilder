@@ -1,1 +1,1 @@
-json.extract!(lesson, :id, :user_id, :title, :subject, :grade, :lesson_date, :image_url)
+json.extract!(lesson, :id, :user_id, :title, :subject, :grade, :lesson_date, :image_url, :user)
