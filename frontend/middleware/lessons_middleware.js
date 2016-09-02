@@ -7,7 +7,8 @@ import { LessonsConstants,
 import { fetchAllLessons,
          createLesson,
          fetchLesson,
-         updateLesson
+         updateLesson,
+         deleteLesson
        } from '../util/lessons_api_util';
 
 import { receiveErrors } from '../actions/errors_actions';
@@ -25,7 +26,7 @@ export default ({ getState, dispatch }) => next => action => {
     const errors = xhr.responseJSON;
     dispatch(receiveErrors(errors));
   };
-  
+
   switch(action.type){
     case LessonsConstants.REQUEST_ALL_LESSONS:
       fetchAllLessons(successAllLessons);
@@ -44,6 +45,9 @@ export default ({ getState, dispatch }) => next => action => {
       return next(action);
     case LessonsConstants.RECEIVE_LESSON:
       dispatch(push(`/lessons/${action.lesson.id}`));
+      return next(action);
+    case LessonsConstants.DELETE_LESSON:
+      deleteLesson(action.lessonId, successSingleLesson);
       return next(action);
     default:
       return next(action);

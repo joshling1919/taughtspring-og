@@ -1,19 +1,22 @@
 import React from 'react';
 
-const EditLessonButton = ({ userId, redirectToEdit }, context) => {
+const EditDeleteLessonButtons = ({ userId, redirectToEdit, deleteLesson }, context) => {
   if (userId === context.currentUser.id ) {
     return(
-      <button onClick={redirectToEdit}>Edit Lesson</button>
-    );
-  }else {
+      <div>
+        <button onClick={redirectToEdit}>Edit Lesson</button>
+        <button onClick={deleteLesson}>Delete Lesson</button>
+      </div>
+      );
+  } else {
     return(
       <div className="not-owner"></div>
     );
   }
 };
 
-EditLessonButton.contextTypes = {
+EditDeleteLessonButtons.contextTypes = {
   currentUser: React.PropTypes.object
 };
 
-export default EditLessonButton;
+export default EditDeleteLessonButtons;

@@ -6,7 +6,8 @@ export const LessonsConstants = {
   CREATE_LESSON: "CREATE_LESSON",
   UPDATE_LESSON: "UPDATE_LESSON",
   REQUEST_UPDATE_LESSON: "REQUEST_UPDATE_LESSON",
-  RECEIVE_UPDATE_LESSON: "RECEIVE_UPDATE_LESSON"
+  RECEIVE_UPDATE_LESSON: "RECEIVE_UPDATE_LESSON",
+  DELETE_LESSON: "DELETE_LESSON"
 };
 
 export const requestAllLessons = () => ({
@@ -15,6 +16,11 @@ export const requestAllLessons = () => ({
 
 export const requestLesson = lessonId => ({
   type: LessonsConstants.REQUEST_LESSON,
+  lessonId
+});
+
+export const deleteLesson = lessonId => ({
+  type: LessonsConstants.DELETE_LESSON,
   lessonId
 });
 

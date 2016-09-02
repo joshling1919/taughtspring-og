@@ -29,7 +29,6 @@ class Api::LessonsController < ApplicationController
   def destroy
     @lesson = Lesson.find(params[:id])
     @lesson.destroy
-    debugger;
     render :show
   end
 

@@ -17,7 +17,8 @@ class FullLesson extends React.Component {
     const { singleLesson } = this.props;
     return(
       <div className="full-lesson">
-        <LessonShow lesson={singleLesson}/>
+        <LessonShow lesson={singleLesson}
+          deleteLesson={this.props.deleteLesson}/>
       </div>
     );
   }

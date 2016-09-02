@@ -1,6 +1,8 @@
 import { connect } from 'react-redux';
 import FullLesson from './full_lesson';
-import { requestLesson } from '../../actions/lessons_actions';
+import { requestLesson,
+         deleteLesson
+       } from '../../actions/lessons_actions';
 
 
 const mapStateToProps = state => ({
@@ -10,7 +12,8 @@ const mapStateToProps = state => ({
 
 
 const mapDispatchToProps = dispatch => ({
-  requestLesson: lessonId => dispatch(requestLesson(lessonId))
+  requestLesson: lessonId => dispatch(requestLesson(lessonId)),
+  deleteLesson: lessonId => dispatch(deleteLesson(lessonId))
 });
 
 

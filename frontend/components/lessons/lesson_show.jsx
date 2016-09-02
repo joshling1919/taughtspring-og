@@ -1,11 +1,16 @@
 import React from 'react';
-import EditLessonButton from './edit_lesson_button';
+import EditDeleteLessonButtons from './edit_lesson_button';
 import { withRouter } from 'react-router';
 
 class LessonShow extends React.Component {
 
   _redirectToEdit() {
     this.props.router.push(`lessons/${this.props.lesson.id}/edit`);
+  }
+
+  _deleteLesson() {
+    this.props.deleteLesson(this.props.lesson.id);
+    this.props.router.push('/');
   }
 
   render(){
@@ -21,11 +26,15 @@ class LessonShow extends React.Component {
 
     return(
       <div>
-        {title}
-        {lessonDate}
-        {subject}
-        {grade}
-        <EditLessonButton userId={ userId } redirectToEdit={this._redirectToEdit.bind(this)} />
+        <ul>
+          <li>{title}</li>
+          <li>{lessonDate}</li>
+          <li>{subject}</li>
+          <li>{grade}</li>
+          <EditDeleteLessonButtons userId={ userId }
+            redirectToEdit={this._redirectToEdit.bind(this)}
+            deleteLesson={this._deleteLesson.bind(this)}/>
+        </ul>
       </div>
     );
   }
