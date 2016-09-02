@@ -12,6 +12,7 @@ import LessonsIndexContainer from '../components/lessons/lessons_index_container
 import CreateLessonContainer from '../components/lessons/create_lesson_container';
 import EditLessonContainer from '../components/lessons/edit_lesson_container';
 import FullLessonContainer from '../components/lessons/full_lesson_container';
+import ProfileContainer from '../components/profile/profile_container';
 
 
 
@@ -56,6 +57,7 @@ class AppRouter extends React.Component {
         <Route path="lessons/:lessonId/edit" component={ EditLessonContainer }
           onEnter={ this._ensureLoggedIn }
           onEnter={ this._requestLesson}/>
+        <Route path="/profiles/:userid" component={ ProfileContainer }/>
       </Route>
     );
   }

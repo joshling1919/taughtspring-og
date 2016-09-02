@@ -17,7 +17,7 @@ class NavBar extends React.Component{
   _handleUser(e){
     e.preventDefault();
     if (this._currentUser()) {
-      this.props.router.push('/create-lesson');
+      this.props.router.push(`/profiles/${this._currentUser().id}`);
     } else {
       this.props.router.push('/signup');
     }
