@@ -8,17 +8,18 @@
 
 
 50.times do
-  User.create(
+  User.create!(
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
     email: Faker::Internet.email,
+    password: "password",
     subject: "Math",
     grade: 8,
     bio: Faker::Hipster.sentence
   )
 
-  Lesson.create(
-    user_id: Random.new(50),
+  Lesson.create!(
+    user_id: (1..50).to_a.sample,
     title: Faker::Educator.course,
     subject: "Math",
     grade: 8,

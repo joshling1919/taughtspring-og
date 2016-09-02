@@ -14,6 +14,6 @@
 #
 
 class Lesson < ActiveRecord::Base
-  validates :user_id, :title, presence: true
+  validates :title, presence: true
   belongs_to :user
 end
