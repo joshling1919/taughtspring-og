@@ -25,7 +25,7 @@ ke@gmail.com w@gmail.com zz@gmail.com aa@gmail.com bb@gmail.com pp@gmail.com)
     user_id: (1..10).to_a.sample,
     title: ["Integers", "Constitution", "Fractions", "Atoms",
     "Culture Building", "Shakespeare", "Wuthering Heights",
-    "Decimals", "Mental Math", "Prepositions"],
+    "Decimals", "Mental Math", "Prepositions"][i],
     subject: %w(Math English Science Other).sample,
     grade: [6,7,8].sample,
     lesson_date: Date.new(2016,11,3)
