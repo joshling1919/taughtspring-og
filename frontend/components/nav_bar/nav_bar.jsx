@@ -16,7 +16,6 @@ class NavBar extends React.Component{
 
   _handleUser(e){
     e.preventDefault();
-    debugger;
     if (this._currentUser()) {
       this.props.router.push('/create-lesson');
     } else {
@@ -82,6 +81,7 @@ class NavBar extends React.Component{
           <li id='nav-bar-item'>
             <button
               className="nav-button pure-button"
+              onClick={this._handleUser.bind(this)}
               >{`${this._userButtonText()}`}</button>
             {this._userDropdown()}
           </li>
