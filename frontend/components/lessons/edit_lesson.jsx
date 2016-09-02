@@ -3,10 +3,6 @@ import Errors from '../errors';
 import LessonForm from './lesson_form';
 
 class EditLesson extends React.Component {
-  // componentDidMount(){
-  //   let lessonId = this.props.params.lessonId;
-  //   this.props.requestLesson(lessonId);
-  // }
 
   _handleUpdateLesson(e){
     e.preventDefault();
@@ -40,12 +36,6 @@ class EditLesson extends React.Component {
   }
 
   render(){
-    // let template = {
-    //   title: "",
-    //   grade: undefined,
-    //   subject: undefined,
-    //   date: undefined
-    // };
     let template;
     if (this.props.singleLesson) {
       // let lessonDate = new Date(`${this.props.singleLesson.lesson_date}`);
@@ -55,13 +45,17 @@ class EditLesson extends React.Component {
         subject: this.props.singleLesson.subject,
         date: this.props.singleLesson.lesson_date
       };
+      return(
+        <LessonForm template={template}
+          handleSubmit={this._handleUpdateLesson.bind(this)}
+          errors={this.props.errors}
+          />
+      );
+    } else {
+      return(
+        <div></div>
+      );
     }
-    return(
-      <LessonForm template={template}
-        handleSubmit={this._handleUpdateLesson.bind(this)}
-        errors={this.props.errors}
-        />
-    );
   }
 }
 
