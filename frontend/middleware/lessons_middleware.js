@@ -5,7 +5,8 @@ import { LessonsConstants,
 
 import { fetchAllLessons,
          createLesson,
-         fetchLesson
+         fetchLesson,
+         updateLesson
        } from '../util/lessons_api_util';
 
 import { receiveErrors } from '../actions/errors_actions';
@@ -32,6 +33,9 @@ export default ({ getState, dispatch }) => next => action => {
     case LessonsConstants.REQUEST_LESSON:
       fetchLesson(action.lessonId, successSingleLesson);
       return next(action);
+    case LessonsConstants.UPDATE_LESSON:
+      updateLesson(action.lesson, successSingleLesson, errorCallback);
+      break;
     default:
       return next(action);
   }

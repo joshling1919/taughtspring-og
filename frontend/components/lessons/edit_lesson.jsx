@@ -8,6 +8,7 @@ class EditLesson extends React.Component {
     e.preventDefault();
     let lesson = { lesson:
       {
+        id: this.props.params.lessonId,
         title: e.target.title.value,
         user_id: this.props.currentUser.id,
         subject: this._checkForNullSubject(e),
