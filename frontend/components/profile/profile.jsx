@@ -1,4 +1,5 @@
 import React from 'react';
+import ProfileLessonsIndex from './profile_lessons_index';
 
 
 class Profile extends React.Component {
@@ -6,8 +7,11 @@ class Profile extends React.Component {
   render(){
     if (this.props.profile) {
       return(
-        <div>
-          {this.props.profile.first_name}
+        <div className="profile-container group">
+          <div className="user">
+            {this.props.profile.first_name}
+          </div>
+          <ProfileLessonsIndex />
         </div>
       );
     } else {
