@@ -11,7 +11,7 @@ class Profile extends React.Component {
           <div className="user">
             {this.props.profile.first_name}
           </div>
-          <ProfileLessonsIndex />
+          <ProfileLessonsIndex lessons={this.props.profile.lessons}/>
         </div>
       );
     } else {
