@@ -1,35 +1,46 @@
 
 
 .nav-bar{
-  background-color: gray;
   position: fixed;
-  background: #eee;
+  background-color: white;
   height: 50px;
-  padding: 3px;
+  padding: 30px 3px 3px 3px;
   width: 100%;
   border-bottom: 1px solid #e6e6e6;
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 2;
-}
+
+  #nav-bar-item {
+    text-align: center;
 
 
-#nav-bar-item {
-  line-height: 40px;
-  text-align: center;
-}
+    .search {
+      height: 35px;
+      font-size: 16px;
+      font-weight: 600;
+      box-sizing: border-box;
+      width: 400px;
+      border-radius: 3px;
+      margin: 2px 15px 0 15px;
+      text-align: left;
+    }
 
-.search {
-  height: 35px;
-  font-size: 16px;
-  font-weight: 600;
-  background-color: #A9A9A9;
-  box-sizing: border-box;
-  width: 400px;
-  border-radius: 3px;
-  margin: 2px 15px 0 15px;
-  text-align: left;
+
+    .nav-button {
+      padding: 8px 30px;
+      margin: 0 5px 0 5px;
+      background-color: #93C47D;
+      border-radius: 4px;
+      text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+    }
+
+
+
+  }
+
+
 }
 
 .logo {
@@ -40,15 +51,6 @@
 .logo:hover {
   cursor: pointer;
 }
-
-.nav-button {
-  padding: 8px 10px;
-  margin: 0 5px 0 5px;
-  background-color: #93C47D;
-  border-radius: 4px;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
-}
-
 
 .dropdown{
   display: none;

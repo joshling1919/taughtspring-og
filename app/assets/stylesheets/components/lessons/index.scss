@@ -1,0 +1,46 @@
+.lessons-index {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+  z-index: 1;
+  border: 1px solid black;
+  margin: 0 10px;
+}
+
+.index-item {
+  height: 240px;
+  width: 25%;
+  margin: 30px;
+  border: 3px solid $border-color-gray;
+  position: relative;
+  background-color: $background-color-gray;
+  border-radius: 3px;
+
+  .index-pic-background {
+    height: 75%;
+    background-color: white;
+    padding: 5px;
+
+    .index-pic-container {
+      width: 95%;
+      height: 95%;
+      margin: 0 auto;
+      // border: 1px solid black;
+      .index-pic {
+        width: 100%;
+        height: 100%;
+        object-fit: fill;
+      }
+    }
+  }
+
+  span.author {
+    position: absolute;
+    bottom: 3px;
+  }
+
+  a {
+    text-decoration: none;
+  }
+}

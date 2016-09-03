@@ -12,44 +12,12 @@
  *
  /* ...
  *= require_self
- *= require_tree .
  */
+@import "normalize";
+@include normalize();
 
-
-div.content {
-  padding-top: 80px;
-}
-
-ul {
-  list-style-type: none;
-}
-
-/** {
-  margin: 0;
-  padding: 0;
-}*/
-
-/** {
-    margin:0;
-    padding:0;
-  }
-
-
-*, *:before, *:after {
-  box-sizing: inherit;
-}
-
-html {
-  box-sizing: border-box;
-}*/
-
-ul.errors {
-  list-style: square;
-}
-
-
-.group:after {
-  content: "";
-  display: block;
-  clear: both;
-}
+@import "base/base";
+@import "components/nav_bar";
+@import "components/sessions";
+@import "components/lessons/lessons";
+@import "components/profile";

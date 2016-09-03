@@ -2,8 +2,21 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.modal {
+  margin: 0 auto;
+  width: 400px;
+  border-radius: 5px;
+  border: none;
+  background-color: #f2f2f2;
+  padding: 20px;
+  max-height: calc(100% - 100px);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  overflow: auto;
 
-.session-item, select {
+  .session-item, select {
     padding: 10px 10px;
     font-size: 16px;
     margin: 8px 0;
@@ -12,7 +25,10 @@
     border-radius: 4px;
     box-sizing: border-box;
     width: 100%;
+  }
+
 }
+
 
 input[type=submit] {
     background-color: #4CAF50;
@@ -28,20 +44,6 @@ input[type=submit]:hover {
     background-color: #45a049;
 }
 
-.modal {
-    margin: 0 auto;
-    width: 400px;
-    border-radius: 5px;
-    border: none;
-    background-color: #f2f2f2;
-    padding: 20px;
-    max-height: calc(100% - 100px);
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    overflow: auto;
-}
 
 
 select{
@@ -51,6 +53,7 @@ select{
   color: gray;
 }
 
+//css telling (optional) to be gray
 select option { color: black; }
 select option:first-child{
   color: gray;

@@ -1,0 +1,21 @@
+input[type="date"]:before {
+  content: attr(placeholder) !important;
+  color: #aaa;
+  margin-right: 0.5em;
+}
+
+::-webkit-datetime-edit-text {
+  color: #4CAF50;
+  padding: 0 0.3em ;
+}
+
+
+.lessonPicContainer {
+  width: 40%;
+}
+
+.lessonPic {
+  height: 200px;
+  width: 100%;
+  object-fit: contain;
+}
