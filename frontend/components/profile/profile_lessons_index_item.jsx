@@ -6,7 +6,9 @@ const ProfileLessonsIndexItem = ({ lesson }) => {
     <div className="profile-item-container">
       <li className="profile-lessons-item">
         <a href={`#/lessons/${lesson.id}`}>{ lesson.title }</a>
-        <img src={ lesson.thumbnail_url } />
+        <div className="lessonPicContainer">
+          <img className="lessonPic" src={ lesson.thumbnail_url } />
+        </div>
       </li>
     </div>
   );

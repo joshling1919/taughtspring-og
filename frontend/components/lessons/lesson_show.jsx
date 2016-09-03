@@ -28,7 +28,9 @@ class LessonShow extends React.Component {
     return(
       <div>
         <ul>
-          <li><img src={imageUrl}/></li>
+          <div className="lessonPicContainer">
+            <li><img className="lessonPic" src={imageUrl}/></li>
+          </div>
           <li>{title}</li>
           <li>{lessonDate}</li>
           <li>{subject}</li>

@@ -35,16 +35,13 @@ span.author {
   position: absolute;
   bottom: 3px;
 }
-//
-// .lessonPicContainer {
-//   max-width: 200px;
-//   height: 180px;
-//   display: inline-block;
-//   border: 5px solid black;
-// }
-//
-// .lessonPic {
-//   height: auto;
-//   max-width: 100%
-//   border 1px solid red;
-// }
+
+.lessonPicContainer {
+  width: 40%;
+}
+
+.lessonPic {
+  height: 200px;
+  width: 100%;
+  object-fit: contain;
+}
