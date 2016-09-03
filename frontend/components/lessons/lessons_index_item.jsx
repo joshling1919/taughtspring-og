@@ -7,7 +7,7 @@ const LessonsIndexItem = ({ lesson }) => {
       <a className="lessonTitle" href={`#lessons/${id}`}>{title}</a>
       <img src={thumbnail_url}/>
       <span className="author">
-      created by: {user.first_name} {user.last_name}
+      by: <a href={`#/profiles/${user.id}`}>{user.first_name} {user.last_name}</a>
       </span>
     </li>
   );
