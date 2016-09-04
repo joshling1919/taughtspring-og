@@ -1,6 +1,8 @@
 import React from 'react';
 import Errors from '../errors';
 import LessonForm from './lesson_form';
+// import TabsDisplay from '../tabs/tabs';
+import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 
 class CreateLesson extends React.Component {
   constructor(props){
@@ -67,10 +69,45 @@ class CreateLesson extends React.Component {
       imageUrl: this.state.imageUrl
     };
     return(
-      <LessonForm template={blankTemplate}
-        handleSubmit={this._handleCreateLesson.bind(this)}
-        errors={this.props.errors}
-        upload={this._upload}/>
+      <Tabs
+        selectedIndex={0}
+      >
+        <TabList>
+
+          {/*
+            <Tab/> is the actual tab component that users will interact with.
+
+            Selecting a tab can be done by either clicking with the mouse,
+            or by using the keyboard tab to give focus then navigating with
+            the arrow keys (right/down to select tab to the right of selected,
+            left/up to select tab to the left of selected).
+
+            The content of the <Tab/> (this.props.children) will be shown as the label.
+          */}
+
+          <Tab>Essentials</Tab>
+          <Tab>Objective</Tab>
+          <Tab>Add Section</Tab>
+        </TabList>
+
+        <TabPanel>
+          <h2>Essentials</h2>
+          <LessonForm template={blankTemplate}
+            handleSubmit={this._handleCreateLesson.bind(this)}
+            errors={this.props.errors}
+            upload={this._upload}/>
+        </TabPanel>
+
+        <TabPanel>
+          <h2>Hello from Objectives</h2>
+        </TabPanel>
+
+        <TabPanel>
+          <h2>Hello Add Section</h2>
+        </TabPanel>
+
+
+      </Tabs>
     );
   }
 }
