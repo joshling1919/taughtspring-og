@@ -3,14 +3,16 @@ import React from 'react';
 
 const ProfileLessonsIndexItem = ({ lesson }) => {
   return(
-    <div className="profile-item-container">
-      <li className="profile-lessons-item">
+    <li className="profile-item-container">
+      <div className="profile-lessons-title">
         <a href={`#/lessons/${lesson.id}`}>{ lesson.title }</a>
-        <div className="lessonPicContainer">
-          <img className="lessonPic" src={ lesson.thumbnail_url } />
-        </div>
-      </li>
-    </div>
+      </div>
+      <div className="profile-lessons-pic">
+        <img className="lessonPic" src={ lesson.image_url } />
+      </div>
+      <div className="profile-lessons-description">
+      </div>
+    </li>
   );
 };
 
