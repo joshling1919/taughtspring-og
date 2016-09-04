@@ -1,0 +1,21 @@
+.tabs {
+  border: 2px solid blue;
+
+}
+
+.tabs-labels {
+  border: 2px solid red;
+  display: flex;
+
+  .label {
+    border: 2px solid green;
+
+    a {
+      border: 2px solid yellow;
+    }
+  }
+}
+
+.pane {
+  border: 2px solid orange;
+}

@@ -2,7 +2,7 @@ import React from 'react';
 
 const Pane = ({ children }) => {
   return(
-    <div>
+    <div className="pane">
       { children }
     </div>
   );
