@@ -18,14 +18,21 @@
   background-color: $background-color-gray;
   border-radius: 10px;
   font-weight: 700;
-
+  white-space: nowrap;
   a {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    width: 95%;
+    display: inline-block;
     color: inherit;
     text-decoration: none;
+    border: 1px solid blue;
   }
   .title-container{
+    overflow: hidden;
     padding: 10px 3px 5px 10px;
-    text-align: center;
+    width: 95%;
+    border: 1px solid black;
   }
 
   .index-pic-background {
@@ -37,7 +44,7 @@
       width: 95%;
       height: 95%;
       margin: 0 auto;
-      // border: 1px solid black;
+      border: none;
       .index-pic {
         width: 100%;
         height: 100%;

@@ -46,8 +46,9 @@ class Login extends React.Component {
             <label>Password:</label>
             <input className="session-item" name="password" type="password"></input>
             <input type="submit" value="Log In" />
+            <button type="button" id="close"
+              onClick={this.closeModal}>Close</button>
           </form>
-          <button id="close" onClick={this.closeModal}>Close</button>
           <div className="redirect">Don't have an account? <a className="session-link" href="#signup">Register</a> today!</div>
         </Modal>
     );

@@ -6,23 +6,23 @@ import UploadPictureButton from './upload_picture_button';
 const LessonForm = ({template, handleSubmit, errors, upload}) => {
     return(
       <div>
-        <form className="pure-form pure-form-aligned" onSubmit={handleSubmit}>
+        <form className="" onSubmit={handleSubmit}>
           <Errors errors={errors}/>
           <fieldset>
-            <div className="pure-control-group lessonPicContainer group">
+            <div className="lessonPicContainer group">
               <img className="lessonPic" src={template.imageUrl}/>
             </div>
-            <div className="pure-control-group upload-button">
+            <div className="upload-button">
               <UploadPictureButton upload={upload}/>
             </div>
-            <div className="pure-control-group">
+            <div className="">
               <label>Title: </label>
               <input defaultValue={template.title}
                      className="lesson-item"
                      name= "title"
                      type="text"/>
             </div>
-            <div className="pure-control-group">
+            <div className="">
               <label>Grade Level: </label>
               <select defaultValue={template.grade} className="lesson-item" name="grade">
                 <option className="optional" value={undefined}>(optional)</option>
@@ -31,7 +31,7 @@ const LessonForm = ({template, handleSubmit, errors, upload}) => {
                 <option value={8}>8th Grade</option>
               </select>
             </div>
-            <div className="pure-control-group">
+            <div className="">
               <label>Subject: </label>
               <select defaultValue={template.subject} className="lesson-item" name="subject">
                 <option className="optional" value={undefined}>(optional)</option>
@@ -42,11 +42,11 @@ const LessonForm = ({template, handleSubmit, errors, upload}) => {
                 <option value="Other">Other</option>
               </select>
             </div>
-            <div className="pure-control-group">
+            <div className="">
               <label>Lesson Date: </label>
               <input defaultValue={template.date} type="date" placeholder="(optional)" name="lesson_date"></input>
             </div>
-            <div className="pure-controls">
+            <div className="">
               <input type="submit" value="Submit Lesson" />
             </div>
           </fieldset>
