@@ -9,11 +9,20 @@
 
   .label {
     border: 2px solid green;
-
     a {
       border: 2px solid yellow;
+      text-decoration: none;
+      display: inline-block;
+    }
+    a:hover {
+      filter: brightness(95%);
+      -webkit-filter: brightness(95%);
+      -webkit-transform: scale(1.03);
+      transform: scale(1.03);
     }
   }
+
+
 }
 
 .pane {
