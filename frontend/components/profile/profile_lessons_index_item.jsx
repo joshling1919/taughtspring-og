@@ -3,7 +3,7 @@ import React from 'react';
 
 const ProfileLessonsIndexItem = ({ lesson }) => {
   return(
-    <li className="profile-item-container">
+    <li className="profile-item-container group">
       <div className="profile-lessons-title">
         <a href={`#/lessons/${lesson.id}`}>{ lesson.title }</a>
       </div>
