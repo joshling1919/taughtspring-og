@@ -1,10 +1,11 @@
 import { receiveCurrentUser,
-         SessionConstants
+         SessionConstants,
+         closeLogin,
+         closeSignup
        } from '../actions/session_actions';
 
 import { receiveErrors,
-         closeLogin,
-         closeSignup
+         clearErrors
        } from '../actions/errors_actions';
 
 
@@ -33,8 +34,9 @@ export default ({ getState, dispatch }) => next => action => {
       signup(action.user, successCallback, errorCallback);
       return next(action);
     case SessionConstants.RECEIVE_CURRENT_USER:
-      () => dispatch(closeLogin());
-      () => dispatch(closeSignup());
+      dispatch(clearErrors());
+      // dispatch(closeLogin());
+      // dispatch(closeSignup());
       return next(action);
     default:
       return next(action);

@@ -10,6 +10,7 @@ class NavBar extends React.Component{
       this.props.logout();
       this.props.router.push('/');
     } else {
+      this.props.clearErrors();
       this.props.closeSignup();
       this.props.openLogin();
     }
@@ -20,6 +21,7 @@ class NavBar extends React.Component{
     if (this._currentUser()) {
       this.props.router.push(`/profiles/${this._currentUser().id}`);
     } else {
+      this.props.clearErrors();
       this.props.closeLogin();
       this.props.openSignup();
     }

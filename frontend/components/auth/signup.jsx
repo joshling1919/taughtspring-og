@@ -51,6 +51,7 @@ class Signup extends React.Component {
 
   closeModal () {
     this.setState({open: false});
+    // this.props.clearErrors();
     this.props.closeSignup();
   }
 

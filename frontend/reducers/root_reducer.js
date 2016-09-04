@@ -6,9 +6,9 @@ import ErrorsReducer from './errors_reducer';
 import ProfileReducer from './profile_reducer';
 
 const RootReducer = combineReducers({
+  errors: ErrorsReducer,
   session: SessionReducer,
   lessons: LessonsReducer,
-  errors: ErrorsReducer,
   profile: ProfileReducer
 });
 

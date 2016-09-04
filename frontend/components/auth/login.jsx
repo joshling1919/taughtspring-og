@@ -32,6 +32,7 @@ class Login extends React.Component {
 
   closeModal (e) {
     this.setState({open: false});
+    // this.props.clearErrors();
     this.props.closeLogin();
   }
 
