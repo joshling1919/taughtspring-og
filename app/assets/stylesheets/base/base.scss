@@ -22,7 +22,7 @@ ul.errors {
   list-style: square;
 }
 
-button, input[type="submit"] {
+button, input[type="submit"], a {
  cursor: pointer;
  transition: filter .3s, -webkit-filter .3s;
 }

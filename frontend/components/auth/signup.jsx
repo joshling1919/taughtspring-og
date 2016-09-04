@@ -9,6 +9,7 @@ class Signup extends React.Component {
     this.state = {open: false};
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
+    this.switchToLogin = this.switchToLogin.bind(this);
   }
   _handleSignup(e){
     e.preventDefault();
@@ -51,12 +52,17 @@ class Signup extends React.Component {
 
   closeModal () {
     this.setState({open: false});
-    // this.props.clearErrors();
     this.props.closeSignup();
   }
 
   _textDisappear(e){
     e.target.defaultValue = "";
+  }
+
+  switchToLogin(e) {
+    e.preventDefault();
+    this.closeModal();
+    this.props.openLogin();
   }
 
   render(){
@@ -99,7 +105,9 @@ class Signup extends React.Component {
             <button type="button" id="close"
               onClick={this.closeModal}>Close</button>
           </form>
-          <div className="redirect">Already have an account? <a className="session-link" href="#login">Log In</a></div>
+          <div className="redirect">Already have an account? <a
+            className="session-link"
+            onClick={this.switchToLogin}>Log In</a></div>
         </Modal>
     );
   }

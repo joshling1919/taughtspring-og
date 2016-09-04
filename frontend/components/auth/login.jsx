@@ -11,6 +11,7 @@ class Login extends React.Component {
     this.state = {open: false};
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
+    this.switchToSignUp = this.switchToSignUp.bind(this);
   }
 
   _handleLogin(e){
@@ -32,8 +33,13 @@ class Login extends React.Component {
 
   closeModal (e) {
     this.setState({open: false});
-    // this.props.clearErrors();
     this.props.closeLogin();
+  }
+
+  switchToSignUp (e) {
+    e.preventDefault();
+    this.closeModal();
+    this.props.openSignup();
   }
 
   render(){
@@ -50,7 +56,9 @@ class Login extends React.Component {
             <button type="button" id="close"
               onClick={this.closeModal}>Close</button>
           </form>
-          <div className="redirect">Don't have an account? <a className="session-link" href="#signup">Register</a> today!</div>
+          <div className="redirect">Don't have an account? <a
+            className="session-link"
+            onClick={this.switchToSignUp}>Register</a> today!</div>
         </Modal>
     );
   }
