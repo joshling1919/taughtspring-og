@@ -3,7 +3,10 @@ import NavBar from './nav_bar';
 
 import { logoutAction,
          openLogin,
-         openSignup } from '../../actions/session_actions';
+         openSignup,
+         closeLogin,
+         closeSignup
+       } from '../../actions/session_actions';
 
 const mapStateToProps = state => ({
   currentUser: state.session.currentUser
@@ -13,7 +16,9 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   logout: () => dispatch(logoutAction()),
   openLogin: () => dispatch(openLogin()),
-  openSignup: () => dispatch(openSignup())
+  openSignup: () => dispatch(openSignup()),
+  closeLogin: () => dispatch(closeLogin()),
+  closeSignup: () => dispatch(closeSignup())
 });
 
 

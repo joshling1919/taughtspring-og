@@ -34,7 +34,7 @@ class AppRouter extends React.Component {
   _ensureLoggedIn(nextState, replace){
     const currentUser = this.props.currentUser;
     if (!currentUser) {
-      replace('/login');
+      this.props.openLogin();
     }
   }
 
@@ -78,11 +78,6 @@ class AppRouter extends React.Component {
 }
 
 export default AppRouter;
-
-// <Route path="login" component={ LoginContainer }
-//   onLeave={this._clearErrors}/>
-// <Route path="signup" component={ SignupContainer }
-//   onLeave={this._clearErrors}/>
 
 /*
 <Home/> // /

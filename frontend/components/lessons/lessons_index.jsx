@@ -1,8 +1,6 @@
 import React from 'react';
 
 import LessonsIndexItem from './lessons_index_item';
-import LoginContainer from '../auth/login_container';
-import SignupContainer from '../auth/signup_container';
 
 class LessonsIndex extends React.Component {
 
@@ -19,13 +17,9 @@ class LessonsIndex extends React.Component {
         });
     }
     return(
-      <div>
-        <LoginContainer />
-        <SignupContainer />
         <ul className="lessons-index">
           {lessons}
         </ul>
-      </div>
     );
   }
 }

@@ -2,9 +2,16 @@ import { receiveCurrentUser,
          SessionConstants
        } from '../actions/session_actions';
 
-import { receiveErrors } from '../actions/errors_actions';
+import { receiveErrors,
+         closeLogin,
+         closeSignup
+       } from '../actions/errors_actions';
 
-import { login, signup, logout } from '../util/session_api_util';
+
+import { login,
+         signup,
+         logout,
+       } from '../util/session_api_util';
 
 import { push } from 'react-router-redux';
 
@@ -14,7 +21,7 @@ export default ({ getState, dispatch }) => next => action => {
     const errors = xhr.responseJSON;
     dispatch(receiveErrors(errors));
   };
-  
+
   switch(action.type){
     case SessionConstants.LOGIN:
       login(action.user, successCallback, errorCallback);
@@ -26,7 +33,8 @@ export default ({ getState, dispatch }) => next => action => {
       signup(action.user, successCallback, errorCallback);
       return next(action);
     case SessionConstants.RECEIVE_CURRENT_USER:
-      dispatch(push('/'));
+      () => dispatch(closeLogin());
+      () => dispatch(closeSignup());
       return next(action);
     default:
       return next(action);

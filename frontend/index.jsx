@@ -6,11 +6,11 @@ import configureStore from './store/store';
 import Root from './components/root';
 
 //testing
-import { createLesson
-       } from './actions/lessons_actions';
+import { openLogin
+      } from './actions/session_actions';
 import { push } from 'react-router-redux';
 
-window.createLesson = createLesson;
+window.openLogin = openLogin;
 window.push = push;
 
 //testing

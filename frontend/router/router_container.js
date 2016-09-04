@@ -6,6 +6,7 @@ import { requestAllLessons,
 
 import { requestProfile } from '../actions/profile_actions';
 import { clearErrors } from '../actions/errors_actions';
+import { openLogin } from '../actions/session_actions';
 
 const mapStateToProps = state => ({
   currentUser: state.session.currentUser
@@ -15,7 +16,8 @@ const mapDispatchToProps = dispatch => ({
   requestAllLessons: () => dispatch(requestAllLessons()),
   requestLesson: lessonId => dispatch(requestUpdateLesson(lessonId)),
   requestProfile: userId => dispatch(requestProfile(userId)),
-  clearErrors: () => dispatch(clearErrors())
+  clearErrors: () => dispatch(clearErrors()),
+  openLogin: () => dispatch(openLogin())
 });
 
 
