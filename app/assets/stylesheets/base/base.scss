@@ -34,7 +34,7 @@ button:hover, input[type="submit"]:hover {
  transform: scale(1.01);
 }
 
-input[type=submit], .upload-button {
+input[type=submit], .upload-button, .form-submit {
     background-color: $submit-green;
     color: white;
     padding: 10px 15px;
@@ -44,7 +44,7 @@ input[type=submit], .upload-button {
     border-radius: 4px;
 }
 
-input[type=submit]:hover, .upload-button {
+input[type=submit]:hover, .upload-button, .form-submit {
     background-color: #45a049;
 }
 

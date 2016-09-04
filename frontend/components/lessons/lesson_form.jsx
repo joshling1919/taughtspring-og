@@ -49,8 +49,8 @@ const LessonForm = ({template, handleSubmit, errors, upload}) => {
                   name="lesson_date"></input>
               </div>
               <div className="lesson-details group">
-                <input className="lesson-item"
-                  type="submit" value="Submit Lesson" />
+                <button className="lesson-item form-submit"
+                  type="submit">Submit Lesson</button>
               </div>
             </div>
         </form>

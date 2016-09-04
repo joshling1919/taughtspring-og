@@ -1,12 +1,12 @@
 .lesson-form-component {
-  border: 2px solid green;
+  // border: 2px solid green;
   margin: 0 10px;
 
   .lesson-form {
     border: 3px solid $border-gray;
     margin-top: 15%;
     padding-top: 15px;
-    padding-left: 30px;
+    padding-left: 50px;
 
     .lesson-pic-container {
       width: 30%;
@@ -14,6 +14,7 @@
       border: 3px solid gray;
       border-radius: 5px;
       overflow: hidden;
+      margin-left: 110px;
 
       .lesson-pic {
         width: 100%;
@@ -26,7 +27,7 @@
   }
 
   .lesson-details {
-    margin: 20px 10px;
+    margin: 20px 5px;
 
     label {
       display: inline-block;
@@ -43,14 +44,33 @@
     }
 
     .title {
-      
+      padding: 1px 8px;
+      width: 33%;
     }
+
+    select, input[type="date"] {
+      width: 34%;
+    }
+
+
 
   }
   .upload-button {
-    background-color: gray;
-    border: 3px solid $submit-green;
-    margin-left: 10px;
+    background-color: $background-color-gray;
+    border: 2px solid $submit-green;
+    margin-left: 110px;
+    padding: 5px 10px;
+    color: gray;
+  }
+
+  .form-submit {
+    margin-left: 105px;
+  }
+  .form-submit:before {
+    content: "\f1d9";
+    font-family: FontAwesome;
+    font-size: 14px;
+    padding-right: 5px;
   }
 }
 
