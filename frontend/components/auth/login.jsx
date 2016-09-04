@@ -24,11 +24,15 @@ class Login extends React.Component {
     this.props.login(user);
   }
 
+  componentWillReceiveProps(nextProps) {
+    this.setState({ open: nextProps.loginOpen });
+  }
+
   openModal () { this.setState({open: true}); }
 
   closeModal (e) {
     this.setState({open: false});
-    this.props.router.push('/');
+    this.props.closeLogin();
   }
 
   render(){

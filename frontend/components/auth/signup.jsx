@@ -6,7 +6,7 @@ import Errors from '../errors';
 class Signup extends React.Component {
   constructor(props){
     super(props);
-    this.state = {open: true};
+    this.state = {open: false};
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
   }
@@ -43,12 +43,15 @@ class Signup extends React.Component {
     }
   }
 
+  componentWillReceiveProps(nextProps) {
+    this.setState({ open: nextProps.signupOpen });
+  }
 
   openModal () { this.setState({open: true}); }
 
   closeModal () {
     this.setState({open: false});
-    this.props.router.push('/');
+    this.props.closeSignup();
   }
 
   _textDisappear(e){

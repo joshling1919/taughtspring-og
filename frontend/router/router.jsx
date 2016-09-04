@@ -56,10 +56,6 @@ class AppRouter extends React.Component {
       <Route path="/" component={ App } >
         <IndexRoute component = { LessonsIndexContainer }
                     onEnter={this._populateIndex} />
-       <Route path="login" component={ LoginContainer }
-         onLeave={this._clearErrors}/>
-       <Route path="signup" component={ SignupContainer }
-         onLeave={this._clearErrors}/>
         <Route path="create-lesson" component={ CreateLessonContainer }
                onEnter={ this._ensureLoggedIn }/>
         <Route path="lessons/:lessonId" component={ FullLessonContainer } />
@@ -82,6 +78,12 @@ class AppRouter extends React.Component {
 }
 
 export default AppRouter;
+
+// <Route path="login" component={ LoginContainer }
+//   onLeave={this._clearErrors}/>
+// <Route path="signup" component={ SignupContainer }
+//   onLeave={this._clearErrors}/>
+
 /*
 <Home/> // /
   <SearchContainer/>

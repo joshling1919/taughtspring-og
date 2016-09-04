@@ -3,7 +3,8 @@ import { merge } from 'lodash';
 
 const _nullUser = Object.freeze({
   currentUser: null,
-  modal_open: false
+  loginOpen: false,
+  signupOpen: false
 });
 
 const SessionReducer = function(sessionState = _nullUser, action){
@@ -13,6 +14,14 @@ const SessionReducer = function(sessionState = _nullUser, action){
       return merge({}, _nullUser, { currentUser });
     case SessionConstants.LOGOUT:
       return _nullUser;
+    case SessionConstants.OPEN_LOGIN:
+      return merge({}, sessionState, { loginOpen: true });
+    case SessionConstants.CLOSE_LOGIN:
+      return merge({}, sessionState, { loginOpen: false });
+    case SessionConstants.OPEN_SIGNUP:
+      return merge({}, sessionState, { signupOpen: true });
+    case SessionConstants.CLOSE_SIGNUP:
+      return merge({}, sessionState, { signupOpen: false });
     default:
       return sessionState;
   }
