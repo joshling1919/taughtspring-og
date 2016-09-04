@@ -6,7 +6,7 @@ class UploadPictureButton extends React.Component {
 
   render() {
     return(
-      <button type="button"
+      <button className="upload-button" type="button"
         onClick={this.props.upload}>Change Lesson Picture!</button>
     );
   }
