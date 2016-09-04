@@ -2,7 +2,8 @@ import { SessionConstants } from '../actions/session_actions';
 import { merge } from 'lodash';
 
 const _nullUser = Object.freeze({
-  currentUser: null
+  currentUser: null,
+  modal_open: false
 });
 
 const SessionReducer = function(sessionState = _nullUser, action){

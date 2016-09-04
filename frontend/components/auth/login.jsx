@@ -8,7 +8,7 @@ import Errors from '../errors';
 class Login extends React.Component {
   constructor(props){
     super(props);
-    this.state = {open: true};
+    this.state = {open: false};
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
   }
