@@ -4,5 +4,7 @@ Rails.application.routes.draw do
     resources :users, only: [:create, :show]
     resource :session, only: [:create, :destroy]
     resources :lessons, only: [:create, :update, :destroy, :index, :show]
+    resources :objectives, only: [:create]
+    resources :key_points, only: [:create]
   end
 end
