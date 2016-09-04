@@ -9,8 +9,12 @@ import Root from './components/root';
 import { openLogin
       } from './actions/session_actions';
 import { push } from 'react-router-redux';
+import { createObjective,
+         createKeyPoint
+       } from './util/lesson_key_items_api_util';
 
-window.openLogin = openLogin;
+window.createObjective = createObjective;
+window.createKeyPoint = createKeyPoint;
 window.push = push;
 
 //testing

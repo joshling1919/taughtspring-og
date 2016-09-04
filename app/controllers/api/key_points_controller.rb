@@ -11,7 +11,7 @@ class Api::KeyPointsController < ApplicationController
   def key_point_params
     params.require(:key_point).permit(
       :point,
-      :key_point_id
+      :lesson_id
     )
   end
 end
