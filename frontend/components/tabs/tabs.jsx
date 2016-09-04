@@ -1,13 +1,58 @@
 import React from 'react';
-import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 
-class TabsDisplay extends React.Component {
+class Tabs extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      selected:0
+    };
+
+  }
+
+  _renderContent() {
+   return (
+     <div className="tabs-content">
+       {this.props.children[this.state.selected]}
+     </div>
+   );
+ }
+
+  _renderTitles() {
+   const labels = (child, index) => {
+     let activeClass = (this.state.selected === index ? 'active' : '');
+     return(
+       <li key={index}>
+         <a href="#"
+           className={activeClass}
+           onClick={this.handleClick.bind(this, index)}>
+           {child.props.label}
+         </a>
+       </li>
+     );
+   };
+
+   return(
+     <ul className="tabs-labels">
+       {this.props.children.map(labels.bind(this))}
+     </ul>
+   );
+ }
+
+handleClick(index, e) {
+  e.preventDefault();
+  this.setState({
+    selected: index
+  });
+}
 
   render() {
     return(
-      <div>TABS</div>
+      <div className="tabs">
+        {this._renderTitles()}
+        {this._renderContent()}
+      </div>
     );
   }
 }
 
-export default TabsDisplay;
+export default Tabs;
