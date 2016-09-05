@@ -11,7 +11,8 @@ class CreateLesson extends React.Component {
     super(props);
     this.state = {
       imageUrl:"http://www.nationofchange.org/wp-content/uploads/2016/05/education.jpg",
-      thumbnailUrl: ""
+      thumbnailUrl: "",
+      numSectionTabs: 2
     };
     this._upload = this._upload.bind(this);
   }
@@ -92,12 +93,10 @@ class CreateLesson extends React.Component {
 
 
   _sections() {
-    let testArr =["1", "2"];
-    let sections = testArr.map(section => {
-      return(
-        <Pane key={section} label={section} />
-      );
-    });
+    let sections = [];
+    for (let i = 0; i < this.state.numSectionTabs; i++) {
+      sections.push(<Pane key={i} label="section"/>);
+    }
     return (
       sections
     );
@@ -113,7 +112,7 @@ class CreateLesson extends React.Component {
   }
 
   _newSection() {
-    console.log('made it to new section');
+    this.setState({ numSectionTabs: ++this.state.numSectionTabs });
   }
 
   _allPanes() {
