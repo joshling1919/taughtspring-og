@@ -51,7 +51,6 @@ class CreateLesson extends React.Component {
     }
   }
 
-
   _checkForNullSubject(e){
     if (e.target.subject.value === "(optional)") {
       return null;
@@ -59,34 +58,46 @@ class CreateLesson extends React.Component {
       return e.target.subject.value;
     }
   }
+  _blankTemplate() {
+    return({
+        title: "",
+        grade: undefined,
+        subject: undefined,
+        date: undefined,
+        imageUrl: this.state.imageUrl
+      }
+    );
+  }
+
+  _essentials() {
+    return(
+      <Pane label="Essentials">
+        <LessonForm template={this._blankTemplate()}
+          handleSubmit={this._handleCreateLesson.bind(this)}
+          errors={this.props.errors}
+          upload={this._upload}/>
+      </Pane>
+    );
+  }
+
+  _objective() {
+    return(
+      <Pane label="Objective">
+        <div>These are my objectives!</div>
+      </Pane>
+    );
+  }
 
   render(){
-    const blankTemplate = {
-      title: "",
-      grade: undefined,
-      subject: undefined,
-      date: undefined,
-      imageUrl: this.state.imageUrl
-    };
     return(
       <div>
         <Tabs selected={0}>
-          <Pane label="Tab 1">
-            <LessonForm template={blankTemplate}
-              handleSubmit={this._handleCreateLesson.bind(this)}
-              errors={this.props.errors}
-              upload={this._upload}/>
-          </Pane>
-          <Pane label="Tab 2">
-            <div>This is my tab 2 contents!</div>
-          </Pane>
-
+          {this._essentials()}
+          {this._objective()}
           <Pane label="Tab 3">
             <div>This is my tab 3 contents!</div>
           </Pane>
-          <div className="add-tab">
-            ADD TAB
-          </div>
+          <Pane label="+ Add Section" className="add-tab"/>
         </Tabs>
       </div>
     );
