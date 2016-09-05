@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import Profile from './profile';
-// import {
-//        } from '../../actions/lessons_actions';
+import { deleteLesson
+       } from '../../actions/lessons_actions';
 
 
 const mapStateToProps = state => ({
@@ -10,14 +10,13 @@ const mapStateToProps = state => ({
 });
 
 
-// const mapDispatchToProps = dispatch => ({
-//   requestLesson: lessonId => dispatch(requestLesson(lessonId)),
-//   deleteLesson: lessonId => dispatch(deleteLesson(lessonId))
-// });
-//
+const mapDispatchToProps = dispatch => ({
+  deleteLesson: lessonId => dispatch(deleteLesson(lessonId))
+});
+
 
 
 
 export default connect(
-  mapStateToProps
+  mapStateToProps, mapDispatchToProps
 )(Profile);

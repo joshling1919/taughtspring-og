@@ -1,13 +1,14 @@
 import React from 'react';
 import ProfileLessonsIndexItem from './profile_lessons_index_item';
 
-const ProfileLessonsIndex = ({ lessons }) => {
+const ProfileLessonsIndex = ({ lessons, deleteLesson }) => {
   let items;
   if (lessons ) {
     items = lessons.map(lesson => (
       <ProfileLessonsIndexItem
-        key={lesson.title + lesson.id} 
-        lesson={ lesson } />
+        key={lesson.title + lesson.id}
+        lesson={ lesson }
+        deleteLesson={ deleteLesson }/>
     ));
   }
 

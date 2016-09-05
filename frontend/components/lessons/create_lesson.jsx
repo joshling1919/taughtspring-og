@@ -71,20 +71,16 @@ class CreateLesson extends React.Component {
     return(
       <div>
         <Tabs selected={0}>
-          //factor out into a separate function
           <Pane label="Tab 1">
             <LessonForm template={blankTemplate}
               handleSubmit={this._handleCreateLesson.bind(this)}
               errors={this.props.errors}
               upload={this._upload}/>
           </Pane>
-          //separate function
           <Pane label="Tab 2">
             <div>This is my tab 2 contents!</div>
           </Pane>
-          //all sections and the plus arrow
-          //are separate function. maybe plus arrow is its own
-          //instead
+
           <Pane label="Tab 3">
             <div>This is my tab 3 contents!</div>
           </Pane>

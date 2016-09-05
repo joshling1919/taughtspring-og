@@ -3,6 +3,9 @@ import ProfileLessonsIndex from './profile_lessons_index';
 
 
 class Profile extends React.Component {
+  getChildContext() {
+    return { currentUser: this.props.currentUser };
+  }
 
   render(){
     if (this.props.profile) {
@@ -11,7 +14,9 @@ class Profile extends React.Component {
           <div className="user">
             {this.props.profile.first_name}
           </div>
-          <ProfileLessonsIndex lessons={this.props.profile.lessons}/>
+          <ProfileLessonsIndex
+            lessons={this.props.profile.lessons}
+            deleteLesson={this.props.deleteLesson}/>
         </div>
       );
     } else {
@@ -20,6 +25,10 @@ class Profile extends React.Component {
   }
 
 }
+
+Profile.childContextTypes = {
+  currentUser: React.PropTypes.object
+};
 
 
 export default Profile;

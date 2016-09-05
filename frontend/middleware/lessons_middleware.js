@@ -1,7 +1,8 @@
 import { LessonsConstants,
          receiveAllLessons,
          receiveLesson,
-         receiveUpdateLesson
+         receiveUpdateLesson,
+         confirmDelete
        } from '../actions/lessons_actions';
 
 import { fetchAllLessons,
@@ -10,6 +11,8 @@ import { fetchAllLessons,
          updateLesson,
          deleteLesson
        } from '../util/lessons_api_util';
+
+import { requestProfile } from '../actions/profile_actions';
 
 import { receiveErrors } from '../actions/errors_actions';
 
@@ -47,8 +50,10 @@ export default ({ getState, dispatch }) => next => action => {
       dispatch(push(`/lessons/${action.lesson.id}`));
       return next(action);
     case LessonsConstants.DELETE_LESSON:
-      deleteLesson(action.lessonId, successSingleLesson);
+      deleteLesson(action.lessonId, ()=> dispatch(confirmDelete()));
       return next(action);
+    case LessonsConstants.CONFIRM_DELETE:
+      dispatch(requestProfile(getState().session.currentUser.id));
     default:
       return next(action);
   }

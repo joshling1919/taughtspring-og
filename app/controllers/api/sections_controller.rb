@@ -17,14 +17,6 @@ class Api::SectionsController < ApplicationController
     end
   end
 
-  def show
-    @section = Section.find(params[:id])
-  end
-
-  def index
-    @sections = Section.all
-    render :index
-  end
 
   def destroy
     @section = Section.find(params[:id])

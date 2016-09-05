@@ -9,12 +9,14 @@ import Root from './components/root';
 import { openLogin
       } from './actions/session_actions';
 import { push } from 'react-router-redux';
-import { createObjective,
-         createKeyPoint
-       } from './util/lesson_key_items_api_util';
+import { createSection,
+         updateSection,
+         deleteSection
+       } from './util/sections_api_util';
 
-window.createObjective = createObjective;
-window.createKeyPoint = createKeyPoint;
+window.createSection = createSection;
+window.updateSection = updateSection;
+window.deleteSection = deleteSection;
 window.push = push;
 
 //testing

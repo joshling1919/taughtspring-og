@@ -5,6 +5,7 @@ import { requestAllLessons,
        } from '../actions/lessons_actions';
 
 import { requestProfile } from '../actions/profile_actions';
+
 import { clearErrors } from '../actions/errors_actions';
 import { openLogin } from '../actions/session_actions';
 
