@@ -20,4 +20,5 @@ class Lesson < ActiveRecord::Base
   belongs_to :user
   has_many :objectives
   has_many :key_points
+  has_many :sections
 end
