@@ -2,9 +2,9 @@ import React from 'react';
 
 const Pane = ({ children }) => {
   return(
-    <div className="pane">
+    <li className="pane">
       { children }
-    </div>
+    </li>
   );
 };
 

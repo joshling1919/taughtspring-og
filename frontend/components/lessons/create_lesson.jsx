@@ -71,20 +71,39 @@ class CreateLesson extends React.Component {
 
   _essentials() {
     return(
-      <Pane label="Essentials">
+      [<Pane label="Essentials">
         <LessonForm template={this._blankTemplate()}
           handleSubmit={this._handleCreateLesson.bind(this)}
           errors={this.props.errors}
           upload={this._upload}/>
-      </Pane>
+      </Pane>]
     );
   }
 
   _objective() {
     return(
-      <Pane label="Objective">
+      [<Pane label="Objective">
         <div>These are my objectives!</div>
-      </Pane>
+      </Pane>]
+    );
+  }
+
+
+  _sections() {
+    let testArr =["1", "2"];
+    let sections = testArr.map(section => {
+      return(
+        <Pane label={section} />
+      );
+    });
+    return (
+      sections
+    );
+  }
+  _allPanes() {
+    let allPanes = this._essentials().concat(this._objective()).concat(this._sections());
+    return(
+      allPanes
     );
   }
 
@@ -92,12 +111,7 @@ class CreateLesson extends React.Component {
     return(
       <div>
         <Tabs selected={0}>
-          {this._essentials()}
-          {this._objective()}
-          <Pane label="Tab 3">
-            <div>This is my tab 3 contents!</div>
-          </Pane>
-          <Pane label="+ Add Section" className="add-tab"/>
+          {this._allPanes()}
         </Tabs>
       </div>
     );
@@ -105,3 +119,5 @@ class CreateLesson extends React.Component {
 }
 
 export default CreateLesson;
+
+// <Pane label="+ Add Section" className="add-tab"/>

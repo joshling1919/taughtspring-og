@@ -11,17 +11,24 @@ class Tabs extends React.Component {
 
   _renderContent() {
    return (
-     <div className="tabs-content">
+     <ul className="tabs-content">
        {this.props.children[this.state.selected]}
-     </div>
+     </ul>
    );
  }
+
+  dragstartHandler(e) {
+    console.log("i'm dragging");
+  }
+
 
   _renderTitles() {
    const labels = (child, index) => {
      let activeClass = (this.state.selected === index ? 'active' : '');
      return(
-       <li key={index} className="label">
+       <li draggable="true"
+         onDragStart={this.dragstartHandler}
+         key={index} className="label">
          <a href="#"
            className={activeClass}
            onClick={this.handleClick.bind(this, index)}>
