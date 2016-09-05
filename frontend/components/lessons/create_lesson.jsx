@@ -4,6 +4,8 @@ import LessonForm from './lesson_form';
 import Tabs from '../tabs/tabs';
 import Pane from '../tabs/pane';
 
+
+
 class CreateLesson extends React.Component {
   constructor(props){
     super(props);
@@ -71,7 +73,7 @@ class CreateLesson extends React.Component {
 
   _essentials() {
     return(
-      [<Pane label="Essentials">
+      [<Pane key="essentials" label="Essentials">
         <LessonForm template={this._blankTemplate()}
           handleSubmit={this._handleCreateLesson.bind(this)}
           errors={this.props.errors}
@@ -82,7 +84,7 @@ class CreateLesson extends React.Component {
 
   _objective() {
     return(
-      [<Pane label="Objective">
+      [<Pane key="objective" label="Objective">
         <div>These are my objectives!</div>
       </Pane>]
     );
@@ -93,24 +95,40 @@ class CreateLesson extends React.Component {
     let testArr =["1", "2"];
     let sections = testArr.map(section => {
       return(
-        <Pane label={section} />
+        <Pane key={section} label={section} />
       );
     });
     return (
       sections
     );
   }
-  _allPanes() {
-    let allPanes = this._essentials().concat(this._objective()).concat(this._sections());
+
+
+  _addSection() {
     return(
-      allPanes
+      <Pane
+        key="addSection"
+        label="+ Add Section" />
     );
   }
 
+  _newSection() {
+    console.log('made it to new section');
+  }
+
+  _allPanes() {
+    return(
+      this._essentials().concat(this._objective(), this._sections(), this._addSection())
+    );
+  }
+
+
   render(){
+    const {deltaPosition, controlledPosition} = this.state;
     return(
       <div>
-        <Tabs selected={0}>
+        <Tabs selected={0}
+          newSection={this._newSection.bind(this)}>
           {this._allPanes()}
         </Tabs>
       </div>
@@ -119,5 +137,3 @@ class CreateLesson extends React.Component {
 }
 
 export default CreateLesson;
-
-// <Pane label="+ Add Section" className="add-tab"/>

@@ -26,9 +26,7 @@ class Tabs extends React.Component {
    const labels = (child, index) => {
      let activeClass = (this.state.selected === index ? 'active' : '');
      return(
-       <li draggable="true"
-         onDragStart={this.dragstartHandler}
-         key={index} className="label">
+       <li key={index} className="label">
          <a href="#"
            className={activeClass}
            onClick={this.handleClick.bind(this, index)}>
@@ -47,6 +45,9 @@ class Tabs extends React.Component {
 
 handleClick(index, e) {
   e.preventDefault();
+  if ((this.props.children.length - 1)  === index) {
+    this.props.newSection();
+  }
   this.setState({
     selected: index
   });
@@ -55,8 +56,9 @@ handleClick(index, e) {
   render() {
     return(
       <div className="tabs">
-        {this._renderTitles()}
-        {this._renderContent()}
+
+          {this._renderTitles()}
+          {this._renderContent()}
       </div>
     );
   }
