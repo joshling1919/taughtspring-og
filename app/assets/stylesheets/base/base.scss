@@ -24,7 +24,7 @@ ul.errors {
 
 button, input[type="submit"], a {
  cursor: pointer;
- transition: filter .3s, -webkit-filter .3s;
+ transition: filter .01s, -webkit-filter .01s;
 }
 
 button:hover, input[type="submit"]:hover {
