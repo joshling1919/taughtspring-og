@@ -95,7 +95,9 @@ class CreateLesson extends React.Component {
   _sections() {
     let sections = [];
     for (let i = 0; i < this.state.numSectionTabs; i++) {
-      sections.push(<Pane key={i} label="section"/>);
+      sections.push(<Pane key={i} label={`section ${i}`}>
+      <button type="button">Delete Section</button>
+    </Pane>);
     }
     return (
       sections
