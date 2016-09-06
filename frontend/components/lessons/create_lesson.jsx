@@ -16,10 +16,10 @@ class CreateLesson extends React.Component {
       title: "",
       grade: undefined,
       subject: undefined,
-      date: undefined,
+      lesson_date: undefined,
       user_id: this.props.currentUser.id,
       objectives: [""],
-      keyPoints: [""]
+      key_points: [""]
     };
     this._upload = this._upload.bind(this);
     this._updateTitle = this._updateTitle.bind(this);
@@ -87,7 +87,7 @@ class CreateLesson extends React.Component {
   }
 
   _updateDate(e){
-    this.setState({ date: e.target.value.toString() });
+    this.setState({ lesson_date: e.target.value.toString() });
   }
 
   _updateObjectives(e) {
@@ -104,13 +104,13 @@ class CreateLesson extends React.Component {
 
   _updateKeyPoints(e) {
     let kpIndex = e.target.id;
-    let keyPointsArr = this.state.keyPoints.slice();
+    let keyPointsArr = this.state.key_points.slice();
     keyPointsArr[kpIndex] = e.target.value;
-    this.setState( { keyPoints: keyPointsArr });
+    this.setState( { key_points: keyPointsArr });
   }
 
   _addKeyPoint() {
-    this.setState({ keyPoints: this.state.keyPoints.concat([""])});
+    this.setState({ key_points: this.state.key_points.concat([""])});
   }
 
   _essentials() {
@@ -135,7 +135,7 @@ class CreateLesson extends React.Component {
           objectives={this.state.objectives}
           updateObjectives={this._updateObjectives}
           addObjective={this._addObjective}
-          keyPoints={this.state.keyPoints}
+          keyPoints={this.state.key_points}
           updateKeyPoints={this._updateKeyPoints}
           addKeyPoint={this._addKeyPoint}
           errors={this.props.errors}/>

@@ -52,7 +52,7 @@ const NewLessonForm = ({template, handleSubmit, errors, upload,
               <div className="lesson-details group">
                 <label>Lesson Date: </label>
                 <input className="lesson-item"
-                  defaultValue={template.date}
+                  defaultValue={template.lesson_date}
                   type="date"
                   placeholder="(optional)"
                   name="lesson_date"

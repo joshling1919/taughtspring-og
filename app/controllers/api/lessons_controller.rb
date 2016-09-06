@@ -1,7 +1,18 @@
 class Api::LessonsController < ApplicationController
   def create
     @lesson = Lesson.new(lesson_params)
+
     if @lesson.save
+      params[:lesson][:objectives].each do |objective|
+        Objective.create(lesson_id: @lesson.id,
+        description: objective)
+      end
+
+      params[:lesson][:key_points].each do |key_point|
+        KeyPoint.create(lesson_id: @lesson.id,
+        point: key_point)
+      end
+
       render :show
     else
       render json: @lesson.errors.full_messages, status: 422
@@ -41,7 +52,10 @@ class Api::LessonsController < ApplicationController
       :grade,
       :lesson_date,
       :image_url,
-      :thumbnail_url
+      :thumbnail_url,
+      :date,
+      :objectives,
+      :key_points
     )
   end
 end
