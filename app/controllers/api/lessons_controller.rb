@@ -41,7 +41,7 @@ class Api::LessonsController < ApplicationController
   end
 
   def index
-    @lessons = Lesson.all
+    @lessons = Lesson.all.includes(:user)
     render :index
   end
 
