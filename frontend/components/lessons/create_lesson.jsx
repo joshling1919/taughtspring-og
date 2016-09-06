@@ -37,6 +37,7 @@ class CreateLesson extends React.Component {
     this._addKeyPoint = this._addKeyPoint.bind(this);
     this._deleteKeyPoint = this._deleteKeyPoint.bind(this);
     this._updateSectionField = this._updateSectionField.bind(this);
+    this._deleteSection = this._deleteSection.bind(this);
   }
 
   _upload(e) {
@@ -105,7 +106,6 @@ class CreateLesson extends React.Component {
 
   _addObjective() {
     this.setState({ objectives: this.state.objectives.concat([""])});
-    console.log(this.state.objectives);
   }
 
   _deleteObjective(e) {
@@ -169,9 +169,10 @@ class CreateLesson extends React.Component {
   _sections() {
     let sections = [];
     for (let i = 0; i < this.state.sections.length; i++) {
-      sections.push(<Pane key={i} label={`section ${i}`}>
+      sections.push(<Pane key={i} label={this.state.sections[i].name}>
         <SectionForm section={this.state.sections[i]}
           updateSectionField={this._updateSectionField}
+          deleteSection={this._deleteSection}
           index={i} />
     </Pane>);
     }
@@ -190,7 +191,11 @@ class CreateLesson extends React.Component {
   }
 
   _newSection() {
-    this.setState({ sections: this.state.sections.concat([{}])});
+    this.setState({
+      sections: this.state.sections.concat([{name: "",
+        description: ""}]
+      )
+    });
   }
 
   _updateSectionField(e) {
@@ -201,6 +206,12 @@ class CreateLesson extends React.Component {
     this.setState( { sections : sectionsArr });
   }
 
+  _deleteSection(e) {
+    let ind = parseInt(e.target.id);
+    let sectionsArr = this.state.sections.slice();
+    sectionsArr.splice(ind, 1);
+    this.setState( { sections: sectionsArr });
+  }
 
 
   _allPanes() {

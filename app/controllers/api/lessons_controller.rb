@@ -13,6 +13,14 @@ class Api::LessonsController < ApplicationController
         point: key_point)
       end
 
+      params[:lesson][:sections].each do |section|
+        section_object = section[1]
+        section_name = section_object[:name]
+        section_description = section_object[:description]
+        new_section = Section.create(lesson_id: @lesson.id,
+        name: section_name, description: section_description)
+      end
+
       render :show
     else
       render json: @lesson.errors.full_messages, status: 422
@@ -53,9 +61,7 @@ class Api::LessonsController < ApplicationController
       :lesson_date,
       :image_url,
       :thumbnail_url,
-      :date,
-      :objectives,
-      :key_points
+      :date
     )
   end
 end

@@ -1,3 +1,3 @@
 json.array! (@lessons) do |lesson|
-  json.partial! 'lesson', lesson: lesson
+  json.partial! 'indexlesson', lesson: lesson
 end

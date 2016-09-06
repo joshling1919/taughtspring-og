@@ -1,15 +1,17 @@
 import React from 'react';
+import DeletePartButton from './delete_part_button';
 
 class SectionForm extends React.Component {
 
   render() {
     let name, description, index, updateSectionField,
-    updateSectionDescription;
+    updateSectionDescription, deleteSection;
     if (this.props.section) {
       name = this.props.section.name;
       description = this.props.section.description;
       index = this.props.index;
       updateSectionField = this.props.updateSectionField;
+      deleteSection = this.props.deleteSection;
     }
     return(
       <div className="lesson-form-component">
@@ -31,6 +33,10 @@ class SectionForm extends React.Component {
             defaultValue={description}
             />
         </form>
+        <DeletePartButton
+          isSection={true}
+          index={index}
+          deletePart={deleteSection}/>
       </div>
     );
   }

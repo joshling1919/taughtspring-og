@@ -1,8 +1,8 @@
 import React from 'react';
 
 
-const DeletePartButton = ({ index, deletePart }) => {
-  if ( index !== 0 ) {
+const DeletePartButton = ({ isSection, index, deletePart }) => {
+  if ( isSection || index !== 0 ) {
     return(
       <button type="button" id={index}
         onClick={deletePart}>Delete</button>

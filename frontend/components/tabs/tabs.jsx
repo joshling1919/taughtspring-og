@@ -21,6 +21,13 @@ class Tabs extends React.Component {
     console.log("i'm dragging");
   }
 
+  _titleText(label){
+    if (label === "") {
+      return "untitled";
+    } else {
+      return label;
+    }
+  }
 
   _renderTitles() {
    const labels = (child, index) => {
@@ -30,7 +37,7 @@ class Tabs extends React.Component {
          <a href="#"
            className={activeClass}
            onClick={this.handleClick.bind(this, index)}>
-           {child.props.label}
+           {this._titleText.bind(this, child.props.label)()}
          </a>
        </li>
      );
