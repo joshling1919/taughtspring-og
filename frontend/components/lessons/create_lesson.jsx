@@ -42,8 +42,8 @@ class CreateLesson extends React.Component {
     cloudinary.openUploadWidget(CLOUDINARY_OPTIONS, (error, results) => {
       if(!error) {
         self.setState({
-          imageUrl: results[0].url,
-          thumbnailUrl: results[0].thumbnail_url
+          image_url: results[0].url,
+          thumbnail_url: results[0].thumbnail_url
         });
       }
     });
