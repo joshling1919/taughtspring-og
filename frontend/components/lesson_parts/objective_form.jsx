@@ -1,7 +1,7 @@
 import React from 'react';
 import Errors from '../errors';
 import Objective from './objective';
-
+import KeyPoint from './key_point';
 
 class ObjectiveForm extends React.Component {
   _objectivesList() {
@@ -15,6 +15,17 @@ class ObjectiveForm extends React.Component {
     );
   }
 
+  _keyPointsList() {
+    return(
+      this.props.keyPoints.map( (keyPoint, index) => (
+        <KeyPoint key={keyPoint + index}
+          updateKeyPoints={this.props.updateKeyPoints}
+          index={parseInt(index)}
+          content={keyPoint} />
+      ))
+    );
+  }
+
   render() {
     return(
       <div className="lesson-form-component">
@@ -24,14 +35,9 @@ class ObjectiveForm extends React.Component {
             {this._objectivesList()}
             <span className="add-field"
               onClick={this.props.addObjective}>+ Add Objective</span>
-            <div className="lesson-details group">
-              <label>Key Points: </label>
-              <input
-                className="lesson-item title"
-                name= "keyPoint"
-                type="text"/>
-              <span>+ Add Key Point</span>
-            </div>
+            {this._keyPointsList()}
+            <span className="add-field"
+              onClick={this.props.addKeyPoint}>+ Add Key Point</span>
             <div className="lesson-details group">
               <button className="lesson-item form-submit"
                 type="submit">Submit Objective</button>
