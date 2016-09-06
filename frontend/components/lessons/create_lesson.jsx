@@ -17,7 +17,8 @@ class CreateLesson extends React.Component {
       grade: undefined,
       subject: undefined,
       date: undefined,
-      user_id: this.props.currentUser.id
+      user_id: this.props.currentUser.id,
+      objectives: [""]
     };
     this._upload = this._upload.bind(this);
     this._updateTitle =this._updateTitle.bind(this);
@@ -103,7 +104,9 @@ class CreateLesson extends React.Component {
   _objective() {
     return(
       [<Pane key="objective" label="Objective">
-        <ObjectiveForm errors={this.props.errors}/>
+        <ObjectiveForm
+          objectives={this.state.objectives}
+          errors={this.props.errors}/>
       </Pane>]
     );
   }
