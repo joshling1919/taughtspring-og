@@ -12,7 +12,7 @@ const Objective = ({ content, updateObjectives, index }) => {
         id={index}
         name= "objective"
         defaultValue={content}
-        onChange={updateObjectives}
+        onBlur={updateObjectives}
         type="text"/>
     </div>
   );

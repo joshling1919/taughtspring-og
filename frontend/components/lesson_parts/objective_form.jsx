@@ -22,7 +22,8 @@ class ObjectiveForm extends React.Component {
           <Errors errors={this.props.errors}/>
           <div className="lesson-details-container">
             {this._objectivesList()}
-            <span className="add-field">+ Add Objective</span>
+            <span className="add-field"
+              onClick={this.props.addObjective}>+ Add Objective</span>
             <div className="lesson-details group">
               <label>Key Points: </label>
               <input

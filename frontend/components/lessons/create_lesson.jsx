@@ -27,6 +27,7 @@ class CreateLesson extends React.Component {
     this._updateDate = this._updateDate.bind(this);
     this._updateObjectives = this._updateObjectives.bind(this);
     this._handleCreateLesson = this._handleCreateLesson.bind(this);
+    this._addObjective = this._addObjective.bind(this);
   }
 
   _upload(e) {
@@ -93,6 +94,11 @@ class CreateLesson extends React.Component {
     this.setState( { objectives: objectivesArr });
   }
 
+  _addObjective() {
+    this.setState({ objectives: this.state.objectives.concat([""])});
+    console.log(this.state.objectives);
+  }
+
   _essentials() {
     return(
       [<Pane key="essentials" label="Essentials">
@@ -114,6 +120,7 @@ class CreateLesson extends React.Component {
         <ObjectiveForm
           objectives={this.state.objectives}
           updateObjectives={this._updateObjectives}
+          addObjective={this._addObjective}
           errors={this.props.errors}/>
       </Pane>]
     );
