@@ -30,6 +30,7 @@ class CreateLesson extends React.Component {
     this._updateKeyPoints = this._updateKeyPoints.bind(this);
     this._handleCreateLesson = this._handleCreateLesson.bind(this);
     this._addObjective = this._addObjective.bind(this);
+    this._deleteObjective = this._deleteObjective.bind(this);
     this._addKeyPoint = this._addKeyPoint.bind(this);
   }
 
@@ -102,6 +103,13 @@ class CreateLesson extends React.Component {
     console.log(this.state.objectives);
   }
 
+  _deleteObjective(e) {
+    let objInd = parseInt(e.target.id);
+    let objectivesArr = this.state.objectives.slice();
+    objectivesArr.splice(objInd, 1);
+    this.setState( { objectives: objectivesArr });
+  }
+
   _updateKeyPoints(e) {
     let kpIndex = e.target.id;
     let keyPointsArr = this.state.key_points.slice();
@@ -135,6 +143,7 @@ class CreateLesson extends React.Component {
           objectives={this.state.objectives}
           updateObjectives={this._updateObjectives}
           addObjective={this._addObjective}
+          deleteObjective={this._deleteObjective}
           keyPoints={this.state.key_points}
           updateKeyPoints={this._updateKeyPoints}
           addKeyPoint={this._addKeyPoint}

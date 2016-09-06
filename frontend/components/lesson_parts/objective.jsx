@@ -1,8 +1,10 @@
 import React from 'react';
+import DeletePartButton from './delete_part_button';
 
 
 
-const Objective = ({ content, updateObjectives, index }) => {
+const Objective = ({ content, updateObjectives,
+  index, deleteObjective }) => {
 
   return(
     <div className="lesson-details group">
@@ -14,6 +16,8 @@ const Objective = ({ content, updateObjectives, index }) => {
         defaultValue={content}
         onBlur={updateObjectives}
         type="text"/>
+      <DeletePartButton index={index}
+        deleteObjective={deleteObjective} />
     </div>
   );
 };

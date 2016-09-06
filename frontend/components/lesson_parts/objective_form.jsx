@@ -9,6 +9,7 @@ class ObjectiveForm extends React.Component {
       this.props.objectives.map( (objective, index) => (
         <Objective key={objective + index}
           updateObjectives={this.props.updateObjectives}
+          deleteObjective={this.props.deleteObjective}
           index={parseInt(index)}
           content={objective} />
       ))
