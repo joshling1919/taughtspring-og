@@ -1,16 +1,16 @@
 .tabs {
-  border: 2px solid blue;
+  // border: 2px solid blue;
 
 }
 
 .tabs-labels {
-  border: 2px solid red;
+  // border: 2px solid red;
   display: flex;
 
   .label {
-    border: 2px solid green;
+    // border: 2px solid green;
     a {
-      border: 2px solid yellow;
+      // border: 2px solid yellow;
       text-decoration: none;
       display: inline-block;
     }
@@ -30,6 +30,6 @@
 }
 
 .pane {
-  border: 2px solid orange;
+  // border: 2px solid orange;
   list-style-type: none;
 }
