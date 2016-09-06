@@ -33,9 +33,9 @@ http://blog.eternalvigilance.me/wp-content/uploads/2013/07/The-story-of-Chess-%E
 
   Lesson.create!(
     user_id: (1..10).to_a.sample,
-    title: ["Integers", "Constitution", "Fractions", "Atoms",
-    "Culture Building", "Shakespeare", "Wuthering Heights",
-    "Decimals", "Mental Math", "Prepositions"][i],
+    title: ["Our Galaxy", "Mitosis", "Gravity", "Taxonomy",
+    "Pi is Delicious", "Suffrage, not Suffering", "First Man on the Moon",
+    "The Mayflower", "Native Americans", "The Power of Exponential Growth"][i],
     subject: %w(Math English Science Other).sample,
     grade: [6,7,8].sample,
     lesson_date: Date.new(2016,11,3),
