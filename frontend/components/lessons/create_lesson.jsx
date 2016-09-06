@@ -1,10 +1,9 @@
 import React from 'react';
 import Errors from '../errors';
-import LessonForm from './lesson_form';
+import NewLessonForm from './new_lesson_form';
 import Tabs from '../tabs/tabs';
 import Pane from '../tabs/pane';
-
-
+import ObjectiveForm from '../lesson_parts/objective_form';
 
 class CreateLesson extends React.Component {
   constructor(props){
@@ -12,9 +11,17 @@ class CreateLesson extends React.Component {
     this.state = {
       imageUrl:"http://www.nationofchange.org/wp-content/uploads/2016/05/education.jpg",
       thumbnailUrl: "",
-      numSectionTabs: 2
+      numSectionTabs: 2,
+      title: "",
+      grade: undefined,
+      subject: undefined,
+      date: undefined
     };
     this._upload = this._upload.bind(this);
+    this._updateTitle =this._updateTitle.bind(this);
+    this._updateGrade=this._updateGrade.bind(this);
+    this._updateSubject=this._updateSubject.bind(this);
+    this._updateDate=this._updateDate.bind(this);
   }
 
   _upload(e) {
@@ -38,7 +45,7 @@ class CreateLesson extends React.Component {
         user_id: this.props.currentUser.id,
         subject: this._checkForNullSubject(e),
         grade: this._checkForNullGrade(e),
-        lesson_date: e.target.lesson_date.value,
+        date: e.target.lesson_date.value,
         image_url: this.state.imageUrl,
         thumbnail_url: this.state.thumbnailUrl
       }
@@ -61,22 +68,46 @@ class CreateLesson extends React.Component {
       return e.target.subject.value;
     }
   }
-  _blankTemplate() {
-    return({
-        title: "",
-        grade: undefined,
-        subject: undefined,
-        date: undefined,
-        imageUrl: this.state.imageUrl
-      }
-    );
+  // _blankTemplate() {
+  //   return({
+  //       title: "",
+  //       grade: undefined,
+  //       subject: undefined,
+  //       date: undefined,
+  //       imageUrl: this.state.imageUrl
+  //     }
+  //   );
+  // }
+
+  _updateTitle(e){
+    this.setState({ title: e.target.value });
+    debugger;
   }
+
+  _updateGrade(e){
+    this.setState( { grade: e.target.value });
+  }
+
+  _updateSubject(e){
+
+    this.setState( { subject: e.target.value });
+  }
+
+  _updateDate(e){
+    debugger;
+    this.setState({ date: e.target.value.toString() });
+  }
+
 
   _essentials() {
     return(
       [<Pane key="essentials" label="Essentials">
-        <LessonForm template={this._blankTemplate()}
-          handleSubmit={this._handleCreateLesson.bind(this)}
+        <NewLessonForm template={this.state}
+          updateTitle={this._updateTitle}
+          updateGrade={this._updateGrade}
+          updateSubject={this._updateSubject}
+          updateDate={this._updateDate}
+          handleSubmit={this._handleCreateLesson}
           errors={this.props.errors}
           upload={this._upload}/>
       </Pane>]
@@ -86,7 +117,7 @@ class CreateLesson extends React.Component {
   _objective() {
     return(
       [<Pane key="objective" label="Objective">
-        <div>These are my objectives!</div>
+        <ObjectiveForm errors={this.props.errors}/>
       </Pane>]
     );
   }
@@ -125,9 +156,10 @@ class CreateLesson extends React.Component {
 
 
   render(){
-    const {deltaPosition, controlledPosition} = this.state;
     return(
       <div>
+        <button className="lesson-item form-submit"
+          type="submit">Submit Lesson</button>
         <Tabs selected={0}
           newSection={this._newSection.bind(this)}>
           {this._allPanes()}

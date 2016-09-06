@@ -3,7 +3,8 @@ import Errors from '../errors';
 
 import UploadPictureButton from './upload_picture_button';
 
-const LessonForm = ({template, handleSubmit, errors, upload}) => {
+const NewLessonForm = ({template, handleSubmit, errors, upload,
+  updateTitle, updateGrade, updateDate, updateSubject }) => {
     return(
       <div className="lesson-form-component">
         <form className="lesson-form" onSubmit={handleSubmit}>
@@ -18,11 +19,15 @@ const LessonForm = ({template, handleSubmit, errors, upload}) => {
                 <input defaultValue={template.title}
                   className="lesson-item title"
                   name= "title"
+                  onChange={updateTitle}
                   type="text"/>
               </div>
               <div className="lesson-details group">
                 <label>Grade Level: </label>
-                <select defaultValue={template.grade} className="lesson-item" name="grade">
+                <select defaultValue={template.grade}
+                  className="lesson-item"
+                  name="grade"
+                  onChange={updateGrade}>
                   <option className="optional" value={undefined}>(optional)</option>
                   <option value={6}>6th Grade</option>
                   <option value={7}>7th Grade</option>
@@ -31,7 +36,10 @@ const LessonForm = ({template, handleSubmit, errors, upload}) => {
               </div>
               <div className="lesson-details group">
                 <label>Subject: </label>
-                <select defaultValue={template.subject} className="lesson-item" name="subject">
+                <select defaultValue={template.subject}
+                  className="lesson-item"
+                  name="subject"
+                  onChange={updateSubject}>
                   <option className="optional" value={undefined}>(optional)</option>
                   <option value="English">English</option>
                   <option value="Math">Math</option>
@@ -46,7 +54,8 @@ const LessonForm = ({template, handleSubmit, errors, upload}) => {
                   defaultValue={template.date}
                   type="date"
                   placeholder="(optional)"
-                  name="lesson_date"></input>
+                  name="lesson_date"
+                  onChange={updateDate}></input>
               </div>
               <div className="lesson-details group">
                 <button className="lesson-item form-submit"
@@ -58,4 +67,4 @@ const LessonForm = ({template, handleSubmit, errors, upload}) => {
     );
 };
 
-export default LessonForm;
+export default NewLessonForm;
