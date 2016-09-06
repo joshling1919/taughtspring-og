@@ -10,12 +10,14 @@ import { merge } from 'lodash';
 class CreateLesson extends React.Component {
   constructor(props){
     super(props);
+    let userSubject = this.props.currentUser.subject;
+    let userGrade = this.props.currentUser.grade;
     this.state = {
       image_url:"http://www.nationofchange.org/wp-content/uploads/2016/05/education.jpg",
       thumbnail_url: "",
       title: "",
-      grade: undefined,
-      subject: undefined,
+      grade: userGrade,
+      subject: userSubject,
       lesson_date: undefined,
       user_id: this.props.currentUser.id,
       objectives: [""],
