@@ -8,11 +8,13 @@ class ObjectiveForm extends React.Component {
     return(
       this.props.objectives.map( (objective, index) => (
         <Objective key={objective + index}
+          updateObjectives={this.props.updateObjectives}
+          index={parseInt(index)}
           content={objective} />
       ))
     );
   }
-  
+
   render() {
     return(
       <div className="lesson-form-component">
@@ -20,7 +22,7 @@ class ObjectiveForm extends React.Component {
           <Errors errors={this.props.errors}/>
           <div className="lesson-details-container">
             {this._objectivesList()}
-            <span>+ Add Objective</span>
+            <span className="add-field">+ Add Objective</span>
             <div className="lesson-details group">
               <label>Key Points: </label>
               <input

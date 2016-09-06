@@ -21,10 +21,11 @@ class CreateLesson extends React.Component {
       objectives: [""]
     };
     this._upload = this._upload.bind(this);
-    this._updateTitle =this._updateTitle.bind(this);
-    this._updateGrade=this._updateGrade.bind(this);
-    this._updateSubject=this._updateSubject.bind(this);
-    this._updateDate=this._updateDate.bind(this);
+    this._updateTitle = this._updateTitle.bind(this);
+    this._updateGrade = this._updateGrade.bind(this);
+    this._updateSubject = this._updateSubject.bind(this);
+    this._updateDate = this._updateDate.bind(this);
+    this._updateObjectives = this._updateObjectives.bind(this);
     this._handleCreateLesson = this._handleCreateLesson.bind(this);
   }
 
@@ -85,6 +86,12 @@ class CreateLesson extends React.Component {
     this.setState({ date: e.target.value.toString() });
   }
 
+  _updateObjectives(e) {
+    let objIndex = e.target.id;
+    let objectivesArr = this.state.objectives.slice();
+    objectivesArr[objIndex] = e.target.value;
+    this.setState( { objectives: objectivesArr });
+  }
 
   _essentials() {
     return(
@@ -106,6 +113,7 @@ class CreateLesson extends React.Component {
       [<Pane key="objective" label="Objective">
         <ObjectiveForm
           objectives={this.state.objectives}
+          updateObjectives={this._updateObjectives}
           errors={this.props.errors}/>
       </Pane>]
     );
