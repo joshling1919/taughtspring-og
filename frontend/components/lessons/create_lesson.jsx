@@ -32,6 +32,7 @@ class CreateLesson extends React.Component {
     this._addObjective = this._addObjective.bind(this);
     this._deleteObjective = this._deleteObjective.bind(this);
     this._addKeyPoint = this._addKeyPoint.bind(this);
+    this._deleteKeyPoint = this._deleteKeyPoint.bind(this);
   }
 
   _upload(e) {
@@ -120,6 +121,13 @@ class CreateLesson extends React.Component {
   _addKeyPoint() {
     this.setState({ key_points: this.state.key_points.concat([""])});
   }
+  
+  _deleteKeyPoint(e) {
+    let kpInd = parseInt(e.target.id);
+    let keyPointsArr = this.state.key_points.slice();
+    keyPointsArr.splice(kpInd, 1);
+    this.setState( { key_points: keyPointsArr });
+  }
 
   _essentials() {
     return(
@@ -147,6 +155,7 @@ class CreateLesson extends React.Component {
           keyPoints={this.state.key_points}
           updateKeyPoints={this._updateKeyPoints}
           addKeyPoint={this._addKeyPoint}
+          deleteKeyPoint={this._deleteKeyPoint}
           errors={this.props.errors}/>
       </Pane>]
     );

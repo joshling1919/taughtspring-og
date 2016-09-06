@@ -1,8 +1,9 @@
 import React from 'react';
+import DeletePartButton from './delete_part_button';
 
 
-
-const KeyPoint = ({ content, updateKeyPoints, index }) => {
+const KeyPoint = ({ content, updateKeyPoints,
+  index, deleteKeyPoint }) => {
 
   return(
     <div className="lesson-details group">
@@ -14,6 +15,8 @@ const KeyPoint = ({ content, updateKeyPoints, index }) => {
         defaultValue={content}
         onBlur={updateKeyPoints}
         type="text"/>
+      <DeletePartButton index={index}
+        deletePart={deleteKeyPoint} />
     </div>
   );
 };

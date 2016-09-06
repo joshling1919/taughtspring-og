@@ -17,7 +17,7 @@ const Objective = ({ content, updateObjectives,
         onBlur={updateObjectives}
         type="text"/>
       <DeletePartButton index={index}
-        deleteObjective={deleteObjective} />
+        deletePart={deleteObjective} />
     </div>
   );
 };

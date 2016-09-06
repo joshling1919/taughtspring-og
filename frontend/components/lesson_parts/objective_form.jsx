@@ -21,6 +21,7 @@ class ObjectiveForm extends React.Component {
       this.props.keyPoints.map( (keyPoint, index) => (
         <KeyPoint key={keyPoint + index}
           updateKeyPoints={this.props.updateKeyPoints}
+          deleteKeyPoint={this.props.deleteKeyPoint}
           index={parseInt(index)}
           content={keyPoint} />
       ))

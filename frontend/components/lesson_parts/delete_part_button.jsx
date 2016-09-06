@@ -1,11 +1,11 @@
 import React from 'react';
 
 
-const DeletePartButton = ({ index, deleteObjective }) => {
+const DeletePartButton = ({ index, deletePart }) => {
   if ( index !== 0 ) {
     return(
       <button type="button" id={index}
-        onClick={deleteObjective}>Delete Objective</button>
+        onClick={deletePart}>Delete</button>
     );
   } else {
     return null;
