@@ -23,6 +23,7 @@ class CreateLesson extends React.Component {
     this._updateGrade=this._updateGrade.bind(this);
     this._updateSubject=this._updateSubject.bind(this);
     this._updateDate=this._updateDate.bind(this);
+    this._handleCreateLesson = this._handleCreateLesson.bind(this);
   }
 
   _upload(e) {
@@ -41,9 +42,10 @@ class CreateLesson extends React.Component {
   _handleCreateLesson(e){
     e.preventDefault();
     let lesson = { lesson: merge({},
-      this.state, { subject: this._checkforNullSubject(),
-      grade: this._checkforGrade() })
+      this.state, { subject: this._checkForNullSubject(),
+      grade: this._checkForNullGrade() })
     };
+    debugger;
     this.props.createLesson(lesson);
   }
 

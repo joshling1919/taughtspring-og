@@ -27,6 +27,7 @@ export default ({ getState, dispatch }) => next => action => {
   let successAllLessons = allLessons => dispatch(receiveAllLessons(allLessons));
   const errorCallback = xhr => {
     const errors = xhr.responseJSON;
+    debugger;
     dispatch(receiveErrors(errors));
   };
 
