@@ -10,13 +10,14 @@ class CreateLesson extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      imageUrl:"http://www.nationofchange.org/wp-content/uploads/2016/05/education.jpg",
-      thumbnailUrl: "",
+      image_url:"http://www.nationofchange.org/wp-content/uploads/2016/05/education.jpg",
+      thumbnail_url: "",
       numSectionTabs: 2,
       title: "",
       grade: undefined,
       subject: undefined,
-      date: undefined
+      date: undefined,
+      user_id: this.props.currentUser.id
     };
     this._upload = this._upload.bind(this);
     this._updateTitle =this._updateTitle.bind(this);
@@ -45,12 +46,11 @@ class CreateLesson extends React.Component {
       this.state, { subject: this._checkForNullSubject(),
       grade: this._checkForNullGrade() })
     };
-    debugger;
     this.props.createLesson(lesson);
   }
 
   _checkForNullGrade(){
-    if (this.state.grade === "(optional)") {
+    if (this.state.grade === undefined) {
       return null;
     } else {
       return this.state.grade;
@@ -58,7 +58,7 @@ class CreateLesson extends React.Component {
   }
 
   _checkForNullSubject(){
-    if (this.state.subject === "(optional)") {
+    if (this.state.subject === undefined) {
       return null;
     } else {
       return this.state.subject;
@@ -68,6 +68,7 @@ class CreateLesson extends React.Component {
 
   _updateTitle(e){
     this.setState({ title: e.target.value });
+    this.props.clearErrors();
   }
 
   _updateGrade(e){

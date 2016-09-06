@@ -57,11 +57,13 @@ class AppRouter extends React.Component {
         <IndexRoute component = { LessonsIndexContainer }
                     onEnter={this._populateIndex} />
         <Route path="create-lesson" component={ CreateLessonContainer }
-               onEnter={ this._ensureLoggedIn }/>
+               onEnter={ this._ensureLoggedIn }
+               onLeave={this._clearErrors}/>
         <Route path="lessons/:lessonId" component={ FullLessonContainer } />
         <Route path="lessons/:lessonId/edit" component={ EditLessonContainer }
                onEnter={ this._ensureLoggedIn }
-               onEnter={ this._requestLesson}/>
+               onEnter={ this._requestLesson}
+               onLeave={this._clearErrors}/>
         <Route path="/profiles/:userId" component={ ProfileContainer }
                onEnter={this._requestProfile}/>
       </Route>

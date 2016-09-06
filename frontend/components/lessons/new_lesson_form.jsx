@@ -10,7 +10,7 @@ const NewLessonForm = ({template, handleSubmit, errors, upload,
         <form className="lesson-form" onSubmit={handleSubmit}>
           <Errors errors={errors}/>
             <div className="lesson-pic-container">
-              <img className="lesson-pic" src={template.imageUrl}/>
+              <img className="lesson-pic" src={template.image_url}/>
             </div>
             <div className="lesson-details-container">
                 <UploadPictureButton upload={upload}/>
