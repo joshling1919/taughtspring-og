@@ -4,6 +4,7 @@ import NewLessonForm from './new_lesson_form';
 import Tabs from '../tabs/tabs';
 import Pane from '../tabs/pane';
 import ObjectiveForm from '../lesson_parts/objective_form';
+import SectionForm from '../lesson_parts/section_form';
 import { merge } from 'lodash';
 
 class CreateLesson extends React.Component {
@@ -12,14 +13,14 @@ class CreateLesson extends React.Component {
     this.state = {
       image_url:"http://www.nationofchange.org/wp-content/uploads/2016/05/education.jpg",
       thumbnail_url: "",
-      numSectionTabs: 2,
       title: "",
       grade: undefined,
       subject: undefined,
       lesson_date: undefined,
       user_id: this.props.currentUser.id,
       objectives: [""],
-      key_points: [""]
+      key_points: [""],
+      sections: [{}]
     };
     this._upload = this._upload.bind(this);
     this._updateTitle = this._updateTitle.bind(this);
@@ -121,7 +122,7 @@ class CreateLesson extends React.Component {
   _addKeyPoint() {
     this.setState({ key_points: this.state.key_points.concat([""])});
   }
-  
+
   _deleteKeyPoint(e) {
     let kpInd = parseInt(e.target.id);
     let keyPointsArr = this.state.key_points.slice();
@@ -164,9 +165,9 @@ class CreateLesson extends React.Component {
 
   _sections() {
     let sections = [];
-    for (let i = 0; i < this.state.numSectionTabs; i++) {
+    for (let i = 0; i < this.state.sections.length; i++) {
       sections.push(<Pane key={i} label={`section ${i}`}>
-      <button type="button">Delete Section</button>
+        <SectionForm />
     </Pane>);
     }
     return (
@@ -184,7 +185,7 @@ class CreateLesson extends React.Component {
   }
 
   _newSection() {
-    this.setState({ numSectionTabs: ++this.state.numSectionTabs });
+    this.setState({ sections: this.state.sections.concat([{}])});
   }
 
   _allPanes() {
