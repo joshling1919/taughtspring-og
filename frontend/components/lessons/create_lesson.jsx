@@ -4,6 +4,7 @@ import NewLessonForm from './new_lesson_form';
 import Tabs from '../tabs/tabs';
 import Pane from '../tabs/pane';
 import ObjectiveForm from '../lesson_parts/objective_form';
+import { merge } from 'lodash';
 
 class CreateLesson extends React.Component {
   constructor(props){
@@ -39,49 +40,32 @@ class CreateLesson extends React.Component {
 
   _handleCreateLesson(e){
     e.preventDefault();
-    let lesson = { lesson:
-      {
-        title: e.target.title.value,
-        user_id: this.props.currentUser.id,
-        subject: this._checkForNullSubject(e),
-        grade: this._checkForNullGrade(e),
-        date: e.target.lesson_date.value,
-        image_url: this.state.imageUrl,
-        thumbnail_url: this.state.thumbnailUrl
-      }
+    let lesson = { lesson: merge({},
+      this.state, { subject: this._checkforNullSubject(),
+      grade: this._checkforGrade() })
     };
     this.props.createLesson(lesson);
   }
 
-  _checkForNullGrade(e){
-    if (e.target.grade.value === "(optional)") {
+  _checkForNullGrade(){
+    if (this.state.grade === "(optional)") {
       return null;
     } else {
-      return e.target.grade.value;
+      return this.state.grade;
     }
   }
 
-  _checkForNullSubject(e){
-    if (e.target.subject.value === "(optional)") {
+  _checkForNullSubject(){
+    if (this.state.subject === "(optional)") {
       return null;
     } else {
-      return e.target.subject.value;
+      return this.state.subject;
     }
   }
-  // _blankTemplate() {
-  //   return({
-  //       title: "",
-  //       grade: undefined,
-  //       subject: undefined,
-  //       date: undefined,
-  //       imageUrl: this.state.imageUrl
-  //     }
-  //   );
-  // }
+
 
   _updateTitle(e){
     this.setState({ title: e.target.value });
-    debugger;
   }
 
   _updateGrade(e){
@@ -94,7 +78,6 @@ class CreateLesson extends React.Component {
   }
 
   _updateDate(e){
-    debugger;
     this.setState({ date: e.target.value.toString() });
   }
 
