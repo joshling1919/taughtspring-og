@@ -20,7 +20,7 @@ class CreateLesson extends React.Component {
       user_id: this.props.currentUser.id,
       objectives: [""],
       key_points: [""],
-      sections: [{}]
+      sections: [{ name: "", description: ""}]
     };
     this._upload = this._upload.bind(this);
     this._updateTitle = this._updateTitle.bind(this);
@@ -34,6 +34,7 @@ class CreateLesson extends React.Component {
     this._deleteObjective = this._deleteObjective.bind(this);
     this._addKeyPoint = this._addKeyPoint.bind(this);
     this._deleteKeyPoint = this._deleteKeyPoint.bind(this);
+    this._updateSectionField = this._updateSectionField.bind(this);
   }
 
   _upload(e) {
@@ -167,7 +168,9 @@ class CreateLesson extends React.Component {
     let sections = [];
     for (let i = 0; i < this.state.sections.length; i++) {
       sections.push(<Pane key={i} label={`section ${i}`}>
-        <SectionForm />
+        <SectionForm section={this.state.sections[i]}
+          updateSectionField={this._updateSectionField}
+          index={i} />
     </Pane>);
     }
     return (
@@ -187,6 +190,16 @@ class CreateLesson extends React.Component {
   _newSection() {
     this.setState({ sections: this.state.sections.concat([{}])});
   }
+
+  _updateSectionField(e) {
+    let ind = parseInt(e.target.id);
+    let name = e.target.name;
+    let sectionsArr = this.state.sections.slice();
+    sectionsArr[ind][name] = e.target.value;
+    this.setState( { sections : sectionsArr });
+  }
+
+
 
   _allPanes() {
     return(
