@@ -11,10 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160906193131) do
+ActiveRecord::Schema.define(version: 20160906224636) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "cfus", force: :cascade do |t|
+    t.string   "question"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "section_id", null: false
+    t.string   "answer"
+  end
+
+  add_index "cfus", ["section_id"], name: "index_cfus_on_section_id", using: :btree
 
   create_table "key_points", force: :cascade do |t|
     t.integer  "lesson_id",  null: false
@@ -39,6 +49,15 @@ ActiveRecord::Schema.define(version: 20160906193131) do
 
   add_index "lessons", ["title"], name: "index_lessons_on_title", using: :btree
   add_index "lessons", ["user_id"], name: "index_lessons_on_user_id", using: :btree
+
+  create_table "misconceptions", force: :cascade do |t|
+    t.string   "misconception"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.integer  "section_id",    null: false
+  end
+
+  add_index "misconceptions", ["section_id"], name: "index_misconceptions_on_section_id", using: :btree
 
   create_table "objectives", force: :cascade do |t|
     t.integer  "lesson_id",   null: false

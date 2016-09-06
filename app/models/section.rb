@@ -15,4 +15,6 @@ class Section < ActiveRecord::Base
   validates :lesson_id, presence: true
 
   belongs_to :lesson, dependent: :destroy
+  has_many :cfus
+  has_many :misconceptions 
 end
