@@ -10,6 +10,29 @@ class LessonForm extends React.Component {
     this.props.updateTitle(e.target.value);
   }
 
+  _updateSubject(e){
+    e.preventDefault();
+    if (e.target.value === "(optional)" ) {
+      this.props.updateSubject(null);
+    } else {
+      this.props.updateSubject(e.target.value);
+    }
+  }
+
+  _updateGrade(e) {
+    e.preventDefault();
+    if (e.target.value === "(optional)") {
+      this.props.updateGrade(null);
+    } else {
+      this.props.updateGrade(parseInt(e.target.value));
+    }
+  }
+
+  _updateDate(e){
+    e.preventDefault();
+    this.props.updateDate(e.target.value);
+  }
+  
   render() {
     const { template, handleSubmit, errors,
       upload } = this.props;
@@ -32,7 +55,10 @@ class LessonForm extends React.Component {
             </div>
             <div className="lesson-details group">
               <label>Grade Level: </label>
-              <select defaultValue={template.grade} className="lesson-item" name="grade">
+              <select defaultValue={template.grade}
+                className="lesson-item"
+                name="grade"
+                onChange={this._updateGrade.bind(this)}>
                 <option className="optional" value={undefined}>(optional)</option>
                 <option value={6}>6th Grade</option>
                 <option value={7}>7th Grade</option>
@@ -41,7 +67,10 @@ class LessonForm extends React.Component {
             </div>
             <div className="lesson-details group">
               <label>Subject: </label>
-              <select defaultValue={template.subject} className="lesson-item" name="subject">
+              <select defaultValue={template.subject}
+                className="lesson-item"
+                name="subject"
+                onChange={this._updateSubject.bind(this)}>
                 <option className="optional" value={undefined}>(optional)</option>
                 <option value="English">English</option>
                 <option value="Math">Math</option>
@@ -56,7 +85,8 @@ class LessonForm extends React.Component {
                 defaultValue={template.date}
                 type="date"
                 placeholder="(optional)"
-                name="lesson_date"></input>
+                name="lesson_date"
+                onChange={this._updateDate.bind(this)}></input>
             </div>
             <div className="lesson-details group">
               <button className="lesson-item form-submit"

@@ -1,7 +1,11 @@
 import { connect } from 'react-redux';
 import LessonForm from './lesson_form';
 
-import { updateTitle } from '../../actions/lessons_actions';
+import { updateTitle,
+         updateSubject,
+         updateGrade,
+         updateDate
+       } from '../../actions/lessons_actions';
 
 import { clearErrors } from '../../actions/errors_actions';
 
@@ -11,7 +15,10 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  updateTitle: title => dispatch(clearErrors())
+  updateTitle: title => dispatch(updateTitle(title)),
+  updateSubject: subject => dispatch(updateSubject(subject)),
+  updateGrade: grade => dispatch(updateGrade(grade)),
+  updateDate: date => dispatch(updateDate(date))
 });
 
 

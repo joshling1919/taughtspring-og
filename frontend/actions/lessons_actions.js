@@ -10,7 +10,10 @@ export const LessonsConstants = {
   DELETE_LESSON: "DELETE_LESSON",
   CONFIRM_DELETE: "CONFIRM_DELETE",
   UPDATE_PICTURE: "UPDATE_PICTURE",
-  UPDATE_TITLE: "UPDATE_TITLE"
+  UPDATE_TITLE: "UPDATE_TITLE",
+  UPDATE_SUBJECT: "UPDATE_SUBJECT",
+  UPDATE_GRADE: "UPDATE_GRADE",
+  UPDATE_DATE: "UPDATE_DATE"
 };
 
 export const requestAllLessons = () => ({
@@ -69,4 +72,19 @@ export const confirmDelete = () => ({
 export const updateTitle = title => ({
   type: LessonsConstants.UPDATE_TITLE,
   title
+});
+
+export const updateSubject = subject => ({
+  type: LessonsConstants.UPDATE_SUBJECT,
+  subject
+});
+
+export const updateGrade = grade => ({
+  type: LessonsConstants.UPDATE_GRADE,
+  grade
+});
+
+export const updateDate = date => ({
+  type: LessonsConstants.UPDATE_DATE,
+  date
 });

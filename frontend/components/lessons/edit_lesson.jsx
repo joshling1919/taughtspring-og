@@ -1,6 +1,6 @@
 import React from 'react';
 import Errors from '../errors';
-import LessonForm from './lesson_form';
+import LessonFormContainer from './lesson_form_container';
 import { merge } from 'lodash';
 
 class EditLesson extends React.Component {
@@ -15,11 +15,11 @@ class EditLesson extends React.Component {
     let lesson = { lesson:
       {
         id: this.props.params.lessonId,
-        title: e.target.title.value,
+        title: this.props.singleLesson.title,
         user_id: this.props.currentUser.id,
-        subject: this._checkForNullSubject(e),
-        grade: this._checkForNullGrade(e),
-        lesson_date: e.target.lesson_date.value,
+        subject: this.props.singleLesson.subject,
+        grade: this.props.singleLesson.grade,
+        lesson_date: this.props.singleLesson.date,
         image_url: this.props.singleLesson.image_url,
         thumbnail_url: this.props.singleLesson.thumbnail_url
       }
@@ -42,23 +42,6 @@ class EditLesson extends React.Component {
     cloudinary.openUploadWidget(CLOUDINARY_OPTIONS, this.uploadCallback);
   }
 
-  _checkForNullGrade(e){
-    if (e.target.grade.value === "(optional)") {
-      return null;
-    } else {
-      return e.target.grade.value;
-    }
-  }
-
-
-  _checkForNullSubject(e){
-    if (e.target.subject.value === "(optional)") {
-      return null;
-    } else {
-      return e.target.subject.value;
-    }
-  }
-
 
   render(){
     let template;
@@ -71,7 +54,7 @@ class EditLesson extends React.Component {
         imageUrl: this.props.singleLesson.image_url
       };
       return(
-        <LessonForm template={template}
+        <LessonFormContainer template={template}
           handleSubmit={this._handleUpdateLesson.bind(this)}
           errors={this.props.errors}
           upload={this._upload.bind(this)}
