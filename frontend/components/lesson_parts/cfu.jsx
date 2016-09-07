@@ -4,7 +4,6 @@ const CFU = ({ question, answer, sectionIndex, cfuIndex,
   updateCFU, deleteCFU }) => {
   return (
     <div>
-      <form>
         <label>Question: </label>
         <input
           className="questioncfu"
@@ -21,7 +20,6 @@ const CFU = ({ question, answer, sectionIndex, cfuIndex,
           name={cfuIndex}
           onBlur={updateCFU}
           type="text"/>
-      </form>
       <button type="button"
         id={sectionIndex}
         name={cfuIndex}

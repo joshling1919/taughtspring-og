@@ -21,4 +21,6 @@ class Lesson < ActiveRecord::Base
   has_many :objectives
   has_many :key_points
   has_many :sections
+  has_many :misconceptions, through: :sections
+  has_many :cfus, through: :sections
 end
