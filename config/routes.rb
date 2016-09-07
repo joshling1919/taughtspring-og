@@ -3,9 +3,11 @@ Rails.application.routes.draw do
   namespace :api, defaults: {format: :json} do
     resources :users, only: [:create, :show]
     resource :session, only: [:create, :destroy]
-    resources :lessons, only: [:create, :update, :destroy, :index, :show] 
-    resources :objectives, only: [:create]
-    resources :key_points, only: [:create]
+    resources :lessons, only: [:create, :update, :destroy, :index, :show]
+    resources :objectives, only: [:create, :destroy]
+    resources :key_points, only: [:create, :destroy]
     resources :sections, only: [:create, :update, :destroy]
+    resources :cfus, only: [:destroy]
+    resources :misconceptions, only: [:destroy]
   end
 end

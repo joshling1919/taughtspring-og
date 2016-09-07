@@ -12,5 +12,5 @@
 class KeyPoint < ActiveRecord::Base
   validates :lesson_id, presence: true
 
-  belongs_to :lesson, dependent: :destroy
+  belongs_to :lesson
 end

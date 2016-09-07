@@ -49,9 +49,9 @@ class Tabs extends React.Component {
 
 handleClick(index, e) {
   e.preventDefault();
-  if ((this.props.children.length - 1)  === index) {
-    this.props.newSection();
-  }
+  // if ((this.props.children.length - 1)  === index) {
+  //   this.props.newSection();
+  // }
   this.setState({
     selected: index
   });

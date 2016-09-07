@@ -2,6 +2,7 @@ import { LessonsConstants,
          receiveAllLessons,
          receiveLesson,
          receiveUpdateLesson,
+         requestLesson,
          confirmDelete
        } from '../actions/lessons_actions';
 
@@ -9,7 +10,8 @@ import { fetchAllLessons,
          createLesson,
          fetchLesson,
          updateLesson,
-         deleteLesson
+         deleteLesson,
+         deleteObjective
        } from '../util/lessons_api_util';
 
 import { requestProfile } from '../actions/profile_actions';
@@ -24,6 +26,7 @@ import { push } from 'react-router-redux';
 export default ({ getState, dispatch }) => next => action => {
   let successSingleLesson = lesson => dispatch(receiveLesson(lesson));
   let successSingleUpdateLesson = lesson => dispatch(receiveUpdateLesson(lesson));
+  let successUpdate = (obj) => dispatch(requestLesson(obj.lesson_id));
   let successAllLessons = allLessons => dispatch(receiveAllLessons(allLessons));
   const errorCallback = xhr => {
     const errors = xhr.responseJSON;
@@ -54,6 +57,10 @@ export default ({ getState, dispatch }) => next => action => {
       return next(action);
     case LessonsConstants.CONFIRM_DELETE:
       dispatch(requestProfile(getState().session.currentUser.id));
+      return next(action);
+    case LessonsConstants.DELETE_OBJECTIVE:
+      deleteObjective(action.objectiveId, successUpdate);
+      return next(action);
     default:
       return next(action);
   }

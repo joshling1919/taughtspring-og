@@ -9,8 +9,12 @@ class EditObjective extends React.Component {
       e.target.value);
   }
 
+  _deleteObjective(e){
+    this.props.deleteObjective(this.props.objId);
+  }
+
   render() {
-    if (this.props.objective.description) {
+    if (this.props.objective) {
       return(
         <div className="lesson-details group">
           <label>Objective: </label>
@@ -21,6 +25,9 @@ class EditObjective extends React.Component {
             onChange={this._updateObjective.bind(this)}
             id={this.props.index}
             type="text"/>
+          <button type="button"
+            onClick={this._deleteObjective.bind(this)}>Delete</button>
+
         </div>
       );
     } else {

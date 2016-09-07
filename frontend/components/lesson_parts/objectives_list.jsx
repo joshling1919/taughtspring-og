@@ -3,15 +3,19 @@ import EditObjectiveContainer from './edit_objective_container';
 import { uniqueId } from 'lodash';
 
 class ObjectivesList extends React.Component {
+
   _list() {
     return(
-      this.props.objectives.map( (objective, index) => (
-        <EditObjectiveContainer
-          objective={objective}
-          key={objective.id} index={index}/>
-      ))
-    );
-  }
+      this.props.objectives.map( (objective, index) => {
+          return(
+            <EditObjectiveContainer
+              objective={objective}
+              objId={objective.id}
+              key={objective.created_at} index={index}/>
+          );
+        }
+      ));
+    }
   render() {
     return(
       <div>

@@ -18,9 +18,12 @@ class Lesson < ActiveRecord::Base
   validates :user_id, :title, presence: true
 
   belongs_to :user
-  has_many :objectives
-  has_many :key_points
-  has_many :sections
+  has_many :objectives, inverse_of: :lesson, dependent: :destroy
+  has_many :key_points, inverse_of: :lesson, dependent: :destroy
+  has_many :sections, inverse_of: :lesson, dependent: :destroy
   has_many :misconceptions, through: :sections
   has_many :cfus, through: :sections
+
+  accepts_nested_attributes_for :objectives, :key_points, :sections,
+    :misconceptions, :cfus
 end

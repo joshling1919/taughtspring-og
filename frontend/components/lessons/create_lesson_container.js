@@ -1,13 +1,19 @@
 import { connect } from 'react-redux';
-import CreateLesson from './create_lesson';
+import LessonForm from './lesson_form';
 
 import { createLesson } from '../../actions/lessons_actions';
 
 import { clearErrors } from '../../actions/errors_actions';
 
+
+const selectedLesson = {
+
+};
 const mapStateToProps = state => ({
   currentUser: state.session.currentUser,
-  errors: state.errors
+  errors: state.errors,
+  selectedLesson
+
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -18,4 +24,4 @@ const mapDispatchToProps = dispatch => ({
 
 export default connect(
   mapStateToProps, mapDispatchToProps
-)(CreateLesson);
+)(LessonForm);

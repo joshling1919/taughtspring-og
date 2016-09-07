@@ -1,7 +1,9 @@
 import { connect } from 'react-redux';
 import EditObjective from './edit_objective';
 
-import { updateObjective } from '../../actions/lessons_actions';
+import { updateObjective,
+         deleteObjective
+       } from '../../actions/lessons_actions';
 
 // const mapStateToProps = state => ({
 //   currentUser: state.session.currentUser,
@@ -9,8 +11,8 @@ import { updateObjective } from '../../actions/lessons_actions';
 // });
 
 const mapDispatchToProps = dispatch => ({
-  updateObjective: (index,
-    description) => dispatch(updateObjective(index, description))
+  updateObjective: (index, description) => dispatch(updateObjective(index, description)),
+  deleteObjective: objectiveId => dispatch(deleteObjective(objectiveId))
 });
 
 

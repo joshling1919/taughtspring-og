@@ -44,3 +44,14 @@ export const deleteLesson = function(lessonId, success) {
     }
   });
 };
+
+export const deleteObjective = function(objectiveId, success) {
+  $.ajax({
+    method: 'DELETE',
+    url: `/api/objectives/${objectiveId}`,
+    success,
+    error: () => {
+      console.log('Deleting Error');
+    }
+  });
+};
