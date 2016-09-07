@@ -4,14 +4,19 @@ import { uniqueId } from 'lodash';
 
 class ObjectivesList extends React.Component {
 
+  _addObjective(e){
+    this.props.addObjective(this.props.singleLesson.id);
+  }
+
   _list() {
     return(
       this.props.objectives.map( (objective, index) => {
           return(
-            <EditObjectiveContainer
-              objective={objective}
-              objId={objective.id}
-              key={objective.created_at} index={index}/>
+              <EditObjectiveContainer
+                objective={objective}
+                objId={objective.id}
+                key={objective.created_at} index={index}/>
+
           );
         }
       ));
@@ -20,6 +25,10 @@ class ObjectivesList extends React.Component {
     return(
       <div>
         {this._list()}
+        <button type="button"
+          onClick={this._addObjective.bind(this)}>
+          Add Objective
+        </button>
       </div>
     );
   }

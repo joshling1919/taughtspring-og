@@ -1,8 +1,9 @@
 import { LessonsConstants } from '../actions/lessons_actions';
-import { merge } from 'lodash';
+import { merge, uniqueId } from 'lodash';
 
 
 const SingleLessonReducer = function(singleLessonState = {}, action){
+  let singleLessonCopy = merge({}, singleLessonState);
   switch(action.type){
     case LessonsConstants.RECEIVE_LESSON:
     case LessonsConstants.RECEIVE_UPDATE_LESSON:
@@ -17,7 +18,6 @@ const SingleLessonReducer = function(singleLessonState = {}, action){
     case LessonsConstants.UPDATE_DATE:
       return merge({}, singleLessonState, { lesson_date: action.date });
     case LessonsConstants.UPDATE_OBJECTIVE:
-      let singleLessonCopy = merge({}, singleLessonState);
       singleLessonCopy.objectives[action.index].description = action.description;
       return merge({}, singleLessonState, singleLessonCopy);
     default:

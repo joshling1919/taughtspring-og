@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import LessonForm from './lesson_form';
+import CreateLesson from './create_lesson';
 
 import { createLesson } from '../../actions/lessons_actions';
 
@@ -24,4 +24,4 @@ const mapDispatchToProps = dispatch => ({
 
 export default connect(
   mapStateToProps, mapDispatchToProps
-)(LessonForm);
+)(CreateLesson);

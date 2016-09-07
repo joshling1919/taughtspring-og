@@ -1,349 +1,105 @@
 import React from 'react';
 import Errors from '../errors';
-import NewLessonForm from './new_lesson_form';
-import Tabs from '../tabs/tabs';
-import Pane from '../tabs/pane';
-import ObjectiveForm from '../lesson_parts/objective_form';
-import SectionForm from '../lesson_parts/section_form';
-import { merge } from 'lodash';
+
+import UploadPictureButton from './upload_picture_button';
 
 class LessonForm extends React.Component {
-  constructor(props){
-    super(props);
-    let userSubject = this.props.currentUser.subject;
-    let userGrade = this.props.currentUser.grade;
-    this.incrementer = 11;
-    this.state = {
-      image_url:"http://www.nationofchange.org/wp-content/uploads/2016/05/education.jpg",
-      thumbnail_url: this.props.selectedLesson.url,
-      title: "",
-      grade: userGrade,
-      subject: userSubject,
-      lesson_date: undefined,
-      user_id: this.props.currentUser.id,
-      objectives: [{ description: "", uniq: 0 }],
-      key_points: [{ point: "", uniq: 1 }],
-      sections: [{ name: "", description: "",
-        misconceptions: [], cfus: [], uniq:2 }]
-    };
-    this._upload = this._upload.bind(this);
-    this._updateTitle = this._updateTitle.bind(this);
-    this._updateGrade = this._updateGrade.bind(this);
-    this._updateSubject = this._updateSubject.bind(this);
-    this._updateDate = this._updateDate.bind(this);
-    this._updateObjectives = this._updateObjectives.bind(this);
-    this._updateKeyPoints = this._updateKeyPoints.bind(this);
-    this._handleCreateLesson = this._handleCreateLesson.bind(this);
-    this._addObjective = this._addObjective.bind(this);
-    this._deleteObjective = this._deleteObjective.bind(this);
-    this._addKeyPoint = this._addKeyPoint.bind(this);
-    this._deleteKeyPoint = this._deleteKeyPoint.bind(this);
-    this._updateSectionField = this._updateSectionField.bind(this);
-    this._deleteSection = this._deleteSection.bind(this);
-    this._addMisconception = this._addMisconception.bind(this);
-    this._updateMisconception = this._updateMisconception.bind(this);
-    this._deleteMisconception = this._deleteMisconception.bind(this);
-    this._addCFU = this._addCFU.bind(this);
-    this._updateCFU = this._updateCFU.bind(this);
-    this._deleteCFU = this._deleteCFU.bind(this);
-  }
-
-  _deleteMisconception(e) {
-    let sectionIndex = parseInt(e.target.id);
-    let misconceptionIndex = parseInt(e.target.name);
-    let newSections = JSON.parse(JSON.stringify(this.state.sections));
-    let newSection = newSections[sectionIndex];
-    let newMisconceptions = newSection.misconceptions;
-    newMisconceptions.splice(misconceptionIndex, 1);
-    newSection.misconceptions = newMisconceptions;
-    newSections[sectionIndex] = newSection;
-    this.setState({ sections: newSections });
-
-  }
-
-  _updateMisconception(e){
-    let sectionIndex = parseInt(e.target.id);
-    let misconceptionIndex = parseInt(e.target.name);
-    let newSections = JSON.parse(JSON.stringify(this.state.sections));
-    let newSection = newSections[sectionIndex];
-    let newMisconceptions = newSection.misconceptions;
-    newMisconceptions[misconceptionIndex].misconception = e.target.value;
-    newSection.misconceptions = newMisconceptions;
-    newSections[sectionIndex] = newSection;
-    this.setState({ sections: newSections });
-  }
-
-
-  _addMisconception(e) {
-    let sectionIndex = parseInt(e.target.id);
-    let newSections = JSON.parse(JSON.stringify(this.state.sections));
-    let newSection = newSections[sectionIndex];
-    let newMisconceptions = newSection.misconceptions;
-    newMisconceptions = newMisconceptions.concat([
-      { misconception:"", uniq: this.incrementer }
-    ]);
-    newSection.misconceptions = newMisconceptions;
-    newSections[sectionIndex] = newSection;
-    this.setState({ sections: newSections });
-    this.incrementer++;
-  }
-
-  _deleteCFU(e) {
-    let sectionIndex = parseInt(e.target.id);
-    let cfuIndex = parseInt(e.target.name);
-    let newSections = JSON.parse(JSON.stringify(this.state.sections));
-    let newSection = newSections[sectionIndex];
-    let newCFUs = newSection.cfus;
-    newCFUs.splice(cfuIndex, 1);
-    newSection.cfus = newCFUs;
-    newSections[sectionIndex] = newSection;
-    this.setState({ sections: newSections });
-
-  }
-
-  _updateCFU(e){
-    let sectionIndex = parseInt(e.target.id);
-    let cfuIndex = parseInt(e.target.name);
-    let newSections = JSON.parse(JSON.stringify(this.state.sections));
-    let newSection = newSections[sectionIndex];
-    let newCFUs = newSection.cfus;
-    if (e.target.className === "questioncfu") {
-      newCFUs[cfuIndex].question = e.target.value;
-    } else {
-      newCFUs[cfuIndex].answer = e.target.value;
-    }
-    newSection.cfus = newCFUs;
-    newSections[sectionIndex] = newSection;
-    this.setState({ sections: newSections });
-  }
-
-
-  _addCFU(e) {
-    let sectionIndex = parseInt(e.target.id);
-    let newSections = JSON.parse(JSON.stringify(this.state.sections));
-    let newSection = newSections[sectionIndex];
-    let newCFUs = newSection.cfus;
-    newCFUs = newCFUs.concat([{ question: "",
-      answer:"", uniq: this.incrementer}]);
-    newSection.cfus = newCFUs;
-    newSections[sectionIndex] = newSection;
-    this.setState({ sections: newSections });
-    this.incrementer++;
-  }
-
-  _upload(e) {
-    e.preventDefault();
-    let self = this;
-    cloudinary.openUploadWidget(CLOUDINARY_OPTIONS, (error, results) => {
-      if(!error) {
-        self.setState({
-          image_url: results[0].url,
-          thumbnail_url: results[0].thumbnail_url
-        });
-      }
-    });
-  }
-
-  _handleCreateLesson(e){
-    e.preventDefault();
-    let lesson = { lesson: merge({},
-      this.state, { subject: this._checkForNullSubject(),
-      grade: this._checkForNullGrade() })
-    };
-    this.props.createLesson(lesson);
-  }
-
-  _checkForNullGrade(){
-    if (this.state.grade === undefined) {
-      return null;
-    } else {
-      return this.state.grade;
-    }
-  }
-
-
-
-  _checkForNullSubject(){
-    if (this.state.subject === undefined) {
-      return null;
-    } else {
-      return this.state.subject;
-    }
-  }
-
 
   _updateTitle(e){
-    this.setState({ title: e.target.value });
-    this.props.clearErrors();
-  }
-
-  _updateGrade(e){
-    this.setState( { grade: e.target.value });
+    e.preventDefault();
+    this.props.updateTitle(e.target.value);
   }
 
   _updateSubject(e){
+    e.preventDefault();
+    if (e.target.value === "(optional)" ) {
+      this.props.updateSubject(null);
+    } else {
+      this.props.updateSubject(e.target.value);
+    }
+  }
 
-    this.setState( { subject: e.target.value });
+  _updateGrade(e) {
+    e.preventDefault();
+    if (e.target.value === "(optional)") {
+      this.props.updateGrade(null);
+    } else {
+      this.props.updateGrade(parseInt(e.target.value));
+    }
   }
 
   _updateDate(e){
-    this.setState({ lesson_date: e.target.value.toString() });
+    e.preventDefault();
+    this.props.updateDate(e.target.value);
   }
 
-  _updateObjectives(e) {
-    let objIndex = e.target.id;
-    let objectivesArr = this.state.objectives.slice();
-    objectivesArr[objIndex].description = e.target.value;
-    this.setState( { objectives: objectivesArr });
-  }
-
-  _addObjective() {
-    this.setState({ objectives: this.state.objectives.concat([
-        { description: "", uniq: this.incrementer}
-      ])
-    });
-    this.incrementer++;
-  }
-
-  _deleteObjective(e) {
-    let objInd = parseInt(e.target.id);
-    let objectivesArr = this.state.objectives.slice();
-    objectivesArr.splice(objInd, 1);
-    this.setState( { objectives: objectivesArr });
-  }
-
-  _updateKeyPoints(e) {
-    let kpIndex = e.target.id;
-    let keyPointsArr = this.state.key_points.slice();
-    keyPointsArr[kpIndex].point = e.target.value;
-    this.setState( { key_points: keyPointsArr });
-  }
-
-  _addKeyPoint() {
-    this.setState({ key_points: this.state.key_points.concat([
-        { point: "", uniq: this.incrementer }
-      ])
-    });
-    this.incrementer++;
-  }
-
-  _deleteKeyPoint(e) {
-    let kpInd = parseInt(e.target.id);
-    let keyPointsArr = this.state.key_points.slice();
-    keyPointsArr.splice(kpInd, 1);
-    this.setState( { key_points: keyPointsArr });
-  }
-
-  _essentials() {
-    return(
-      [<Pane key="essentials" label="Essentials">
-        <NewLessonForm template={this.state}
-          updateTitle={this._updateTitle}
-          updateGrade={this._updateGrade}
-          updateSubject={this._updateSubject}
-          updateDate={this._updateDate}
-          handleSubmit={this._handleCreateLesson}
-          errors={this.props.errors}
-          upload={this._upload}/>
-      </Pane>]
-    );
-  }
-
-  _objective() {
-    return(
-      [<Pane key="objective" label="Objective">
-        <ObjectiveForm
-          objectives={this.state.objectives}
-          updateObjectives={this._updateObjectives}
-          addObjective={this._addObjective}
-          deleteObjective={this._deleteObjective}
-          keyPoints={this.state.key_points}
-          updateKeyPoints={this._updateKeyPoints}
-          addKeyPoint={this._addKeyPoint}
-          deleteKeyPoint={this._deleteKeyPoint}
-          errors={this.props.errors}/>
-      </Pane>]
-    );
-  }
-
-
-  _sections() {
-    let sections = [];
-    for (let i = 0; i < this.state.sections.length; i++) {
-      sections.push(<Pane key={this.state.sections[i].uniq}
-        label={this.state.sections[i].name}>
-        <SectionForm section={this.state.sections[i]}
-          updateSectionField={this._updateSectionField}
-          deleteSection={this._deleteSection}
-          misconceptions={this.state.sections[i].misconceptions}
-          addMisconception={this._addMisconception}
-          updateMisconception={this._updateMisconception}
-          deleteMisconception={this._deleteMisconception}
-          cfus={this.state.sections[i].cfus}
-          addCFU={this._addCFU}
-          updateCFU={this._updateCFU}
-          deleteCFU={this._deleteCFU}
-          index={i} />
-    </Pane>);
+  render() {
+    const { handleSubmit, errors, upload, singleLesson } = this.props;
+    if (Object.keys(singleLesson).length === 0
+      && singleLesson.constructor === Object) {
+      return null;
+    } else {
+      return(
+        <div className="lesson-form-component">
+          <form className="lesson-form" onSubmit={handleSubmit}>
+            <Errors errors={errors}/>
+            <div className="lesson-pic-container">
+              <img className="lesson-pic" src={singleLesson.image_url}/>
+            </div>
+            <div className="lesson-details-container">
+              <UploadPictureButton upload={upload}/>
+              <div className="lesson-details group">
+                <label>Title: </label>
+                <input defaultValue={singleLesson.title}
+                  className="lesson-item title"
+                  name= "title"
+                  onChange={this._updateTitle.bind(this)}
+                  type="text"/>
+              </div>
+              <div className="lesson-details group">
+                <label>Grade Level: </label>
+                <select defaultValue={singleLesson.grade}
+                  className="lesson-item"
+                  name="grade"
+                  onChange={this._updateGrade.bind(this)}>
+                  <option className="optional" value={undefined}>(optional)</option>
+                  <option value={6}>6th Grade</option>
+                  <option value={7}>7th Grade</option>
+                  <option value={8}>8th Grade</option>
+                </select>
+              </div>
+              <div className="lesson-details group">
+                <label>Subject: </label>
+                <select defaultValue={singleLesson.subject}
+                  className="lesson-item"
+                  name="subject"
+                  onChange={this._updateSubject.bind(this)}>
+                  <option className="optional" value={undefined}>(optional)</option>
+                  <option value="English">English</option>
+                  <option value="Math">Math</option>
+                  <option value="Science">Science</option>
+                  <option value="Social Studies">Social Studies</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+              <div className="lesson-details group">
+                <label>Lesson Date: </label>
+                <input className="lesson-item"
+                  defaultValue={singleLesson.lesson_date}
+                  type="date"
+                  placeholder="(optional)"
+                  name="lesson_date"
+                  onChange={this._updateDate.bind(this)}></input>
+              </div>
+              <div className="lesson-details group">
+                <button className="lesson-item form-submit"
+                  type="submit">Submit Lesson</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      );
     }
-    return (
-      sections
-    );
-  }
-
-
-  _addSection() {
-    return(
-      <Pane
-        key="addSection"
-        label="+ Add Section" />
-    );
-  }
-
-  _newSection() {
-    this.setState({
-      sections: this.state.sections.concat([{name: "",
-        description: "", misconceptions:[],
-        cfus:[], uniq: this.incrementer}]
-      )
-    });
-    this.incrementer++;
-  }
-
-  _updateSectionField(e) {
-    let ind = parseInt(e.target.id);
-    let name = e.target.name;
-    let sectionsArr = this.state.sections.slice();
-    sectionsArr[ind][name] = e.target.value;
-    this.setState( { sections : sectionsArr });
-  }
-
-  _deleteSection(e) {
-    let ind = parseInt(e.target.id);
-    let sectionsArr = this.state.sections.slice();
-    sectionsArr.splice(ind, 1);
-    this.setState( { sections: sectionsArr });
-  }
-
-
-  _allPanes() {
-    return(
-      this._essentials().concat(this._objective(), this._sections(), this._addSection())
-    );
-  }
-
-
-  render(){
-    return(
-      <div>
-        <button className="lesson-item form-submit"
-          type="submit">Submit Lesson</button>
-        <Tabs selected={0}
-          newSection={this._newSection.bind(this)}>
-          {this._allPanes()}
-        </Tabs>
-      </div>
-    );
   }
 }
 

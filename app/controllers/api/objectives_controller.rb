@@ -1,12 +1,8 @@
 class Api::ObjectivesController < ApplicationController
-  # def create
-  #   @objective = Objective.new(objective_params)
-  #   if @objective.save
-  #     render :show
-  #   else
-  #     render json: @objective.errors.full_messages, status: 422
-  #   end
-  # end
+  def create
+    @objective = Objective.create(objective_params)
+    render :destroy
+  end
 
   def destroy
     @objective = Objective.find(params[:id])

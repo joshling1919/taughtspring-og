@@ -11,7 +11,8 @@ import { fetchAllLessons,
          fetchLesson,
          updateLesson,
          deleteLesson,
-         deleteObjective
+         deleteObjective,
+         createObjective
        } from '../util/lessons_api_util';
 
 import { requestProfile } from '../actions/profile_actions';
@@ -50,7 +51,7 @@ export default ({ getState, dispatch }) => next => action => {
       updateLesson(action.lesson, successSingleLesson, errorCallback);
       return next(action);
     case LessonsConstants.RECEIVE_LESSON:
-      dispatch(push(`/lessons/${action.lesson.id}`));
+      // dispatch(push(`/lessons/${action.lesson.id}`));
       return next(action);
     case LessonsConstants.DELETE_LESSON:
       deleteLesson(action.lessonId, ()=> dispatch(confirmDelete()));
@@ -60,6 +61,12 @@ export default ({ getState, dispatch }) => next => action => {
       return next(action);
     case LessonsConstants.DELETE_OBJECTIVE:
       deleteObjective(action.objectiveId, successUpdate);
+      return next(action);
+    case LessonsConstants.ADD_OBJECTIVE:
+      let blankLesson = { objective:
+        {lesson_id: action.lessonId, description: ""}
+      };
+      createObjective(blankLesson, successUpdate);
       return next(action);
     default:
       return next(action);

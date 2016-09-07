@@ -55,3 +55,15 @@ export const deleteObjective = function(objectiveId, success) {
     }
   });
 };
+
+export const createObjective = function(blankObjective, success) {
+  $.ajax({
+    method: 'POST',
+    url: "/api/objectives/",
+    data: blankObjective,
+    success,
+    error: () => {
+      console.log('adding blank object error');
+    }
+  });
+};

@@ -15,7 +15,8 @@ export const LessonsConstants = {
   UPDATE_GRADE: "UPDATE_GRADE",
   UPDATE_DATE: "UPDATE_DATE",
   UPDATE_OBJECTIVE: "UPDATE_OBJECTIVE",
-  DELETE_OBJECTIVE: "DELETE_OBJECTIVE"
+  DELETE_OBJECTIVE: "DELETE_OBJECTIVE",
+  ADD_OBJECTIVE: "ADD_OBJECTIVE"
 };
 
 export const requestAllLessons = () => ({
@@ -100,4 +101,9 @@ export const updateObjective= (index, description) => ({
 export const deleteObjective= objectiveId => ({
   type: LessonsConstants.DELETE_OBJECTIVE,
   objectiveId
+});
+
+export const addObjective= lessonId => ({
+  type: LessonsConstants.ADD_OBJECTIVE,
+  lessonId
 });
