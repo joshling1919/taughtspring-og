@@ -9,7 +9,8 @@ import { updateObjective } from '../../actions/lessons_actions';
 // });
 
 const mapDispatchToProps = dispatch => ({
-  updateObjective: objective => dispatch(updateObjective(objective))
+  updateObjective: (index,
+    description) => dispatch(updateObjective(index, description))
 });
 
 

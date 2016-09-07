@@ -8,7 +8,7 @@ class ObjectivesList extends React.Component {
       this.props.objectives.map( (objective, index) => (
         <EditObjectiveContainer
           objective={objective}
-          key={uniqueId()} index={index}/>
+          key={objective.id} index={index}/>
       ))
     );
   }

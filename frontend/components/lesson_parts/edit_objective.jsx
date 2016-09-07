@@ -5,7 +5,8 @@ import React from 'react';
 
 class EditObjective extends React.Component {
   _updateObjective(e){
-    this.props.updateObjective(e.target.value);
+    this.props.updateObjective(parseInt(e.target.id),
+      e.target.value);
   }
 
   render() {
@@ -18,6 +19,7 @@ class EditObjective extends React.Component {
             name= "objective"
             defaultValue={this.props.objective.description}
             onChange={this._updateObjective.bind(this)}
+            id={this.props.index}
             type="text"/>
         </div>
       );

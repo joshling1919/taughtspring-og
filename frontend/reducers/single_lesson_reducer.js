@@ -16,6 +16,10 @@ const SingleLessonReducer = function(singleLessonState = {}, action){
       return merge({}, singleLessonState, { grade: action.grade });
     case LessonsConstants.UPDATE_DATE:
       return merge({}, singleLessonState, { lesson_date: action.date });
+    case LessonsConstants.UPDATE_OBJECTIVE:
+      let singleLessonCopy = merge({}, singleLessonState);
+      singleLessonCopy.objectives[action.index].description = action.description;
+      return merge({}, singleLessonState, singleLessonCopy);
     default:
       return singleLessonState;
   }

@@ -90,7 +90,8 @@ export const updateDate = date => ({
   date
 });
 
-export const updateObjective= description => ({
+export const updateObjective= (index, description) => ({
   type: LessonsConstants.UPDATE_OBJECTIVE,
-  description
+  description,
+  index
 });
