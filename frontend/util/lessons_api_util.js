@@ -67,3 +67,26 @@ export const createObjective = function(blankObjective, success) {
     }
   });
 };
+
+export const deleteKeyPoint = function(keyPointId, success) {
+  $.ajax({
+    method: 'DELETE',
+    url: `/api/key_points/${keyPointId}`,
+    success,
+    error: () => {
+      console.log('Deleting Error');
+    }
+  });
+};
+
+export const createKeyPoint = function(blankKeyPoint, success) {
+  $.ajax({
+    method: 'POST',
+    url: "/api/key_points/",
+    data: blankKeyPoint,
+    success,
+    error: () => {
+      console.log('adding blank object error');
+    }
+  });
+};

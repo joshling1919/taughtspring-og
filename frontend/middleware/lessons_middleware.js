@@ -12,7 +12,9 @@ import { fetchAllLessons,
          updateLesson,
          deleteLesson,
          deleteObjective,
-         createObjective
+         createObjective,
+         deleteKeyPoint,
+         createKeyPoint
        } from '../util/lessons_api_util';
 
 import { requestProfile } from '../actions/profile_actions';
@@ -67,6 +69,15 @@ export default ({ getState, dispatch }) => next => action => {
         {lesson_id: action.lessonId, description: ""}
       };
       createObjective(blankLesson, successUpdate);
+      return next(action);
+    case LessonsConstants.DELETE_KEY_POINT:
+      deleteKeyPoint(action.keyPointId, successUpdate);
+      return next(action);
+    case LessonsConstants.ADD_KEY_POINT:
+      let blankKeyPoint = { key_point:
+        {lesson_id: action.lessonId, point: ""}
+      };
+      createKeyPoint(blankKeyPoint, successUpdate);
       return next(action);
     default:
       return next(action);

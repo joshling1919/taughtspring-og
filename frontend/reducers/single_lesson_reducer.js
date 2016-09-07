@@ -20,6 +20,9 @@ const SingleLessonReducer = function(singleLessonState = {}, action){
     case LessonsConstants.UPDATE_OBJECTIVE:
       singleLessonCopy.objectives[action.index].description = action.description;
       return merge({}, singleLessonState, singleLessonCopy);
+    case LessonsConstants.UPDATE_KEY_POINT:
+      singleLessonCopy.key_points[action.index].point = action.point;
+      return merge({}, singleLessonState, singleLessonCopy);
     default:
       return singleLessonState;
   }

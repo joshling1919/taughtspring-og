@@ -10,7 +10,7 @@
 #
 
 class KeyPoint < ActiveRecord::Base
-  validates :lesson_id, presence: true
+  validates :lesson, presence: true
 
   belongs_to :lesson
 end
