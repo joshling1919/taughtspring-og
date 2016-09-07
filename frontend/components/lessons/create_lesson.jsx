@@ -23,7 +23,7 @@ class CreateLesson extends React.Component {
       objectives: [""],
       key_points: [""],
       sections: [{ name: "", description: "",
-        misconceptions: [], cfus: [["",""]] }]
+        misconceptions: [], cfus: [] }]
     };
     this._upload = this._upload.bind(this);
     this._updateTitle = this._updateTitle.bind(this);
@@ -103,7 +103,11 @@ class CreateLesson extends React.Component {
     let newSections = JSON.parse(JSON.stringify(this.state.sections));
     let newSection = newSections[sectionIndex];
     let newCFUs = newSection.cfus;
-    newCFUs[cfuIndex][0] = e.target.value;
+    if (e.target.className === "questioncfu") {
+      newCFUs[cfuIndex][0] = e.target.value;
+    } else {
+      newCFUs[cfuIndex][1] = e.target.value;
+    }
     newSection.cfus = newCFUs;
     newSections[sectionIndex] = newSection;
     this.setState({ sections: newSections });

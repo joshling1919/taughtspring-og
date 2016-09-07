@@ -2,8 +2,10 @@ import React from 'react';
 import DeletePartButton from './delete_part_button';
 import Misconception from './misconception';
 import CFU from './cfu';
+import { uniqueId } from 'lodash';
 
 class SectionForm extends React.Component {
+
 
   _misconceptionsList(){
     if (this.props.misconceptions) {
@@ -30,8 +32,9 @@ class SectionForm extends React.Component {
       return(
         this.props.cfus.map( (cfu, i) => {
           return(
-              <CFU key={cfu + i}
+              <CFU key={uniqueId()}
                 question={cfu[0]}
+                answer={cfu[1]}
                 updateCFU={this.props.updateCFU}
                 sectionIndex={this.props.index}
                 deleteCFU={this.props.deleteCFU}
