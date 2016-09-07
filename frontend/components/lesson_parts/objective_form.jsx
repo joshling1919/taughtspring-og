@@ -19,11 +19,11 @@ class ObjectiveForm extends React.Component {
   _keyPointsList() {
     return(
       this.props.keyPoints.map( (keyPoint, index) => (
-        <KeyPoint key={keyPoint + index}
+        <KeyPoint key={keyPoint.uniq}
           updateKeyPoints={this.props.updateKeyPoints}
           deleteKeyPoint={this.props.deleteKeyPoint}
           index={parseInt(index)}
-          content={keyPoint} />
+          content={keyPoint.point} />
       ))
     );
   }

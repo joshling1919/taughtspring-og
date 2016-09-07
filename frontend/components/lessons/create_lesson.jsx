@@ -21,8 +21,8 @@ class CreateLesson extends React.Component {
       subject: userSubject,
       lesson_date: undefined,
       user_id: this.props.currentUser.id,
-      objectives: [{ description: "", uniq: 0}],
-      key_points: [""],
+      objectives: [{ description: "", uniq: 0 }],
+      key_points: [{ point: "", uniq: 1 }],
       sections: [{ name: "", description: "",
         misconceptions: [], cfus: [] }]
     };
@@ -210,12 +210,16 @@ class CreateLesson extends React.Component {
   _updateKeyPoints(e) {
     let kpIndex = e.target.id;
     let keyPointsArr = this.state.key_points.slice();
-    keyPointsArr[kpIndex] = e.target.value;
+    keyPointsArr[kpIndex].point = e.target.value;
     this.setState( { key_points: keyPointsArr });
   }
 
   _addKeyPoint() {
-    this.setState({ key_points: this.state.key_points.concat([""])});
+    this.setState({ key_points: this.state.key_points.concat([
+        { point: "", uniq: this.incrementer }
+      ])
+    });
+    this.incrementer++;
   }
 
   _deleteKeyPoint(e) {
