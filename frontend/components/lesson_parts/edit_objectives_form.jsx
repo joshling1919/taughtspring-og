@@ -1,18 +1,18 @@
 import React from 'react';
+import ObjectivesListContainer from './objectives_list_container';
+
+const EditObjectivesForm = () => {
 
 
-class EditObjectivesForm extends React.Component {
+  return(
+    <div className="lesson-form-component">
+      <form className="lesson-form" >
+        <ObjectivesListContainer />
+      </form>
+    </div>
+  );
 
 
-  render() {
-    return(
-      <div className="lesson-form-component">
-        <form className="lesson-form" >
-          <div>test test</div>
-        </form>
-      </div>
-    );
-  }
-}
+};
 
 export default EditObjectivesForm;

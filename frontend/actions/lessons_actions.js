@@ -13,7 +13,8 @@ export const LessonsConstants = {
   UPDATE_TITLE: "UPDATE_TITLE",
   UPDATE_SUBJECT: "UPDATE_SUBJECT",
   UPDATE_GRADE: "UPDATE_GRADE",
-  UPDATE_DATE: "UPDATE_DATE"
+  UPDATE_DATE: "UPDATE_DATE",
+  UPDATE_OBJECTIVE: "UPDATE_OBJECTIVE"
 };
 
 export const requestAllLessons = () => ({
@@ -87,4 +88,9 @@ export const updateGrade = grade => ({
 export const updateDate = date => ({
   type: LessonsConstants.UPDATE_DATE,
   date
+});
+
+export const updateObjective= description => ({
+  type: LessonsConstants.UPDATE_OBJECTIVE,
+  description
 });

@@ -1,21 +1,18 @@
 import { connect } from 'react-redux';
 import ObjectivesList from './objectives_list';
 
-import { updateObjectives
-       } from '../../actions/lessons_actions';
 
-import { clearErrors } from '../../actions/errors_actions';
 
 const mapStateToProps = state => ({
   currentUser: state.session.currentUser,
-  singleLesson: state.singleLesson
+  objectives: state.singleLesson.objectives
 });
 
-const mapDispatchToProps = dispatch => ({
-  updateObjectives: objectives => dispatch(updateObjectives(objectives))
-});
+// const mapDispatchToProps = dispatch => ({
+//   updateObjectives: objectives => dispatch(updateObjectives(objectives))
+// });
 
 
 export default connect(
-  mapStateToProps, mapDispatchToProps
+  mapStateToProps, null
 )(ObjectivesList);
