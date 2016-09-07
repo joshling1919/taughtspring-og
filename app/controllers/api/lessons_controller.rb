@@ -19,8 +19,21 @@ class Api::LessonsController < ApplicationController
         section_description = section_object[:description]
         new_section = Section.create(lesson_id: @lesson.id,
         name: section_name, description: section_description)
-      end
 
+        misconceptions = section_object[:misconceptions]
+        misconceptions.each do |misconception|
+          Misconception.create(section_id: new_section.id,
+          misconception: misconception)
+        end
+
+        cfus = section_object[:cfus]
+        cfus.each do |cfu|
+          cfu_arr = cfu[1]
+          Cfu.create(section_id: new_section.id, question: cfu_arr[0],
+          answer: cfu_arr[1])
+        end
+
+      end
       render :show
     else
       render json: @lesson.errors.full_messages, status: 422
