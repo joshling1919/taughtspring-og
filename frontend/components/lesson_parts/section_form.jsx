@@ -12,8 +12,8 @@ class SectionForm extends React.Component {
       return(
         this.props.misconceptions.map( (misconception, i) => {
           return(
-              <Misconception key={misconception + i}
-                misconception={misconception}
+              <Misconception key={misconception.uniq}
+                misconception={misconception.misconception}
                 updateMisconception={this.props.updateMisconception}
                 sectionIndex={this.props.index}
                 deleteMisconception={this.props.deleteMisconception}

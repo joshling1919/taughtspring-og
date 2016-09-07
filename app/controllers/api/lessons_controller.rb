@@ -31,8 +31,9 @@ class Api::LessonsController < ApplicationController
           misconceptions = section_object[:misconceptions]
           if misconceptions
             misconceptions.each do |misconception|
+              mis = misconception[1];
               Misconception.create(section_id: new_section.id,
-              misconception: misconception)
+              misconception: mis[:misconception])
             end
           end
 

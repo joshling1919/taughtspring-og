@@ -67,7 +67,7 @@ class CreateLesson extends React.Component {
     let newSections = JSON.parse(JSON.stringify(this.state.sections));
     let newSection = newSections[sectionIndex];
     let newMisconceptions = newSection.misconceptions;
-    newMisconceptions[misconceptionIndex] = e.target.value;
+    newMisconceptions[misconceptionIndex].misconception = e.target.value;
     newSection.misconceptions = newMisconceptions;
     newSections[sectionIndex] = newSection;
     this.setState({ sections: newSections });
@@ -79,10 +79,13 @@ class CreateLesson extends React.Component {
     let newSections = JSON.parse(JSON.stringify(this.state.sections));
     let newSection = newSections[sectionIndex];
     let newMisconceptions = newSection.misconceptions;
-    newMisconceptions = newMisconceptions.concat([""]);
+    newMisconceptions = newMisconceptions.concat([
+      { misconception:"", uniq: this.incrementer }
+    ]);
     newSection.misconceptions = newMisconceptions;
     newSections[sectionIndex] = newSection;
     this.setState({ sections: newSections });
+    this.incrementer++;
   }
 
   _deleteCFU(e) {
