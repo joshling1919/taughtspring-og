@@ -1,14 +1,16 @@
 import { connect } from 'react-redux';
 import EditLesson from './edit_lesson';
 
-import { updateLesson, requestLesson, updatePicture } from '../../actions/lessons_actions';
+import { updateLesson,
+        requestLesson,
+        updatePicture } from '../../actions/lessons_actions';
 
 
 
 const mapStateToProps = state => ({
   currentUser: state.session.currentUser,
   errors: state.errors,
-  singleLesson: state.lessons.singleLesson
+  singleLesson: state.singleLesson
 });
 
 const mapDispatchToProps = dispatch => ({

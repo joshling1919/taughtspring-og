@@ -6,7 +6,7 @@ import { requestLesson,
 
 
 const mapStateToProps = state => ({
-  singleLesson: state.lessons.singleLesson,
+  singleLesson: state.singleLesson,
   currentUser: state.session.currentUser
 });
 
