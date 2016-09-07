@@ -11,7 +11,8 @@ import { clearErrors } from '../../actions/errors_actions';
 
 const mapStateToProps = state => ({
   currentUser: state.session.currentUser,
-  errors: state.errors
+  errors: state.errors,
+  singleLesson: state.singleLesson
 });
 
 const mapDispatchToProps = dispatch => ({

@@ -1,7 +1,10 @@
 import React from 'react';
 import Errors from '../errors';
 import LessonFormContainer from './lesson_form_container';
+import EditObjectivesForm from '../lesson_parts/edit_objectives_form';
 import { merge } from 'lodash';
+import Tabs from '../tabs/tabs';
+import Pane from '../tabs/pane';
 
 class EditLesson extends React.Component {
   constructor(props){
@@ -19,7 +22,7 @@ class EditLesson extends React.Component {
         user_id: this.props.currentUser.id,
         subject: this.props.singleLesson.subject,
         grade: this.props.singleLesson.grade,
-        lesson_date: this.props.singleLesson.date,
+        lesson_date: this.props.singleLesson.lesson_date,
         image_url: this.props.singleLesson.image_url,
         thumbnail_url: this.props.singleLesson.thumbnail_url
       }
@@ -42,29 +45,55 @@ class EditLesson extends React.Component {
     cloudinary.openUploadWidget(CLOUDINARY_OPTIONS, this.uploadCallback);
   }
 
+  _essentials() {
+    return(
+      [<Pane key="essentials" label="Essentials">
+          <LessonFormContainer
+            handleSubmit={this._handleUpdateLesson.bind(this)}
+            errors={this.props.errors}
+            upload={this._upload.bind(this)}
+            />
+      </Pane>]
+    );
+  }
+
+  _objective() {
+    return(
+      [<Pane key="objectives" label="Objective">
+        <EditObjectivesForm />
+      </Pane>]
+    );
+  }
+
+
+  _sections() {
+    return (
+      []
+    );
+  }
+
+  // _addSection() {
+  //   return(
+  //     <Pane
+  //       key="addSection"
+  //       label="+ Add Section" />
+  //   );
+  // }
+
+
+  _allPanes() {
+    return(
+      this._essentials().concat(this._objective(),
+      this._sections())
+    );
+  }
 
   render(){
-    let template;
-    if (this.props.singleLesson) {
-      template = {
-        title: this.props.singleLesson.title,
-        grade: this.props.singleLesson.grade,
-        subject: this.props.singleLesson.subject,
-        date: this.props.singleLesson.lesson_date,
-        imageUrl: this.props.singleLesson.image_url
-      };
       return(
-        <LessonFormContainer template={template}
-          handleSubmit={this._handleUpdateLesson.bind(this)}
-          errors={this.props.errors}
-          upload={this._upload.bind(this)}
-          />
+        <Tabs selected={0}>
+          {this._allPanes()}
+        </Tabs>
       );
-    } else {
-      return(
-        <div></div>
-      );
-    }
   }
 }
 

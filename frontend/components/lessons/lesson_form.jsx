@@ -32,70 +32,74 @@ class LessonForm extends React.Component {
     e.preventDefault();
     this.props.updateDate(e.target.value);
   }
-  
+
   render() {
-    const { template, handleSubmit, errors,
-      upload } = this.props;
-    return(
-      <div className="lesson-form-component">
-        <form className="lesson-form" onSubmit={handleSubmit}>
-          <Errors errors={errors}/>
-          <div className="lesson-pic-container">
-            <img className="lesson-pic" src={template.imageUrl}/>
-          </div>
-          <div className="lesson-details-container">
-            <UploadPictureButton upload={upload}/>
-            <div className="lesson-details group">
-              <label>Title: </label>
-              <input defaultValue={template.title}
-                className="lesson-item title"
-                name= "title"
-                onChange={this._updateTitle.bind(this)}
-                type="text"/>
+    const { handleSubmit, errors, upload, singleLesson } = this.props;
+    if (Object.keys(singleLesson).length === 0
+      && singleLesson.constructor === Object) {
+      return null;
+    } else {
+      return(
+        <div className="lesson-form-component">
+          <form className="lesson-form" onSubmit={handleSubmit}>
+            <Errors errors={errors}/>
+            <div className="lesson-pic-container">
+              <img className="lesson-pic" src={singleLesson.image_url}/>
             </div>
-            <div className="lesson-details group">
-              <label>Grade Level: </label>
-              <select defaultValue={template.grade}
-                className="lesson-item"
-                name="grade"
-                onChange={this._updateGrade.bind(this)}>
-                <option className="optional" value={undefined}>(optional)</option>
-                <option value={6}>6th Grade</option>
-                <option value={7}>7th Grade</option>
-                <option value={8}>8th Grade</option>
-              </select>
+            <div className="lesson-details-container">
+              <UploadPictureButton upload={upload}/>
+              <div className="lesson-details group">
+                <label>Title: </label>
+                <input defaultValue={singleLesson.title}
+                  className="lesson-item title"
+                  name= "title"
+                  onChange={this._updateTitle.bind(this)}
+                  type="text"/>
+              </div>
+              <div className="lesson-details group">
+                <label>Grade Level: </label>
+                <select defaultValue={singleLesson.grade}
+                  className="lesson-item"
+                  name="grade"
+                  onChange={this._updateGrade.bind(this)}>
+                  <option className="optional" value={undefined}>(optional)</option>
+                  <option value={6}>6th Grade</option>
+                  <option value={7}>7th Grade</option>
+                  <option value={8}>8th Grade</option>
+                </select>
+              </div>
+              <div className="lesson-details group">
+                <label>Subject: </label>
+                <select defaultValue={singleLesson.subject}
+                  className="lesson-item"
+                  name="subject"
+                  onChange={this._updateSubject.bind(this)}>
+                  <option className="optional" value={undefined}>(optional)</option>
+                  <option value="English">English</option>
+                  <option value="Math">Math</option>
+                  <option value="Science">Science</option>
+                  <option value="Social Studies">Social Studies</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+              <div className="lesson-details group">
+                <label>Lesson Date: </label>
+                <input className="lesson-item"
+                  defaultValue={singleLesson.lesson_date}
+                  type="date"
+                  placeholder="(optional)"
+                  name="lesson_date"
+                  onChange={this._updateDate.bind(this)}></input>
+              </div>
+              <div className="lesson-details group">
+                <button className="lesson-item form-submit"
+                  type="submit">Submit Lesson</button>
+              </div>
             </div>
-            <div className="lesson-details group">
-              <label>Subject: </label>
-              <select defaultValue={template.subject}
-                className="lesson-item"
-                name="subject"
-                onChange={this._updateSubject.bind(this)}>
-                <option className="optional" value={undefined}>(optional)</option>
-                <option value="English">English</option>
-                <option value="Math">Math</option>
-                <option value="Science">Science</option>
-                <option value="Social Studies">Social Studies</option>
-                <option value="Other">Other</option>
-              </select>
-            </div>
-            <div className="lesson-details group">
-              <label>Lesson Date: </label>
-              <input className="lesson-item"
-                defaultValue={template.date}
-                type="date"
-                placeholder="(optional)"
-                name="lesson_date"
-                onChange={this._updateDate.bind(this)}></input>
-            </div>
-            <div className="lesson-details group">
-              <button className="lesson-item form-submit"
-                type="submit">Submit Lesson</button>
-            </div>
-          </div>
-        </form>
-      </div>
-    );
+          </form>
+        </div>
+      );
+    }
   }
 }
 
