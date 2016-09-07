@@ -40,8 +40,8 @@ class Api::LessonsController < ApplicationController
           if cfus
             cfus.each do |cfu|
               cfu_arr = cfu[1]
-              Cfu.create(section_id: new_section.id, question: cfu_arr[0],
-              answer: cfu_arr[1])
+              Cfu.create(section_id: new_section.id, question: cfu_arr[:question],
+              answer: cfu_arr[:answer])
             end
           end
 

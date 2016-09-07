@@ -32,9 +32,9 @@ class SectionForm extends React.Component {
       return(
         this.props.cfus.map( (cfu, i) => {
           return(
-              <CFU key={uniqueId()}
-                question={cfu[0]}
-                answer={cfu[1]}
+              <CFU key={cfu.uniq}
+                question={cfu.question}
+                answer={cfu.answer}
                 updateCFU={this.props.updateCFU}
                 sectionIndex={this.props.index}
                 deleteCFU={this.props.deleteCFU}

@@ -24,7 +24,7 @@ class CreateLesson extends React.Component {
       objectives: [{ description: "", uniq: 0 }],
       key_points: [{ point: "", uniq: 1 }],
       sections: [{ name: "", description: "",
-        misconceptions: [], cfus: [] }]
+        misconceptions: [], cfus: [], uniq:2 }]
     };
     this._upload = this._upload.bind(this);
     this._updateTitle = this._updateTitle.bind(this);
@@ -105,9 +105,9 @@ class CreateLesson extends React.Component {
     let newSection = newSections[sectionIndex];
     let newCFUs = newSection.cfus;
     if (e.target.className === "questioncfu") {
-      newCFUs[cfuIndex][0] = e.target.value;
+      newCFUs[cfuIndex].question = e.target.value;
     } else {
-      newCFUs[cfuIndex][1] = e.target.value;
+      newCFUs[cfuIndex].answer = e.target.value;
     }
     newSection.cfus = newCFUs;
     newSections[sectionIndex] = newSection;
@@ -120,10 +120,12 @@ class CreateLesson extends React.Component {
     let newSections = JSON.parse(JSON.stringify(this.state.sections));
     let newSection = newSections[sectionIndex];
     let newCFUs = newSection.cfus;
-    newCFUs = newCFUs.concat([["",""]]);
+    newCFUs = newCFUs.concat([{ question: "",
+      answer:"", uniq: this.incrementer}]);
     newSection.cfus = newCFUs;
     newSections[sectionIndex] = newSection;
     this.setState({ sections: newSections });
+    this.incrementer++;
   }
 
   _upload(e) {
@@ -265,7 +267,8 @@ class CreateLesson extends React.Component {
   _sections() {
     let sections = [];
     for (let i = 0; i < this.state.sections.length; i++) {
-      sections.push(<Pane key={i} label={this.state.sections[i].name}>
+      sections.push(<Pane key={this.state.sections[i].uniq}
+        label={this.state.sections[i].name}>
         <SectionForm section={this.state.sections[i]}
           updateSectionField={this._updateSectionField}
           deleteSection={this._deleteSection}
@@ -298,9 +301,10 @@ class CreateLesson extends React.Component {
     this.setState({
       sections: this.state.sections.concat([{name: "",
         description: "", misconceptions:[],
-        cfus:[]}]
+        cfus:[], uniq: this.incrementer}]
       )
     });
+    this.incrementer++;
   }
 
   _updateSectionField(e) {

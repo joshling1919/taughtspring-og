@@ -10,7 +10,7 @@ const CFU = ({ question, answer, sectionIndex, cfuIndex,
           defaultValue={question}
           id={sectionIndex}
           name={cfuIndex}
-          onBlur={updateCFU}
+          onChange={updateCFU}
           type="text"/>
         <label>Answer: </label>
         <input
@@ -18,7 +18,7 @@ const CFU = ({ question, answer, sectionIndex, cfuIndex,
           defaultValue={answer}
           id={sectionIndex}
           name={cfuIndex}
-          onBlur={updateCFU}
+          onChange={updateCFU}
           type="text"/>
       <button type="button"
         id={sectionIndex}
