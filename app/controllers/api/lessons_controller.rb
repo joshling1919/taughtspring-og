@@ -3,36 +3,47 @@ class Api::LessonsController < ApplicationController
     @lesson = Lesson.new(lesson_params)
 
     if @lesson.save
-      params[:lesson][:objectives].each do |objective|
-        Objective.create(lesson_id: @lesson.id,
-        description: objective)
+      if params[:lesson][:objectives]
+        params[:lesson][:objectives].each do |objective|
+          Objective.create(lesson_id: @lesson.id,
+          description: objective)
+        end
       end
 
-      params[:lesson][:key_points].each do |key_point|
-        KeyPoint.create(lesson_id: @lesson.id,
-        point: key_point)
+      if params[:lesson][:key_points]
+        params[:lesson][:key_points].each do |key_point|
+          KeyPoint.create(lesson_id: @lesson.id,
+          point: key_point)
+        end
+
       end
 
-      params[:lesson][:sections].each do |section|
-        section_object = section[1]
-        section_name = section_object[:name]
-        section_description = section_object[:description]
-        new_section = Section.create(lesson_id: @lesson.id,
-        name: section_name, description: section_description)
+      if params[:lesson][:sections]
+        params[:lesson][:sections].each do |section|
+          section_object = section[1]
+          section_name = section_object[:name]
+          section_description = section_object[:description]
+          new_section = Section.create(lesson_id: @lesson.id,
+          name: section_name, description: section_description)
 
-        misconceptions = section_object[:misconceptions]
-        misconceptions.each do |misconception|
-          Misconception.create(section_id: new_section.id,
-          misconception: misconception)
+          misconceptions = section_object[:misconceptions]
+          if misconceptions
+            misconceptions.each do |misconception|
+              Misconception.create(section_id: new_section.id,
+              misconception: misconception)
+            end
+          end
+
+          cfus = section_object[:cfus]
+          if cfus
+            cfus.each do |cfu|
+              cfu_arr = cfu[1]
+              Cfu.create(section_id: new_section.id, question: cfu_arr[0],
+              answer: cfu_arr[1])
+            end
+          end
+
         end
-
-        cfus = section_object[:cfus]
-        cfus.each do |cfu|
-          cfu_arr = cfu[1]
-          Cfu.create(section_id: new_section.id, question: cfu_arr[0],
-          answer: cfu_arr[1])
-        end
-
       end
       render :show
     else
