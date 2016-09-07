@@ -1,5 +1,4 @@
 import React from 'react';
-// import DeleteSubsectionButton from './delete_subsection_button';
 
 const Misconception = ({  misconception, sectionIndex, misconceptionIndex,
   updateMisconception, deleteMisconception }) => {

@@ -5,7 +5,6 @@ import UploadPictureButton from './upload_picture_button';
 
 const NewLessonForm = ({template, handleSubmit, errors, upload,
   updateTitle, updateGrade, updateDate, updateSubject }) => {
-    console.log('renderinglesson');
     return(
       <div className="lesson-form-component">
         <form className="lesson-form" onSubmit={handleSubmit}>

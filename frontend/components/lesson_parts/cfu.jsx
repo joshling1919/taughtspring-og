@@ -1,22 +1,21 @@
 import React from 'react';
 
-const CFU = ({ index }) => {
+const CFU = ({  cfu, sectionIndex, cfuIndex,
+  updateCFU, deleteCFU }) => {
   return (
     <div>
-      <label>Question: </label>
+      <label>CFU </label>
       <input
         className="lesson-item"
-        name= "question"
-        id={index}
-        defaultValue={name}
+        defaultValue={cfu}
+        id={sectionIndex}
+        name={cfuIndex}
+        onBlur={updateCFU}
         type="text"/>
-      <label>Answer: </label>
-      <input
-        className="lesson-item"
-        name= "answer"
-        id={index}
-        defaultValue={name}
-        type="text"/>
+      <button type="button"
+        id={sectionIndex}
+        name={cfuIndex}
+        onClick={deleteCFU}>Delete</button>
     </div>
   );
 };

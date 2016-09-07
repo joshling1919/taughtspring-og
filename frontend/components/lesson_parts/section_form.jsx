@@ -1,7 +1,7 @@
 import React from 'react';
 import DeletePartButton from './delete_part_button';
-import CFU from './cfu';
 import Misconception from './misconception';
+import CFU from './cfu';
 
 class SectionForm extends React.Component {
 
@@ -25,19 +25,41 @@ class SectionForm extends React.Component {
     }
   }
 
+  _cfusList(){
+    if (this.props.cfus) {
+      return(
+        this.props.cfus.map( (cfu, i) => {
+          return(
+              <CFU key={cfu + i}
+                cfu={cfu}
+                updateCFU={this.props.updateCFU}
+                sectionIndex={this.props.index}
+                deleteCFU={this.props.deleteCFU}
+                cfuIndex={i}/>
+            );
+          }
+        )
+      );
+    } else {
+      return <div/>;
+    }
+  }
+
+
+
 
 
   render() {
     let name, description, index, updateSectionField,
     updateSectionDescription, deleteSection, addMisconception,
-    cfus;
+    addCFU;
     if (this.props.section) {
       name = this.props.section.name;
       description = this.props.section.description;
       index = this.props.index;
       updateSectionField = this.props.updateSectionField;
       deleteSection = this.props.deleteSection;
-      cfus = this.props.section.cfus;
+      addCFU = this.props.addCFU;
       addMisconception = this.props.addMisconception;
     }
     return(
@@ -63,6 +85,11 @@ class SectionForm extends React.Component {
           <button className="add-field" type="button"
             onClick={addMisconception} id={index}>
             Add Potential Misconception
+          </button>
+          {this._cfusList()}
+          <button className="add-field" type="button"
+            onClick={addCFU} id={index}>
+            Add CFU
           </button>
         </form>
         <DeletePartButton

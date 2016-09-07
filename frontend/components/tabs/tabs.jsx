@@ -17,9 +17,6 @@ class Tabs extends React.Component {
    );
  }
 
-  dragstartHandler(e) {
-    console.log("i'm dragging");
-  }
 
   _titleText(label){
     if (label === "") {
