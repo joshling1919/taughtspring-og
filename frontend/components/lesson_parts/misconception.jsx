@@ -1,7 +1,8 @@
 import React from 'react';
+// import DeleteSubsectionButton from './delete_subsection_button';
 
 const Misconception = ({ sectionIndex, misconception,
-  misconceptionIndex, updateMisconception }) => {
+  misconceptionIndex, updateMisconception, deleteMisconception }) => {
   return (
     <div>
       <label>Misconception </label>
@@ -12,6 +13,9 @@ const Misconception = ({ sectionIndex, misconception,
         id={sectionIndex}
         onBlur={updateMisconception}
         type="text"/>
+        <button type="button" id={sectionIndex}
+          name={misconceptionIndex}
+          onClick={deleteMisconception}>Delete</button>
     </div>
   );
 };

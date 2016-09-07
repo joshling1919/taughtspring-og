@@ -38,8 +38,6 @@ class CreateLesson extends React.Component {
     this._deleteKeyPoint = this._deleteKeyPoint.bind(this);
     this._updateSectionField = this._updateSectionField.bind(this);
     this._deleteSection = this._deleteSection.bind(this);
-    this._updateMisconception = this._updateMisconception.bind(this);
-    this._addMisconception = this._addMisconception.bind(this);
   }
 
   _upload(e) {
@@ -177,6 +175,7 @@ class CreateLesson extends React.Component {
           deleteSection={this._deleteSection}
           updateMisconception={this._updateMisconception}
           addMisconception={this._addMisconception}
+          deleteMisconception={this._deleteMisconception}
           index={i} />
     </Pane>);
     }
@@ -216,28 +215,6 @@ class CreateLesson extends React.Component {
     let sectionsArr = this.state.sections.slice();
     sectionsArr.splice(ind, 1);
     this.setState( { sections: sectionsArr });
-  }
-
-  _updateMisconception(e) {
-    let sectionId = parseInt(e.target.id);
-    let misconceptionId = parseInt(e.target.name);
-    let allSections = this.state.sections.slice();
-    let newSection = allSections[sectionId];
-    let newMisconceptions = newSection.misconceptions;
-    newMisconceptions[misconceptionId] = e.target.value;
-    let finalSection = merge( {}, newSection,
-    { misconceptions: newMisconceptions });
-    allSections[sectionId] = finalSection;
-    this.setState({ sections: allSections });
-   }
-
-  _addMisconception(e) {
-    let sectionInd = parseInt(e.target.id);
-    let allSections = this.state.sections.slice();
-    let newSection = allSections[sectionInd];
-    newSection.misconceptions.push("");
-    allSections[sectionInd] = newSection;
-    this.setState({ sections: allSections } );
   }
 
 

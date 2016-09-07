@@ -4,28 +4,17 @@ import CFU from './cfu';
 import Misconception from './misconception';
 
 class SectionForm extends React.Component {
-
-  _misconceptionsList(index, misconceptions, updateMisconception) {
-      if (misconceptions) {
-        return (
-          misconceptions.map( (misconception,i) => (
-              <Misconception key={index+i}
-                misconception={misconception}
-                misconceptionIndex={i}
-                updateMisconception={updateMisconception}
-                sectionIndex={index}/>
-            )
-          )
-        );
-      } else {
-        return null;
-      }
+  constructor(props){
+    super(props);
+    this.state = { misconceptions: [] };
   }
+
+
 
   render() {
     let name, description, index, updateSectionField,
     updateSectionDescription, deleteSection, misconceptions,
-    cfus, updateMisconception, addMisconception;
+    cfus, updateMisconception, addMisconception, deleteMisconception;
     if (this.props.section) {
       name = this.props.section.name;
       description = this.props.section.description;
@@ -36,6 +25,7 @@ class SectionForm extends React.Component {
       cfus = this.props.section.cfus;
       updateMisconception = this.props.updateMisconception;
       addMisconception = this.props.addMisconception;
+      deleteMisconception = this.props.deleteMisconception;
     }
     return(
       <div className="lesson-form-component">
@@ -57,7 +47,7 @@ class SectionForm extends React.Component {
             defaultValue={description}
             />
           {this._misconceptionsList.bind(this, index,
-            misconceptions, updateMisconception )()}
+            misconceptions, updateMisconception, deleteMisconception )()}
           <button className="add-field" type="button"
             onClick={addMisconception} id={index}>
             Add Potential Misconception
