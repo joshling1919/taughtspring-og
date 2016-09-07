@@ -1,13 +1,13 @@
 import React from 'react';
 
-const CFU = ({  cfu, sectionIndex, cfuIndex,
+const CFU = ({ question, sectionIndex, cfuIndex,
   updateCFU, deleteCFU }) => {
   return (
     <div>
-      <label>CFU </label>
+      <label>Question: </label>
       <input
         className="lesson-item"
-        defaultValue={cfu}
+        defaultValue={question}
         id={sectionIndex}
         name={cfuIndex}
         onBlur={updateCFU}
