@@ -43,42 +43,6 @@ class CreateLesson extends React.Component {
     this._deleteMisconception = this._deleteMisconception.bind(this);
   }
 
-  _deleteMisconception(e) {
-    let sectionIndex = parseInt(e.target.id);
-    let misconceptionIndex = parseInt(e.target.name);
-    let newSections = JSON.parse(JSON.stringify(this.state.sections));
-    let newSection = newSections[sectionIndex];
-    let newMisconceptions = newSection.misconceptions;
-    newMisconceptions.splice(misconceptionIndex, 1);
-    newSection.misconceptions = newMisconceptions;
-    newSections[sectionIndex] = newSection;
-    this.setState({ sections: newSections });
-
-  }
-
-  _updateMisconception(e){
-    let sectionIndex = parseInt(e.target.id);
-    let misconceptionIndex = parseInt(e.target.name);
-    let newSections = JSON.parse(JSON.stringify(this.state.sections));
-    let newSection = newSections[sectionIndex];
-    let newMisconceptions = newSection.misconceptions;
-    newMisconceptions[misconceptionIndex] = e.target.value;
-    newSection.misconceptions = newMisconceptions;
-    newSections[sectionIndex] = newSection;
-    this.setState({ sections: newSections });
-  }
-
-
-  _addMisconception(e) {
-    let sectionIndex = parseInt(e.target.id);
-    let newSections = JSON.parse(JSON.stringify(this.state.sections));
-    let newSection = newSections[sectionIndex];
-    let newMisconceptions = newSection.misconceptions;
-    newMisconceptions = newMisconceptions.concat([""]);
-    newSection.misconceptions = newMisconceptions;
-    newSections[sectionIndex] = newSection;
-    this.setState({ sections: newSections });
-  }
 
   _upload(e) {
     e.preventDefault();
@@ -227,7 +191,42 @@ class CreateLesson extends React.Component {
     );
   }
 
+  _deleteMisconception(e) {
+    let sectionIndex = parseInt(e.target.id);
+    let misconceptionIndex = parseInt(e.target.name);
+    let newSections = JSON.parse(JSON.stringify(this.state.sections));
+    let newSection = newSections[sectionIndex];
+    let newMisconceptions = newSection.misconceptions;
+    newMisconceptions.splice(misconceptionIndex, 1);
+    newSection.misconceptions = newMisconceptions;
+    newSections[sectionIndex] = newSection;
+    this.setState({ sections: newSections });
 
+  }
+
+  _updateMisconception(e){
+    let sectionIndex = parseInt(e.target.id);
+    let misconceptionIndex = parseInt(e.target.name);
+    let newSections = JSON.parse(JSON.stringify(this.state.sections));
+    let newSection = newSections[sectionIndex];
+    let newMisconceptions = newSection.misconceptions;
+    newMisconceptions[misconceptionIndex] = e.target.value;
+    newSection.misconceptions = newMisconceptions;
+    newSections[sectionIndex] = newSection;
+    this.setState({ sections: newSections });
+  }
+
+
+  _addMisconception(e) {
+    let sectionIndex = parseInt(e.target.id);
+    let newSections = JSON.parse(JSON.stringify(this.state.sections));
+    let newSection = newSections[sectionIndex];
+    let newMisconceptions = newSection.misconceptions;
+    newMisconceptions = newMisconceptions.concat([""]);
+    newSection.misconceptions = newMisconceptions;
+    newSections[sectionIndex] = newSection;
+    this.setState({ sections: newSections });
+  }
   _addSection() {
     return(
       <Pane
