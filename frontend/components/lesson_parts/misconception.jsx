@@ -1,21 +1,22 @@
 import React from 'react';
 // import DeleteSubsectionButton from './delete_subsection_button';
 
-const Misconception = ({ sectionIndex, misconception,
-  misconceptionIndex, updateMisconception, deleteMisconception }) => {
+const Misconception = ({  misconception, sectionIndex, misconceptionIndex,
+  updateMisconception, deleteMisconception }) => {
   return (
     <div>
       <label>Misconception </label>
       <input
         className="lesson-item"
         defaultValue={misconception}
-        name= {misconceptionIndex}
         id={sectionIndex}
+        name={misconceptionIndex}
         onBlur={updateMisconception}
         type="text"/>
-        <button type="button" id={sectionIndex}
-          name={misconceptionIndex}
-          onClick={deleteMisconception}>Delete</button>
+      <button type="button"
+        id={sectionIndex}
+        name={misconceptionIndex}
+        onClick={deleteMisconception}>Delete</button>
     </div>
   );
 };

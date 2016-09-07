@@ -22,7 +22,7 @@ class CreateLesson extends React.Component {
       user_id: this.props.currentUser.id,
       objectives: [""],
       key_points: [""],
-      sections: [{ name: "", description: "", cfus: [], misconceptions: [] }]
+      sections: [{ name: "", description: "", misconceptions: [""]}]
     };
     this._upload = this._upload.bind(this);
     this._updateTitle = this._updateTitle.bind(this);
@@ -38,6 +38,46 @@ class CreateLesson extends React.Component {
     this._deleteKeyPoint = this._deleteKeyPoint.bind(this);
     this._updateSectionField = this._updateSectionField.bind(this);
     this._deleteSection = this._deleteSection.bind(this);
+    this._addMisconception = this._addMisconception.bind(this);
+    this._updateMisconception = this._updateMisconception.bind(this);
+    this._deleteMisconception = this._deleteMisconception.bind(this);
+  }
+
+  _deleteMisconception(e) {
+    let sectionIndex = parseInt(e.target.id);
+    let misconceptionIndex = parseInt(e.target.name);
+    let newSections = JSON.parse(JSON.stringify(this.state.sections));
+    let newSection = newSections[sectionIndex];
+    let newMisconceptions = newSection.misconceptions;
+    newMisconceptions.splice(misconceptionIndex, 1);
+    newSection.misconceptions = newMisconceptions;
+    newSections[sectionIndex] = newSection;
+    this.setState({ sections: newSections });
+
+  }
+
+  _updateMisconception(e){
+    let sectionIndex = parseInt(e.target.id);
+    let misconceptionIndex = parseInt(e.target.name);
+    let newSections = JSON.parse(JSON.stringify(this.state.sections));
+    let newSection = newSections[sectionIndex];
+    let newMisconceptions = newSection.misconceptions;
+    newMisconceptions[misconceptionIndex] = e.target.value;
+    newSection.misconceptions = newMisconceptions;
+    newSections[sectionIndex] = newSection;
+    this.setState({ sections: newSections });
+  }
+
+
+  _addMisconception(e) {
+    let sectionIndex = parseInt(e.target.id);
+    let newSections = JSON.parse(JSON.stringify(this.state.sections));
+    let newSection = newSections[sectionIndex];
+    let newMisconceptions = newSection.misconceptions;
+    newMisconceptions = newMisconceptions.concat([""]);
+    newSection.misconceptions = newMisconceptions;
+    newSections[sectionIndex] = newSection;
+    this.setState({ sections: newSections });
   }
 
   _upload(e) {
@@ -69,6 +109,8 @@ class CreateLesson extends React.Component {
       return this.state.grade;
     }
   }
+
+
 
   _checkForNullSubject(){
     if (this.state.subject === undefined) {
@@ -173,8 +215,9 @@ class CreateLesson extends React.Component {
         <SectionForm section={this.state.sections[i]}
           updateSectionField={this._updateSectionField}
           deleteSection={this._deleteSection}
-          updateMisconception={this._updateMisconception}
+          misconceptions={this.state.sections[i].misconceptions}
           addMisconception={this._addMisconception}
+          updateMisconception={this._updateMisconception}
           deleteMisconception={this._deleteMisconception}
           index={i} />
     </Pane>);

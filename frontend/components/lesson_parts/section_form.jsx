@@ -4,28 +4,41 @@ import CFU from './cfu';
 import Misconception from './misconception';
 
 class SectionForm extends React.Component {
-  constructor(props){
-    super(props);
-    this.state = { misconceptions: [] };
+
+  _misconceptionsList(){
+    if (this.props.misconceptions) {
+      return(
+        this.props.misconceptions.map( (misconception, i) => {
+          return(
+              <Misconception key={misconception + i}
+                misconception={misconception}
+                updateMisconception={this.props.updateMisconception}
+                sectionIndex={this.props.index}
+                deleteMisconception={this.props.deleteMisconception}
+                misconceptionIndex={i}/>
+            );
+          }
+        )
+      );
+    } else {
+      return <div/>;
+    }
   }
 
 
 
   render() {
     let name, description, index, updateSectionField,
-    updateSectionDescription, deleteSection, misconceptions,
-    cfus, updateMisconception, addMisconception, deleteMisconception;
+    updateSectionDescription, deleteSection, addMisconception,
+    cfus;
     if (this.props.section) {
       name = this.props.section.name;
       description = this.props.section.description;
       index = this.props.index;
       updateSectionField = this.props.updateSectionField;
       deleteSection = this.props.deleteSection;
-      misconceptions = this.props.section.misconceptions;
       cfus = this.props.section.cfus;
-      updateMisconception = this.props.updateMisconception;
       addMisconception = this.props.addMisconception;
-      deleteMisconception = this.props.deleteMisconception;
     }
     return(
       <div className="lesson-form-component">
@@ -46,8 +59,7 @@ class SectionForm extends React.Component {
             onBlur={updateSectionField}
             defaultValue={description}
             />
-          {this._misconceptionsList.bind(this, index,
-            misconceptions, updateMisconception, deleteMisconception )()}
+          {this._misconceptionsList()}
           <button className="add-field" type="button"
             onClick={addMisconception} id={index}>
             Add Potential Misconception
