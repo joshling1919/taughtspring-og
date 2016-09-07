@@ -5,15 +5,17 @@ class Api::LessonsController < ApplicationController
     if @lesson.save
       if params[:lesson][:objectives]
         params[:lesson][:objectives].each do |objective|
+          obj = objective[1]
           Objective.create(lesson_id: @lesson.id,
-          description: objective)
+          description: obj[:description])
         end
       end
 
       if params[:lesson][:key_points]
         params[:lesson][:key_points].each do |key_point|
+          kp = key_point[1]
           KeyPoint.create(lesson_id: @lesson.id,
-          point: key_point)
+          point: kp[:point])
         end
 
       end
