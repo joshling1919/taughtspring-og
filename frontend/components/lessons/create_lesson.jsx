@@ -12,6 +12,7 @@ class CreateLesson extends React.Component {
     super(props);
     let userSubject = this.props.currentUser.subject;
     let userGrade = this.props.currentUser.grade;
+    this.incrementer = 11;
     this.state = {
       image_url:"http://www.nationofchange.org/wp-content/uploads/2016/05/education.jpg",
       thumbnail_url: "",
@@ -20,7 +21,7 @@ class CreateLesson extends React.Component {
       subject: userSubject,
       lesson_date: undefined,
       user_id: this.props.currentUser.id,
-      objectives: [""],
+      objectives: [{ description: "", uniq: 0}],
       key_points: [""],
       sections: [{ name: "", description: "",
         misconceptions: [], cfus: [] }]
@@ -187,12 +188,16 @@ class CreateLesson extends React.Component {
   _updateObjectives(e) {
     let objIndex = e.target.id;
     let objectivesArr = this.state.objectives.slice();
-    objectivesArr[objIndex] = e.target.value;
+    objectivesArr[objIndex].description = e.target.value;
     this.setState( { objectives: objectivesArr });
   }
 
   _addObjective() {
-    this.setState({ objectives: this.state.objectives.concat([""])});
+    this.setState({ objectives: this.state.objectives.concat([
+        { description: "", uniq: this.incrementer}
+      ])
+    });
+    this.incrementer++;
   }
 
   _deleteObjective(e) {
