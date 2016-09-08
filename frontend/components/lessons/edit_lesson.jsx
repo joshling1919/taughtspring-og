@@ -22,6 +22,8 @@ class EditLesson extends React.Component {
     this._deleteCFU = this._deleteCFU.bind(this);
   }
 
+  
+
 
   _handleUpdateLesson(e){
     e.preventDefault();

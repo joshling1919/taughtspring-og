@@ -1,5 +1,9 @@
 import { connect } from 'react-redux';
-import EditLesson from './edit_lesson';
+import CreateLesson from './create_lesson';
+
+
+import { clearErrors } from '../../actions/errors_actions';
+
 
 import { updateLesson,
         requestLesson,
@@ -18,7 +22,7 @@ import { addSection,
 const mapStateToProps = state => ({
   currentUser: state.session.currentUser,
   errors: state.errors,
-  singleLesson: state.singleLesson
+  selectedLesson: state.singleLesson
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -29,10 +33,11 @@ const mapDispatchToProps = dispatch => ({
   deleteSection: sectionId => dispatch(deleteSection(sectionId)),
   updateSection: (sectionName, sectionVal,
      index) => dispatch(updateSection(sectionName, sectionVal, index)),
-  addCFU: sectionId => dispatch(addCFU(sectionId))
+  addCFU: sectionId => dispatch(addCFU(sectionId)),
+  clearErrors: () => dispatch(clearErrors())
 });
 
 
 export default connect(
   mapStateToProps, mapDispatchToProps
-)(EditLesson);
+)(CreateLesson);

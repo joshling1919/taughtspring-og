@@ -10,22 +10,8 @@ import { merge } from 'lodash';
 class CreateLesson extends React.Component {
   constructor(props){
     super(props);
-    let userSubject = this.props.currentUser.subject;
-    let userGrade = this.props.currentUser.grade;
     this.incrementer = 11;
-    this.state = {
-      image_url:"http://www.nationofchange.org/wp-content/uploads/2016/05/education.jpg",
-      thumbnail_url: this.props.selectedLesson.url,
-      title: "",
-      grade: userGrade,
-      subject: userSubject,
-      lesson_date: undefined,
-      user_id: this.props.currentUser.id,
-      objectives: [{ description: "", uniq: 0 }],
-      key_points: [{ point: "", uniq: 1 }],
-      sections: [{ name: "", description: "",
-        misconceptions: [], cfus: [], uniq:2 }]
-    };
+    this.state = this.props.selectedLesson;
     this._upload = this._upload.bind(this);
     this._updateTitle = this._updateTitle.bind(this);
     this._updateGrade = this._updateGrade.bind(this);
@@ -46,6 +32,10 @@ class CreateLesson extends React.Component {
     this._addCFU = this._addCFU.bind(this);
     this._updateCFU = this._updateCFU.bind(this);
     this._deleteCFU = this._deleteCFU.bind(this);
+  }
+
+  componentWillReceiveProps(nextProps){
+    this.setState(nextProps.selectedLesson);
   }
 
   _deleteMisconception(e) {
@@ -269,7 +259,11 @@ class CreateLesson extends React.Component {
 
   _sections() {
     let sections = [];
-    for (let i = 0; i < this.state.sections.length; i++) {
+    let sectionsArr = [];
+    if (this.state.sections) {
+      sectionsArr = this.state.sections;
+    }
+    for (let i = 0; i < sectionsArr.length; i++) {
       sections.push(<Pane key={this.state.sections[i].uniq}
         label={this.state.sections[i].name}>
         <SectionForm section={this.state.sections[i]}
@@ -334,16 +328,12 @@ class CreateLesson extends React.Component {
 
 
   render(){
-    return(
-      <div>
-        <button className="lesson-item form-submit"
-          type="submit">Submit Lesson</button>
+      return(
         <Tabs selected={0}
           newSection={this._newSection.bind(this)}>
           {this._allPanes()}
         </Tabs>
-      </div>
-    );
+      );
   }
 }
 
