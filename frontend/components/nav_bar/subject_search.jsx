@@ -9,7 +9,6 @@ class SubjectSearch extends React.Component {
 
   _findSubject(e){
     e.preventDefault();
-    this.props.router.push('/filter');
     this.props.findSubject(e.target.innerHTML);
   }
 

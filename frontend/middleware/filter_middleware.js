@@ -7,6 +7,7 @@ import { receiveFilteredLessons,
 import { fetchFilteredLessons } from '../util/filter_api_util';
 import { receiveErrors } from '../actions/errors_actions';
 
+import { push } from 'react-router-redux';
 
 export default ({ getState, dispatch }) => next => action => {
   let successFilteredLessons = filteredLessons => dispatch(
@@ -19,6 +20,9 @@ export default ({ getState, dispatch }) => next => action => {
   switch(action.type){
     case FilterConstants.FIND_SUBJECT:
       fetchFilteredLessons(action.subject, successFilteredLessons);
+      return next(action);
+    case FilterConstants.RECEIVE_FILTERED_LESSONS:
+      dispatch(push('/filter'));
       return next(action);
     default:
       return next(action);

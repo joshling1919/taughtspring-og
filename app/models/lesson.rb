@@ -26,4 +26,6 @@ class Lesson < ActiveRecord::Base
 
   accepts_nested_attributes_for :objectives, :key_points, :sections,
     :misconceptions, :cfus
+
+  scope :subject, -> (subject) { where subject: subject }
 end

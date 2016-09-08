@@ -98,7 +98,11 @@ class Api::LessonsController < ApplicationController
   end
 
   def index
-    @lessons = Lesson.all.includes(:user)
+    if params[:subject].present?
+      @lessons = Lesson.subject(params[:subject]).includes(:user)
+    else
+      @lessons = Lesson.all.includes(:user)
+    end
     render :index
   end
 
