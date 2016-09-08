@@ -2,6 +2,7 @@ import React from 'react';
 import LoginContainer from '../auth/login_container';
 import { withRouter } from 'react-router';
 import SubjectSearch from './subject_search';
+import SearchBarContainer from './search_bar_container';
 
 class NavBar extends React.Component{
 
@@ -80,9 +81,7 @@ class NavBar extends React.Component{
             src="http://res.cloudinary.com/jsling/image/upload/v1472963865/logo_tvyv00.png"
             />
         </li>
-        <li className='nav-bar-search'>
-          <input className="search" type="search" placeholder="&#xf002;"></input>
-        </li>
+        <SearchBarContainer />
         <div className="nav-buttons">
           <li className='nav-bar-item'>
             <button className="nav-button subject-button">Subjects</button>
