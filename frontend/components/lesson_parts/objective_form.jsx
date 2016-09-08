@@ -4,10 +4,18 @@ import Objective from './objective';
 import KeyPoint from './key_point';
 
 class ObjectiveForm extends React.Component {
+  _generateKey(obj){
+    if (obj.uniq) {
+      return obj.uniq;
+    } else {
+      return obj.created_at;
+    }
+  }
+
   _objectivesList() {
     return(
       this.props.objectives.map( (objective, index) => (
-        <Objective key={objective.uniq}
+        <Objective key={this._generateKey.bind(this, objective)()}
           updateObjectives={this.props.updateObjectives}
           deleteObjective={this.props.deleteObjective}
           index={parseInt(index)}
@@ -19,7 +27,7 @@ class ObjectiveForm extends React.Component {
   _keyPointsList() {
     return(
       this.props.keyPoints.map( (keyPoint, index) => (
-        <KeyPoint key={keyPoint.uniq}
+        <KeyPoint key={this._generateKey.bind(this, keyPoint)()}
           updateKeyPoints={this.props.updateKeyPoints}
           deleteKeyPoint={this.props.deleteKeyPoint}
           index={parseInt(index)}

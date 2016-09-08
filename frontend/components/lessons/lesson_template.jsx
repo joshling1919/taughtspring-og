@@ -140,7 +140,7 @@ class LessonTemplate extends React.Component {
       this.state, { subject: this._checkForNullSubject(),
       grade: this._checkForNullGrade() })
     };
-    this.props.createLesson(lesson);
+    this.props.submitLesson(lesson);
   }
 
   _checkForNullGrade(){

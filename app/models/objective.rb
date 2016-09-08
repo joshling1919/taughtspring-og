@@ -10,7 +10,7 @@
 #
 
 class Objective < ActiveRecord::Base
-  validates :lesson_id, presence: true
+  validates :lesson, presence: true
 
-  belongs_to :lesson
+  belongs_to :lesson, inverse_of: :objectives
 end

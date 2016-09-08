@@ -12,5 +12,5 @@
 class KeyPoint < ActiveRecord::Base
   validates :lesson, presence: true
 
-  belongs_to :lesson
+  belongs_to :lesson, inverse_of: :key_points
 end

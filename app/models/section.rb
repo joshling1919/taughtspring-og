@@ -12,9 +12,10 @@
 #
 
 class Section < ActiveRecord::Base
-  validates :lesson_id, presence: true
+  validates :lesson, presence: true
 
   belongs_to :lesson, inverse_of: :sections
   has_many :cfus, dependent: :destroy, inverse_of: :section
-  has_many :misconceptions, dependent: :destroy
+  has_many :misconceptions, dependent: :destroy, inverse_of: :section
+  accepts_nested_attributes_for :misconceptions, :cfus
 end

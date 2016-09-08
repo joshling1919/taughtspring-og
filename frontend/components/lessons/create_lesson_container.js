@@ -26,7 +26,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  createLesson: lesson => dispatch(createLesson(lesson)),
+  submitLesson: lesson => dispatch(createLesson(lesson)),
   clearErrors: () => dispatch(clearErrors())
 });
 

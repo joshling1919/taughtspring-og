@@ -57,6 +57,30 @@ class Api::LessonsController < ApplicationController
   def update
     @lesson = Lesson.find(params[:id])
     if @lesson.update_attributes(lesson_params)
+      # @lesson.sections.each do |section|
+      #   debugger;
+      #   if params[:lesson][:]
+      #
+      #   end
+      #   section.update_attributes(
+      #     cfus_attributes: [  ]
+      #   )
+      # end
+      #
+      #
+      # # if params[:lesson][:sections_attributes]
+      # #   params[:lesson][:sections_attributes].each do |section|
+      # #     section_data = section[1]
+      # #
+      # #     if section_data[:cfus]
+      # #       section_data[:cfus].each do |cfu|
+      # #         cfu_data = cfu[1]
+      # #         debugger;
+      # #       end
+      # #     end
+      # #     debugger;
+      # #   end
+      # # end
       render :show
     else
       render json: @lesson.errors.full_messages, status: 422
@@ -88,7 +112,13 @@ class Api::LessonsController < ApplicationController
       :lesson_date,
       :image_url,
       :thumbnail_url,
-      :date
+      :date,
+      objectives_attributes: [:id, :description],
+      key_points_attributes: [:id, :point],
+      sections_attributes: [:id, :name, :description,
+        cfus_attributes: [ :id, :question, :answer ],
+        misconceptions_attributes: [:id, :misconception]
+      ]
     )
   end
 end

@@ -13,13 +13,7 @@ export const LessonsConstants = {
   UPDATE_TITLE: "UPDATE_TITLE",
   UPDATE_SUBJECT: "UPDATE_SUBJECT",
   UPDATE_GRADE: "UPDATE_GRADE",
-  UPDATE_DATE: "UPDATE_DATE",
-  UPDATE_OBJECTIVE: "UPDATE_OBJECTIVE",
-  DELETE_OBJECTIVE: "DELETE_OBJECTIVE",
-  ADD_OBJECTIVE: "ADD_OBJECTIVE",
-  UPDATE_KEY_POINT: "UPDATE_KEY_POINT",
-  DELETE_KEY_POINT: "DELETE_KEY_POINT",
-  ADD_KEY_POINT: "ADD_KEY_POINT"
+  UPDATE_DATE: "UPDATE_DATE"
 };
 
 export const requestAllLessons = () => ({
@@ -93,36 +87,4 @@ export const updateGrade = grade => ({
 export const updateDate = date => ({
   type: LessonsConstants.UPDATE_DATE,
   date
-});
-
-export const updateObjective= (index, description) => ({
-  type: LessonsConstants.UPDATE_OBJECTIVE,
-  description,
-  index
-});
-
-export const deleteObjective= objectiveId => ({
-  type: LessonsConstants.DELETE_OBJECTIVE,
-  objectiveId
-});
-
-export const addObjective= lessonId => ({
-  type: LessonsConstants.ADD_OBJECTIVE,
-  lessonId
-});
-
-export const updateKeyPoint= (index, point) => ({
-  type: LessonsConstants.UPDATE_KEY_POINT,
-  point,
-  index
-});
-
-export const deleteKeyPoint= keyPointId => ({
-  type: LessonsConstants.DELETE_KEY_POINT,
-  keyPointId
-});
-
-export const addKeyPoint= lessonId => ({
-  type: LessonsConstants.ADD_KEY_POINT,
-  lessonId
 });

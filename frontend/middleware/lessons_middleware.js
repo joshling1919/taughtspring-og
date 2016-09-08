@@ -11,10 +11,6 @@ import { fetchAllLessons,
          fetchLesson,
          updateLesson,
          deleteLesson,
-         deleteObjective,
-         createObjective,
-         deleteKeyPoint,
-         createKeyPoint
        } from '../util/lessons_api_util';
 
 import { requestProfile } from '../actions/profile_actions';
@@ -50,7 +46,24 @@ export default ({ getState, dispatch }) => next => action => {
       fetchLesson(action.lessonId, successSingleUpdateLesson);
       return next(action);
     case LessonsConstants.UPDATE_LESSON:
-      updateLesson(action.lesson, successSingleLesson, errorCallback);
+    action.lesson.lesson.sections.forEach( section => {
+      section.cfus_attributes = section.cfus;
+      section.misconceptions_attributes = section.misconceptions;
+    });
+
+    let nestedLesson = { lesson: {
+        id: action.lesson.lesson.id,
+        title: action.lesson.lesson.title,
+        grade: action.lesson.lesson.grade,
+        subject: action.lesson.lesson.subject,
+        lesson_date: action.lesson.lesson.lesson_date,
+        user_id: action.lesson.lesson.user_id,
+        objectives_attributes: action.lesson.lesson.objectives,
+        key_points_attributes: action.lesson.lesson.key_points,
+        sections_attributes: action.lesson.lesson.sections
+      }
+    };
+      updateLesson(nestedLesson, successSingleLesson, errorCallback);
       return next(action);
     case LessonsConstants.RECEIVE_LESSON:
       // dispatch(push(`/lessons/${action.lesson.id}`));
@@ -60,24 +73,6 @@ export default ({ getState, dispatch }) => next => action => {
       return next(action);
     case LessonsConstants.CONFIRM_DELETE:
       dispatch(requestProfile(getState().session.currentUser.id));
-      return next(action);
-    case LessonsConstants.DELETE_OBJECTIVE:
-      deleteObjective(action.objectiveId, successUpdate);
-      return next(action);
-    case LessonsConstants.ADD_OBJECTIVE:
-      let blankLesson = { objective:
-        {lesson_id: action.lessonId, description: ""}
-      };
-      createObjective(blankLesson, successUpdate);
-      return next(action);
-    case LessonsConstants.DELETE_KEY_POINT:
-      deleteKeyPoint(action.keyPointId, successUpdate);
-      return next(action);
-    case LessonsConstants.ADD_KEY_POINT:
-      let blankKeyPoint = { key_point:
-        {lesson_id: action.lessonId, point: ""}
-      };
-      createKeyPoint(blankKeyPoint, successUpdate);
       return next(action);
     default:
       return next(action);
