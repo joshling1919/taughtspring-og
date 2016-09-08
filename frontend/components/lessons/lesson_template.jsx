@@ -371,12 +371,16 @@ class LessonTemplate extends React.Component {
 
 
   render(){
+    if (this.state.title) {
       return(
         <Tabs selected={0}
           newSection={this._newSection.bind(this)}>
           {this._allPanes()}
         </Tabs>
       );
+    } else {
+      return null;
+    }
   }
 }
 
