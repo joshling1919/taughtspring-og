@@ -3,9 +3,11 @@ import EditLesson from './edit_lesson';
 
 import { updateLesson,
         requestLesson,
-        updatePicture } from '../../actions/lessons_actions';
+        updatePicture
+       } from '../../actions/lessons_actions';
 
-import { addSection 
+import { addSection,
+         deleteSection
       } from '../../actions/section_actions';
 
 
@@ -21,7 +23,8 @@ const mapDispatchToProps = dispatch => ({
   updateLesson: lesson => dispatch(updateLesson(lesson)),
   requestLesson: lessonId => dispatch(requestLesson(lessonId)),
   updatePicture: lesson => dispatch(updatePicture(lesson)),
-  addSection: lessonId => dispatch(addSection(lessonId))
+  addSection: lessonId => dispatch(addSection(lessonId)),
+  deleteSection: sectionId => dispatch(deleteSection(sectionId))
 });
 
 

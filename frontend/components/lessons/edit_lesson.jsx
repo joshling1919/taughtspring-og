@@ -80,7 +80,7 @@ class EditLesson extends React.Component {
   }
 
   _deleteSection(e){
-
+    this.props.deleteSection(parseInt(e.target.name));
   }
 
   _addMisconception(e){
@@ -126,6 +126,7 @@ class EditLesson extends React.Component {
           deleteMisconception={this._deleteMisconception}
           cfus={singleLessonSections[i].cfus}
           addCFU={this._addCFU}
+          sectionId={singleLessonSections[i].id}
           updateCFU={this._updateCFU}
           deleteCFU={this._deleteCFU}
           index={i} />

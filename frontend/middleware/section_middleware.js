@@ -4,7 +4,8 @@ import { requestLesson,
 import { SectionConstants
 } from '../actions/section_actions';
 
-import { createSection
+import { createSection,
+         deleteSection
        } from '../util/sections_api_util';
 
 
@@ -24,6 +25,9 @@ export default ({ getState, dispatch }) => next => action => {
         }
       };
       createSection(blankSection, successUpdate);
+      return next(action);
+    case SectionConstants.DELETE_SECTION:
+      deleteSection(action.sectionId, successUpdate);
       return next(action);
     default:
       return next(action);

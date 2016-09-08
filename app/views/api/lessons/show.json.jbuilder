@@ -6,6 +6,8 @@ json.extract! @lesson, :id, :user_id, :title, :subject, :grade,
 json.sections @lesson.sections do |section|
   json.name section.name
   json.description section.description
+  json.id section.id
+  json.lesson_id section.lesson_id
   json.created_at section.created_at
   json.cfus section.cfus
   json.misconceptions section.misconceptions

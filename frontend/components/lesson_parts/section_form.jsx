@@ -105,6 +105,7 @@ class SectionForm extends React.Component {
         <DeletePartButton
           isSection={true}
           index={index}
+          sectionId={this.props.sectionId}
           deletePart={deleteSection}/>
       </div>
     );
