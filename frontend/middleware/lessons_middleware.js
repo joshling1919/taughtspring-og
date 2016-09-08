@@ -54,6 +54,8 @@ export default ({ getState, dispatch }) => next => action => {
         deleted_objectives: action.lesson.lesson.deletedObjectives,
         deleted_key_points: action.lesson.lesson.deletedKeyPoints,
         deleted_sections: action.lesson.lesson.deletedSections,
+        deleted_cfus: action.lesson.lesson.deletedCFUs,
+        deleted_misconceptions: action.lesson.lesson.deletedMisconceptions,
         id: action.lesson.lesson.id,
         title: action.lesson.lesson.title,
         grade: action.lesson.lesson.grade,
@@ -65,7 +67,6 @@ export default ({ getState, dispatch }) => next => action => {
         sections_attributes: action.lesson.lesson.sections
       }
     };
-    debugger;
       updateLesson(nestedLesson, successSingleLesson, errorCallback);
       return next(action);
     case LessonsConstants.RECEIVE_LESSON:

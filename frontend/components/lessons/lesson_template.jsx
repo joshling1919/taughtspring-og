@@ -50,6 +50,12 @@ class LessonTemplate extends React.Component {
     let newSections = JSON.parse(JSON.stringify(this.state.sections));
     let newSection = newSections[sectionIndex];
     let newMisconceptions = newSection.misconceptions;
+    if (newMisconceptions[misconceptionIndex].id) {
+      let ind = parseInt(newMisconceptions[misconceptionIndex].id);
+      this.setState( {
+        deletedMisconceptions: this.state.deletedMisconceptions.concat(ind)
+      });
+    }
     newMisconceptions.splice(misconceptionIndex, 1);
     newSection.misconceptions = newMisconceptions;
     newSections[sectionIndex] = newSection;
@@ -90,6 +96,12 @@ class LessonTemplate extends React.Component {
     let newSections = JSON.parse(JSON.stringify(this.state.sections));
     let newSection = newSections[sectionIndex];
     let newCFUs = newSection.cfus;
+    if (newCFUs[cfuIndex].id) {
+      let ind = parseInt(newCFUs[cfuIndex].id);
+      this.setState( {
+        deletedCFUs: this.state.deletedCFUs.concat(ind)
+      });
+    }
     newCFUs.splice(cfuIndex, 1);
     newSection.cfus = newCFUs;
     newSections[sectionIndex] = newSection;

@@ -5,10 +5,6 @@ import UploadPictureButton from './upload_picture_button';
 
 class NewLessonForm extends React.Component {
 
-  componentWillUnmount() {
-    this.props.clearErrors();
-  }
-
   render() {
     const { template, handleSubmit, errors, upload,
       updateTitle, updateGrade,

@@ -74,6 +74,19 @@ class Api::LessonsController < ApplicationController
             Section.destroy(section_id)
           end
         end
+
+        if params[:lesson][:deleted_cfus]
+          params[:lesson][:deleted_cfus].each do |cfu_id|
+            Cfu.destroy(cfu_id)
+          end
+        end
+
+        if params[:lesson][:deleted_misconceptions]
+          params[:lesson][:deleted_misconceptions].each do |mis_id|
+            Misconception.destroy(mis_id)
+          end
+        end
+
       render :show
     else
       render json: @lesson.errors.full_messages, status: 422
