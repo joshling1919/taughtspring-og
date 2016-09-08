@@ -4,17 +4,18 @@ import SearchBar from './search_bar';
 
 
 
-const mapStateToProps = state => ({
 
-});
+// const mapStateToProps = state => ({
+//
+// });
 
 
-const mapDispatchToProps = dispatch => ({
-
-});
+// const mapDispatchToProps = dispatch => ({
+//   search: query => dispatch(search(query))
+// });
 
 
 
 export default connect(
-  mapStateToProps, mapDispatchToProps
+  null, null
 )(SearchBar);
