@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     resources :objectives, only: [:create, :destroy]
     resources :key_points, only: [:create, :destroy]
     resources :sections, only: [:create, :update, :destroy]
-    resources :cfus, only: [:destroy]
-    resources :misconceptions, only: [:destroy]
+    resources :cfus, only: [:create, :destroy]
+    resources :misconceptions, only: [:create, :destroy]
   end
 end

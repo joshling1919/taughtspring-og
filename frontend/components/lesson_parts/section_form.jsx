@@ -93,12 +93,14 @@ class SectionForm extends React.Component {
             />
           {this._misconceptionsList()}
           <button className="add-field" type="button"
-            onClick={addMisconception} id={index}>
+            onClick={addMisconception} id={index}
+            name={this.props.sectionId}>
             Add Potential Misconception
           </button>
           {this._cfusList()}
           <button className="add-field" type="button"
-            onClick={addCFU} id={index}>
+            onClick={addCFU}
+            name={this.props.sectionId} id={index}>
             Add CFU
           </button>
         </form>

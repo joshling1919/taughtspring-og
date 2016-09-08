@@ -5,7 +5,8 @@ import { SectionConstants
 } from '../actions/section_actions';
 
 import { createSection,
-         deleteSection
+         deleteSection,
+         createCFU
        } from '../util/sections_api_util';
 
 
@@ -25,6 +26,16 @@ export default ({ getState, dispatch }) => next => action => {
         }
       };
       createSection(blankSection, successUpdate);
+      return next(action);
+    case SectionConstants.ADD_CFU:
+      let blankCFU = { cfu:
+        {
+          section_id: action.sectionId,
+          question: "",
+          answer: ""
+        }
+      };
+      createCFU(blankCFU, successUpdate);
       return next(action);
     case SectionConstants.DELETE_SECTION:
       deleteSection(action.sectionId, successUpdate);

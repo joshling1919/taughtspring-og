@@ -10,15 +10,19 @@ export const createSection = function(section, success) {
   });
 };
 
-// export const updateSection = function(section, success, error) {
-//   $.ajax({
-//     method: 'PATCH',
-//     url: `/api/sections/${section.section.id}`,
-//     data: section,
-//     success,
-//     error
-//   });
-// };
+export const createCFU = function(CFU, success) {
+  $.ajax({
+    method: 'POST',
+    url: '/api/cfus',
+    data: CFU,
+    success,
+    error: () => {
+      console.log('adding blank section error');
+    }
+  });
+};
+
+
 
 export const deleteSection = function(sectionId, success) {
   $.ajax({

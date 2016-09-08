@@ -8,7 +8,8 @@ import { updateLesson,
 
 import { addSection,
          deleteSection,
-         updateSection
+         updateSection,
+         addCFU
       } from '../../actions/section_actions';
 
 
@@ -27,7 +28,8 @@ const mapDispatchToProps = dispatch => ({
   addSection: lessonId => dispatch(addSection(lessonId)),
   deleteSection: sectionId => dispatch(deleteSection(sectionId)),
   updateSection: (sectionName, sectionVal,
-     index) => dispatch(updateSection(sectionName, sectionVal, index))
+     index) => dispatch(updateSection(sectionName, sectionVal, index)),
+  addCFU: sectionId => dispatch(addCFU(sectionId))
 });
 
 

@@ -98,7 +98,7 @@ class EditLesson extends React.Component {
   }
 
   _addCFU(e){
-
+    this.props.addCFU(parseInt(e.target.name));
   }
 
   _updateCFU(e){

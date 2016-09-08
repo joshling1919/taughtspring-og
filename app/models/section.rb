@@ -15,6 +15,6 @@ class Section < ActiveRecord::Base
   validates :lesson_id, presence: true
 
   belongs_to :lesson, inverse_of: :sections
-  has_many :cfus, dependent: :destroy
+  has_many :cfus, dependent: :destroy, inverse_of: :section
   has_many :misconceptions, dependent: :destroy
 end
