@@ -18,10 +18,10 @@ const mapStateToProps = state => ({
     subject: state.session.currentUser.subject,
     lesson_date: undefined,
     user_id: state.session.currentUser.id,
-    objectives: [{ description: "", uniq: 0 }],
-    key_points: [{ point: "", uniq: 1 }],
+    objectives: [{ description: "", uniq: 50123 }],
+    key_points: [{ point: "", uniq: 94532 }],
     sections: [{ name: "", description: "",
-    misconceptions: [], cfus: [], uniq:2 }]
+    misconceptions: [], cfus: [], uniq: 2 }]
   }
 });
 
