@@ -81,14 +81,14 @@ class SectionForm extends React.Component {
             name= "name"
             id={index}
             defaultValue={name}
-            onBlur={updateSectionField}
+            onChange={updateSectionField}
             type="text"/>
           <label>Description: </label>
           <textarea
             className="lesson-item"
             name= "description"
             id={index}
-            onBlur={updateSectionField}
+            onChange={updateSectionField}
             defaultValue={description}
             />
           {this._misconceptionsList()}

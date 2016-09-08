@@ -76,7 +76,8 @@ class EditLesson extends React.Component {
   }
 
   _updateSectionField(e){
-
+    this.props.updateSection(e.target.name, e.target.value,
+      parseInt(e.target.id));
   }
 
   _deleteSection(e){

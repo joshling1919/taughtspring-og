@@ -1,6 +1,6 @@
 import { LessonsConstants } from '../actions/lessons_actions';
 import { merge, uniqueId } from 'lodash';
-
+import { SectionConstants } from '../actions/section_actions';
 
 const SingleLessonReducer = function(singleLessonState = {}, action){
   let singleLessonCopy = merge({}, singleLessonState);
@@ -22,6 +22,9 @@ const SingleLessonReducer = function(singleLessonState = {}, action){
       return merge({}, singleLessonState, singleLessonCopy);
     case LessonsConstants.UPDATE_KEY_POINT:
       singleLessonCopy.key_points[action.index].point = action.point;
+      return merge({}, singleLessonState, singleLessonCopy);
+    case SectionConstants.UPDATE_SECTION:
+      singleLessonCopy.sections[action.index][action.sectionName] = action.sectionVal;
       return merge({}, singleLessonState, singleLessonCopy);
     default:
       return singleLessonState;
