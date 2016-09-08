@@ -1,6 +1,7 @@
 import React from 'react';
 import LoginContainer from '../auth/login_container';
 import { withRouter } from 'react-router';
+import SubjectSearch from './subject_search';
 
 class NavBar extends React.Component{
 
@@ -85,6 +86,7 @@ class NavBar extends React.Component{
         <div className="nav-buttons">
           <li className='nav-bar-item'>
             <button className="nav-button subject-button">Subjects</button>
+            <SubjectSearch />
           </li>
 
           <li className='nav-bar-item'>
