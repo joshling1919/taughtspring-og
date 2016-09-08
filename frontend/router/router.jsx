@@ -13,7 +13,7 @@ import CreateLessonContainer from '../components/lessons/create_lesson_container
 import EditLessonContainer from '../components/lessons/edit_lesson_container';
 import FullLessonContainer from '../components/lessons/full_lesson_container';
 import ProfileContainer from '../components/profile/profile_container';
-
+import FilteredIndexContainer from '../components/lessons/filtered_index_container';
 
 
 class AppRouter extends React.Component {
@@ -55,17 +55,18 @@ class AppRouter extends React.Component {
     return (
       <Route path="/" component={ App } >
         <IndexRoute component = { LessonsIndexContainer }
-                    onEnter={this._populateIndex} />
+          onEnter={this._populateIndex} />
+        <Route path="filter" component={ FilteredIndexContainer } />
         <Route path="create-lesson" component={ CreateLessonContainer }
-               onEnter={ this._ensureLoggedIn }
-               onLeave={this._clearErrors}/>
+          onEnter={ this._ensureLoggedIn }
+          onLeave={this._clearErrors}/>
         <Route path="lessons/:lessonId" component={ FullLessonContainer } />
         <Route path="lessons/:lessonId/edit" component={ EditLessonContainer }
-               onEnter={ this._ensureLoggedIn }
-               onEnter={ this._requestLesson}
-               onLeave={this._clearErrors}/>
+          onEnter={ this._ensureLoggedIn }
+          onEnter={ this._requestLesson}
+          onLeave={this._clearErrors}/>
         <Route path="/profiles/:userId" component={ ProfileContainer }
-               onEnter={this._requestProfile}/>
+          onEnter={this._requestProfile}/>
       </Route>
     );
   }
@@ -80,17 +81,3 @@ class AppRouter extends React.Component {
 }
 
 export default AppRouter;
-
-/*
-<Home/> // /
-  <SearchContainer/>
-  <LessonsIndexContainer/>
-<LoginContainer/> // login -> redirect to Home
-<SignUpContainer/> // singup -> redict to Home
-<ProfileContainer/> // profile, ensureLoggedIn
-  <LessonsIndexContainer/> // profile/lessons, ensureLoggedIn
-  <FullLessonContainer/> // profile/lessons/:lessonId
-    <EditLessonContainer/> // profile/lessons/:lessonId/edit, ensureLoggedIn
-<FullLessonContainer/> // lessons/:lessonId
-<CreateLessonContainer/> // create-lesson
-*/

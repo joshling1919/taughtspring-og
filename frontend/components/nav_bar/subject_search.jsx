@@ -1,14 +1,16 @@
 import React from 'react';
-
+import { withRouter } from 'react-router';
 
 class SubjectSearch extends React.Component {
   constructor(props){
     super(props);
-    this._findEnglish = this._findEnglish.bind(this);
-    this._findMath = this._findMath.bind(this);
-    this._findScience = this._findScience.bind(this);
-    this._findSocialStudies = this._findSocialStudies.bind(this);
-    this._findOther = this._findOther.bind(this);
+    this._findSubject = this._findSubject.bind(this);
+  }
+
+  _findSubject(e){
+    e.preventDefault();
+    this.props.router.push('/filter');
+    this.props.findSubject(e.target.innerHTML);
   }
 
 
@@ -19,7 +21,7 @@ class SubjectSearch extends React.Component {
         <ul className="dropdown">
           <li>
             <a className="dropdown-item"
-              onClick={this._findEnglish}>English</a>
+              onClick={this._findSubject}>English</a>
             <ul>
               <li>
                 <a>6th Grade</a>
@@ -33,7 +35,8 @@ class SubjectSearch extends React.Component {
             </ul>
           </li>
           <li>
-            <a className="dropdown-item">Math</a>
+            <a className="dropdown-item"
+              onClick={this._findSubject}>Math</a>
               <ul>
                 <li>
                   <a>6th Grade</a>
@@ -61,7 +64,8 @@ class SubjectSearch extends React.Component {
               </ul>
           </li>
           <li>
-            <a className="dropdown-item">Social Studies</a>
+            <a className="dropdown-item"
+              onClick={this._findSubject}>Social Studies</a>
               <ul>
                 <li>
                   <a>6th Grade</a>
@@ -75,7 +79,8 @@ class SubjectSearch extends React.Component {
               </ul>
           </li>
           <li>
-            <a href="#" className="dropdown-item">Other</a>
+            <a href="#" className="dropdown-item"
+              onClick={this._findSubject}>Other</a>
           </li>
         </ul>
       </div>
@@ -84,4 +89,4 @@ class SubjectSearch extends React.Component {
 }
 
 
-export default SubjectSearch;
+export default withRouter(SubjectSearch);
