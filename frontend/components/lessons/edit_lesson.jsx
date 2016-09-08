@@ -110,7 +110,10 @@ class EditLesson extends React.Component {
 
   _sections() {
     let sections = [];
-    let singleLessonSections = this.props.singleLesson.sections;
+    let singleLessonSections = [];
+    if (this.props.singleLesson.sections) {
+      singleLessonSections = this.props.singleLesson.sections;
+    }
     for (let i = 0; i < singleLessonSections.length; i++) {
       sections.push(<Pane key={singleLessonSections[i].created_at}
         label={singleLessonSections[i].name}>
@@ -142,6 +145,7 @@ class EditLesson extends React.Component {
   }
 
   _newSection(e) {
+    e.preventDefault();
     console.log(e.target);
   }
 
@@ -151,6 +155,8 @@ class EditLesson extends React.Component {
       this._sections(), this._addSection())
     );
   }
+
+
 
   render(){
       return(
