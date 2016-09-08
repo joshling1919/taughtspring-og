@@ -5,11 +5,21 @@ import EditObjectivesForm from '../lesson_parts/edit_objectives_form';
 import { merge } from 'lodash';
 import Tabs from '../tabs/tabs';
 import Pane from '../tabs/pane';
+import SectionForm from '../lesson_parts/section_form';
 
 class EditLesson extends React.Component {
   constructor(props){
     super(props);
     this.uploadCallback = this.uploadCallback.bind(this);
+
+    this._updateSectionField = this._updateSectionField.bind(this);
+    this._deleteSection = this._deleteSection.bind(this);
+    this._addMisconception = this._addMisconception.bind(this);
+    this._updateMisconception = this._updateMisconception.bind(this);
+    this._deleteMisconception = this._deleteMisconception.bind(this);
+    this._addCFU = this._addCFU.bind(this);
+    this._updateCFU = this._updateCFU.bind(this);
+    this._deleteCFU = this._deleteCFU.bind(this);
   }
 
 
@@ -65,32 +75,87 @@ class EditLesson extends React.Component {
     );
   }
 
+  _updateSectionField(e){
+
+  }
+
+  _deleteSection(e){
+
+  }
+
+  _addMisconception(e){
+
+  }
+
+  _updateMisconception(e){
+
+  }
+
+  _deleteMisconception(e) {
+
+
+  }
+
+  _addCFU(e){
+
+  }
+
+  _updateCFU(e){
+
+  }
+
+  _deleteCFU(e) {
+
+  }
 
   _sections() {
+    let sections = [];
+    let singleLessonSections = this.props.singleLesson.sections;
+    for (let i = 0; i < singleLessonSections.length; i++) {
+      sections.push(<Pane key={singleLessonSections[i].created_at}
+        label={singleLessonSections[i].name}>
+        <SectionForm section={singleLessonSections[i]}
+          updateSectionField={this._updateSectionField}
+          deleteSection={this._deleteSection}
+          misconceptions={singleLessonSections[i].misconceptions}
+          addMisconception={this._addMisconception}
+          updateMisconception={this._updateMisconception}
+          deleteMisconception={this._deleteMisconception}
+          cfus={singleLessonSections[i].cfus}
+          addCFU={this._addCFU}
+          updateCFU={this._updateCFU}
+          deleteCFU={this._deleteCFU}
+          index={i} />
+    </Pane>);
+    }
     return (
-      []
+      sections
     );
   }
 
-  // _addSection() {
-  //   return(
-  //     <Pane
-  //       key="addSection"
-  //       label="+ Add Section" />
-  //   );
-  // }
+  _addSection() {
+    return(
+      <Pane
+        key="addSection"
+        label="+ Add Section" />
+    );
+  }
 
+  _newSection(e) {
+    console.log(e.target);
+  }
 
   _allPanes() {
     return(
       this._essentials().concat(this._objective(),
-      this._sections())
+      this._sections(), this._addSection())
     );
   }
 
   render(){
       return(
-        <Tabs selected={0}>
+        <Tabs selected={0}
+          newSection={this._newSection.bind(this)}>
           {this._allPanes()}
         </Tabs>
       );

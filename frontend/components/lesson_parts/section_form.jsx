@@ -6,13 +6,20 @@ import { uniqueId } from 'lodash';
 
 class SectionForm extends React.Component {
 
+  _generateKey(obj){
+    if (obj.uniq) {
+      return obj.uniq;
+    } else {
+      return obj.created_at;
+    }
+  }
 
   _misconceptionsList(){
     if (this.props.misconceptions) {
       return(
         this.props.misconceptions.map( (misconception, i) => {
           return(
-              <Misconception key={misconception.uniq}
+              <Misconception key={this._generateKey.bind(this, misconception)()}
                 misconception={misconception.misconception}
                 updateMisconception={this.props.updateMisconception}
                 sectionIndex={this.props.index}
@@ -32,7 +39,7 @@ class SectionForm extends React.Component {
       return(
         this.props.cfus.map( (cfu, i) => {
           return(
-              <CFU key={cfu.uniq}
+              <CFU key={this._generateKey.bind(this, cfu)()}
                 question={cfu.question}
                 answer={cfu.answer}
                 updateCFU={this.props.updateCFU}
