@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import CreateLesson from './create_lesson';
+import LessonTemplate from './lesson_template';
 
 
 import { clearErrors } from '../../actions/errors_actions';
@@ -30,4 +30,4 @@ const mapDispatchToProps = dispatch => ({
 
 export default connect(
   mapStateToProps, mapDispatchToProps
-)(CreateLesson);
+)(LessonTemplate);

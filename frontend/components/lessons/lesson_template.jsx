@@ -7,7 +7,7 @@ import ObjectiveForm from '../lesson_parts/objective_form';
 import SectionForm from '../lesson_parts/section_form';
 import { merge } from 'lodash';
 
-class CreateLesson extends React.Component {
+class LessonTemplate extends React.Component {
   constructor(props){
     super(props);
     this.incrementer = 11;
@@ -337,4 +337,4 @@ class CreateLesson extends React.Component {
   }
 }
 
-export default CreateLesson;
+export default LessonTemplate;
