@@ -9,7 +9,7 @@ class SubjectSearch extends React.Component {
 
   _findSubject(e){
     e.preventDefault();
-    this.props.findSubject(e.target.innerHTML);
+    this.props.router.push(`/filter/${e.target.innerHTML}`);
   }
 
 
@@ -49,7 +49,8 @@ class SubjectSearch extends React.Component {
               </ul>
           </li>
           <li>
-            <a className="dropdown-item">Science</a>
+            <a className="dropdown-item"
+              onClick={this._findSubject}>Science</a>
               <ul>
                 <li>
                   <a>6th Grade</a>

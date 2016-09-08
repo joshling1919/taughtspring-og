@@ -19,6 +19,7 @@ import FilteredIndexContainer from '../components/lessons/filtered_index_contain
 class AppRouter extends React.Component {
   constructor(props) {
     super(props);
+    this._populateFilterIndex = this._populateFilterIndex.bind(this);
     this._populateIndex = this._populateIndex.bind(this);
     this._ensureLoggedIn = this._ensureLoggedIn.bind(this);
     this._clearErrors = this._clearErrors.bind(this);
@@ -36,6 +37,10 @@ class AppRouter extends React.Component {
     if (!currentUser) {
       this.props.openLogin();
     }
+  }
+
+  _populateFilterIndex(nextState){
+    this.props.findSubject(nextState.params.field);
   }
 
   _requestLesson(nextState){
@@ -56,7 +61,8 @@ class AppRouter extends React.Component {
       <Route path="/" component={ App } >
         <IndexRoute component = { LessonsIndexContainer }
           onEnter={this._populateIndex} />
-        <Route path="filter" component={ FilteredIndexContainer } />
+        <Route path="filter/:field" component={ FilteredIndexContainer }
+          onEnter={this._populateFilterIndex}/>
         <Route path="create-lesson" component={ CreateLessonContainer }
           onEnter={ this._ensureLoggedIn }
           onLeave={this._clearErrors}/>

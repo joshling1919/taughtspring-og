@@ -9,7 +9,6 @@ import { logoutAction,
        } from '../../actions/session_actions';
 import { clearErrors } from '../../actions/errors_actions';
 
-import { findSubject } from '../../actions/filter_actions';
 
 const mapStateToProps = state => ({
   currentUser: state.session.currentUser
@@ -22,8 +21,7 @@ const mapDispatchToProps = dispatch => ({
   openSignup: () => dispatch(openSignup()),
   closeLogin: () => dispatch(closeLogin()),
   closeSignup: () => dispatch(closeSignup()),
-  clearErrors: () => dispatch(clearErrors()),
-  findSubject: subject => dispatch(findSubject(subject))
+  clearErrors: () => dispatch(clearErrors())
 });
 
 

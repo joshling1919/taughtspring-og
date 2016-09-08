@@ -21,9 +21,6 @@ export default ({ getState, dispatch }) => next => action => {
     case FilterConstants.FIND_SUBJECT:
       fetchFilteredLessons(action.subject, successFilteredLessons);
       return next(action);
-    case FilterConstants.RECEIVE_FILTERED_LESSONS:
-      dispatch(push('/filter'));
-      return next(action);
     default:
       return next(action);
   }

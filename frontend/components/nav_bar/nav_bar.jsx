@@ -86,8 +86,7 @@ class NavBar extends React.Component{
         <div className="nav-buttons">
           <li className='nav-bar-item'>
             <button className="nav-button subject-button">Subjects</button>
-            <SubjectSearch
-              findSubject={this.props.findSubject}/>
+            <SubjectSearch />
           </li>
 
           <li className='nav-bar-item'>
