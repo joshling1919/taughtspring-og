@@ -10,11 +10,6 @@ import { updateLesson,
         updatePicture
        } from '../../actions/lessons_actions';
 
-import { addSection,
-         deleteSection,
-         updateSection,
-         addCFU
-      } from '../../actions/section_actions';
 
 
 
@@ -29,11 +24,6 @@ const mapDispatchToProps = dispatch => ({
   updateLesson: lesson => dispatch(updateLesson(lesson)),
   requestLesson: lessonId => dispatch(requestLesson(lessonId)),
   updatePicture: lesson => dispatch(updatePicture(lesson)),
-  addSection: lessonId => dispatch(addSection(lessonId)),
-  deleteSection: sectionId => dispatch(deleteSection(sectionId)),
-  updateSection: (sectionName, sectionVal,
-     index) => dispatch(updateSection(sectionName, sectionVal, index)),
-  addCFU: sectionId => dispatch(addCFU(sectionId)),
   clearErrors: () => dispatch(clearErrors())
 });
 
