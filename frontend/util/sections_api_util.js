@@ -1,10 +1,12 @@
-export const createSection = function(section, success, error) {
+export const createSection = function(section, success) {
   $.ajax({
     method: 'POST',
     url: '/api/sections',
     data: section,
     success,
-    error
+    error: () => {
+      console.log('adding blank section error');
+    }
   });
 };
 

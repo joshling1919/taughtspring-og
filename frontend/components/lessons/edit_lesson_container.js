@@ -5,6 +5,10 @@ import { updateLesson,
         requestLesson,
         updatePicture } from '../../actions/lessons_actions';
 
+import { addSection 
+      } from '../../actions/section_actions';
+
+
 
 
 const mapStateToProps = state => ({
@@ -16,7 +20,8 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   updateLesson: lesson => dispatch(updateLesson(lesson)),
   requestLesson: lessonId => dispatch(requestLesson(lessonId)),
-  updatePicture: lesson => dispatch(updatePicture(lesson))
+  updatePicture: lesson => dispatch(updatePicture(lesson)),
+  addSection: lessonId => dispatch(addSection(lessonId))
 });
 
 

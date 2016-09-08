@@ -144,9 +144,8 @@ class EditLesson extends React.Component {
     );
   }
 
-  _newSection(e) {
-    e.preventDefault();
-    console.log(e.target);
+  _newSection() {
+    this.props.addSection(this.props.singleLesson.id);
   }
 
   _allPanes() {
