@@ -11,7 +11,13 @@ class LessonTemplate extends React.Component {
   constructor(props){
     super(props);
     this.incrementer = 11;
-    this.state = this.props.selectedLesson;
+    this.state = merge( {}, this.props.selectedLesson, {
+      deletedObjectives: [],
+      deletedKeyPoints: [],
+      deletedSections: [],
+      deletedCFUs: [],
+      deletedMisconceptions: []
+    });
     this._upload = this._upload.bind(this);
     this._updateTitle = this._updateTitle.bind(this);
     this._updateGrade = this._updateGrade.bind(this);
@@ -164,7 +170,6 @@ class LessonTemplate extends React.Component {
 
   _updateTitle(e){
     this.setState({ title: e.target.value });
-    this.props.clearErrors();
   }
 
   _updateGrade(e){
@@ -172,7 +177,6 @@ class LessonTemplate extends React.Component {
   }
 
   _updateSubject(e){
-
     this.setState( { subject: e.target.value });
   }
 
@@ -198,6 +202,12 @@ class LessonTemplate extends React.Component {
   _deleteObjective(e) {
     let objInd = parseInt(e.target.id);
     let objectivesArr = this.state.objectives.slice();
+    if (objectivesArr[objInd].id) {
+      let ind = parseInt(objectivesArr[objInd].id);
+      this.setState( {
+        deletedObjectives: this.state.deletedObjectives.concat(ind)
+      });
+    }
     objectivesArr.splice(objInd, 1);
     this.setState( { objectives: objectivesArr });
   }
@@ -220,6 +230,12 @@ class LessonTemplate extends React.Component {
   _deleteKeyPoint(e) {
     let kpInd = parseInt(e.target.id);
     let keyPointsArr = this.state.key_points.slice();
+    if (keyPointsArr[kpInd].id) {
+      let ind = parseInt(keyPointsArr[kpInd].id);
+      this.setState( {
+        deletedKeyPoints: this.state.deletedKeyPoints.concat(ind)
+      });
+    }
     keyPointsArr.splice(kpInd, 1);
     this.setState( { key_points: keyPointsArr });
   }
@@ -233,6 +249,7 @@ class LessonTemplate extends React.Component {
           updateSubject={this._updateSubject}
           updateDate={this._updateDate}
           handleSubmit={this._handleCreateLesson}
+          clearErrors={this.props.clearErrors}
           errors={this.props.errors}
           upload={this._upload}/>
       </Pane>]
@@ -315,6 +332,12 @@ class LessonTemplate extends React.Component {
   _deleteSection(e) {
     let ind = parseInt(e.target.id);
     let sectionsArr = this.state.sections.slice();
+    if (sectionsArr[ind].id) {
+      let index = parseInt(sectionsArr[ind].id);
+      this.setState( {
+        deletedSections: this.state.deletedSections.concat(index)
+      });
+    }
     sectionsArr.splice(ind, 1);
     this.setState( { sections: sectionsArr });
   }

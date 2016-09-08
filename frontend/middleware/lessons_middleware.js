@@ -50,8 +50,10 @@ export default ({ getState, dispatch }) => next => action => {
       section.cfus_attributes = section.cfus;
       section.misconceptions_attributes = section.misconceptions;
     });
-
     let nestedLesson = { lesson: {
+        deleted_objectives: action.lesson.lesson.deletedObjectives,
+        deleted_key_points: action.lesson.lesson.deletedKeyPoints,
+        deleted_sections: action.lesson.lesson.deletedSections,
         id: action.lesson.lesson.id,
         title: action.lesson.lesson.title,
         grade: action.lesson.lesson.grade,
@@ -63,6 +65,7 @@ export default ({ getState, dispatch }) => next => action => {
         sections_attributes: action.lesson.lesson.sections
       }
     };
+    debugger;
       updateLesson(nestedLesson, successSingleLesson, errorCallback);
       return next(action);
     case LessonsConstants.RECEIVE_LESSON:

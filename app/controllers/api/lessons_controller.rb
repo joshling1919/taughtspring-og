@@ -57,30 +57,23 @@ class Api::LessonsController < ApplicationController
   def update
     @lesson = Lesson.find(params[:id])
     if @lesson.update_attributes(lesson_params)
-      # @lesson.sections.each do |section|
-      #   debugger;
-      #   if params[:lesson][:]
-      #
-      #   end
-      #   section.update_attributes(
-      #     cfus_attributes: [  ]
-      #   )
-      # end
-      #
-      #
-      # # if params[:lesson][:sections_attributes]
-      # #   params[:lesson][:sections_attributes].each do |section|
-      # #     section_data = section[1]
-      # #
-      # #     if section_data[:cfus]
-      # #       section_data[:cfus].each do |cfu|
-      # #         cfu_data = cfu[1]
-      # #         debugger;
-      # #       end
-      # #     end
-      # #     debugger;
-      # #   end
-      # # end
+        if params[:lesson][:deleted_objectives]
+          params[:lesson][:deleted_objectives].each do |obj_id|
+            Objective.destroy(obj_id)
+          end
+        end
+
+        if params[:lesson][:deleted_key_points]
+          params[:lesson][:deleted_key_points].each do |kp_id|
+            KeyPoint.destroy(kp_id)
+          end
+        end
+
+        if params[:lesson][:deleted_sections]
+          params[:lesson][:deleted_sections].each do |section_id|
+            Section.destroy(section_id)
+          end
+        end
       render :show
     else
       render json: @lesson.errors.full_messages, status: 422
