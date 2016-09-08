@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'react-router';
 
 class SearchBar extends React.Component {
   constructor(props){
@@ -10,7 +11,7 @@ class SearchBar extends React.Component {
 
   _handleSearch(e){
     e.preventDefault();
-    this.props.search(this.state.search);
+    this.props.router.push(`search/${this.state.search}`);
   }
 
   _updateSearchBar(e){
@@ -34,4 +35,4 @@ class SearchBar extends React.Component {
 }
 
 
-export default SearchBar;
+export default withRouter(SearchBar);

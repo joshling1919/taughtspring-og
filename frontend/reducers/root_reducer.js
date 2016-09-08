@@ -6,6 +6,7 @@ import ErrorsReducer from './errors_reducer';
 import ProfileReducer from './profile_reducer';
 import LessonsIndexReducer from './lessons_index_reducer';
 import FilterReducer from './filter_reducer';
+import SearchReducer from './search_reducer';
 
 const RootReducer = combineReducers({
   errors: ErrorsReducer,
@@ -13,6 +14,7 @@ const RootReducer = combineReducers({
   singleLesson: SingleLessonReducer,
   lessonsIndex: LessonsIndexReducer,
   filteredIndex: FilterReducer,
+  searchedIndex: SearchReducer,
   profile: ProfileReducer
 });
 

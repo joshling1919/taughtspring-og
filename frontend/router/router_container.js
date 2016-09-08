@@ -6,6 +6,7 @@ import { requestAllLessons,
 
 import { requestProfile } from '../actions/profile_actions';
 import { findSubject } from '../actions/filter_actions';
+import { search } from '../actions/search_actions';
 import { clearErrors } from '../actions/errors_actions';
 import { openLogin } from '../actions/session_actions';
 
@@ -19,7 +20,8 @@ const mapDispatchToProps = dispatch => ({
   requestProfile: userId => dispatch(requestProfile(userId)),
   clearErrors: () => dispatch(clearErrors()),
   openLogin: () => dispatch(openLogin()),
-  findSubject: subject => dispatch(findSubject(subject))
+  findSubject: subject => dispatch(findSubject(subject)),
+  search: query => dispatch(search(query))
 });
 
 

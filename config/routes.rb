@@ -9,5 +9,6 @@ Rails.application.routes.draw do
     resources :sections, only: [:create, :update, :destroy]
     resources :cfus, only: [:create, :destroy]
     resources :misconceptions, only: [:create, :destroy]
+    resources :search, only:[:index]
   end
 end

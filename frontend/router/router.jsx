@@ -14,12 +14,14 @@ import EditLessonContainer from '../components/lessons/edit_lesson_container';
 import FullLessonContainer from '../components/lessons/full_lesson_container';
 import ProfileContainer from '../components/profile/profile_container';
 import FilteredIndexContainer from '../components/lessons/filtered_index_container';
+import SearchedIndexContainer from '../components/lessons/searched_index_container';
 
 
 class AppRouter extends React.Component {
   constructor(props) {
     super(props);
     this._populateFilterIndex = this._populateFilterIndex.bind(this);
+    this._populateSearchIndex = this._populateSearchIndex.bind(this);
     this._populateIndex = this._populateIndex.bind(this);
     this._ensureLoggedIn = this._ensureLoggedIn.bind(this);
     this._clearErrors = this._clearErrors.bind(this);
@@ -43,6 +45,10 @@ class AppRouter extends React.Component {
     this.props.findSubject(nextState.params);
   }
 
+  _populateSearchIndex(nextState){
+    this.props.search(nextState.params);
+  }
+
   _requestLesson(nextState){
     this.props.requestLesson(parseInt(nextState.params.lessonId));
   }
@@ -64,6 +70,9 @@ class AppRouter extends React.Component {
         <Route path="filter/:subject(/:grade)"
           component={ FilteredIndexContainer }
           onEnter={this._populateFilterIndex}/>
+        <Route path="search/:query"
+          component={ SearchedIndexContainer }
+          onEnter={this._populateSearchIndex}/>
         <Route path="create-lesson" component={ CreateLessonContainer }
           onEnter={ this._ensureLoggedIn }
           onLeave={this._clearErrors}/>
