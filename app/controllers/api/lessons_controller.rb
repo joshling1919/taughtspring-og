@@ -98,8 +98,15 @@ class Api::LessonsController < ApplicationController
   end
 
   def index
-    if params[:subject].present?
-      @lessons = Lesson.subject(params[:subject]).includes(:user)
+    if params[:filter].present?
+      if params[:filter][:subject] && params[:filter][:grade]
+        grade_int = params[:filter][:grade][0].to_i
+        subj = params[:filter][:subject]
+        @lessons = Lesson.where(subject: subj,
+        grade: grade_int)
+      elsif params[:filter][:subject]
+        @lessons = Lesson.subject(params[:filter][:subject]).includes(:user)
+      end
     else
       @lessons = Lesson.all.includes(:user)
     end

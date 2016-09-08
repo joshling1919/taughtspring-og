@@ -4,9 +4,9 @@ export const FilterConstants = {
 };
 
 
-export const findSubject = subject => ({
+export const findSubject = filter => ({
   type: FilterConstants.FIND_SUBJECT,
-  subject
+  filter
 });
 
 export const receiveFilteredLessons = filteredLessons => ({

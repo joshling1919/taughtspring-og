@@ -40,7 +40,7 @@ class AppRouter extends React.Component {
   }
 
   _populateFilterIndex(nextState){
-    this.props.findSubject(nextState.params.field);
+    this.props.findSubject(nextState.params);
   }
 
   _requestLesson(nextState){
@@ -61,7 +61,8 @@ class AppRouter extends React.Component {
       <Route path="/" component={ App } >
         <IndexRoute component = { LessonsIndexContainer }
           onEnter={this._populateIndex} />
-        <Route path="filter/:field" component={ FilteredIndexContainer }
+        <Route path="filter/:subject(/:grade)"
+          component={ FilteredIndexContainer }
           onEnter={this._populateFilterIndex}/>
         <Route path="create-lesson" component={ CreateLessonContainer }
           onEnter={ this._ensureLoggedIn }

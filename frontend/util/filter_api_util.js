@@ -1,8 +1,8 @@
-export const fetchFilteredLessons = function(subjectName, success) {
+export const fetchFilteredLessons = function(filterFields, success) {
   $.ajax({
     method: 'GET',
     url: '/api/lessons',
-    data: {subject: subjectName},
+    data: {filter: filterFields},
     success
   });
 };

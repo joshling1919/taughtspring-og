@@ -7,14 +7,21 @@ class LessonsIndex extends React.Component {
   render() {
     let lessons;
     if (this.props.lessonsIndex) {
-      lessons = this.props.lessonsIndex.map( lesson => {
-        return (
-          <LessonsIndexItem
-            key={lesson.title + lesson.id}
-            lesson={lesson}
-          />
+      if (this.props.lessonsIndex.length > 0) {
+          lessons = this.props.lessonsIndex.map( lesson => {
+            return (
+              <LessonsIndexItem
+                key={lesson.title + lesson.id}
+                lesson={lesson}
+                />
+            );
+          }
         );
-        });
+      } else {
+        return(
+          <div>Looks Like No Lessons Matched That Search!</div>
+        );
+      }
     }
     return(
         <ul className="lessons-index">
