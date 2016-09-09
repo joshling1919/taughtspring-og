@@ -3,9 +3,8 @@ import React from 'react';
 const ShowMisconception = ({  misconception, sectionIndex, misconceptionIndex,
   updateMisconception, deleteMisconception }) => {
   return (
-    <li>
-      <label>Misconception </label>
-      <div className="lesson-item">
+    <li className="show-subsection">
+      <div className="show-sub-item">
         {misconception}
       </div>
     </li>

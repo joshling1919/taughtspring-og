@@ -12,6 +12,9 @@ class Profile extends React.Component {
       return(
         <div className="profile-container group">
           <div className="user">
+            <label>
+              Name: 
+            </label>
             {this.props.profile.first_name}
           </div>
           <ProfileLessonsIndex

@@ -23,79 +23,87 @@ class SubjectSearch extends React.Component {
     return(
       <div className="drop-container">
         <ul className="dropdown">
-          <li>
-            <a className="dropdown-item"
-              onClick={this._findSubject}>English</a>
+          <div>
+            <li className="hoverable">
+              <a className="dropdown-item"
+                onClick={this._findSubject}>English</a>
+            </li>
             <ul>
-              <li>
-                <a onClick={this._findSubjectAndGrade}
+              <li className="hoverable">
+                <a className="d-sub"onClick={this._findSubjectAndGrade}
                   name="English">6th Grade</a>
               </li>
-              <li>
-                <a onClick={this._findSubjectAndGrade}
+              <li className="hoverable">
+                <a className="d-sub" onClick={this._findSubjectAndGrade}
                   name="English">7th Grade</a>
               </li>
-              <li>
-                <a onClick={this._findSubjectAndGrade}
+              <li className="hoverable">
+                <a className="d-sub" onClick={this._findSubjectAndGrade}
                   name="English">8th Grade</a>
               </li>
             </ul>
-          </li>
-          <li>
-            <a className="dropdown-item"
-              onClick={this._findSubject}>Math</a>
+          </div>
+          <div>
+            <li className="hoverable">
+              <a className="dropdown-item"
+                onClick={this._findSubject}>Math</a>
+            </li>
               <ul>
-                <li>
-                  <a onClick={this._findSubjectAndGrade}
+                <li className="hoverable">
+                  <a className="d-sub" onClick={this._findSubjectAndGrade}
                     name="Math">6th Grade</a>
                 </li>
-                <li>
-                  <a onClick={this._findSubjectAndGrade}
+                <li className="hoverable">
+                  <a className="d-sub" onClick={this._findSubjectAndGrade}
                     name="Math">7th Grade</a>
                 </li>
-                <li>
-                  <a onClick={this._findSubjectAndGrade}
+                <li className="hoverable">
+                  <a className="d-sub" onClick={this._findSubjectAndGrade}
                     name="Math">8th Grade</a>
                 </li>
               </ul>
-          </li>
-          <li>
-            <a className="dropdown-item"
-              onClick={this._findSubject}>Science</a>
+          </div>
+          <div>
+            <li className="hoverable">
+              <a className="dropdown-item"
+                onClick={this._findSubject}>Science</a>
+            </li>
               <ul>
-                <li>
-                  <a onClick={this._findSubjectAndGrade}
+                <li className="hoverable">
+                  <a className="d-sub" onClick={this._findSubjectAndGrade}
                     name="Science">6th Grade</a>
                 </li>
-                <li>
-                  <a onClick={this._findSubjectAndGrade}
+                <li className="hoverable">
+                  <a className="d-sub" onClick={this._findSubjectAndGrade}
                     name="Science">7th Grade</a>
                 </li>
-                <li>
-                  <a onClick={this._findSubjectAndGrade}
+                <li className="hoverable">
+                  <a className="d-sub" onClick={this._findSubjectAndGrade}
                     name="Science">8th Grade</a>
                 </li>
               </ul>
-          </li>
-          <li>
-            <a className="dropdown-item"
-              onClick={this._findSubject}>Social Studies</a>
+          </div>
+          <div>
+            <li className="hoverable">
+              <a className="dropdown-item"
+                onClick={this._findSubject}>Social Studies</a>
+            </li>
               <ul>
-                <li>
-                  <a onClick={this._findSubjectAndGrade}
+                <li className="hoverable" >
+                  <a className="d-sub" onClick={this._findSubjectAndGrade}
                     name="Social Studies">6th Grade</a>
                 </li>
-                <li>
-                  <a onClick={this._findSubjectAndGrade}
+                <li className="hoverable">
+                  <a className="d-sub" onClick={this._findSubjectAndGrade}
                     name="Social Studies">7th Grade</a>
                 </li>
-                <li>
-                  <a onClick={this._findSubjectAndGrade}
+                <li className="hoverable">
+                  <a className="d-sub" onClick={this._findSubjectAndGrade}
                     name="Social Studies">8th Grade</a>
                 </li>
               </ul>
-          </li>
-          <li>
+          </div>
+          <li className="hoverable">
             <a className="dropdown-item"
               onClick={this._findSubject}>Other</a>
           </li>

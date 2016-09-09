@@ -28,7 +28,7 @@ button, input[type="submit"], a {
  transition: filter .01s, -webkit-filter .01s;
 }
 
-button:hover, input[type="submit"]:hover {
+button:hover, input[type="submit"]:hover, .hoverable:hover {
  filter: brightness(95%);
  -webkit-filter: brightness(95%);
  -webkit-transform: scale(1.01);

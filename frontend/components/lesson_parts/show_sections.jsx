@@ -65,18 +65,26 @@ class ShowSections extends React.Component {
     return(
       <div className="lesson-form-component">
         <form className="lesson-form" >
-          <label>Name: </label>
-          <div className="lesson-item">
-            {name}
+          <div className="show-name-field">
+            <label className="section-show-label">Name: </label>
+              {name}
           </div>
-          <label>Description: </label>
-          <div className="lesson-item">
-            {description}
+          <div className="show-name-field">
+            <label className="section-show-label">Description: </label>
+              {description}
           </div>
-          <div>
+          <div className="show-name-field">
+            <label className="section-show-label">
+              Common Student Misconceptions:
+            </label>
             <ol>
               {this._misconceptionsList()}
             </ol>
+          </div>
+          <div className="show-name-field">
+            <label className="section-show-label">
+              Checks For Understanding/Questions: 
+            </label>
             <ol>
               {this._cfusList()}
             </ol>
