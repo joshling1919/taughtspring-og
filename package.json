@@ -35,5 +35,6 @@
   "engines": {
     "node": "6.2.1",
     "npm": "3.9.x"
-  }
+  },
+  "heroku-postbuild": "webpack --config webpack.config.prod.js"
 }
