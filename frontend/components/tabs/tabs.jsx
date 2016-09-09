@@ -46,7 +46,8 @@ class Tabs extends React.Component {
     let lastInd = this.props.children.length - 1;
    const labels = (child, index) => {
      let activeClass = (this.state.selected === index ? 'active' : '');
-     let addTab = (index === lastInd ? 'add-tab' : '');
+     let addTab = (
+       (!this.props.showPage && index === lastInd)? 'add-tab' : '');
      return(
        <li key={index} className={`${activeClass} ${addTab}`}>
          <a href="#"

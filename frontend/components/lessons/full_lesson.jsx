@@ -7,6 +7,8 @@ import ShowObjective from '../lesson_parts/show_objective';
 import ShowSections from '../lesson_parts/show_sections';
 import { merge } from 'lodash';
 import Loader from 'react-loader';
+import EditDeleteLessonButtons from './edit_lesson_button';
+import { withRouter } from 'react-router';
 
 class LessonForm extends React.Component {
   constructor(props){
@@ -72,8 +74,15 @@ class LessonForm extends React.Component {
   }
 
 
+  _deleteLesson() {
+    this.props.deleteLesson(this.props.selectedLesson.id);
+    this.props.router.push('/');
+  }
 
 
+  _redirectToEdit() {
+    this.props.router.push(`lessons/${this.props.selectedLesson.id}/edit`);
+  }
 
   _allPanes() {
     return(
@@ -85,9 +94,15 @@ class LessonForm extends React.Component {
   render(){
     if (!this.props.isLoading) {
       return(
-        <Tabs selected={0}>
-          {this._allPanes()}
-        </Tabs>
+        <div className="overall-form-container">
+          <EditDeleteLessonButtons currentUser={ this.props.currentUser }
+            lessonUserId = {this.props.selectedLesson.user_id}
+            redirectToEdit={this._redirectToEdit.bind(this)}
+            deleteLesson={this._deleteLesson.bind(this)}/>
+          <Tabs selected={0} showPage={true}>
+            {this._allPanes()}
+          </Tabs>
+        </div>
       );
     } else {
       return(
@@ -97,4 +112,4 @@ class LessonForm extends React.Component {
   }
 }
 
-export default LessonForm;
+export default withRouter(LessonForm);
