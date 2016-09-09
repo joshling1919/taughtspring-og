@@ -374,9 +374,9 @@ class LessonTemplate extends React.Component {
   render(){
     if (!this.props.isLoading) {
       return(
-        <div>
-          <button className="delete">
-            <i className="fa fa-trash" aria-hidden="true"></i>
+        <div className="overall-form-container">
+          <button className="delete-lesson">
+            Delete Lesson
           </button>
           <button type="button" className="lesson-item form-submit"
             onClick={this._handleCreateLesson}>Submit Lesson</button>

@@ -82,9 +82,21 @@
   padding-right: 5px;
 }
 
-.delete {
+.delete-lesson:before {
+  content: "\f1f8";
+  font-family: FontAwesome;
+  font-size: 20px;
+  padding-right: 5px;
+}
+
+
+.delete-lesson {
   padding: 10px;
+  background-color: $dark-gray;
   border-radius: 5px;
+  position: absolute;
+  right: 205px;
+  margin-top: 5px;
 }
 input[type="date"]:before {
   content: attr(placeholder) !important;

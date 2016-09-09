@@ -9,10 +9,21 @@ class Tabs extends React.Component {
 
   }
 
+  _determineSelected(){
+    if (this.state.selected === this.props.children.length - 1) {
+      this.setState({ selected: (this.props.children.length - 2)});
+    }
+    return(
+      <div>
+        {this.props.children[this.state.selected]}
+      </div>
+    );
+  }
+
   _renderContent() {
    return (
      <ul className="tabs-content">
-       {this.props.children[this.state.selected]}
+       {this._determineSelected()}
      </ul>
    );
  }
