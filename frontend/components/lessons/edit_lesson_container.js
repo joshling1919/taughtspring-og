@@ -17,7 +17,8 @@ import { updateLesson,
 const mapStateToProps = state => ({
   currentUser: state.session.currentUser,
   errors: state.errors,
-  selectedLesson: state.singleLesson
+  selectedLesson: state.singleLesson.lesson,
+  isLoading: state.singleLesson.isLoading
 });
 
 const mapDispatchToProps = dispatch => ({

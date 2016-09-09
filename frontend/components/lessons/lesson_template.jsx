@@ -371,7 +371,7 @@ class LessonTemplate extends React.Component {
 
 
   render(){
-    if (this.state.user_id) {
+    if (!this.props.isLoading) {
       return(
         <Tabs selected={0}
           newSection={this._newSection.bind(this)}>
@@ -379,7 +379,7 @@ class LessonTemplate extends React.Component {
         </Tabs>
       );
     } else {
-      return null;
+      return <div>WE LOADING FAM</div>;
     }
   }
 }
