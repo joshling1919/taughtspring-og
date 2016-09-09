@@ -293,7 +293,7 @@ class LessonTemplate extends React.Component {
       sectionsArr = this.state.sections;
     }
     for (let i = 0; i < sectionsArr.length; i++) {
-      sections.push(<Pane key={this._generateKey.bind(this, this.state.sections[i])}
+      sections.push(<Pane key={this._generateKey.bind(this, this.state.sections[i])()}
         label={this.state.sections[i].name}>
         <SectionForm section={this.state.sections[i]}
           updateSectionField={this._updateSectionField}
