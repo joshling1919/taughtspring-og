@@ -93,7 +93,7 @@ class LessonTemplate extends React.Component {
 
   _deleteCFU(e) {
     let sectionIndex = parseInt(e.currentTarget.id);
-    let cfuIndex = parseInt(e.target.name);
+    let cfuIndex = parseInt(e.currentTarget.name);
     let newSections = JSON.parse(JSON.stringify(this.state.sections));
     let newSection = newSections[sectionIndex];
     let newCFUs = newSection.cfus;

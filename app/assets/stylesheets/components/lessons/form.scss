@@ -169,3 +169,15 @@ label {
 .question-label {
   text-decoration: underline;
 }
+
+.cfu-container, .objective-container, .mis-container {
+  border-bottom: 1px solid $border-gray;
+}
+
+.kp-container {
+  margin-top: 30px;
+}
+
+.mis-container {
+  padding-bottom: 20px;
+}

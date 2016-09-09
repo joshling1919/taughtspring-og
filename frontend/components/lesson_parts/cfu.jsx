@@ -5,7 +5,7 @@ const CFU = ({ question, answer, sectionIndex, cfuIndex,
   return (
     <li className="cfu-container">
       <label
-        className="section-label question-label">{`CFU #${parseInt(cfuIndex) + 1}`}</label>
+        className="section-label question-label">{`#${parseInt(cfuIndex) + 1}`}</label>
       <div className="cfu-question">
         <label className="section-label">Question: </label>
         <input
