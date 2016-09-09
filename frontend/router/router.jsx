@@ -76,7 +76,8 @@ class AppRouter extends React.Component {
         <Route path="create-lesson" component={ CreateLessonContainer }
           onEnter={ this._ensureLoggedIn }
           onLeave={this._clearErrors}/>
-        <Route path="lessons/:lessonId" component={ FullLessonContainer } />
+        <Route path="lessons/:lessonId" component={ FullLessonContainer }
+          onEnter={ this._requestLesson } />
         <Route path="lessons/:lessonId/edit" component={ EditLessonContainer }
           onEnter={ this._ensureLoggedIn }
           onEnter={ this._requestLesson}

@@ -382,7 +382,7 @@ class LessonTemplate extends React.Component {
     } else {
       return(
         <Loader loaded={false}/>
-      ); 
+      );
     }
   }
 }

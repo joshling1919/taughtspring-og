@@ -7,7 +7,8 @@ const defaultSingleLesson = {
   isLoading: false
 };
 
-const SingleLessonReducer = function(singleLessonState = {}, action){
+const SingleLessonReducer = function(
+  singleLessonState = defaultSingleLesson, action){
   let singleLessonCopy = merge({}, singleLessonState);
   switch(action.type){
     case LessonsConstants.REQUEST_UPDATE_LESSON:
