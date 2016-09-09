@@ -1,13 +1,13 @@
 import React from 'react';
 
 import LessonsIndexItem from './lessons_index_item';
+import Loader from 'react-loader';
 
 class LessonsIndex extends React.Component {
 
 
 
   render() {
-    let lessons;
     if (!this.props.isLoading) {
       if (this.props.lessonsIndex.length > 0) {
         return(
@@ -28,9 +28,10 @@ class LessonsIndex extends React.Component {
     } else{
 
       return(
-        <ul className="lessons-index">
-          <div>WE LOADING FAM</div>
-        </ul>
+        <Loader loaded={false}>
+          <ul className="lessons-index">
+          </ul>
+        </Loader>
       );
     }
     }
