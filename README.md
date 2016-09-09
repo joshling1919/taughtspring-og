@@ -1,6 +1,6 @@
 #TaughtSpring
 
-[TaughtSpring live][https://taughtspring.com]
+Live link: www.taughtspring.com
 
 TaughtSpring is a full-stack web application that is designed to give teachers a simple platform to create,
 upload, and find lesson plans. Inspired by Instructables, it is built on Rails on the backend and a React-Redux
