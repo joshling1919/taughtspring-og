@@ -6,6 +6,7 @@ import Pane from '../tabs/pane';
 import ObjectiveForm from '../lesson_parts/objective_form';
 import SectionForm from '../lesson_parts/section_form';
 import { merge } from 'lodash';
+import Loader from 'react-loader';
 
 class LessonTemplate extends React.Component {
   constructor(props){
@@ -379,7 +380,9 @@ class LessonTemplate extends React.Component {
         </Tabs>
       );
     } else {
-      return <div>WE LOADING FAM</div>;
+      return(
+        <Loader loaded={false}/>
+      ); 
     }
   }
 }

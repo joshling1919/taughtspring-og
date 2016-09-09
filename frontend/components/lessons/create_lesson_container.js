@@ -10,6 +10,7 @@ import { clearErrors } from '../../actions/errors_actions';
 const mapStateToProps = state => ({
   currentUser: state.session.currentUser,
   errors: state.errors,
+  isLoading: state.singleLesson.isLoading,
   selectedLesson: {
     image_url:"http://www.nationofchange.org/wp-content/uploads/2016/05/education.jpg",
     thumbnail_url: "",
