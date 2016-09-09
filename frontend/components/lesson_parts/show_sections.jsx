@@ -10,7 +10,7 @@ class ShowSections extends React.Component {
     if (obj.uniq) {
       return obj.uniq;
     } else {
-      return obj.created_at;
+      return (obj.created_at + obj.id);
     }
   }
 
