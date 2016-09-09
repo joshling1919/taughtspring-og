@@ -4,8 +4,18 @@ import LessonsIndexItem from './lessons_index_item';
 import Loader from 'react-loader';
 
 class LessonsIndex extends React.Component {
+  constructor(props){
+    super(props);
+    this.incrementer = 0;
+    this._generateKey = this._generateKey.bind(this);
+  }
 
-
+  _generateKey(){
+    this.incrementer++;
+    return(
+      this.incrementer
+    );
+  }
 
   render() {
     if (!this.props.isLoading) {
@@ -14,7 +24,7 @@ class LessonsIndex extends React.Component {
           <ul className="lessons-index">
             {this.props.lessonsIndex.map( lesson => (
               <LessonsIndexItem
-                key={lesson.title + lesson.id}
+                key={this._generateKey()}
                 lesson={lesson}
                 />
             ))}
