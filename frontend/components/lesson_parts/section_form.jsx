@@ -74,35 +74,52 @@ class SectionForm extends React.Component {
     }
     return(
       <div className="lesson-form-component">
-        <form className="lesson-form" >
-          <label>Name: </label>
-          <input
-            className="lesson-item"
-            name= "name"
-            id={index}
-            defaultValue={name}
-            onChange={updateSectionField}
-            type="text"/>
-          <label>Description: </label>
-          <textarea
-            className="lesson-item"
-            name= "description"
-            id={index}
-            onChange={updateSectionField}
-            defaultValue={description}
-            />
-          {this._misconceptionsList()}
-          <button className="add-field" type="button"
-            onClick={addMisconception} id={index}
-            name={this.props.sectionId}>
-            Add Potential Misconception
-          </button>
-          {this._cfusList()}
-          <button className="add-field" type="button"
-            onClick={addCFU}
-            name={this.props.sectionId} id={index}>
-            Add CFU
-          </button>
+        <form className="lesson-form section-form" >
+          <div className="lesson-details-container">
+            <div>
+              <label className="section-label">Section Name: </label>
+              <textarea
+                className="lesson-item textarea-field section-field"
+                name= "name"
+                id={index}
+                defaultValue={name}
+                onChange={updateSectionField}
+                type="text"/>
+            </div>
+            <div>
+              <label>Description: </label>
+              <textarea
+                className="lesson-item textarea-field section-field"
+                name= "description"
+                id={index}
+                onChange={updateSectionField}
+                defaultValue={description}
+                />
+            </div>
+            <div>
+              <label>Potential Misconception(s): </label>
+              <div>
+                {this._misconceptionsList()}
+              </div>
+              <button className="add-field" type="button"
+                onClick={addMisconception} id={index}
+                name={this.props.sectionId}>
+                Add Potential Misconception
+              </button>
+            </div>
+            <div>
+              <label>Checks For Understanding/Questions: </label>
+              <div>
+                {this._cfusList()}
+              </div>
+              <button className="add-field" type="button"
+                onClick={addCFU}
+                name={this.props.sectionId} id={index}>
+                Add CFU
+              </button>
+            </div>
+
+          </div>
           <DeleteSectionButton
             className="delete-section"
             isSection={true}

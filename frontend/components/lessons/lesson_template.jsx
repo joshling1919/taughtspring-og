@@ -46,8 +46,8 @@ class LessonTemplate extends React.Component {
   }
 
   _deleteMisconception(e) {
-    let sectionIndex = parseInt(e.target.id);
-    let misconceptionIndex = parseInt(e.target.name);
+    let sectionIndex = parseInt(e.currentTarget.id);
+    let misconceptionIndex = parseInt(e.currentTarget.name);
     let newSections = JSON.parse(JSON.stringify(this.state.sections));
     let newSection = newSections[sectionIndex];
     let newMisconceptions = newSection.misconceptions;
@@ -92,7 +92,7 @@ class LessonTemplate extends React.Component {
   }
 
   _deleteCFU(e) {
-    let sectionIndex = parseInt(e.target.id);
+    let sectionIndex = parseInt(e.currentTarget.id);
     let cfuIndex = parseInt(e.target.name);
     let newSections = JSON.parse(JSON.stringify(this.state.sections));
     let newSection = newSections[sectionIndex];
@@ -213,7 +213,7 @@ class LessonTemplate extends React.Component {
   }
 
   _deleteObjective(e) {
-    let objInd = parseInt(e.target.id);
+    let objInd = parseInt(e.currentTarget.id);
     let objectivesArr = this.state.objectives.slice();
     if (objectivesArr[objInd].id) {
       let ind = parseInt(objectivesArr[objInd].id);
@@ -241,7 +241,7 @@ class LessonTemplate extends React.Component {
   }
 
   _deleteKeyPoint(e) {
-    let kpInd = parseInt(e.target.id);
+    let kpInd = parseInt(e.currentTarget.id);
     let keyPointsArr = this.state.key_points.slice();
     if (keyPointsArr[kpInd].id) {
       let ind = parseInt(keyPointsArr[kpInd].id);
