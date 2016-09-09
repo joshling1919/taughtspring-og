@@ -350,7 +350,7 @@ class LessonTemplate extends React.Component {
   }
 
   _deleteSection(e) {
-    let ind = parseInt(e.target.id);
+    let ind = parseInt(e.currentTarget.id);
     let sectionsArr = this.state.sections.slice();
     if (sectionsArr[ind].id) {
       let index = parseInt(sectionsArr[ind].id);
@@ -369,13 +369,18 @@ class LessonTemplate extends React.Component {
     );
   }
 
+  _handleDelete(e) {
+    e.preventDefault();
+    this.props.deleteLesson(parseInt(this.props.params.lessonId));
+  }
 
 
   render(){
     if (!this.props.isLoading) {
       return(
         <div className="overall-form-container">
-          <button className="delete-lesson">
+          <button type="button" className="delete-lesson"
+            onClick={this._handleDelete.bind(this)}>
             Delete Lesson
           </button>
           <button type="button" className="lesson-item form-submit"

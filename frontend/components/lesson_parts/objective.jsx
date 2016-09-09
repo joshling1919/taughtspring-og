@@ -8,13 +8,13 @@ const Objective = ({ content, updateObjectives,
 
   return(
     <div className="lesson-details group">
-      <input
-        className="lesson-item title"
+      <textarea
+        className="lesson-item textarea-field"
         id={index}
         name= "objective"
         defaultValue={content}
         onChange={updateObjectives}
-        type="text"/>
+        />
       <DeletePartButton index={index}
         deletePart={deleteObjective} />
     </div>

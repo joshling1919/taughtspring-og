@@ -1,8 +1,8 @@
 import React from 'react';
-import DeletePartButton from './delete_part_button';
 import Misconception from './misconception';
 import CFU from './cfu';
 import { uniqueId } from 'lodash';
+import DeleteSectionButton from './delete_section_button';
 
 class SectionForm extends React.Component {
 
@@ -103,12 +103,13 @@ class SectionForm extends React.Component {
             name={this.props.sectionId} id={index}>
             Add CFU
           </button>
+          <DeleteSectionButton
+            className="delete-section"
+            isSection={true}
+            index={index}
+            sectionId={this.props.sectionId}
+            deletePart={deleteSection}/>
         </form>
-        <DeletePartButton
-          isSection={true}
-          index={index}
-          sectionId={this.props.sectionId}
-          deletePart={deleteSection}/>
       </div>
     );
   }

@@ -78,6 +78,9 @@ export default ({ getState, dispatch }) => next => action => {
     case LessonsConstants.CONFIRM_DELETE:
       dispatch(requestProfile(getState().session.currentUser.id));
       return next(action);
+    case LessonsConstants.ROUTE_INDEX:
+      dispatch(push('/'));
+      return next(action);
     default:
       return next(action);
   }

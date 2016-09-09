@@ -34,7 +34,8 @@ button:hover, input[type="submit"]:hover {
  transform: scale(1.01);
 }
 
-input[type=submit], .upload-button, .form-submit, .delete-lesson {
+input[type=submit], .upload-button, .form-submit,
+.delete-lesson, .delete-part, .add-field, .delete-section {
     background-color: $submit-green;
     color: white;
     padding: 10px 15px;
@@ -44,7 +45,8 @@ input[type=submit], .upload-button, .form-submit, .delete-lesson {
     border-radius: 4px;
 }
 
-input[type=submit]:hover, .upload-button, .form-submit, .delete-lesson {
+input[type=submit]:hover, .upload-button, .form-submit,
+ .delete-lesson, .delete-part, .add-field, .delete-section {
     background-color: #45a049;
 }
 

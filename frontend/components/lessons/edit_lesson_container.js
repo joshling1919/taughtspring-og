@@ -7,7 +7,8 @@ import { clearErrors } from '../../actions/errors_actions';
 
 import { updateLesson,
         requestLesson,
-        updatePicture
+        updatePicture,
+        deleteLesson
        } from '../../actions/lessons_actions';
 
 
@@ -25,7 +26,8 @@ const mapDispatchToProps = dispatch => ({
   submitLesson: lesson => dispatch(updateLesson(lesson)),
   requestLesson: lessonId => dispatch(requestLesson(lessonId)),
   updatePicture: lesson => dispatch(updatePicture(lesson)),
-  clearErrors: () => dispatch(clearErrors())
+  clearErrors: () => dispatch(clearErrors()),
+  deleteLesson: lessonId => dispatch(deleteLesson(lessonId))
 });
 
 

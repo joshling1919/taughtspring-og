@@ -46,17 +46,13 @@ class ObjectiveForm extends React.Component {
               <label>Objective(s):</label>
               {this._objectivesList()}
               <button type="button" className="add-field"
-                onClick={this.props.addObjective}>+ Add Objective</button>
+                onClick={this.props.addObjective}>Add Objective</button>
             </div>
             <div>
-              Key Point(s):
+              <label>Key Point(s):</label>
               {this._keyPointsList()}
               <button type="button" className="add-field"
-                onClick={this.props.addKeyPoint}>+ Add Key Point</button>
-            </div>
-            <div className="lesson-details group">
-              <button className="lesson-item form-submit"
-                type="submit">Submit Objective</button>
+                onClick={this.props.addKeyPoint}>Add Key Point</button>
             </div>
           </div>
         </form>

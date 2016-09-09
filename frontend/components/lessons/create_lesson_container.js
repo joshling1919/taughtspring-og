@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import LessonTemplate from './lesson_template';
 
-import { createLesson } from '../../actions/lessons_actions';
+import { createLesson, routeIndex } from '../../actions/lessons_actions';
 
 import { clearErrors } from '../../actions/errors_actions';
 
@@ -28,7 +28,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   submitLesson: lesson => dispatch(createLesson(lesson)),
-  clearErrors: () => dispatch(clearErrors())
+  clearErrors: () => dispatch(clearErrors()),
+  deleteLesson: () => dispatch(routeIndex())
 });
 
 

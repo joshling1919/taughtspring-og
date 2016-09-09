@@ -13,8 +13,13 @@ export const LessonsConstants = {
   UPDATE_TITLE: "UPDATE_TITLE",
   UPDATE_SUBJECT: "UPDATE_SUBJECT",
   UPDATE_GRADE: "UPDATE_GRADE",
-  UPDATE_DATE: "UPDATE_DATE"
+  UPDATE_DATE: "UPDATE_DATE",
+  ROUTE_INDEX: "ROUTE_INDEX"
 };
+
+export const routeIndex = () => ({
+  type: LessonsConstants.ROUTE_INDEX
+});
 
 export const requestAllLessons = () => ({
   type: LessonsConstants.REQUEST_ALL_LESSONS

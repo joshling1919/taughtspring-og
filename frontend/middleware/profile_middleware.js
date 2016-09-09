@@ -17,6 +17,9 @@ export default ({ getState, dispatch }) => next => action => {
     case ProfileConstants.REQUEST_PROFILE:
       getUser(action.userId, successCallback);
       return next(action);
+    case ProfileConstants.RECEIVE_PROFILE:
+      dispatch(push(`/profiles/${getState().session.currentUser.id}`));
+      return next(action);
     default:
       return next(action);
   }

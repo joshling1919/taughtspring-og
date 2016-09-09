@@ -1,14 +1,13 @@
 import React from 'react';
 
 
-const DeletePartButton = ({ isSection, index,
+const DeleteSectionButton = ({ isSection, index,
   deletePart, sectionId }) => {
   if ( isSection || index !== 0 ) {
     return(
       <button type="button" id={index} name={sectionId}
         onClick={deletePart}
-        className="delete-part"><i
-        id={index} className="fa fa-trash" aria-hidden="true"></i>
+        className="delete-section">Delete Section
         </button>
     );
   } else {
@@ -17,4 +16,4 @@ const DeletePartButton = ({ isSection, index,
 };
 
 
-export default DeletePartButton;
+export default DeleteSectionButton;
