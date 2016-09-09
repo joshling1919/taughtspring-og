@@ -4,31 +4,36 @@ import LessonsIndexItem from './lessons_index_item';
 
 class LessonsIndex extends React.Component {
 
+
+
   render() {
     let lessons;
-    if (this.props.lessonsIndex) {
+    if (!this.props.isLoading) {
       if (this.props.lessonsIndex.length > 0) {
-          lessons = this.props.lessonsIndex.map( lesson => {
-            return (
+        return(
+          <ul className="lessons-index">
+            {this.props.lessonsIndex.map( lesson => (
               <LessonsIndexItem
                 key={lesson.title + lesson.id}
                 lesson={lesson}
                 />
-            );
-          }
+            ))}
+          </ul>
         );
       } else {
         return(
           <div>Looks Like No Lessons Matched That Search!</div>
         );
       }
-    }
-    return(
+    } else{
+
+      return(
         <ul className="lessons-index">
-          {lessons}
+          <div>WE LOADING FAM</div>
         </ul>
-    );
-  }
+      );
+    }
+    }
 }
 
 export default LessonsIndex;

@@ -3,7 +3,8 @@ import LessonsIndex from './lessons_index';
 
 
 const mapStateToProps = state => ({
-  lessonsIndex: state.searchedIndex
+  lessonsIndex: state.searchedIndex.searchedIndex,
+  isLoading: state.searchedIndex.isLoading
 });
 
 
