@@ -4,7 +4,7 @@ import { Router,
          hashHistory,
          IndexRoute
        } from 'react-router';
-import App from '../components/app';
+import AppContainer from '../components/app_container';
 
 import LoginContainer from '../components/auth/login_container';
 import SignupContainer from '../components/auth/signup_container';
@@ -64,7 +64,7 @@ class AppRouter extends React.Component {
 
   createRoutes() {
     return (
-      <Route path="/" component={ App } >
+      <Route path="/" component={ AppContainer } >
         <IndexRoute component = { LessonsIndexContainer }
           onEnter={this._populateIndex} />
         <Route path="filter/:subject(/:grade)"

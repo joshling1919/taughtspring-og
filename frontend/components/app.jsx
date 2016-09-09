@@ -6,6 +6,14 @@ import SignupContainer from './auth/signup_container';
 
 
 class App extends React.Component {
+  _splashVideo() {
+    if (!this.props.currentUser) {
+      return(
+        <video loop={true} autoPlay={true}
+          src="http://res.cloudinary.com/jsling/video/upload/v1473443947/splash_med_yg5dbq.mp4"/>
+      );
+    }
+  }
 
   render() {
     return(
@@ -13,6 +21,7 @@ class App extends React.Component {
         <NavBarContainer />
         <LoginContainer />
         <SignupContainer />
+        {this._splashVideo.bind(this)()}
         <div className="content">
           {this.props.children}
         </div>

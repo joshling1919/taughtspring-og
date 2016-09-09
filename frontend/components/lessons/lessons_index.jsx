@@ -22,8 +22,7 @@ class LessonsIndex extends React.Component {
       if (!this.props.currentUser && this.props.lessonsIndex.length > 0) {
         return(
           <div>
-            <video loop={true} autoPlay={true}
-              src="http://res.cloudinary.com/jsling/video/upload/v1473443947/splash_med_yg5dbq.mp4"/>
+            
             <ul className="lessons-index">
               {this.props.lessonsIndex.map( lesson => (
                 <LessonsIndexItem

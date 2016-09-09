@@ -2,6 +2,7 @@
 
 div.content {
   padding-top: 110px;
+  position: relative;
 }
 
 *{
@@ -56,6 +57,7 @@ input[type=submit]:hover, .upload-button, .form-submit,
   display: block;
   clear: both;
 }
+
 
 video {
   width: 100%;
