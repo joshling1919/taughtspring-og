@@ -7,6 +7,7 @@ import ObjectiveForm from '../lesson_parts/objective_form';
 import SectionForm from '../lesson_parts/section_form';
 import { merge } from 'lodash';
 import Loader from 'react-loader';
+import { withRouter } from 'react-router';
 
 class LessonTemplate extends React.Component {
   constructor(props){
@@ -160,6 +161,7 @@ class LessonTemplate extends React.Component {
       grade: this._checkForNullGrade() })
     };
     this.props.submitLesson(lesson);
+    this.props.router.push(`/lessons/${this.props.params.lessonId}`);
   }
 
   _checkForNullGrade(){
@@ -399,4 +401,4 @@ class LessonTemplate extends React.Component {
   }
 }
 
-export default LessonTemplate;
+export default withRouter(LessonTemplate);

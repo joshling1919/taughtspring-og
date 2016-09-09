@@ -22,7 +22,7 @@ class LessonsIndex extends React.Component {
       if (!this.props.currentUser && this.props.lessonsIndex.length > 0) {
         return(
           <div>
-            
+
             <ul className="lessons-index">
               {this.props.lessonsIndex.map( lesson => (
                 <LessonsIndexItem
@@ -46,7 +46,8 @@ class LessonsIndex extends React.Component {
         );
       } else {
         return(
-          <div>Looks Like No Lessons Matched That Search!</div>
+          <div
+            className="no-match">Looks Like No Lessons Matched That Search!</div>
         );
       }
     } else{

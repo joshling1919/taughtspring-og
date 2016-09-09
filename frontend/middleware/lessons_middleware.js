@@ -37,7 +37,7 @@ export default ({ getState, dispatch }) => next => action => {
       fetchAllLessons(successAllLessons);
       return next(action);
     case LessonsConstants.CREATE_LESSON:
-      createLesson(action.lesson, successSingleLesson, errorCallback);
+      createLesson(action.lesson, successSingleUpdateLesson, errorCallback);
       return next(action);
     case LessonsConstants.REQUEST_LESSON:
       fetchLesson(action.lessonId, successSingleLesson);
@@ -70,6 +70,8 @@ export default ({ getState, dispatch }) => next => action => {
       updateLesson(nestedLesson, successSingleLesson, errorCallback);
       return next(action);
     case LessonsConstants.RECEIVE_LESSON:
+      return next(action);
+    case LessonsConstants.RECEIVE_UPDATE_LESSON:
       // dispatch(push(`/lessons/${action.lesson.id}`));
       return next(action);
     case LessonsConstants.DELETE_LESSON:

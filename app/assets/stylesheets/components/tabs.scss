@@ -16,7 +16,7 @@
     border-right: 2px solid black;
     padding: 0 15px;
     vertical-align: middle;
-    background-color: $color-green;
+    background-color: $border-gray;
     border-radius: 5px 25px 0px 0px;
     a {
       text-decoration: none;
@@ -40,7 +40,7 @@
   }
 
   .active {
-    background-color: $border-gray;
+    background-color: $color-green;
   }
 
 }

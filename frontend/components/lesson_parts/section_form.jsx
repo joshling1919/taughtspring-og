@@ -89,7 +89,7 @@ class SectionForm extends React.Component {
             <div>
               <label>Description: </label>
               <textarea
-                className="lesson-item textarea-field section-field"
+                className="lesson-item textarea-field section-field descript-field"
                 name= "description"
                 id={index}
                 onChange={updateSectionField}
