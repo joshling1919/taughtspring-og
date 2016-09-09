@@ -1,35 +1,50 @@
 .tabs {
-  // border: 2px solid blue;
-
+  margin-left: 20px;
+  margin-right:20px;
 }
 
 .tabs-labels {
-  // border: 2px solid red;
   display: flex;
+  height: 50px;
+  line-height: 50px;
+  white-space: nowrap;
+  margin-left: 10px;
 
-  .label {
-    // border: 2px solid green;
+  li {
+    border-left: 2px solid black;
+    border-top: 2px solid black;
+    border-right: 2px solid black;
+    padding: 0 15px;
+    vertical-align: middle;
+    background-color: $color-green;
+    border-radius: 5px 25px 0px 0px;
     a {
-      // border: 2px solid yellow;
       text-decoration: none;
       display: inline-block;
-    }
-    a:hover {
-      filter: brightness(95%);
-      -webkit-filter: brightness(95%);
-      -webkit-transform: scale(1.03);
-      transform: scale(1.03);
+      font-weight: 600;
     }
 
-    .active {
-      background-color: $border-gray;
-    }
+  }
+  .add-tab:before {
+    content: "\f067";
+    font-family: FontAwesome;
+    font-size: 14px;
+    padding-right: 5px;
   }
 
+  li:hover {
+    filter: brightness(95%);
+    -webkit-filter: brightness(95%);
+    -webkit-transform: scale(1.03);
+    transform: scale(1.03);
+  }
+
+  .active {
+    background-color: $border-gray;
+  }
 
 }
 
 .pane {
-  // border: 2px solid orange;
   list-style-type: none;
 }

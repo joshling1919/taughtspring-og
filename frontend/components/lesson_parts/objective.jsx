@@ -8,7 +8,6 @@ const Objective = ({ content, updateObjectives,
 
   return(
     <div className="lesson-details group">
-      <label>Objective: </label>
       <input
         className="lesson-item title"
         id={index}

@@ -261,7 +261,6 @@ class LessonTemplate extends React.Component {
           updateGrade={this._updateGrade}
           updateSubject={this._updateSubject}
           updateDate={this._updateDate}
-          handleSubmit={this._handleCreateLesson}
           clearErrors={this.props.clearErrors}
           errors={this.props.errors}
           upload={this._upload}/>
@@ -328,7 +327,7 @@ class LessonTemplate extends React.Component {
     return(
       <Pane
         key="addSection"
-        label="+ Add Section" />
+        label="Add Section" />
     );
   }
 
@@ -371,13 +370,21 @@ class LessonTemplate extends React.Component {
   }
 
 
+
   render(){
     if (!this.props.isLoading) {
       return(
-        <Tabs selected={0}
-          newSection={this._newSection.bind(this)}>
-          {this._allPanes()}
-        </Tabs>
+        <div>
+          <button className="delete">
+            <i className="fa fa-trash" aria-hidden="true"></i>
+          </button>
+          <button type="button" className="lesson-item form-submit"
+            onClick={this._handleCreateLesson}>Submit Lesson</button>
+          <Tabs selected={0}
+            newSection={this._newSection.bind(this)}>
+            {this._allPanes()}
+          </Tabs>
+        </div>
       );
     } else {
       return(

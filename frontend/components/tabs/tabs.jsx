@@ -27,12 +27,13 @@ class Tabs extends React.Component {
   }
 
   _renderTitles() {
+    let lastInd = this.props.children.length - 1;
    const labels = (child, index) => {
      let activeClass = (this.state.selected === index ? 'active' : '');
+     let addTab = (index === lastInd ? 'add-tab' : '');
      return(
-       <li key={index} className="label">
+       <li key={index} className={`${activeClass} ${addTab}`}>
          <a href="#"
-           className={activeClass}
            onClick={this.handleClick.bind(this, index)}>
            {this._titleText.bind(this, child.props.label)()}
          </a>

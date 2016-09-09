@@ -7,7 +7,6 @@ const KeyPoint = ({ content, updateKeyPoints,
 
   return(
     <div className="lesson-details group">
-      <label>KeyPoint: </label>
       <input
         className="lesson-item title"
         id={index}

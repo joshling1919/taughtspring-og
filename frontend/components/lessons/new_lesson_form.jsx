@@ -61,10 +61,6 @@ class NewLessonForm extends React.Component {
                 name="lesson_date"
                 onChange={updateDate}></input>
             </div>
-            <div className="lesson-details group">
-              <button className="lesson-item form-submit"
-                type="submit">Submit Lesson</button>
-            </div>
           </div>
         </form>
       </div>
