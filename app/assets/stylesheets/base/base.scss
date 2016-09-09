@@ -28,7 +28,8 @@ button, input[type="submit"], a {
  transition: filter .01s, -webkit-filter .01s;
 }
 
-button:hover, input[type="submit"]:hover, .hoverable:hover {
+button:hover, input[type="submit"]:hover, .hoverable:hover,
+.index-description a:hover, .index-item a:hover {
  filter: brightness(95%);
  -webkit-filter: brightness(95%);
  -webkit-transform: scale(1.01);
@@ -63,4 +64,9 @@ video {
   width: 100%;
   display: block;
   margin: 0 auto;
+}
+
+.guest {
+  color: blue;
+  text-decoration: underline;
 }

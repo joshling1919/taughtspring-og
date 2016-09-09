@@ -10,16 +10,14 @@ class Profile extends React.Component {
   render(){
     if (this.props.profile) {
       return(
-        <div className="profile-container group">
-          <div className="user">
-            <label>
-              Name: 
-            </label>
-            {this.props.profile.first_name}
+        <div>
+          <h3 className="profile-title">Your Lessons</h3>
+          <div className="profile-container group">
+            <ProfileLessonsIndex
+              currentUser={this.props.currentUser}
+              lessons={this.props.profile.lessons}
+              deleteLesson={this.props.deleteLesson}/>
           </div>
-          <ProfileLessonsIndex
-            lessons={this.props.profile.lessons}
-            deleteLesson={this.props.deleteLesson}/>
         </div>
       );
     } else {

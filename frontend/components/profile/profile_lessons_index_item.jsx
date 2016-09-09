@@ -13,7 +13,7 @@ class ProfileLessonsIndexItem extends React.Component {
   }
 
   render() {
-    const { lesson } = this.props;
+    const { lesson, currentUser } = this.props;
     return(
       <li className="profile-item-container group">
         <div className="profile-lessons-title">
@@ -24,7 +24,8 @@ class ProfileLessonsIndexItem extends React.Component {
         </div>
         <div className="profile-lessons-description">
           <EditDeleteLessonButtons
-            userId={ lesson.user_id }
+            lessonUserId={ lesson.user_id }
+            currentUser={currentUser}
             redirectToEdit={ this._redirectToEdit.bind(this) }
             deleteLesson={ this._deleteLesson.bind(this) }/>
         </div>

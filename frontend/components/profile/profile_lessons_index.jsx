@@ -1,12 +1,13 @@
 import React from 'react';
 import ProfileLessonsIndexItem from './profile_lessons_index_item';
 
-const ProfileLessonsIndex = ({ lessons, deleteLesson }) => {
+const ProfileLessonsIndex = ({ currentUser, lessons, deleteLesson }) => {
   let items;
   if (lessons ) {
     items = lessons.map(lesson => (
       <ProfileLessonsIndexItem
         key={lesson.title + lesson.id}
+        currentUser={currentUser}
         lesson={ lesson }
         deleteLesson={ deleteLesson }/>
     ));
@@ -14,7 +15,6 @@ const ProfileLessonsIndex = ({ lessons, deleteLesson }) => {
 
   return (
     <div className="profile-lessons-index">
-      lessons index here
       <ul>
         { items }
       </ul>

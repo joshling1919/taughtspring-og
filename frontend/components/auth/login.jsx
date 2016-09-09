@@ -12,6 +12,7 @@ class Login extends React.Component {
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
     this.switchToSignUp = this.switchToSignUp.bind(this);
+    this.handleGuest = this.handleGuest.bind(this);
   }
 
   _handleLogin(e){
@@ -42,6 +43,17 @@ class Login extends React.Component {
     this.props.openSignup();
   }
 
+  handleGuest(e){
+    e.preventDefault();
+    const guest = {
+      user: {
+        email: "guest@gmail.com",
+        password: "password"
+      }
+    };
+    this.props.login(guest);
+  }
+
   render(){
     return(
         <Modal className="modal" isOpen={this.state.open} onRequestClose={this.closeModal} >
@@ -59,6 +71,9 @@ class Login extends React.Component {
           <div className="redirect">Don't have an account? <a
             className="session-link"
             onClick={this.switchToSignUp}>Register</a> today!</div>
+          <div>
+            <a className="guest" onClick={this.handleGuest}>Guest Login</a>
+          </div>
         </Modal>
     );
   }

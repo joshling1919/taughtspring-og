@@ -2,7 +2,7 @@ import React from 'react';
 
 const EditDeleteLessonButtons = ({ userId,
   redirectToEdit, deleteLesson, currentUser, lessonUserId }, context) => {
-  if ( currentUser && currentUser.id === lessonUserId) {
+  if ( currentUser && (currentUser.id === lessonUserId)) {
 
     return(
       <div>
