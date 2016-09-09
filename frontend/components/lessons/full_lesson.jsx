@@ -3,8 +3,8 @@ import Errors from '../errors';
 import ShowLesson from './show_lesson';
 import Tabs from '../tabs/tabs';
 import Pane from '../tabs/pane';
-import ObjectiveForm from '../lesson_parts/objective_form';
-import SectionForm from '../lesson_parts/section_form';
+import ShowObjective from '../lesson_parts/show_objective';
+import ShowSections from '../lesson_parts/show_sections';
 import { merge } from 'lodash';
 import Loader from 'react-loader';
 
@@ -272,7 +272,7 @@ class LessonForm extends React.Component {
   _objective() {
     return(
       [<Pane key="objective" label="Objective">
-        <ObjectiveForm
+        <ShowObjective
           objectives={this.state.objectives}
           updateObjectives={this._updateObjectives}
           addObjective={this._addObjective}
@@ -296,7 +296,7 @@ class LessonForm extends React.Component {
     for (let i = 0; i < sectionsArr.length; i++) {
       sections.push(<Pane key={this._generateKey.bind(this, this.state.sections[i])}
         label={this.state.sections[i].name}>
-        <SectionForm section={this.state.sections[i]}
+        <ShowSections section={this.state.sections[i]}
           updateSectionField={this._updateSectionField}
           deleteSection={this._deleteSection}
           misconceptions={this.state.sections[i].misconceptions}
