@@ -23,8 +23,11 @@ When creating lessons, teachers need a platform that allows them to be organized
 
 Tabs were used to present an organized, yet customizable, form to create lessons on. Teachers are able to add as many sections as they need for their lesson, and within the section, they are also able to write down as many questions as they need to ask during that section of the lesson.
 
+![Create Form](./docs/pictures/create.png?raw=true "Create")
+
 In the backend, users have many lessons, lessons have many objectives, key points, and sections, while sections have many "Checks For Understandings"(which are comprised of a question and an answer) and potential misconceptions.
 
+![Multiple Tabs](./docs/pictures/tabs.png?raw=true "Tabs")
 In order to implement this, all of the data was held in the internal state of React parent component so that data is not lost when switching between tabs. When the teacher is ready to submit the lesson, a single AJAX request is made to the backend to create the lesson.
 
 ###Editing Lessons
