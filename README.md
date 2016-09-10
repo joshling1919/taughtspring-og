@@ -1,6 +1,6 @@
 #TaughtSpring
 
-Live Link: wwww.taughtspring.com
+[TaughtSpring](https://www.taughtspring.com "TaughtSpring")
 
 
 
