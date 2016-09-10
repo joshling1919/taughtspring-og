@@ -1,6 +1,10 @@
 #TaughtSpring
 
-Live link: www.taughtspring.com
+[Live Link][taughtspring]
+
+[taughtspring]: www.taughtspring.com
+
+
 
 TaughtSpring is a single-page, full-stack web application that provides teachers with a simple interface to create, upload, and find lesson plans. Inspired by Instructables, it is built on Rails on the back end and a React-Redux framework on the front end.
 
@@ -10,6 +14,9 @@ TaughtSpring is a single-page, full-stack web application that provides teachers
 Lesson plans on TaughtSpring are accessible to anyone, whether or not they are logged in. TaughtSpring was designed in this manner based on a desire for a more collaborative culture in teaching, which would not only benefit teachers, but also the students.
 
 Users can navigate through the majority of the site without being logged in, but in order to create and edit lessons, users must have an account. Modals were used to prevent the page from having to redirect back to the home page if a user logged in while reading a lesson plan or looking through a user's profile page.
+
+
+![Login Modal](./docs/pictures/login.png?raw=true "Login")
 
 ###Creating Lessons
 When creating lessons, teachers need a platform that allows them to be organized with the several components that go into a lesson. At the same time, because lesson plans can be written in so many different formats, (ie. "The 5 E's", "I Do, We Do, You Do", Flipped Classroom, etc. ), the forms that teacher use to write lessons must be dynamic and easily customizable.
@@ -30,3 +37,16 @@ To tackle this issue, I gave each subcomponent its own specific array that pushe
 
 ###Search
 There are currently two ways for users to search for lessons. The first is through the search bar, which matches based on lesson titles and subjects. The second is through the subject dropdown, which filters based on subject and grade level.
+
+##Moving Forward
+
+Because this application was built in a little less than two weeks, there are still some key features to improve on, including:
+
+###Pagination of lessons index
+Currently, the home page grabs every single existing lesson. As more lessons continue to be added to the site, pagination would help enhance the performance, while maintaining clean organization.
+
+###Ability to comment on lessons and follow other users
+This would be useful in helping to promote a community of collaborators.
+
+###Auto Saving Lesson Drafts
+Since the lesson does not send anything to the back end until it is complete, any accidental clicks on the back button could cost the teacher hours of work.
