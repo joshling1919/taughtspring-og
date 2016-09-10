@@ -2,8 +2,7 @@
 
 Live link: www.taughtspring.com
 
-TaughtSpring is a full-stack web application that is designed to give teachers a simple platform to create,
-upload, and find lesson plans. Inspired by Instructables, it is built on Rails on the back end and a React-Redux framework on the frontend.
+TaughtSpring is a single-page, full-stack web application that provides teachers with a simple interface to create, upload, and find lesson plans. Inspired by Instructables, it is built on Rails on the back end and a React-Redux framework on the front end.
 
 ##Features and Implementation
 
@@ -28,3 +27,6 @@ as its index in its array, as well as the index of its parent section, had to be
 On the backend, fortunately, Rails allows for parent models to accept nested attributes. One interesting obstacle that presented itself was how to account for child objects that have been deleted by the user in the front end during an editing session. More specifically, Rails' update methods takes care of new objects that were just added if those objects don't have an id attribute. However, if the backend sent out a lesson that had sections, which the user deletes on the front end, then when calling update on that model, Rail will just not touch the object since it is not a part of the overall lesson object being sent back.
 
 To tackle this issue, I gave each subcomponent its own specific array that pushed in its id whenever it was destroyed on the front end. Then, on the backend, I iterated through those arrays to destroy records of those objects.
+
+###Search
+There are currently two ways for users to search for lessons. The first is through the search bar, which matches based on lesson titles and subjects. The second is through the subject dropdown, which filters based on subject and grade level.
