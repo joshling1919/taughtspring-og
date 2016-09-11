@@ -24,8 +24,8 @@ class LessonsIndexItem extends React.Component {
   }
 
   _displayObjective(){
-    if (this.props.lesson.objectives) {
-      return `${this.props.lesson.objectives}`;
+    if (this.props.lesson.objectives[0]) {
+      return `${this.props.lesson.objectives[0].description}`;
     } else {
       return "n/a";
     }
@@ -67,8 +67,11 @@ class LessonsIndexItem extends React.Component {
               <span>{this._displayGrade.bind(this)()}</span>
             </div>
             <div className="index-description-field">
-              <label className="index-label">Objectives: </label>
-              <span>{this._displayObjective.bind(this)()}</span>
+              <label
+                className="index-label index-objective">Objective: </label>
+              <span
+                className="index-objective"
+                >{this._displayObjective.bind(this)()}</span>
             </div>
           </div>
         </li>

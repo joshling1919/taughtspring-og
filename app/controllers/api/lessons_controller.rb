@@ -103,12 +103,13 @@ class Api::LessonsController < ApplicationController
         grade_int = params[:filter][:grade][0].to_i
         subj = params[:filter][:subject]
         @lessons = Lesson.where(subject: subj,
-        grade: grade_int)
+        grade: grade_int).includes(:user, :objectives)
       elsif params[:filter][:subject]
-        @lessons = Lesson.subject(params[:filter][:subject]).includes(:user)
+        @lessons = Lesson.subject(
+        params[:filter][:subject]).includes(:user, :objectives)
       end
     else
-      @lessons = Lesson.all.includes(:user)
+      @lessons = Lesson.all.includes(:user, :objectives)
     end
     render :index
   end
