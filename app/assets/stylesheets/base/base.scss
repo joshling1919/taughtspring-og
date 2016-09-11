@@ -5,6 +5,9 @@ div.content {
   position: relative;
 }
 
+
+
+
 *{
   margin: 0;
   padding: 0;
@@ -24,13 +27,14 @@ ul.errors {
   list-style: square;
 }
 
-button, input[type="submit"], a {
+button, input[type="submit"], a,
+.index-item {
  cursor: pointer;
  transition: filter .01s, -webkit-filter .01s;
 }
 
 button:hover, input[type="submit"]:hover, .hoverable:hover,
-.index-description a:hover, .index-item a:hover {
+.index-author:hover, .index-item:hover {
  filter: brightness(95%);
  -webkit-filter: brightness(95%);
  -webkit-transform: scale(1.01);
@@ -67,10 +71,6 @@ video {
   margin: 0 auto;
 }
 
-.guest {
-  color: blue;
-  text-decoration: underline;
-}
 
 .no-match {
   margin-left: 30px;

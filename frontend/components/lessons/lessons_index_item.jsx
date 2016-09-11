@@ -1,26 +1,83 @@
 import React from 'react';
+import { withRouter } from 'react-router';
 
-const LessonsIndexItem = ({ lesson }) => {
-  const { title, id, user, image_url } = lesson;
-  
-    return(
-      <li className="index-item">
-        <div className="title-container">
-          <a className="title" href={`#lessons/${id}`}>{title}</a>
-        </div>
-        <div className="index-pic-background">
-          <div className="index-pic-container">
-            <img className="index-pic" src={image_url}/>
+class LessonsIndexItem extends React.Component {
+  _goToLesson(e) {
+    e.preventDefault(e);
+    this.props.router.push(`lessons/${this.props.lesson.id}`);
+  }
+
+  _displaySubject() {
+    if (this.props.lesson.subject) {
+      return `${this.props.lesson.subject}`;
+    } else {
+      return "n/a";
+    }
+  }
+
+  _displayGrade() {
+    if (this.props.lesson.grade) {
+      return `${this.props.lesson.grade}th `;
+    } else {
+      return "n/a";
+    }
+  }
+
+  _displayObjective(){
+    if (this.props.lesson.objectives) {
+      return `${this.props.lesson.objectives}`;
+    } else {
+      return "n/a";
+    }
+  }
+
+  _goToProfile(e){
+    e.preventDefault(e);
+    this.props.router.push(`profiles/${this.props.lesson.user_id}`);
+  }
+
+  render() {
+    const { title, id, user, image_url } = this.props.lesson;
+
+      return(
+        <li onClick={this._goToLesson.bind(this)}
+            className="index-item">
+          <div className="title-container">
+            <a className="title" href={`#lessons/${id}`}>{title}</a>
           </div>
-        </div>
-        <div className="index-description">
-          by: <a
-          href={`#/profiles/${user.id}`}>{user.first_name} {user.last_name}</a>
-        </div>
-      </li>
-    );
-};
+          <div className="index-pic-background">
+            <div className="index-pic-container">
+              <img onClick={this._goToLesson.bind(this)}
+                className="index-pic"
+                src={image_url}/>
+            </div>
+          </div>
+          <div className="index-description">
+            <div className="index-description-field index-author">
+              <label className="index-label">By: </label>
+              <a onClick={this._goToProfile.bind(this)}
+                >{user.first_name} {user.last_name}</a>
+            </div>
+            <div className="index-description-field">
+              <label className="index-label">Subject: </label>
+              <span>{this._displaySubject.bind(this)()}</span>
+            </div>
+            <div className="index-description-field">
+              <label className="index-label">Grade: </label>
+              <span>{this._displayGrade.bind(this)()}</span>
+            </div>
+            <div className="index-description-field">
+              <label className="index-label">Objectives: </label>
+              <span>{this._displayObjective.bind(this)()}</span>
+            </div>
+          </div>
+        </li>
+      );
+
+    }
+}
 
 
 
-export default LessonsIndexItem;
+
+export default withRouter(LessonsIndexItem);

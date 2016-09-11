@@ -19,7 +19,7 @@ class NewLessonForm extends React.Component {
           <div className="lesson-details-container">
             <UploadPictureButton upload={upload}/>
             <div className="lesson-details group">
-              <label>Title: </label>
+              <label className="field-label">Title: </label>
               <input defaultValue={template.title}
                 className="lesson-item title"
                 name= "title"
@@ -27,7 +27,7 @@ class NewLessonForm extends React.Component {
                 type="text"/>
             </div>
             <div className="lesson-details group">
-              <label>Grade Level: </label>
+              <label className="field-label">Grade Level: </label>
               <select defaultValue={template.grade}
                 className="lesson-item"
                 name="grade"
@@ -39,7 +39,7 @@ class NewLessonForm extends React.Component {
               </select>
             </div>
             <div className="lesson-details group">
-              <label>Subject: </label>
+              <label className="field-label">Subject: </label>
               <select defaultValue={template.subject}
                 className="lesson-item"
                 name="subject"
@@ -53,7 +53,7 @@ class NewLessonForm extends React.Component {
               </select>
             </div>
             <div className="lesson-details group">
-              <label>Lesson Date: </label>
+              <label className="field-label">Lesson Date: </label>
               <input className="lesson-item"
                 defaultValue={template.lesson_date}
                 type="date"

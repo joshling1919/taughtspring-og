@@ -17,6 +17,7 @@ class LessonsIndex extends React.Component {
     );
   }
 
+
   render() {
     if (!this.props.isLoading) {
       if (!this.props.currentUser && this.props.lessonsIndex.length > 0) {
