@@ -7,11 +7,17 @@ class Profile extends React.Component {
     return { currentUser: this.props.currentUser };
   }
 
+  _profileTitle() {
+    return `${this.props.profile.first_name}'s Lessons`;
+  }
+
   render(){
     if (this.props.profile) {
       return(
         <div>
-          <h3 className="profile-title">Your Lessons</h3>
+          <h3
+            className="profile-title"
+            >{this._profileTitle.bind(this)()}</h3>
           <div className="profile-container group">
             <ProfileLessonsIndex
               currentUser={this.props.currentUser}
