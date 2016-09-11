@@ -11,12 +11,9 @@ const SearchReducer = function(searchedState = defaultSearch, action){
     case SearchConstants.SEARCH:
       return merge({}, searchedState, { isLoading: true } );
     case SearchConstants.RECEIVE_SEARCHED_LESSONS:
-      let newSearchedState = merge({}, searchedState, {
-        searchedIndex: action.searchedLessons, isLoading: false }
-      );
-      if (action.searchedLessons.length === 0) {
-        newSearchedState.searchedIndex = [];
-      }
+      let newSearchedState = {};
+      newSearchedState.searchedIndex = action.searchedLessons;
+      newSearchedState.isLoading = false;
       return newSearchedState;
     default:
       return searchedState;
