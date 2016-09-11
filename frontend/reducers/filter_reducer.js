@@ -11,12 +11,9 @@ const FilterReducer = function(filteredState = [], action){
     case FilterConstants.FIND_SUBJECT:
       return merge({}, filteredState, {isLoading: true});
     case FilterConstants.RECEIVE_FILTERED_LESSONS:
-    let newFilteredState = merge({}, filteredState, {
-      filteredIndex: action.filteredLessons, isLoading: false }
-    );
-    if (action.filteredLessons.length === 0) {
-      newFilteredState.filteredIndex = [];
-    }
+    let newFilteredState = {};
+    newFilteredState.filteredIndex = action.filteredLessons;
+    newFilteredState.isLoading = false;
     return newFilteredState;
     default:
       return filteredState;

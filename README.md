@@ -1,6 +1,6 @@
 #TaughtSpring
 
-[TaughtSpring](https://www.taughtspring.com "TaughtSpring")
+[TaughtSpring](https://www.taughtspring.herokuapp.com "TaughtSpring")
 
 
 
