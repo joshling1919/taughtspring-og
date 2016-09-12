@@ -55,9 +55,13 @@
   .index-description {
     padding: 5px 18px;
     height: 20%;
+    position: relative;
 
     .index-author:hover {
       background-color: $border-gray;
+    }
+
+    .index-author {
     }
 
     a {

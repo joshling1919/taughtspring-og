@@ -33,6 +33,7 @@ class LessonsIndexItem extends React.Component {
 
   _goToProfile(e){
     e.preventDefault(e);
+    e.stopPropagation(e);
     this.props.router.push(`profiles/${this.props.lesson.user_id}`);
   }
 
