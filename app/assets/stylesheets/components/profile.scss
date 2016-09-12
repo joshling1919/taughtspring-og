@@ -1,7 +1,8 @@
 .profile-container {
-  border: 1px solid black;
-  margin: 20px;
+  margin: 0 auto;
   display: flex;
+  width: 80%;
+  border-radius: 10px;
 }
 
 .user {
@@ -27,28 +28,39 @@
 .profile-item-container {
   width: 80%;
   display: inline-block;
-  border: 2px solid $dark-gray;
+  background-color: $background-color-gray;
+  border-radius: 10px;
   width: 100%;
   height: 200px;
   margin-top: 20px;
   box-sizing: border-box;
 
 
-  .profile-lessons-title {
+  .profile-title-container {
     width: 100%;
-    height: 25%;
+    height: 20%;
+    padding-left: 20px;
+    padding-top: 10px;
+
+    .profile-title {
+      text-decoration: none;
+      color: black;
+      font-weight: 700;
+    }
   }
 
   .profile-lessons-pic {
-    width: 30%;
+    width: 25%;
     height: 70%;
     vertical-align: middle;
     display: inline-block;
+    padding-left: 10px;
     float: left;
     img {
         width: 100%;
         height: 100%;
         object-fit: fill;
+        border-radius: 10px;
         display: block;
     }
   }
@@ -57,6 +69,10 @@
     width: 65%;
     height: 70%;
     float: left;
+
+    .profile-edit-delete-buttons {
+      position: relative;
+    }
   }
 
 }

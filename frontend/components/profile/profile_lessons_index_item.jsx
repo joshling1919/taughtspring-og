@@ -16,18 +16,21 @@ class ProfileLessonsIndexItem extends React.Component {
     const { lesson, currentUser } = this.props;
     return(
       <li className="profile-item-container group">
-        <div className="profile-lessons-title">
-          <a href={`#/lessons/${lesson.id}`}>{ lesson.title }</a>
+        <div className="profile-title-container">
+          <a className="profile-title"
+            href={`#/lessons/${lesson.id}`}>{ lesson.title }</a>
         </div>
         <div className="profile-lessons-pic">
           <img className="lessonPic" src={ lesson.image_url } />
         </div>
         <div className="profile-lessons-description">
-          <EditDeleteLessonButtons
-            lessonUserId={ lesson.user_id }
-            currentUser={currentUser}
-            redirectToEdit={ this._redirectToEdit.bind(this) }
-            deleteLesson={ this._deleteLesson.bind(this) }/>
+          <div className="profile-edit-delete-buttons">
+            <EditDeleteLessonButtons
+              lessonUserId={ lesson.user_id }
+              currentUser={currentUser}
+              redirectToEdit={ this._redirectToEdit.bind(this) }
+              deleteLesson={ this._deleteLesson.bind(this) }/>
+          </div>
         </div>
       </li>
     );

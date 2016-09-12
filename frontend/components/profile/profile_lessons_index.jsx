@@ -14,11 +14,9 @@ const ProfileLessonsIndex = ({ currentUser, lessons, deleteLesson }) => {
   }
 
   return (
-    <div className="profile-lessons-index">
-      <ul>
+      <ul className="profile-lessons-index">
         { items }
       </ul>
-    </div>
   );
 };
 

@@ -5,7 +5,7 @@ const EditDeleteLessonButtons = ({ userId,
   if ( currentUser && (currentUser.id === lessonUserId)) {
 
     return(
-      <div>
+      <div className="group">
         <button className="lesson-item form-submit lesson-show-buttons"
           onClick={redirectToEdit}>Edit Lesson</button>
         <button className="delete-lesson lesson-show-buttons"
