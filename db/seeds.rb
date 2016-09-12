@@ -86,16 +86,16 @@ kps= ["Depending on who you talk to, the solar system either has 8 or 9 planets"
 "The top three levels are domains, kingdoms, and phylum",
 "PI, rounded to the nearest hundredths, is 3.14.",
 "PI is often used for the calculation of the area of circles.",
-"Depending on who you talk to, the solar system either has 8 or 9 planets",
-"Our solar system is located in the galaxy of th Milky Way",
-"Mitosis is a part of the cell cycle",
-"Mitosis is when chromosomes separate into two identical sets of chromosomes",
-"The value of gravity, denoted g, is g = 9.80665 m/s2 (32.1740 ft/s2).",
-"The value of gravity is different on different planets.",
-"Taxonomy is the branch of science concerned with the classification of organisms",
-"The top three levels are domains, kingdoms, and phylum",
-"PI, rounded to the nearest hundredths, is 3.14.",
-"PI is often used for the calculation of the area of circles."]
+"The 19th Amendment, which marked a major victory for the Suffrage Movement, became a part of the constitution in 1920",
+"Susan B. Anthony was one of the key leaders of the movement.",
+"Neil Armstrong and Buzz Aldrin landed on the moon on July 20, 1969.",
+"The event was set in the context of the Cold War.",
+"Pilgrims left their homes for the 'New World' due to religious persecution.",
+"Pilgrims landed on Plymouth Rock.",
+"The Trail of Tears followed the Indian Removal Act of 1830.",
+"This ethnic cleansing occured under the presidency of Andrew Jackson.",
+"Exponents show how many times a number (the base) is multiplied by itself.",
+"If the exponent is 3, then the base is multiplied by itself 3 times."]
 
 20.times do |index|
   Objective.create!(
