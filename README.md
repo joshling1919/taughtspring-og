@@ -49,5 +49,8 @@ Currently, the home page grabs every single existing lesson. As more lessons con
 ###Ability to comment on lessons and follow other users
 This would be useful in helping to promote a community of collaborators.
 
+###Allowing multiple teachers to contribute to the same lesson
+This would be another feature to promote collaboration.
+
 ###Auto Saving Lesson Drafts
 Since the lesson does not send anything to the back end until it is complete, any accidental clicks on the back button could cost the teacher hours of work.

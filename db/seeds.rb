@@ -7,8 +7,9 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 #
-emails = %w(jl@gmail.com ia@gmail.com mf@gmail.com sw@gmail.com wa@gmail.com
-ke@gmail.com w@gmail.com zz@gmail.com aa@gmail.com bb@gmail.com pp@gmail.com)
+emails = %w(guest@gmail.com bb@gmail.com cc@gmail.com dd@gmail.com ee@gmail.com
+ff@gmail.com gg@gmail.com hh@gmail.com ii@gmail.com jj@gmail.com)
+user_ids = (1..10).to_a
 
 images= %w(https://i.ytimg.com/vi/loXDVGi_lK0/maxresdefault.jpg
 http://67.media.tumblr.com/tumblr_mcm7l1jaw61rd81evo1_1280.jpg
@@ -22,23 +23,89 @@ http://d1jrw5jterzxwu.cloudfront.net/sites/default/files/article_media/chief_jos
 http://blog.eternalvigilance.me/wp-content/uploads/2013/07/The-story-of-Chess-%E2%80%93-Povestea-jocului-de-sah-1.jpg)
 10.times do |i|
   User.create!(
-    first_name: %w(Josh Ingrid Marie Jamie Seth Wilson Kelly).sample,
-    last_name: %w(Ling Ang Fang Kwan Wright Ashby Emery).sample,
+    first_name: %w(Guest Ingrid Marie Jamie Seth Wilson Kelly Amanda Martha Kelsey)[i],
+    last_name: %w(User Ang Fang Kwan Wright Ashby Emery Easton Tallent Craig)[i],
     email: emails[i],
     password: "password",
-    subject: %w(Math English Science Other).sample,
-    grade: [6, 7, 8].sample,
-    bio: "I love Math"
+    subject: ["Math", "Math", "Other", "Math", "English", "Social Studies",
+      "English", "Math", "Science", "Social Studies"][i],
+    grade: [8, 6, 6, 8, 7, 8, 6, 6, 8, 7][i],
+    bio: ["I love teaching!", "I've been a teacher for over 5 years.",
+      "Teaching is my passion"].sample
   )
 
   Lesson.create!(
-    user_id: (1..10).to_a.sample,
+    user_id: user_ids[i],
     title: ["Our Galaxy", "Mitosis", "Gravity", "Taxonomy",
     "Pi is Delicious", "Suffrage, not Suffering", "First Man on the Moon",
     "The Mayflower", "Native Americans", "The Power of Exponential Growth"][i],
-    subject: %w(Math English Science Other).sample,
+    subject: ["Other", "Science", "Science", "Science", "Math", "Social Studies",
+    "English", "English", "Social Studies", "Math"][i],
     grade: [6,7,8].sample,
     lesson_date: Date.new(2016,11,3),
     image_url: images[i]
   )
+
+end
+
+lesson_ids = []
+
+(1..10).each do |i|
+  lesson_ids << i
+  lesson_ids << i
+end
+
+descriptions= ["Students will learn that our galaxy is immense, and we are just a small part of it.",
+"Students will understand that our planet is part of the solar system.",
+"SWBAT articulate the different stages of mitosis",
+"SWBAT define what mitosis is",
+"Objective of this lesson is for students to provide examples of gravity in our lives",
+"Students will also be introduced to the standard gravity value",
+"SWBAT define taxonomy.",
+"SWBAT articulate the different classifications of taxonomy.",
+"By the end of this lesson, students will know the value of PI",
+"Students will understand when to use PI",
+"SWBAT define suffrage.",
+"Students will write a critical analysis of the suffrage movement",
+"SWBAT explain the historical context for sending the first man to the moon.",
+"SWBAT remember all of the key figures involved in the mission.",
+"SWBAT understand the rationale behind the pilgrim's migration",
+"Students will know the historical account behind the pilgrim's first years in America",
+"After this lesson, students will have a better understanding about the mistreatment of the Native Americans",
+"Students will learn about The Trail of Tears",
+"SWBAT to solve basic exponent problems",
+"SWBAT apply basic exponents to real life exampless"]
+
+kps= ["Depending on who you talk to, the solar system either has 8 or 9 planets",
+"Our solar system is located in the galaxy of th Milky Way",
+"Mitosis is a part of the cell cycle",
+"Mitosis is when chromosomes separate into two identical sets of chromosomes",
+"The value of gravity, denoted g, is g = 9.80665 m/s2 (32.1740 ft/s2).",
+"The value of gravity is different on different planets.",
+"Taxonomy is the branch of science concerned with the classification of organisms",
+"The top three levels are domains, kingdoms, and phylum",
+"PI, rounded to the nearest hundredths, is 3.14.",
+"PI is often used for the calculation of the area of circles.",
+"Depending on who you talk to, the solar system either has 8 or 9 planets",
+"Our solar system is located in the galaxy of th Milky Way",
+"Mitosis is a part of the cell cycle",
+"Mitosis is when chromosomes separate into two identical sets of chromosomes",
+"The value of gravity, denoted g, is g = 9.80665 m/s2 (32.1740 ft/s2).",
+"The value of gravity is different on different planets.",
+"Taxonomy is the branch of science concerned with the classification of organisms",
+"The top three levels are domains, kingdoms, and phylum",
+"PI, rounded to the nearest hundredths, is 3.14.",
+"PI is often used for the calculation of the area of circles."]
+
+20.times do |index|
+  Objective.create!(
+  lesson_id: lesson_ids[index],
+  description: descriptions[index]
+  )
+
+  KeyPoint.create!(
+  lesson_id: lesson_ids[index],
+  point: kps[index]
+  )
+
 end
