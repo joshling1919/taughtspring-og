@@ -23,8 +23,8 @@ http://d1jrw5jterzxwu.cloudfront.net/sites/default/files/article_media/chief_jos
 http://blog.eternalvigilance.me/wp-content/uploads/2013/07/The-story-of-Chess-%E2%80%93-Povestea-jocului-de-sah-1.jpg)
 10.times do |i|
   User.create!(
-    first_name: %w(Guest Maria Erin Sharon Andrea Andrea Kelly Amanda Martha Kelsey)[i],
-    last_name: %w(User Laws Greenwood Wilson Palmer Mills Emery Easton Tallent Craig)[i],
+    first_name: %w(Guest Maria Erin Sharon Andrea Andrea Kelly Amanda Martha Shaun)[i],
+    last_name: %w(User Laws Greenwood Wilson Palmer Mills Emery Easton Tallent Errichiello)[i],
     email: emails[i],
     password: "password",
     subject: ["Math", "Math", "Other", "Math", "English", "Social Studies",
@@ -40,7 +40,7 @@ http://blog.eternalvigilance.me/wp-content/uploads/2013/07/The-story-of-Chess-%E
     "Pi is Delicious", "Suffrage, not Suffering", "First Man on the Moon",
     "The Mayflower", "Native Americans", "The Power of Exponential Growth"][i],
     subject: ["Other", "Science", "Science", "Science", "Math", "English",
-    "English", "English", "Social Studies", "Math"][i],
+    "Social Studies", "English", "Social Studies", "Math"][i],
     grade: [6,7,8].sample,
     lesson_date: Date.new(2016,11,3),
     image_url: images[i]
@@ -69,7 +69,7 @@ descriptions= ["Students will learn that our galaxy is immense, and we are just 
 "Students will write a critical analysis of the suffrage movement",
 "SWBAT explain the historical context for sending the first man to the moon.",
 "SWBAT remember all of the key figures involved in the mission.",
-"SWBAT understand the rationale behind the pilgrim's migration",
+"SWBAT: determine the central idea of a text and analyze its development between individuals, ideas, and events of the Pre-Colonial Time Period.",
 "Students will know the historical account behind the pilgrim's first years in America",
 "After this lesson, students will have a better understanding about the mistreatment of the Native Americans",
 "Students will learn about The Trail of Tears",
@@ -90,7 +90,7 @@ kps= ["Depending on who you talk to, the solar system either has 8 or 9 planets"
 "Susan B. Anthony was one of the key leaders of the movement.",
 "Neil Armstrong and Buzz Aldrin landed on the moon on July 20, 1969.",
 "The event was set in the context of the Cold War.",
-"Pilgrims left their homes for the 'New World' due to religious persecution.",
+"English Settlers vs. Native Americas: Assumptions Proven Factual",
 "Pilgrims landed on Plymouth Rock.",
 "The Trail of Tears followed the Indian Removal Act of 1830.",
 "This ethnic cleansing occured under the presidency of Andrew Jackson.",
@@ -517,4 +517,279 @@ Section.create!(
 
 
   4. How were these risk takers blocked? (If they were.)"
+)
+
+#27
+Section.create!(
+  lesson_id: 7,
+  name: "Setting the Stage",
+  description: "On this day, July 20, 1969, at 4:17:40 p.m. Eastern Daylight Time the following words were heard around the world: “Houston, Tranquility Base here.  The Eagle has landed.”  Electricity was in the air, the control room at the Cape was breathless; then pandemonium erupted as the world realized what had just taken place — something only envisioned by novelists — a man had landed on the moon!"
+)
+
+#28
+Section.create!(
+  lesson_id: 7,
+  name: "Equipment",
+  description: "The rocket was named the Saturn V. Sitting on the launch pad it was 364 feet tall and 33 feet in diameter, the tallest rocket vehicle ever launched. When fueled it weighed in at 6.5 million pounds, the heaviest ever launched. It could lift a payload of 260,000 pounds into low earth orbit, the largest payload ever launched. These three records stand to this day.
+
+The Saturn V consisted of three stages with the first weighing in at 5.1 million pounds when fueled. The purpose of the first stage was to lift the launch vehicle through the first 220,000 feet of ascent before being jettisoned. The first stage, built by the Boeing ompany, developed 7.5 million pounds of thrust when the five F-1 engines were ignited.
+
+Stage two, weighing slightly over a million pounds, then ignited its five J-2 engines and carried the rest of the vehicle through the earth’s upper atmosphere, at which point its engines burned out and were jettisoned. This stage of the rocket was developed by North American Aviation.
+
+Stage three, built by Douglas Aircraft Company, was then used for the orbit insertion engine burn to enter into an orbit around the earth, and then again for the translunar insertion burn to send the crew on its way to the moon. Once stage three was jettisoned all that would remain of the spacecraft would be the Command Service Module (CSM) built by North American Aviation, and the Lunar Module (LM) — code-named Eagle — built by Grumman.  In reality, the CSM consisted of two pieces — the Command Module (CM) containing the three-man crew, and the Service Module (SM), which provided power, support systems, and the engine required by the CM to enter and leave the moon’s orbit."
+)
+
+#29
+Section.create!(
+  lesson_id: 7,
+  name: "The Mission",
+  description: "On July 16, 1969, the gigantic Saturn V rocket sat on launch pad 39A at the Kennedy Space Center in Florida. In just seconds the three-man crew of Apollo 11 — Commander Neil Armstrong, Lunar Module pilot Edwin E. “Buzz” Aldrin Jr. and Command Module pilot Michael Collins — would be on their way to making history. All three astronauts were veterans of other space flight missions. The mission of this space flight was to put the first man on the moon, a goal set by President John F. Kennedy on May 25, 1961. At 9:32 a.m. EDT, the five enormous F-1 engines on the Saturn V ignited, and the astronauts were on their way with Mission Control in Houston, Texas, orchestrating the mission."
+)
+
+#30
+Section.create!(
+  lesosn_id: 7,
+  name: "Descent",
+  description: "MISSION CONTROL:
+
+-“Sixty seconds.” (the fuel remaining)
+
+EAGLE:
+
+(No response.)
+
+MISSION CONTROL:
+
+-“Stand by for thirty seconds, thirty seconds.”
+
+EAGLE:
+
+(Nothing; all was quiet.)
+
+ARMSTRONG:
+
+-“Forty feet, picking up some dust.  Thirty feet, seeing a shadow.”
+
+MISSION CONTROL:
+
+-“Fifteen sec….” (The sentence remained uncompleted.)
+
+(After a long pause, one of the 67-inch probes hanging from the Eagle’s footpads touched the surface.)
+
+ALDRIN:
+
+-“Contact light!”
+
+(Three seconds later:)
+
+-“Shutdown.”
+
+-“Okay. Engine Stop, ACA—out of detent.”
+
+ARMSTRONG:
+
+-“Out of detent.”
+
+ALDRIN:
+
+-“Mode control—both auto. Descent command engine override—off. Engine arm—off.”
+
+-“413 is in.”
+
+DUKE IN MISSION CONTROL:
+
+-“We copy you down, Eagle.”
+
+ARMSTRONG:
+
+-“Houston, Tranquility Base here. The Eagle has landed.”"
+)
+
+#31
+Section.create!(
+  lesson_id: 7,
+  name: "Giant Leap",
+  description: "Of course, six hours after landing, Neil Armstrong would be the first man to set foot on the moon, uttering the immortal words, “That’s one small step for [a] man, one giant leap for mankind.” The entire crew safely returned home July 24th."
+)
+
+#32
+Section.create!(
+  lesson_id: 8,
+  name: "Intro",
+  description: "Since this unit focuses on the comprehension of informational text, I chose to incorporate a strategy that will aid students in working through steps to “control information” housed in the historical documents. Students must understand that reading done in this class will involve a strategy that allows them to talk to the text while evaluating the assumptions made by authors to influence readers’ perceptions about events, individuals, etc. Today’s lesson is designed to introduce students to this process then indulge them in practicing the strategy with two pieces of informational text on William Bradford and the Mayflower Compact."
+)
+
+#33
+Section.create!(
+  lesson_id: 8,
+  name: "Bell Ringer",
+  description: "I hook students into this lesson by having students list the processes they use when reading nonfiction text. Students will share their processes used as they are asked to read stories inside and outside the classroom. Responses from this activity might include: read the entire document, annotate the text, and skim the passage."
+)
+
+#34
+Section.create!(
+  lesson_id: 8,
+  name: "First Read",
+  description: "Since I want to bring to life the simplicity involved in processing information in literature, students will skim their article and highlight all ideas associated with a journey in Bradbury's Mayflower Compact.
+
+Students will be given two separate texts to read about events that led in making America. Because this lesson is being taught to a gifted class, the assigning of text can be as simple as left and right / front and back of the classroom. I purposely chose for students to read different texts so that our  classroom discussion will encompass assumptions made from various perspectives and engage all students in adding new information about “how” America was made during the times of the English settlers and Native Americans."
+)
+
+#35
+Section.create!(
+  lesson_id: 8,
+  name: "Comprehening the Text",
+  description: "Students will be guided on how to use a three-step process to \"dig deeper\" into the meaning of informational text. Notes will be provided for students to copy in their notebooks. After note taking, students will use the steps on the historical document read earlier in the lesson.
+
+This is my first time using this strategy to move students through comprehending informational text. I have selected this interaction with the text to be done cooperatively since literature provides room for interpretations that should be shared with others. Since there are varying levels of gifted students in the classroom, students are asked to work with their shoulder partner. The seating arrangement of students are homogeneous based on previous years' End-of-Grade scores so like-minded individuals are sitting together. Due to it being early in the school year, students have not established great rapport with each other. However, sitting them homogeneously will allow them to move simultaneously through the learning activities.
+
+Teachers may wonder why students have yet to share the information read in the selection prior to moving into more a critical process of evaluating and analyzing information in the text. I want students to focus more on the questionable assumptions presented in each article and not the reading of information from the text. The level two and three of the strategy move students from being a reader to being a critic of literature. Once students understand the intended audience of each selection, then they will see its influence on how information was compiled for the selection. In addition, students take these understandings and question whether they can believe an article based on what is learned about its society, people, etc. I will wrap up this lesson by having students share what was discovered about the making of America from the assumptions posed in their readings."
+)
+
+#36
+Section.create!(
+  lesson_id: 8,
+  name: "Exit Ticket",
+  description: "Students will wrap-up this lesson by answering the following question:
+
+How did the assumptions made by the authors of each article influence your thinking about the people involved in the expansion of America?
+
+Because this an interdisciplinary unit based on Social Studies lessons, it is essential that students understand what influences informational literature and how information studied in both classes develops their understanding of nonfiction text and histories. This exit ticket evaluates students understanding of the tri-step process and if the second and third levels were needed to bridge gaps in comprehension of informational text.
+
+Possible student answers included:
+
+1. to ask more questions about the validity of the text
+2. pay more attention to how the author formulates his bias towards a topic, etc.
+
+
+It is important that a \"skill or concept\" drives the reading material and interaction that students have with learning activity of the day. I try to use a reading strategy to control the pacing of the lesson This helps keep students on task and supports high levels of engagement with each activity done throughout the lesson."
+)
+
+#37
+Section.create!(
+  lesson_id: 9,
+  name: "Bell Ringer: Need a Definition",
+  description: "What’s my perspective on the Trail of Tears? At the start of this lesson, students have been learning about the Trail of Tears through lessons in Social Studies class, a novel, and informational text. With information overload about the Cherokee Indian Removal, time has come for students to express their emotions about this historical event.
+
+It is time to hook students! Students will answer the following prompt in their notebooks
+
+ -In your own words, what does perspective mean?
+
+The denotation of the word \“perspective\” is a particular attitude or point of view regarding something. Possible answers I expect to hear from students include new look on life, view point about something, ranges of opinion or scope of things, etc.
+
+Students can look at the connotations of the word and use the associations of view, attitude, outlook, and sight to define how they will express their reaction to the Trail of Tears. It is important that students understand perspective so that it can bring their opinions about the Trail of Tears to alive."
+)
+
+#38
+Section.create!(
+  lesson_id: 9,
+  name: "Building Knowledge about Trail of Tears",
+  description: "There are many ways that students will begin to formulate a perspective about the Trail of Tears. In this The Trail of Tears - Robert Lindneux image (http://www.pbs.org/wgbh/aia/part4/4h1567b.html) students will look to the left, right, and middle of the photo to develop a list of emotions that are provoked by the still image. As students work, I will walk around the room to see what similarities and differences are seen among students' responses in their notebooks. This quick glance will allow me to call on certain students to share how they felt about the historical event of the photo.
+
+Possible emotions students may record include sadness, compassion, sympathy, etc. I don't allow students time to share why certain emotions were chosen in this activity because I want students to interact with other resources to develop their lasting perspective of the Trail of Tears before they share."
+)
+
+#39
+Section.create!(
+  lesson_id: 9,
+  name: "IP: Recording My Perspectives",
+  description: "Students will work in groups to develop their final perspective on the Trail of Tears. In order to gain more information about this historic event, the following articles will be given for students to read: Gen. Scott's Address to Indians, Map of Trail,and Historical Background for Trail of Tears. While reading primary and secondary information, students will work through the length and challenging vocabulary to comprehend the claims of each speaker. I will serve as support for students who have questions about the information presented in each document.
+
+It is important that students fill out the What, When, Where and Why organizer as they are reading each document. Because students are looking at longer lengths of text, the graphic organizer will serve as a visual to help students organize the most essential points in each document.
+
+The final product that groups will develop is a perspective poster on their view of The Trail of Tears. Students will have one class period to read over the material and complete the graphic organizer. On the second day of class, students will follow the Poster Template to create a poster to present to their peers. Watch the Trail of Tears Perspective Poster to see how posters can be made by student groups in the classroom."
+)
+
+#40
+Section.create!(
+  lesson_id: 10,
+  name: "Start Up",
+  description: "We launch the investigation almost immediately and ask the class, \"can you change the world?\" We follow by showing the trailer for the movie Pay it Forward. The trailer shows a clear idea of what it means to \"pay it forward.\"
+
+Youtube Link: https://www.youtube.com/watch?v=_pCtXRP1edo
+
+After the clip shows, I would ask students to rephrase what it means to \"pay it forward\" and outline the discussion on the board.
+
+Paying It Forward:
+
+1. Help three people
+
+2. Those three people help three other people
+
+I would ask students to take 2 minutes and draw a visual of this process.
+
+\"Imagine you tried this. What would you do? How much of an impact would it have. Write out three ideas you have to help others and draw a model that represents what happens if they pass it on and then the next group passes it again. How many people will you have impacted?\"
+
+After they have had a chance to reflect, I ask students to share. I want them to use their mathematical model to make a social argument.
+
+\"Would paying it forward make a difference? How do you know?\"
+
+This is a discussion around would could happen and what students think would happen if they tried to pay it forward. This is not a debate with a correct or even predictable result, it is a chance to spend about 5 minutes sharing ideas around the concept of paying it forward. The more they talk about it, the more they will be ready to work on the math surrounding the concept."
+)
+
+#41
+Section.create!(
+  lesson_id: 10,
+  name: "Investigation",
+  description: "I like to give students plenty of room in this investigation, since I want them to find a way to naturally reach an exponential model. The question I ask is, \"Could paying it forward reach everyone in the world?\" Specifically, I will offer them two paying it forward models.
+
+Model 1:  Help 3 and have those people help 3 others (like the movie)
+
+Model 2:  Help 3 every day.
+
+Optional Extensions:
+
+Get a group of 1000 people together who will help 3 people each day. Is this a stronger model than the one in the movie. Why?
+
+If you have a group of people willing to help 3 others each day, how large would the group need to be to reach everyone in the world in 21 days?
+
+After I present the models and prompts, I ask students, \"What do you need to solve this problem?\" Students need to know how paying it forward works (which we discussed at the start) and the current world population. They also need to have a time frame for how long it takes to complete a \"good deed.\" This depends on what they consider acceptable as a \"good deed\" and what they consider to have an impact.
+
+Does it count if you buy someone lunch?
+Does it have to be something they can't do for themselves?
+How loosely do we define \"helping someone out\"?
+I provide all the tools needed to solve this problem. I give them the population number (displaying the link on the projector) and have a station with graph paper, graphing calculators, etc.
+
+As I circulate, I will nudge students toward functions, graphs and tables, but only if they don't have another working algorithm. For example, if they really like drawing a tree to represent the growth of paying it forward, I would ask them to look at a smaller population before they approach the population of the entire world. I wouldn't discourage them from their algorithm, since the tree diagram will help them make sense of this problem in a way that is natural for them. "
+)
+
+#42
+Section.create!(
+  lesson_id: 10,
+  name: "Summary",
+  description: "During their investigation, I like to record ideas and quotes from the class. I start off the summary by sharing some of the more compeling student ideas and use these to launch a quick conversation. For example, a student might say, \"If everyone followed through, this wouldn't take long at all.\" I would ask the class if they agree and how they could know. Students would share their approaches in tables, graphs, functions, etc. We would discuss the equation y = 3^x with questions like, what does x represent? What does y represent? How does this connect to the columns in a table and the axis in a graph?
+
+For students who graphed the function by hand, I would show their work, demo it on the graphing calculator and extend it by using Desmos and other online graphing calculators. I like to discuss the meaning of the intersection points and the reasoning as to why exponential growth is so much greater than linear growth.
+
+I might do this by simply showing a multiplicative (exponential) vs. an additive (linear) model and comparing the slopes in the linear and exponential paying it forward models.
+
+-exponential:
+
+3
+
+3x3
+
+3x3x3
+
+
+
+-linear:
+
+3
+
+3+3
+
+3+3+3
+
+
+
+With the graphs, tables and functions shared, I would ask students to summarize how they can recognize an exponential relationship. They could respond in a variety of ways, but I would quote students around the following ideas:
+
+1. Linear functions make straight lines and exponential functions make \"curves\"
+
+2. Exponential functions can grow a lot faster than exponential functions.
+
+3. Linear functions have a constant rate of change or slope. Exponential functions do not
+
+4. Linear functions look like y = mx + b and exponential functions look like y = a^x"
 )
