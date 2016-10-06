@@ -548,7 +548,7 @@ Section.create!(
 
 #30
 Section.create!(
-  lesosn_id: 7,
+  lesson_id: 7,
   name: "Descent",
   description: "MISSION CONTROL:
 
