@@ -23,8 +23,8 @@ http://d1jrw5jterzxwu.cloudfront.net/sites/default/files/article_media/chief_jos
 http://blog.eternalvigilance.me/wp-content/uploads/2013/07/The-story-of-Chess-%E2%80%93-Povestea-jocului-de-sah-1.jpg)
 10.times do |i|
   User.create!(
-    first_name: %w(Guest Maria Erin Jamie Seth Wilson Kelly Amanda Martha Kelsey)[i],
-    last_name: %w(User Laws Greenwood Kwan Wright Ashby Emery Easton Tallent Craig)[i],
+    first_name: %w(Guest Maria Erin Sharon Andrea Andrea Kelly Amanda Martha Kelsey)[i],
+    last_name: %w(User Laws Greenwood Wilson Palmer Mills Emery Easton Tallent Craig)[i],
     email: emails[i],
     password: "password",
     subject: ["Math", "Math", "Other", "Math", "English", "Social Studies",
@@ -39,7 +39,7 @@ http://blog.eternalvigilance.me/wp-content/uploads/2013/07/The-story-of-Chess-%E
     title: ["Our Galaxy", "Mitosis", "Gravity", "Taxonomy",
     "Pi is Delicious", "Suffrage, not Suffering", "First Man on the Moon",
     "The Mayflower", "Native Americans", "The Power of Exponential Growth"][i],
-    subject: ["Other", "Science", "Science", "Science", "Math", "Social Studies",
+    subject: ["Other", "Science", "Science", "Science", "Math", "English",
     "English", "English", "Social Studies", "Math"][i],
     grade: [6,7,8].sample,
     lesson_date: Date.new(2016,11,3),
@@ -270,17 +270,17 @@ Section.create!(
 To start, students create a coordinate graph, plotting the independent variable (the mass in kilograms.) on the horizontal axis and the dependent variable (the weight) on the vertical axis. For additional resources on coordinate graphing, this lesson may be helpful: Get in the Graph: Coordinate Graphing. The process of graphing this data helps students recognize that there is (or should be) a linear relationship between mass and weight. Showing students how to draw a \"line of best fit\" and explaining why a line of best fit is useful in this data set may be a nice support to aide the process of data analysis."
 )
 
-Cfu.create!(
-  section_id: 11,
-  question: "What does the graph tell you about the relationship between mass and weight on Earth?",
-  answer: "The mass of an object is a measure of the object's inertial property, or the amount of matter it contains. The weight of an object is a measure of the force exerted on the object by gravity, or the force needed to support it."
-)
+    Cfu.create!(
+      section_id: 11,
+      question: "What does the graph tell you about the relationship between mass and weight on Earth?",
+      answer: "The mass of an object is a measure of the object's inertial property, or the amount of matter it contains. The weight of an object is a measure of the force exerted on the object by gravity, or the force needed to support it."
+    )
 
-Cfu.create!(
-  section_id: 11,
-  question: "What different factors affect the weight of objects?",
-  answer: "The factors affecting the terminal speed of a falling object include: its mass. its surface area. the acceleration due to gravity, g."
-)
+    Cfu.create!(
+      section_id: 11,
+      question: "What different factors affect the weight of objects?",
+      answer: "The factors affecting the terminal speed of a falling object include: its mass. its surface area. the acceleration due to gravity, g."
+    )
 
 #12
 Section.create!(
@@ -310,4 +310,211 @@ In order to evaluate understanding, there are multiple methods:
 2) These resources can also be used as evaluation tools: Mass and Weight Quiz Retake or Mass and Weight Quiz Retake - Alternate.
 
 3) Review of student work - Weighed Down Investigation Student Work - including the analysis questions at the end of the investigation, provides additional insight into students' abilities to explain what they have learned about mass and weight."
+)
+
+#14
+Section.create!(
+  lesson_id: 4,
+  name: "Warm Up",
+  description: "Instruct students to engage in table talk for 2 minutes around this review question from the previous lesson, Classification, part 1.  This question requires students to activate prior knowledge and allows for an assessment of how much students know.  Walk around and listen to students’ comments to determine whether re-teaching is necessary.
+
+Listen for students’ ability to identify that the two naming systems are similar in that they both created rationales for grouping organisms into categories.   If this is as much as they can identify, prompt students to dig a little deeper by asking questions like:
+
+1. Which system is more detailed and why?
+2. Why is Linnaeus’ system of classification still the basis of how we classify animals today and Aristotle’s is not?
+
+End the warm-up by allowing each group to share one thought with the whole class.  The opportunity to share thoughts allows students to practice their language skills.
+
+Explain that today’s lesson will allow students to examine in greater detail why Linnaeus’s naming system is universally accepted still today."
+)
+
+#15
+Section.create!(
+  lesson_id: 4,
+  name: "Introduce New Material",
+  description: "Inform students of the learning targets:
+
+1. I can create and use a dichotomous key to classify an organism.
+2. I can use the current classification system to name an unknown organism.
+
+Instruct students to consider what actions would need to be taken to identify and name organisms that have never been seen before.
+
+Look for students to explain that they would need to try to place in the organism in one of the six kingdoms and then name the organism. Ask students to name and describe the kingdoms.  This quick formative assessment will determine whether a review of the seven kingdoms and their characteristics is needed.  If so, take the time to conduct a quick review using the graphic organizer from Classification, part 1. Review of prior content allows for repetition, which is a great way to help students reinforce learning.
+
+Explain that the scenario of having to name newly discovered species of organisms is not far-fetched. Share current information about recent, un-named species of organisms that had to be classified and named. Display images and share some of the more interesting webpages for organisms with names like:
+
+Scaptia beyonceae- Point out the binomial nomenclature naming conventions. But, also point out that this particular organism was names, in part for its large golden butt as homage to Beyonce’.
+
+Aleiodes gaga- Point out the correct binomial naming conventions. Point out that this wasp species is named in honor of Lady Gaga.
+
+Gaga germanotta-  Point out the correct binomial naming convention. Share that 19 varieties of ferns are named after Lady Gaga, as well.
+
+Check for understanding by asking students which part of each of the names reflects the genus and which part, the species. Look for students to be able to identify that the sequence matters; Genus is always first and the species name is second. Use the two organisms with “gaga” in the names to highlight this point. For the organism, Aleiodes gaga, gaga is the species.  While for the Gaga germanotta, Gaga is the species."
+)
+
+#16
+Section.create!(
+  lesson_id: 4,
+  name: "Guided Practice",
+  description: "Explain that students will practice their ability to classify and name organisms in a GRASPS activity.  Using a LCD projector, display and explain each part of a GRASPS performance task:
+
+GOAL- Provide a statement of the task.
+
+ROLE- Define the role of the students in the task.
+
+AUDIENCE- Identify the target audience within the context of the scenario.
+
+SITUATION- Set the context of the scenario.
+
+PRODUCT- Clarify what the students will create and why they will create it.
+
+STANDARD- Provide students with a clear picture of success.
+
+Distribute copies of the Taxonomy GRASPS, “What on earth is that?”. Display the GRASPS assignment and preview each component of the GRASPS, allowing volunteer students to read each of the GRASPS components aloud to the class.
+
+Display a GRASP example so that students will be able to see how each of the components are addressed in a completed GRASPS.  Make sure that students understand that this is an exemplar that shows what it is expected in the finished product.
+
+Model how students will complete the Product using the first organism, photosynthetic sharks. Conduct a “think aloud” to allow students to observe your thought process in creating a name and identifying the kingdom for the shark.
+
+Think Aloud Script Example:
+
+'What are the seven kingdoms? This will help me to decide to which kingdom each of these organisms belongs.  Now, what kingdom can I place the shark in? I know sharks are typically animals because they are heterotrophs. But, this alien shark is different. I know this because the shark description says that it is photosynthetic and its fins have chlorophyll to convert sunlight to energy. Hmmm… let me look at my kingdom graphic organizer. I think the shark might belong to the plant kingdom because it uses photosynthesis as its nutrition source.
+
+I know that binomial nomenclature naming requires the genus name followed by the species name. The genus is a larger grouping than species. Are there other fish that are autotrophs on this list of alien organisms? Yes. So, I need to create a genus for these autotrophic fish. I will call the genus, Photosynthetic because the name indicates that they are autotrophs, able to make their own food. Since the shark is different from the goldfish, they belong to different species. I will name the species sharkus. This organism is Photosynthetic sharkus.'
+
+Remind students to refer to their notes from both the Classification, part 1 lesson and Classification, part 2 lesson for assistance."
+)
+
+#17
+Section.create!(
+  lesson_id: 4,
+  name: "Independent Practice",
+  description: "Distribute poster boards and markers for students’ use. Explain that the completed task involves 4 different artifacts:
+
+1. Create a taxonomic scheme using only kingdom, phylum, genus, and species.
+2. Create Latin-sounding names, for each organism. Include the genus and species classification.
+3. Illustrate your interpretation of each organism's appearance.
+4. Prepare a dichotomous key for these organisms. Show a brief clip on how to develop a dichotomous key. This review of dichotomous keys from the Classification, part 2 lesson should help ensure that all students are able to complete this component of the performance tasks.
+Assign students to work in groups of four to complete the tasks. Take into account the specific learning abilities of students when creating the groups and strive to create groupings where lower ability students are integrated into groups of higher ability students. The assignment has four parts so that every learner can find an opportunity to contribute in a meaningful way.
+
+Instruct students to determine within the group who will complete which part of the assignment. Encourage students to play to their strengths when deciding who will complete which tasks.
+
+Walk around the room to monitor the groups as they work and ensure that all students are actively engaged in the completion of the tasks. Do not expect the groups to complete this assignment in one class period. It is likely that this assignment will require at least 2 class periods to complete.
+
+Student work 1 and student work 2 represent exemplars for this assignment. While both show accurate use of the couplets to derive classification systems, student work 1 shows a higher level of thought given toward naming and drawing the organisms, with the students creating names like Toxicitic grasspolside and Photosynthous Fleaoid. "
+)
+
+#18
+Section.create!(
+  lesson_id: 4,
+  name: "Close",
+  description: "Display a PMI chart (Plus, Minus, Interesting).  Distribute post-it notes and ask students to list one of the following:
+
+1. Plus- Something that I liked about this assignment.
+
+2. Minus- Something that I did not like about this assignment.
+
+3. Interesting- Something I found interesting while working on this assignment.
+
+Typically, students will note that they like the creative aspects of naming and drawing the organisms. They do not tend to like the process of deriving the dichotomous key and many will note that they find the descriptions of the organisms to be interesting and fun.
+
+Consider the students'  feedback, and as appropriate adjust the task to better meet the interest of future students. "
+)
+
+#19
+Section.create!(
+  lesson_id: 5,
+  name: "Brain Pop Video: Circles",
+  description: "Circles Video: http://www.brainpop.com/math/geometryandmeasurement/circles/
+
+  I pause the video so that students can fill in their notes.  I do not show the entire video!  Students will be deriving the circumference formula later in the lesson, so I stop the video at 1:23 after Tim shares that the circumference is the perimeter of a circle, or the distance around it."
+)
+
+#20
+Section.create!(
+  lesson_id:5,
+  name: "Calculating Diameter and Radius",
+  description: "Now that students have been exposed to the definitions of radius and diameter, I want them to practice knowing one and finding the other. It helps students to draw what is given first, and then figure out the missing information."
+)
+
+    Misconception.create!(
+      section_id: 20,
+      misconception: "A common mistake is that students confuse diameter with radius and vice versa."
+    )
+
+#21
+Section.create!(
+  lesson_id: 5,
+  name: "Exploring Circumference",
+  description: "I have a volunteer read the directions.  I go over group expectations and what to do when they finish measuring an item.   I stress the importance of accurately measuring the items.  I suggest that group members check each other’s measurements to ensure accuracy.  Students will be engaging in MP6: Attend to precision and MP8: Look for and express regularity in repeated reasoning.
+
+For this activity, I let the students choose their groups of 3-4.  I give them 30 seconds to pick their groups and sit down.  If they cannot handle that, then I will have students count off and sit down.  I have volunteers pass out materials and Group Work Rubric to each group.
+
+While students are working, I walk around and monitor student progress and behavior.  When a group has measured five objects, I check in with them briefly and then have them move on to the graph.
+
+Some students may struggle to make connections on question 3.  This is okay.  I want students to work together to see what they can figure out.  If a group asks for a calculator, I give them one to work with.
+
+If a group completes the graph and questions, I ask them to explain what they noticed and their predictions for 3c and 3d.  If there is still time, the group can measure extra items and then plot the new measurements on the graph.
+
+With about seven minutes left, I stop groups and have them come together for a class discussion.  I ask 2-3 volunteers from different groups to show their graphs under the document camera.  I ask, “What did your group notice?”  I want students to notice that the circumference of a circle is about 3 times bigger than a circle’s diameter.  I ask students to share their predictions to 3c and 3d and explain them."
+
+)
+
+#22
+Section.create!(
+  lesson_id: 5,
+  name: "Brain Pop Video: Pi",
+  description: "Pi Video: http://www.brainpop.com/math/numbersandoperations/pi/
+
+I pause the video so that students can fill in their notes.  I do not show the entire video!  Students will be deriving the circumference formula next, so I stop the video at 1:15 after Tim shares that pi is an irrational number.
+
+If I have time, I go to http://avoision.com/experiments/pi10k to show students what pi “sounds like” as a musical sequence."
+)
+
+#23
+Section.create!(
+  lesson_id: 5,
+  name: "How?",
+  description: "This will serve as the Closure for the lesson.  We go through these questions together as a class.   I want students to be able to explain that pi is the ratio of a circle’s circumference and its diameter.  I have students Think Pair Share about what they think the formula for circumference of a circle is.  Students are engaging in MP 8: Look for and express regularity in repeated reasoning.
+
+Then I have students use their formula to answer 1 and 2.  For 1a, students can just put 8 times pi.  Rather than using 3.14 to calculate the circumference, I just want them to estimate.  If I have extra time, I give students problems with bigger (circumference of 150 cm) and smaller (diameter of 2.5 cm) measurements and have students make estimates of the diameter and circumference."
+)
+
+#24
+Section.create!(
+  lesson_id: 6,
+  name: "Bell Ringer: Men vs. Women",
+  description: "Are there other ways that students could describe the inequalities around men and women voting rights of our past histories? To continue our understanding of women's suffrage, I ask students to respond to the following prompt on the whiteboard
+
+According to Sojourner Truth, how does she view men and women?
+
+Students will use their prior knowledge and speech by Sojourner Truth to gather answers for their warm-up. We will share samples prior to moving on to the next activity.
+
+Link to Sojourner Truth Speech: http://sourcebooks.fordham.edu/mod/sojtruth-woman.asp"
+)
+
+#25
+Section.create!(
+  lesson_id: 6,
+  name: "Guided Practice",
+  description: "With a focus for understanding voting through text, we will re-read Ain't I a Woman annotating for the use of literary elements. What students will focus on is the use of dialect, imagery, and allusions to see how these elements impact the overall tone and theme of the selection. I will model how to annotate the first paragraph aloud. Then students will finish annotating in pairs. Finally, we will reconnect as a class to go over all elements found in the speech."
+)
+
+#26
+Section.create!(
+  lesson_id: 6,
+  name: "Independent Practice",
+  description: "  To see if suffrage has improved over the past 100 years, students will work in pairs to complete the One Hundred Years toward Suffrage handout. I allow students to select their partner since the comprehension of the information must be shared among each pair. Once students have found a location in the classroom, I divide all of the dates on the timeline by fours. Each pair is responsible for reading their assigned dates and answering the following questions:
+
+
+  1. Who would they consider a risk taker in their section?
+
+
+  2. What risks did they take?
+
+
+  3. How did the move the women’s movement forward?
+
+
+  4. How were these risk takers blocked? (If they were.)"
 )
