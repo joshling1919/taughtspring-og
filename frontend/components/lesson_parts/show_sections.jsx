@@ -5,6 +5,10 @@ import ShowCFU from './show_cfu';
 import { uniqueId } from 'lodash';
 
 class ShowSections extends React.Component {
+  constructor(props){
+    super(props);
+    this.incrementer = 1000;
+  }
 
   _generateKey(obj){
     if (obj.uniq) {
@@ -12,6 +16,11 @@ class ShowSections extends React.Component {
     } else {
       return (obj.created_at + obj.id);
     }
+  }
+
+  _spanKey(){
+    this.incrementer++;
+    return this.incrementer;
   }
 
   _misconceptionsList(){
@@ -71,7 +80,14 @@ class ShowSections extends React.Component {
           </div>
           <div className="show-name-field">
             <label className="section-show-label">Description: </label>
-              {description}
+              {description.split("\n").map(item => {
+                return(
+                  <span key={this._spanKey()}>
+                    {item}
+                    <br/>
+                  </span>
+                );
+              })}
           </div>
           <div className="show-name-field">
             <label className="section-show-label">
@@ -83,7 +99,7 @@ class ShowSections extends React.Component {
           </div>
           <div className="show-name-field">
             <label className="section-show-label">
-              Checks For Understanding/Questions: 
+              Checks For Understanding/Questions:
             </label>
             <ol>
               {this._cfusList()}

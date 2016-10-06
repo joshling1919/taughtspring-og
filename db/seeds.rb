@@ -23,8 +23,8 @@ http://d1jrw5jterzxwu.cloudfront.net/sites/default/files/article_media/chief_jos
 http://blog.eternalvigilance.me/wp-content/uploads/2013/07/The-story-of-Chess-%E2%80%93-Povestea-jocului-de-sah-1.jpg)
 10.times do |i|
   User.create!(
-    first_name: %w(Guest Ingrid Marie Jamie Seth Wilson Kelly Amanda Martha Kelsey)[i],
-    last_name: %w(User Ang Fang Kwan Wright Ashby Emery Easton Tallent Craig)[i],
+    first_name: %w(Guest Maria Erin Jamie Seth Wilson Kelly Amanda Martha Kelsey)[i],
+    last_name: %w(User Laws Greenwood Kwan Wright Ashby Emery Easton Tallent Craig)[i],
     email: emails[i],
     password: "password",
     subject: ["Math", "Math", "Other", "Math", "English", "Social Studies",
@@ -109,3 +109,141 @@ kps= ["Depending on who you talk to, the solar system either has 8 or 9 planets"
   )
 
 end
+
+#1
+Section.create!(
+  lesson_id: 1,
+  name: "Hook",
+  description: "Show students video of Milky Way from this video: https://www.youtube.com/watch?v=qnYCpQyRp-4.\n Then, students will discuss the size of the earth compared to the size of the Milky Way",
+
+)
+
+Misconception.create!(
+  section_id: 1,
+  misconception: "Students may not fully understand how large our galaxy truly is."
+)
+
+Cfu.create!(
+  section_id: 1,
+  question: "none",
+  answer: "none"
+)
+
+#2
+Section.create!(
+  lesson_id: 1,
+  name: "Intro to New Material",
+  description: "In this section cover these key topics:
+  1. Earth is part of the Solar System.
+  2. The Solar System is .0032% the size of the Milky Way.
+  3. It would take 100,000 years to cross the Milky Way at the speed of light."
+)
+
+#3
+Section.create!(
+  lesson_id: 1,
+  name: "Guided Practice",
+  description: "Pass out the solar system worksheet and have students follow these directions:
+  1. First identify where earth is.
+  2. Then, label the other planets."
+)
+
+#4
+Section.create!(
+  lesson_id: 1,
+  name: "Independent Practice",
+  description: "Students will use the materials provided to construct the solar system. Students will also write down how many moons each planet has."
+)
+
+#5
+Section.create!(
+  lesson_id: 1,
+  name: "Assessment",
+  description: "Students will take the exit ticket on the solar system and the Milky Way."
+)
+
+#6
+Section.create!(
+  lesson_id: 2,
+  name: "Reviewing Concepts",
+  description: "1.  Lead students through the mitosis hand dance to review the basic phases of mitosis.  Tell students that so far we have only looked at diagrams of the process and that today it is time to look at the real thing under the microscope.
+
+2.  Tell students that before we go to the microscopes, we need to spend a little time investigating what to expect when we look at our prepared slides of mitosis in an onion root tip.
+
+3.  Pass out the mitosis flash cards to each pair of students.  Ask them to work together to find examples of each of the phases of the cell cycle:  interphase, prophase, metaphase, anaphase, telophase.  As students discuss and locate each phase, circulate and support students who are having trouble focusing on all of those little purple dots.  Reassure them that this is normal and that it will get better the more we work with them.
+
+Note: These cards are available for purchase through any science supply house, I used Ward's Science for this set.  The students and I continue to refer to them throughout the rest of the unit to ask questions, make comparisons, or quiz one another about our knowledge.
+4.  Using the spokesperson protocol, ask student groups to discuss the following two prompts:
+
+Which phase was the easiest to identify?
+
+Which phase was the most challenging to find?
+
+5.  Share out student answers.  Students will agree that anaphase and metaphase are the easiest to find (with some exceptions due to exceptionally challenging individual cell examples they encountered on their specific card).  They will typically say it was hard to find telophase and that the difference between prophase and interphase was also hard.
+
+Note: Your responses to these questions can be brief at this point. They will mean more and students will be more invested in listening to your tips and tricks once they are at the microscope.  In general, students should assume that they have misidentified some of their telophases as interphase because they do and should look similarly. The key identifier to use is cell size, cells that have recently gone through telophase tend to be smaller with their nuclei not quite in the center. The major difference between the look of prophase and interphase is the state of the nuclear membrane.  Because the membrane is intact during interphase, the nucleus looks like a solid block of consistent color.  It is only when the nuclear membrane starts to break down during prophase that chromosomes start to show as dark streaks on the slide/photograph.
+6.  Ask students to share any additional questions that they are curious about now that they have looked closely at the mitotic stages photos.
+
+Note: The most typical things that students are curious about it why cells in the same phase don't all look the same.  Remind students that the word phase means that changes are gradual and there is a range for each phase.  I use the analogy of a light switch vs. a dimmer switch.
+7.  Remind students that in addition to their textbook and notes, they can refer  to our cell division unit slide presentation for additional support throughout the unit."
+)
+
+#7
+Section.create!(
+  lesson_id: 2,
+  name: "Getting Started",
+  description: "1.  Pass out the mitosis lab document and tell students that now they will be working with their microscopes.
+
+2.  Tell students that they will find a a labeled microscope diagram and a short list of basic directions for use on each of their lab tables in case they need reminders about best practices using microscopes.   The cell lab directions document from the previous unit also has a nice summary of steps to follow to focus the microscope for the best viewing.
+
+3.  Prior to asking students to go to their lab tables with their partners, go through a few tips and tricks:
+
+Students will need front loading/support from you in terms of how to view the slides.  Tell students that dividing cells will be close to the root tip and that each of their slides has three individual root tips permanent cemented into the slide.  Encourage them to pick up their slide to view it before putting it on the microscope stage so that they have an idea of where the best place is to focus on for maximum cell numbers.
+Students will not know what the term 'field of view' means in relation to microscope work.  Draw a circle on the board and tell them it represents what they see under the microscope.  When they are asked to draw their field of view, it means everything in that circle, not just one single cell chosen by the student.
+Remind students that all microscope drawings must be labeled, in color, and indicate the level of magnification used.
+3.  Tell students that in each lab pair, one member will look at their field of view to identify phases while the other records their data.  For the second field of view, they partners will switch roles.
+
+Note: This protocol allows students to work together and stay engaged as a team rather than having one person try to do everything while the other one relaxes until it is their turn to count.  It also encourages student teams to check in with each other when they are unsure about the phase that they are viewing through their microscope objective.
+4.  Once you have gone through these discussion points in preparation for the lab, point out where colored pencils and microscopes are stored in the classroom and tell each partner to go get one of those two things to bring back to their lab table.  Show students where they can find their onion root tip slide and lens paper to clean the microscope.
+
+5. Onion root tip mitosis slides are available through any science supply house.  I bought these slides through Ward's Science."
+)
+
+#8
+Section.create!(
+  lesson_id: 2,
+  name: "Working with the Mitosis Onion Root Tip Slides",
+  description: "1.  As students begin to work, circulate and observe student groups.  Remind students that their mitosis flash cards and the board drawings can help them make their assessments of the phases that they see in their field of view.
+
+2.  At this point in the year, students will not need your immediate intervention. Most of the time, students will come to you to confirm what they are seeing in their field of view or to ask you a general question about the phases using their flashcards or photos they have taken of their field of view using their cell phones.
+
+3. Check out our students working hard to identify the phases of the cell cycle! I chose these photos because they give a good sense of the engagement level of students.  Specifically this year when I added the option of using personal devices to take photos of what they see under the microscope, you will see strong partner work as teams focused their microscopes and used their cell phones to take micrographs of their field of view for further discussion and collaboration.  When I see these photos, I see a significant amount of on task and deeply focused work going on directed entirely by the students themselves."
+)
+
+#9
+Section.create!(
+  lesson_id: 3,
+  name: "Engage",
+  description: "Why you look so tired? Gravity pulling you down? This investigation prompts students to find the scientific relationship and distinguish between causal and correlational relationships (SP4) between mass and weight by using measurements and applying mathematical processes to the scientific question (SP5): what is the acceleration of gravity on Earth? This question addresses the core disciplinary idea: construct and present arguments using evidence to support the claim that gravitational interactions are attractive and depend on the masses of interacting objects (MS-PS2-4). Students conduct this investigation to produce data to serve as the basis for evidence that meet that goal (SP3) and construct explanations that include qualitative or quantitative relationships between variables that describe phenomena using models or representations (SP6).
+
+During this investigation, students access the scale, proportion and quantity cross-cutting concept by using algebraic expressions and equations (CCC) to when measuring and calculating weight. This lesson links physics to chemistry by exposing how forces interact with matter - and that properties of matter (like mass) have an effect on the magnitude of those forces (MS-PS1-2).
+
+This lesson presupposes students have background knowledge about mass (Measurement: Mass) and forces (Measurement: Forces). It can be used in conjunction with a related lesson too: Mass Versus Weight: Travel to Other Planets. This lesson gives students additional exposure to gravity.
+
+In order to ENGAGE students in this lesson, ask students to make a prediction:
+
+What happens if you drop a feather and a hammer at the same time?
+
+In order to spur their thinking even more, these questions might help them dig deeper:
+
+Does it matter if there is no air where the objects are dropped?
+
+Does less gravity on the planet where the objects are dropped affect their falling rate?
+
+Do objects always fall down?
+
+Students view Hammer vs Feather - Physics on the Moon with the purpose of making observations to support or refute their prediction.
+
+
+Using a turn and talk strategy, students work with a neighbor to develop an explanation using the evidence seen in the video. Prompt students to include reasoning about why the phenomena of objects falling at the same rate occur. If students aren't convinced, which occurs often as this is a particularly sticky misconception, the Galileo Drops the Ball simulation helps students \"experiment\" with their ideas. If students are still wary, suggest that they will be able to prove this law mathematically in this investigation."
+)

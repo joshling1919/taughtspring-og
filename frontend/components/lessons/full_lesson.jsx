@@ -22,7 +22,6 @@ class LessonForm extends React.Component {
   }
 
 
-
   _essentials() {
     return(
       [<Pane key="essentials" label="Essentials">

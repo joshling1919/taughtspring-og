@@ -12,12 +12,17 @@ const SingleLessonReducer = function(
   let singleLessonCopy = merge({}, singleLessonState);
   switch(action.type){
     case LessonsConstants.REQUEST_UPDATE_LESSON:
-      return merge({}, singleLessonState, { isLoading:true });
+      let newRequestLesson = {};
+      newRequestLesson.lesson = singleLessonState.lesson;
+      newRequestLesson.isLoading = true;
+      return newRequestLesson;
     case LessonsConstants.RECEIVE_LESSON:
     case LessonsConstants.RECEIVE_UPDATE_LESSON:
     case LessonsConstants.UPDATE_PICTURE:
-      return merge({}, singleLessonState,
-        { lesson: action.lesson, isLoading: false });
+      let newSingleLesson = {};
+      newSingleLesson.lesson = action.lesson;
+      newSingleLesson.isLoading = false;
+      return newSingleLesson;
     default:
       return singleLessonState;
   }
