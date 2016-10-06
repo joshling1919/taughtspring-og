@@ -247,3 +247,67 @@ Students view Hammer vs Feather - Physics on the Moon with the purpose of making
 
 Using a turn and talk strategy, students work with a neighbor to develop an explanation using the evidence seen in the video. Prompt students to include reasoning about why the phenomena of objects falling at the same rate occur. If students aren't convinced, which occurs often as this is a particularly sticky misconception, the Galileo Drops the Ball simulation helps students \"experiment\" with their ideas. If students are still wary, suggest that they will be able to prove this law mathematically in this investigation."
 )
+
+#10
+Section.create!(
+  lesson_id: 3,
+  name: "Explore",
+  description: "The EXPLORE stage of the lesson is to get students involved in the topic so that they start to build their own understanding. To help students explore how mass affects weigh, students familiarize themselves with the variables by formulating the question they will answer in the investigation on the Weighed Down Investigation lab sheet:
+
+How does mass affect the weight of objects?
+
+Students complete a quick Background Research section of the investigation to stimulate prior knowledge regarding how to measure mass and weight. If students need reminders or revision of their understanding of mass and weight, the Mass and Weight Review Presentation and/or the Mass Versus Weight Research Notes are resources that can be used as a class or individual review.
+
+Upon completion Background Research section, students move on to plan the rest of their investigation (Part 4). This investigation follows a linear and structured inquiry path (for more discussion of linear versus non-linear scientific inquiry, visit this lesson: Exploring Scientific Methods). Using this linear progression, students identify variables, safety concerns and review the procedure (which is provided). Students then perform experimental tests and collect data (Part 5 of Weighed Down Investigation lab sheet)."
+)
+
+#11
+Section.create!(
+  lesson_id: 3,
+  name: "Explain",
+  description: "The EXPLAIN stage provides students with an opportunity to communicate what they have learned so far and figure out what it means. This stage of the lesson presents a great place for a quick formative assessment.
+
+To start, students create a coordinate graph, plotting the independent variable (the mass in kilograms.) on the horizontal axis and the dependent variable (the weight) on the vertical axis. For additional resources on coordinate graphing, this lesson may be helpful: Get in the Graph: Coordinate Graphing. The process of graphing this data helps students recognize that there is (or should be) a linear relationship between mass and weight. Showing students how to draw a \"line of best fit\" and explaining why a line of best fit is useful in this data set may be a nice support to aide the process of data analysis."
+)
+
+Cfu.create!(
+  section_id: 11,
+  question: "What does the graph tell you about the relationship between mass and weight on Earth?",
+  answer: "The mass of an object is a measure of the object's inertial property, or the amount of matter it contains. The weight of an object is a measure of the force exerted on the object by gravity, or the force needed to support it."
+)
+
+Cfu.create!(
+  section_id: 11,
+  question: "What different factors affect the weight of objects?",
+  answer: "The factors affecting the terminal speed of a falling object include: its mass. its surface area. the acceleration due to gravity, g."
+)
+
+#12
+Section.create!(
+  lesson_id: 3,
+  name: "Extend",
+  description: "The EXTEND stage allows students to apply new knowledge to a novel situation. There are several novel situations that extend student understanding of this concept:
+
+1) At the end of the investigation, a short extension activity is provided:
+
+The moon is about 1/6 the mass of the Earth.  What would the weights of your objects be on the moon?  Create a data table to show your data.
+
+2) Gravity Force Lab - PhET Interactive Simulation. Students can manipulate variables to explore gravity between objects.
+
+3) Mass Versus Weight: Travel to Other Planets - This is an investigation in which students compare the concepts of mass and weight to understand how these properties of matter are similar and different by calculating their weight on other planets."
+)
+
+#13
+Section.create!(
+  lesson_id: 3,
+  name: "Evaluate",
+  description: "The EVALUATION stage is for both students and teachers to determine how much learning and understanding has taken place.
+
+In order to evaluate understanding, there are multiple methods:
+
+1) A quick quiz: Measurement Mass versus Weight Checkout Quiz offers a glimpse into the \"remember\" and \"understand\" levels or knowledge (Bloom's Revised Taxonomy).
+
+2) These resources can also be used as evaluation tools: Mass and Weight Quiz Retake or Mass and Weight Quiz Retake - Alternate.
+
+3) Review of student work - Weighed Down Investigation Student Work - including the analysis questions at the end of the investigation, provides additional insight into students' abilities to explain what they have learned about mass and weight."
+)

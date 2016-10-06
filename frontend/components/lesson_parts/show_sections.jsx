@@ -65,19 +65,14 @@ class ShowSections extends React.Component {
 
 
   render() {
-    let name, description, index;
+    let description, index;
     if (this.props.section) {
-      name = this.props.section.name;
       description = this.props.section.description;
       index = this.props.index;
     }
     return(
       <div className="lesson-form-component">
         <form className="lesson-form" >
-          <div className="show-name-field">
-            <label className="section-show-label">Name: </label>
-              {name}
-          </div>
           <div className="show-name-field">
             <label className="section-show-label">Description: </label>
               {description.split("\n").map(item => {
