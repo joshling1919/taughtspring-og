@@ -72,9 +72,9 @@ class ShowSections extends React.Component {
     }
     return(
       <div className="lesson-form-component">
-        <form className="lesson-form" >
-          <div className="show-name-field">
-            <label className="section-show-label">Description: </label>
+        <form className="lesson-form show-notebook" >
+            <div className="show-name-field">
+              <label className="section-show-label">Description: </label>
               {description.split("\n").map(item => {
                 return(
                   <span key={this._spanKey()}>
@@ -83,23 +83,23 @@ class ShowSections extends React.Component {
                   </span>
                 );
               })}
-          </div>
-          <div className="show-name-field">
-            <label className="section-show-label">
-              Common Student Misconceptions:
-            </label>
-            <ol>
-              {this._misconceptionsList()}
-            </ol>
-          </div>
-          <div className="show-name-field">
-            <label className="section-show-label">
-              Checks For Understanding/Questions:
-            </label>
-            <ol>
-              {this._cfusList()}
-            </ol>
-          </div>
+            </div>
+            <div className="show-name-field">
+              <label className="section-show-label">
+                Common Student Misconceptions:
+              </label>
+              <ol>
+                {this._misconceptionsList()}
+              </ol>
+            </div>
+            <div className="show-name-field">
+              <label className="section-show-label">
+                Checks For Understanding/Questions:
+              </label>
+              <ol>
+                {this._cfusList()}
+              </ol>
+            </div>
         </form>
       </div>
     );

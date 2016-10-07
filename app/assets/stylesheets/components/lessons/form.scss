@@ -4,9 +4,7 @@
   border-radius: 3px;
 
   .lesson-form {
-    overflow: scroll;
-    height: 80vh;
-    border: 4px solid $dark-gray;
+    border: 2px solid $dark-gray;
     padding-top: 15px;
     padding-left: 50px;
     position: relative;
@@ -183,9 +181,7 @@ label {
 }
 
 
-.lesson-show-buttons {
-  float: right;
-}
+
 
 .descript-field {
   height: 300px;

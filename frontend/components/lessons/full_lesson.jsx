@@ -94,13 +94,13 @@ class LessonForm extends React.Component {
     if (!this.props.isLoading) {
       return(
         <div className="overall-form-container">
+          <Tabs selected={0} showPage={true}>
+            {this._allPanes()}
+          </Tabs>
           <EditDeleteLessonButtons currentUser={ this.props.currentUser }
             lessonUserId = {this.props.selectedLesson.user_id}
             redirectToEdit={this._redirectToEdit.bind(this)}
             deleteLesson={this._deleteLesson.bind(this)}/>
-          <Tabs selected={0} showPage={true}>
-            {this._allPanes()}
-          </Tabs>
         </div>
       );
     } else {

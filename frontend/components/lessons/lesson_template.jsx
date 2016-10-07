@@ -381,16 +381,16 @@ class LessonTemplate extends React.Component {
     if (!this.props.isLoading) {
       return(
         <div className="overall-form-container">
+          <Tabs selected={0}
+            newSection={this._newSection.bind(this)}>
+            {this._allPanes()}
+          </Tabs>
           <button type="button" className="delete-lesson"
             onClick={this._handleDelete.bind(this)}>
             Delete Lesson
           </button>
           <button type="button" className="lesson-item form-submit"
             onClick={this._handleCreateLesson}>Submit Lesson</button>
-          <Tabs selected={0}
-            newSection={this._newSection.bind(this)}>
-            {this._allPanes()}
-          </Tabs>
         </div>
       );
     } else {
