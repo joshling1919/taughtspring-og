@@ -9,8 +9,7 @@ class NavBar extends React.Component{
   _handleLog(e){
     e.preventDefault();
     if (this._currentUser()) {
-      this.props.logout();
-      this.props.router.push('/');
+      this.props.router.push('/create-lesson');
     } else {
       this.props.clearErrors();
       this.props.closeSignup();
@@ -18,15 +17,26 @@ class NavBar extends React.Component{
     }
   }
 
+  _logOut(e){
+      e.preventDefault();
+      this.props.logout();
+      this.pros.router.push('/');
+  }
+
   _handleUser(e){
     e.preventDefault();
     if (this._currentUser()) {
-      this.props.router.push(`/profiles/${this._currentUser().id}`);
+      this._toProfile(e);
     } else {
       this.props.clearErrors();
       this.props.closeLogin();
       this.props.openSignup();
     }
+  }
+
+  _toProfile(e){
+    e.preventDefault();
+    this.props.router.push(`/profiles/${this._currentUser().id}`);
   }
 
   _goHome(e){
@@ -44,9 +54,17 @@ class NavBar extends React.Component{
 
   _logButtonText(){
     if (this._currentUser()) {
-      return "Log Out";
+      return "Upload";
     } else {
       return "Log In";
+    }
+  }
+
+  thirdButtonClass(){
+    if (this._currentUser()) {
+      return "nav-button new-button";
+    } else {
+      return "nav-button log-button";
     }
   }
 
@@ -63,7 +81,14 @@ class NavBar extends React.Component{
               <a href="#" className="dropdown-item">Home</a>
             </li>
             <li>
-              <a href="#create-lesson" className="dropdown-item">Create Lesson</a>
+              <a href="#"
+                onClick={this._toProfile.bind(this)}
+                className="dropdown-item">Profile</a>
+            </li>
+            <li>
+              <a href="#"
+                onClick={this._logOut.bind(this)}
+                className="dropdown-item">Log Out</a>
             </li>
           </ul>
         </div>
@@ -98,7 +123,7 @@ class NavBar extends React.Component{
 
           <li className='nav-bar-item'>
             <button onClick={this._handleLog.bind(this)}
-              className="nav-button log-button"
+              className={this.thirdButtonClass()}
               >{`${this._logButtonText()}`}</button>
           </li>
         </div>

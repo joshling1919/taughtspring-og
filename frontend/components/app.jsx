@@ -7,7 +7,8 @@ import SignupContainer from './auth/signup_container';
 
 class App extends React.Component {
   _splashVideo() {
-    if (!this.props.currentUser) {
+    if (!this.props.currentUser && !this.seen) {
+      this.seen = true;
       return(
         <video loop={true} autoPlay={true}
           src="http://res.cloudinary.com/jsling/video/upload/v1473443947/splash_med_yg5dbq.mp4"/>

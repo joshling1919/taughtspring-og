@@ -3,17 +3,20 @@
   margin-right:20px;
 }
 
+
 .tabs-labels {
   display: flex;
-  height: 50px;
+  height: 45px;
   line-height: 50px;
   white-space: nowrap;
   margin-left: 10px;
-
+  max-width: 100%;
+  overflow: visible;
   li {
     border-left: 2px solid black;
     border-top: 2px solid black;
     border-right: 2px solid black;
+    width: auto;
     padding: 0 15px;
     vertical-align: middle;
     background-color: $border-gray;
